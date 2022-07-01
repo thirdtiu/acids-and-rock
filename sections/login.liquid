@@ -1,0 +1,402 @@
+{% comment %}
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+{% endcomment %}
+
+{% if section.settings.color_theme %}
+  {% assign text_color = section.settings.color_theme %}
+{% else %}
+  {% assign text_color = "" %}
+{% endif %}
+
+<div class="customer login customer__login-page section_spacing_xlarge_top section_spacing_xlarge_bottom background">
+  <div class="grid-container">
+    <div class="grid-x align-center">
+      <div class="cell medium-5 login-wrapper {{ text_color }}">
+        <div class="login-section" id="loginSection" data-toggler=".hide">
+          <div class="section-header">
+            <h2 class="h2" id="login" tabindex="-1">
+              {{ 'customer.login_page.title' | t | downcase }}
+            </h2>
+          </div>
+          <div>
+            {%- if recover_success == true -%}
+              <div class="callout success" tabindex="-1" autofocus>
+                <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13" class="hide">
+                  <path
+                    d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z"
+                    fill="#428445" stroke="white" stroke-width="0.7" />
+                  <path d="M5.53271 8.66357L9.25213 4.68197" stroke="white" />
+                  <path d="M4.10645 6.7688L6.13766 8.62553" stroke="white">
+                </svg>
+                {{ 'customer.recover_password.success' | t }}
+              </div>
+            {%- endif -%}
+            {%- form 'customer_login', novalidate: 'novalidate' -%}
+
+              {%- if form.errors -%}
+                <div class="callout alert" tabindex="-1" autofocus>
+                  <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
+                  <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13" class="hide">
+                    <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                    <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+                    <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+                    <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+                  </svg>
+                  <p>{{ 'templates.contact.form.error_heading' | t }}</p>
+                  {{ form.errors | default_errors }}
+                </div>
+              {%- endif -%}
+              <div class="field">
+                <label for="CustomerEmail" class="show-for-sr">
+                  {{ 'customer.login_page.email' | t }}
+                </label>
+                <input
+                  type="email"
+                  name="customer[email]"
+                  id="CustomerEmail"
+                  autocomplete="email"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  {% if form.errors contains 'form' %}
+                    aria-invalid="true"
+                  {% endif %}
+                  {% comment %}placeholder="{{ 'customer.login_page.email' | t }}"{% endcomment %}
+                  placeholder="Username"
+                >
+              </div>
+              {%- if form.password_needed -%}
+                <div class="field">
+                  <label for="CustomerPassword" class="show-for-sr">
+                    {{ 'customer.login_page.password' | t | downcase }}
+                  </label>
+                  <input
+                    type="password"
+                    value=""
+                    name="customer[password]"
+                    id="CustomerPassword"
+                    autocomplete="current-password"
+                    {% if form.errors contains 'form' %}
+                      aria-invalid="true"
+                    {% endif %}
+                    placeholder="{{ 'customer.login_page.password' | t }}"
+                  >
+                </div>
+        
+              {%- endif -%}
+              <div class="action-buttons">
+                <button class="button primary">
+                  {% comment %}
+                  <span class="button-text">{{ 'customer.login_page.sign_in' | t | downcase }}</span>
+                  {% endcomment %}
+                  <span class="button-text">Submit</span>
+                </button>
+                <p>
+                  Not a member?
+                  <a href="{{ routes.account_register_url }}">
+                    {{ 'customer.login_page.create_account' | t | downcase }}
+                  </a>
+                </p>
+                <hr />
+                {%- if form.password_needed -%}
+                <p>
+                  <small>
+                    <a data-toggle="resetPassword loginSection">
+                      {{ 'customer.login_page.forgot_password' | t }}
+                    </a>
+                  </small>
+                </p>
+                {%- endif -%}
+              </div>
+        
+            {%- endform -%}
+          </div>
+        </div>
+
+        {% if section.settings.show_glow %}
+          <div class="glow"></div>
+        {% endif %}
+        
+        {%- if shop.checkout.guest_login -%}
+          <div>
+            <hr>
+            <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
+            {%- form 'guest_login' -%}
+              <button class="button tertiary">
+                {{ 'customer.login_page.guest_continue' | t }}
+              </button>
+            {%- endform -%}
+          </div>
+        {%- endif -%}
+        <div class="reset-password hide" id="resetPassword" data-toggler=".hide">
+          <div class="text-center">
+            <h2 tabindex="-1">
+              {{ 'customer.recover_password.title' | t | downcase }}
+            </h2>
+            <div>
+            <p>
+              {{ 'customer.recover_password.subtext' | t | downcase }}
+            </p>
+          </div>
+        
+            {%- form 'recover_customer_password' -%}
+            {% assign recover_success = form.posted_successfully? %}
+            <div class="field">
+              <label for="RecoverEmail" class="show-for-sr">
+                {{ 'customer.login_page.email' | t }}
+              </label>
+              <input type="email" value="" name="email" id="RecoverEmail" autocorrect="off" autocapitalize="off"
+                autocomplete="email" {% if form.errors %} aria-invalid="true" aria-describedby="RecoverEmail-email-error"
+                autofocus {% endif %} placeholder="Email Address" />
+            </div>
+            {%- if form.errors -%}
+            <div id="RecoverEmail-email-error" class="callout alert">
+              <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13" style="display: none;">
+                <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2" />
+                <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7" />
+                <path
+                  d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z"
+                  fill="white" />
+                <path
+                  d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z"
+                  fill="white" stroke="#EB001B" stroke-width="0.7">
+              </svg>
+              {{ form.errors.messages['form'] }}
+            </div>
+            {%- endif -%}
+        
+        
+            <div class="action-buttons">
+              <button class="button primary">
+                {{ 'customer.login_page.submit' | t }}
+              </button>
+              <a class="button link" data-toggle="loginSection resetPassword">
+                {{ 'customer.login_page.cancel' | t | downcase }}
+              </a>
+            </div>
+        
+            {%- endform -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% if section.settings.show_svg_divider_top %}
+    {%- render "component__top-wave", 
+      color: section.settings.svg_divider_top_color, 
+      id: section.id 
+    -%}
+  {% endif %}
+
+  {% if section.settings.show_svg_divider_bottom %}
+    {%- render "component__bottom-wave", 
+      color: section.settings.svg_divider_bottom_color, 
+      id: section.id 
+    -%}
+  {% endif %}
+
+  {% render 'component__gradient-bg-styles' %}
+  {% render 'component__accent-graphics' %}
+</div>
+{% schema %}
+  {
+    "name": "Login Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Text" },
+            { "value": "color_theme__light", "label": "Light Text" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      },
+      {
+        "type": "color_background",
+        "id": "bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_glow",
+        "default": true,
+        "label": "Show Glow"
+      },
+      {
+        "type": "header",
+        "content": "Dividers"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_svg_divider_top",
+        "label": "Show top wave",
+        "info" : "Animated wave at top of section."
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_top_color",
+        "label": "Top Wave Color"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_svg_divider_bottom",
+        "label": "Show bottom wave",
+        "info" : "Animated wave at bottom of section."
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_bottom_color",
+        "label": "Bottom Wave Color"
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "accent_graphic", 
+        "name": "Accent Graphic",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Graphic SVG Code",
+            "info":"Paste SVG code for vector graphic"
+          },
+          {
+            "type":"header",
+            "content":"Visibility"
+          },
+          {
+            "type": "select",
+            "id": "visibility",
+            "options": [
+                { "value": "always", "label": "Always" },
+                { "value": "desktop_only", "label": "Desktop Only" },
+                { "value": "mobile_only", "label": "Mobile Only" }
+                ],
+            "label": "Show on..",
+            "default": "always"
+          },
+          {
+            "type":"header",
+            "content":"Position"
+          },
+          {
+            "type": "select",
+            "id": "x_setting",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+                ],
+            "label": "X Position",
+            "default": "left"
+          },
+          {
+            "type": "select",
+            "id": "y_setting",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "bottom", "label": "Bottom" }
+                ],
+            "label": "Y Position",
+            "default": "top"
+          },
+          {
+            "type":"header",
+            "content":"Desktop Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_desktop",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_desktop",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_desktop",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Mobile Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_mobile",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_mobile",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_mobile",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%", 
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Animation Settings"
+          },
+          {
+            "type": "select",
+            "id": "animation",
+            "options": [
+                { "value": "none", "label": "None" },
+                { "value": "rotating", "label": "Rotate" },
+                { "value": "floating", "label": "Float" },
+                { "value": "flying", "label": "Fly Across Screen" },
+                { "value": "parallax", "label": "Parallax" }
+                ],
+            "label": "Animation",
+            "default": "none"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

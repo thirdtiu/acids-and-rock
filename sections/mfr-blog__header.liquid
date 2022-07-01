@@ -1,0 +1,247 @@
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+{% assign animation_type = "data-aos='fade-up'" %}
+
+
+<section class="blog-header background {{ top_spacing }} {{ bottom_spacing }} color-theme-{{ section.settings.theme }}">
+    <div class="blog-header__wrapper container align-center">
+        <div class="blog-header__content section-header">
+            {%- for block in section.blocks -%}
+                {% case block.type %}
+                    
+                    {%- when "icon" -%}
+                        {% render "component__section-icon", 
+                            icon: block.settings.icon, 
+                            icon_width: block.settings.icon_width, 
+                            svg_code: block.settings.svg_code 
+                    %} 
+                
+                    {%- when "small_text" -%}
+                        <div class="small-text" {{ block.shopify_attributes }} {{ animation_type }}>
+                            {{ block.settings.text }}
+                        </div>
+                    
+                    {%- when "heading" -%}
+                        {% render "component__title-block", 
+                            text: block.settings.heading, 
+                            classes: block.settings.header_style 
+                        %}
+                    
+                    {%- when "text" -%}
+                        <div class="section-text {{ block.settings.text_style }}" {{ block.shopify_attributes }} {{ animation_type }}>
+                            {{ block.settings.text }}
+                        </div>
+                
+                {%- endcase -%}
+            {%- endfor -%}
+        </div>
+    </div>
+
+    
+    {% render 'component__section-dividers' %}
+    {% render "component__gradient-bg-styles" %}
+    
+</section>
+
+{% schema %}
+{
+    "name": "Blog: Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None" },
+            { "value": "section_spacing_small_bottom", "label": "Small" },
+            { "value": "section_spacing_medium_bottom", "label": "Medium" },
+            { "value": "section_spacing_large_bottom", "label": "Large" },
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+         ],
+         "label": "Bottom spacing"
+      },
+
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Theme" },
+            { "value": "color_theme__light", "label": "Light Theme" },
+            { "value": "color_theme__theme_1", "label": "Color Theme 1" },
+            { "value": "color_theme__theme_2", "label": "Color Theme 2" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      },
+     
+      {
+        "type":"header",
+        "content":"Background"
+      },
+      {
+        "type":"color",
+        "id":"bg_color_1",
+        "label":"Background Color 1"
+      },
+      {
+        "type":"color",
+        "id":"bg_color_2",
+        "label":"Background Color 2",
+        "info":"will form gradient if added"
+      },
+      {
+        "type":"color",
+        "id":"bg_color_3",
+        "label":"Background Color 3",
+        "info":"will form gradient if added"
+      },
+      
+      {
+        "type":"header",
+        "content":"Dividers"
+      },
+      {
+        "type":"image_picker",
+        "id":"section_divider_image",
+        "label":"Bottom divider image",
+        "info":"will appear fullwidth at bottom of section"
+      },
+      {
+        "type":"checkbox",
+        "id":"show_svg_divider_top",
+        "label":"Show top wave",
+        "info":"animated wave at top of section"
+      },
+      {
+        "type":"color",
+        "id":"svg_divider_top_color",
+        "label":"Top wave color"
+      },
+      {
+        "type":"checkbox",
+        "id":"show_svg_divider_bottom",
+        "label":"Show bottom wave",
+        "info":"animated wave at bottom of section"
+      },
+      {
+        "type":"color",
+        "id":"svg_divider_bottom_color",
+        "label":"Bottom wave color"
+      }
+    ],
+
+    "blocks": [
+    {
+        "type": "icon", 
+        "name": "Icon",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "range",
+            "id": "icon_width",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Max width",
+            "default": 150
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"SVG Code",
+            "info":"(Optional) This will override the uploaded image if added."
+          }
+        ]
+      },
+
+      {
+        "type": "small_text",
+        "name": "Small Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "default": "Small Text",
+            "label": "Text"
+          }
+        ]
+      },
+
+      {
+        "type": "heading",
+        "name": "Heading",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "heading",
+            "default": "<p>Heading H1</p>",
+            "label": "Heading H1"
+          },
+          {
+            "type": "select",
+            "id": "header_style",
+            "options": [
+                { "value": "h1", "label": "H1" },
+                { "value": "h2", "label": "H2" },
+                { "value": "h3", "label": "H3" }
+                ],
+            "label": "Header Style",
+            "default": "h1"
+          }
+        ]
+      },
+
+      {
+        "type": "text",
+        "name": "Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.</p>",
+            "label": "Text"
+          },
+          {
+            "type": "select",
+            "id": "text_style",
+            "options": [
+                { "value": "small", "label": "Small" },
+                { "value": "regular", "label": "Regular" },
+                { "value": "large", "label": "Large" }
+                ],
+            "label": "Text Style",
+            "default": "regular"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}

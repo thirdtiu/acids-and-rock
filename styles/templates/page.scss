@@ -1,0 +1,13 @@
+.page-template {
+  
+}
+section.main-page {
+  position: relative;
+  .section-content {
+    font-family: $custom-font-name-4;
+    font-size: 1.25rem;
+    p {
+      font-size: 1.25rem;
+    }
+  }
+}

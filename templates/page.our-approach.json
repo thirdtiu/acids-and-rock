@@ -1,0 +1,330 @@
+{
+  "sections": {
+    "16435973085aed652c": {
+      "type": "mfr-core__image-with-text",
+      "blocks": {
+        "1643597308cd1c893e-0": {
+          "type": "small_text",
+          "settings": {
+            "text": "Our Approach"
+          }
+        },
+        "1643597308cd1c893e-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>a simple <strong>mission<\/strong><\/p>",
+            "header_style": "h1"
+          }
+        },
+        "1643597308cd1c893e-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>liina was founded on a simple mission: to create delicious, future-forward spirulina products with one of nature’s most magical superfoods.<\/p>",
+            "text_style": "regular"
+          }
+        },
+        "db68b5e2-5454-47d7-b8cb-7bd545e6e72d": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics_86e31f79-4446-4ff5-a821-28724f9a1d26.png",
+            "svg_code": "",
+            "visibility": "desktop_only",
+            "x_setting": "left",
+            "y_setting": "bottom",
+            "width_desktop": 160,
+            "position_x_desktop": -2,
+            "position_y_desktop": -2,
+            "width_mobile": 150,
+            "position_x_mobile": 10,
+            "position_y_mobile": 10,
+            "animation": "none"
+          }
+        }
+      },
+      "block_order": [
+        "1643597308cd1c893e-0",
+        "1643597308cd1c893e-1",
+        "1643597308cd1c893e-2",
+        "db68b5e2-5454-47d7-b8cb-7bd545e6e72d"
+      ],
+      "settings": {
+        "main_image": "shopify:\/\/shop_images\/steve-barker-yNlZ2Hpm4to-unsplash_Copy.png",
+        "text_side_desktop": "right",
+        "text_side_mobile": "second",
+        "image_sizing": "contain",
+        "color_theme": "color_theme__light",
+        "is_full_width": true,
+        "show_glow": true,
+        "is_centered": true,
+        "offset_title": false,
+        "section_spacing_top": "section_spacing_large_top",
+        "section_spacing_bottom": "section_spacing_xlarge_bottom",
+        "bg_color": "#197FBF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "1643609743a4224ce8": {
+      "type": "mfr-core__text-grid",
+      "blocks": {
+        "8ad32c75-2521-4459-9261-0cd360897d6d": {
+          "type": "small_text",
+          "settings": {
+            "text": "The Power of Algae"
+          }
+        },
+        "1643609742bc41a32a-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>we love our <strong>planet<\/strong><\/p>",
+            "header_style": "h1",
+            "make_large": false
+          }
+        },
+        "1643609742bc41a32a-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Spirulina doubles in growth every day and is 400x more effective at removing CO2 from the air than a tree. As a sustainable food source, algae has the power to improve our planet and relationship to food.<\/p>",
+            "text_style": "regular",
+            "max_width": 33
+          }
+        },
+        "001d4f08-4457-4d82-982a-572eda0b78d3": {
+          "type": "text_block",
+          "settings": {
+            "title": "200x",
+            "text": "<p>200x less land to produce the same volume of protein found in 1 pound of beef<\/p>",
+            "svg_code": "<!--?xml version=\"1.0\" encoding=\"UTF-8\"?-->\n<svg width=\"208px\" height=\"111px\" viewbox=\"0 0 208 111\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <title>198F35F3-579B-4B35-8571-B5FA5A794891<\/title>\n    <g id=\"Page-1\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"Our-Approach\" transform=\"translate(-364.000000, -1511.000000)\" fill=\"#98D61D\">\n            <g id=\"Group\" transform=\"translate(364.000000, 1511.000000)\">\n                <path d=\"M111,0 C150.459272,0 185.109552,20.5897439 204.793248,51.6116408 L203.332982,52.8078917 C183.973762,22.4951818 150.033766,2.39568345 111.399281,2.39568345 C51.3314798,2.39568345 2.61173735,50.9824971 2.39640005,110.999778 L0,111 C0,49.6963928 49.6963928,0 111,0 Z\" id=\"Combined-Shape\"><\/path>\n                <circle id=\"Oval\" stroke=\"#ADFF09\" cx=\"204\" cy=\"52\" r=\"3.5\"><\/circle>\n            <\/g>\n        <\/g>\n    <\/g>\n<\/svg>"
+          }
+        },
+        "73c43c43-7071-4198-99d7-2df4703d8ae7": {
+          "type": "text_block",
+          "settings": {
+            "title": "215x",
+            "text": "<p>215x less water to produce the same volume of protein found in 1 pound of beef<\/p>",
+            "svg_code": "<!--?xml version=\"1.0\" encoding=\"UTF-8\"?-->\n<svg width=\"216px\" height=\"111px\" viewbox=\"0 0 216 111\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <title>E87D5B33-9BB1-4C61-A8DC-0832CEB4872E<\/title>\n    <g id=\"Page-1\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"Our-Approach\" transform=\"translate(-675.000000, -1511.000000)\" fill=\"#83DFFF\">\n            <g id=\"Group-2\" transform=\"translate(675.000000, 1511.000000)\">\n                <path d=\"M111,0 C156.851776,0 196.21021,27.8013019 213.138103,67.4667063 C212.655476,67.7787967 212.147655,68.1062204 211.613696,68.4496623 C194.944651,29.603616 156.349342,2.39568345 111.399281,2.39568345 C51.3314798,2.39568345 2.61173735,50.9824971 2.39640005,110.999778 L0,111 C0,49.6963928 49.6963928,0 111,0 Z\" id=\"Combined-Shape\"><\/path>\n                <circle id=\"Oval-Copy-2\" stroke=\"#AEEAFF\" cx=\"212\" cy=\"67\" r=\"3.5\"><\/circle>\n            <\/g>\n        <\/g>\n    <\/g>\n<\/svg>"
+          }
+        },
+        "fed3f36f-d0e4-474e-80df-b0e9d51068b6": {
+          "type": "text_block",
+          "settings": {
+            "title": "80%",
+            "text": "<p>80% of the oxygen found on earth is produced by algae<\/p>",
+            "svg_code": "<!--?xml version=\"1.0\" encoding=\"UTF-8\"?-->\n<svg width=\"221px\" height=\"111px\" viewbox=\"0 0 221 111\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <title>4D794CC6-5751-43C6-B27D-1CF00E633B56<\/title>\n    <g id=\"Page-1\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"Our-Approach\" transform=\"translate(-986.000000, -1511.000000)\" fill=\"#fef7ee\">\n            <g id=\"Group-4\" transform=\"translate(986.000000, 1511.000000)\">\n                <path d=\"M111,0 C161.856846,0 204.725384,34.2020113 217.858993,80.8594136 L216.227304,81.4161333 C203.203104,35.7946921 161.20157,2.39568345 111.399281,2.39568345 C51.3314798,2.39568345 2.61173735,50.9824971 2.39640005,110.999778 L0,111 C0,49.6963928 49.6963928,0 111,0 Z\" id=\"Combined-Shape\"><\/path>\n                <circle id=\"Oval-Copy-3\" stroke=\"#50BBFF\" cx=\"217\" cy=\"80\" r=\"3.5\"><\/circle>\n            <\/g>\n        <\/g>\n    <\/g>\n<\/svg>"
+          }
+        },
+        "9983f250-81c4-42a8-91cb-42bd50c309aa": {
+          "type": "button",
+          "settings": {
+            "button_label": "Spirulina 101",
+            "button_link": "shopify:\/\/pages\/spirulina-101",
+            "button_style": "primary"
+          }
+        },
+        "285ccbe1-30fd-4007-ae5b-75614725eb23": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/algae-6_copy_3.png",
+            "svg_code": "",
+            "visibility": "desktop_only",
+            "x_setting": "left",
+            "y_setting": "bottom",
+            "width_desktop": 270,
+            "position_x_desktop": 0,
+            "position_y_desktop": 0,
+            "width_mobile": 150,
+            "position_x_mobile": 10,
+            "position_y_mobile": 10,
+            "animation": "none"
+          }
+        },
+        "6cda5b8b-5caf-4551-8ffe-21c357d04913": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/algae-5_copy_3.png",
+            "svg_code": "",
+            "visibility": "desktop_only",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 220,
+            "position_x_desktop": -2,
+            "position_y_desktop": -4,
+            "width_mobile": 150,
+            "position_x_mobile": -2,
+            "position_y_mobile": 0,
+            "animation": "none"
+          }
+        }
+      },
+      "block_order": [
+        "8ad32c75-2521-4459-9261-0cd360897d6d",
+        "1643609742bc41a32a-0",
+        "1643609742bc41a32a-1",
+        "001d4f08-4457-4d82-982a-572eda0b78d3",
+        "73c43c43-7071-4198-99d7-2df4703d8ae7",
+        "fed3f36f-d0e4-474e-80df-b0e9d51068b6",
+        "9983f250-81c4-42a8-91cb-42bd50c309aa",
+        "285ccbe1-30fd-4007-ae5b-75614725eb23",
+        "6cda5b8b-5caf-4551-8ffe-21c357d04913"
+      ],
+      "settings": {
+        "section_layout": "no_image",
+        "image_style": "transparent_image",
+        "section_image_max_width": 400,
+        "show_circle": true,
+        "show_glow": false,
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "is_carousel_on_mobile": true,
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_xlarge_bottom",
+        "bg_color": "#197FBF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "1643610160f3daf530": {
+      "type": "mfr-core__carousel-with-text",
+      "blocks": {
+        "16436101592e05d353-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>our process<\/p>",
+            "header_style": "h1",
+            "make_large": false
+          }
+        },
+        "b249026f-c8e3-4e4f-ac4b-7396ce0b9fac": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_3.png",
+            "image_size": "cover",
+            "svg_code": "",
+            "text": "farming",
+            "details": "We source our pesticide-free spirulina domestically, to support local farmers, limit travel time, and reduce emissions! We also meet all food and safety quality standards for water, clean air, and quality control.",
+            "bg_color_1": "",
+            "bg_color_2": ""
+          }
+        },
+        "ed8da36e-66ea-4847-a4f4-2c966d3947af": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/AdobeStock_272149479_1_535x_1.png",
+            "image_size": "cover",
+            "svg_code": "",
+            "text": "harvest",
+            "details": "Once our spirulina is harvested and dried, quality control begins. The final, dry product undergoes forty different analytical tests to ensure the highest quality, up until sale!",
+            "bg_color_1": "",
+            "bg_color_2": ""
+          }
+        },
+        "725483c3-ea24-404f-a8c4-7bede22fd1a4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_119_1_360x_e0818e6f-abbb-4652-b164-ebee64fc34c6.png",
+            "image_size": "cover",
+            "svg_code": "",
+            "text": "Table",
+            "details": "We minimize our carbon footprint by storing and producing our products all under one roof! This includes production, transportation, and storage.",
+            "bg_color_1": "",
+            "bg_color_2": ""
+          }
+        },
+        "81d1e5da-39d3-4748-b1e0-2ea588879d7d": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_3.png",
+            "image_size": "cover",
+            "svg_code": "",
+            "text": "Adectitir",
+            "details": "",
+            "bg_color_1": "",
+            "bg_color_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "16436101592e05d353-1",
+        "b249026f-c8e3-4e4f-ac4b-7396ce0b9fac",
+        "ed8da36e-66ea-4847-a4f4-2c966d3947af",
+        "725483c3-ea24-404f-a8c4-7bede22fd1a4",
+        "81d1e5da-39d3-4748-b1e0-2ea588879d7d"
+      ],
+      "settings": {
+        "carousel_type": "small-carousel",
+        "add_mobile_right_buffer": false,
+        "text_side_desktop": "top",
+        "text_side_mobile": "second",
+        "image_sizing": "contain",
+        "color_theme": "color_theme__light",
+        "is_full_width": false,
+        "is_centered": true,
+        "is_symmetrical": true,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "#197FBF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "animated",
+        "svg_divider_bottom_color": "#fffcf7"
+      }
+    },
+    "16436299765ca908e1": {
+      "type": "mfr-liina__quick-add",
+      "blocks": {
+        "a42af1b7-ca6c-4164-996d-6f6d4ec4f018": {
+          "type": "scrolling_text",
+          "settings": {
+            "marquee_text": "<p>Algae for greener way of life<\/p>",
+            "text_color": "#fffcf6"
+          }
+        },
+        "d9dac96a-1ed8-49ee-af84-c4927fab85e9": {
+          "type": "button",
+          "settings": {
+            "position": "top-left",
+            "product": "spiru-liina-powder",
+            "title": "Lorem Ipsum",
+            "details": "<p>Morbi blandit fermentum lacinia. Maecenas ac tristique odio.<\/p>",
+            "button_text": "Quick Add"
+          }
+        }
+      },
+      "block_order": [
+        "a42af1b7-ca6c-4164-996d-6f6d4ec4f018",
+        "d9dac96a-1ed8-49ee-af84-c4927fab85e9"
+      ],
+      "settings": {
+        "image_style": "transparent_image",
+        "section_image": "shopify:\/\/shop_images\/Tub_Front_c5e3a76a-119a-4290-bc40-c7b5ac4d255d.png",
+        "section_image_max_width": 190,
+        "is_centered": true,
+        "color_theme": "color_theme__dark",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_small_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    }
+  },
+  "order": [
+    "16435973085aed652c",
+    "1643609743a4224ce8",
+    "1643610160f3daf530",
+    "16436299765ca908e1"
+  ]
+}

@@ -1,0 +1,203 @@
+/* OFFCANVAS MENU */
+#offCanvasMenu {
+  overflow: visible;
+  @include shadow( none );
+}
+
+.offcanvas-menu {
+  position: fixed;
+  height: 100%;
+  max-width: rem-calc( 500px );
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: transparent;
+
+  &.is-open {  
+    .close-button { opacity: 1; }
+  }
+}
+
+.offcanvas-menu__wrapper,
+.offcanvas-menu__inner,
+.offcanvas-menu__panel {
+  height: 100%;
+}
+
+.offcanvas-menu__wrapper {
+  @include border-radius( rem-calc( 10px ) );
+  background-color: $offcanvas-panel-bg-color;
+  
+  .close-button {
+    position: absolute;
+    top: rem-calc( 35px );
+    right: rem-calc( 35px );
+    width: 2rem;
+    left: auto;
+    z-index: 20;
+    opacity: 0;
+
+    @include breakpoint( medium up ) {
+      top: rem-calc( 19px );
+      right: rem-calc( -20px );
+    }
+
+    svg {
+      @include breakpoint( small down ) {
+        path {
+          fill: $header-menu-font-color;
+        }
+        circle {
+          stroke: $header-menu-font-color;
+        }
+      }
+    }
+  }
+}
+
+.offcanvas-menu__inner {
+  border-radius: inherit;
+}
+
+.offcanvas-menu__panel {
+  padding: 1.7rem;
+  border-radius: inherit;
+  overflow-y: auto;
+}
+
+.offcanvas-menu__logo {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  svg {
+    display: block;
+    width: 100%;
+  }
+}
+
+.offcanvas-menu__navigation {
+  margin-top: rem-calc( 35px );
+  color: var( --color-primary );
+  text-align: center;
+
+  a {
+    text-transform: lowercase;
+    color: inherit;
+    font-family: $font-menu;
+    // padding-left: 0;
+  }
+
+  .mobile-menu {
+    align-items: center;
+  }
+
+  .mobile-menu__title {
+    width: auto;
+    font-size: $offcanvas-panel-menu-size;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 800;
+
+    &::after {
+      // Override default accordion menu's icon with higher specificity and usage of !important.
+      content: none !important;
+    }
+
+    span {
+      display: inline-block;
+    }
+  
+    .arrow-down {
+      display: inline-block;
+      width: rem-calc( 18px );
+      height: rem-calc( 10px );
+      margin-left: rem-calc( 10px );
+      stroke: currentColor;
+      fill: none;
+    }
+  }
+
+  .mobile-menu__item {
+    max-width: 100%;
+
+    &[ aria-expanded="true" ] {
+      .arrow-down {
+        @include transform( scaleY( -1 ) );
+      }
+    }
+
+    & + .mobile-menu__item {
+      margin-top: rem-calc( 10px );
+    }
+  }
+
+  .mobile-menu__submenu {
+    &.nested { margin-left: 0; }
+  }
+}
+
+.offcanvas-menu__socials {
+  text-align: center;
+  margin-top: rem-calc( 50px );
+
+  .social-title {
+    margin-bottom: 0;
+  }
+
+  .icon-set {
+    li {
+      margin-top: rem-calc( 10px );
+      margin-right: rem-calc( 5px );
+      margin-left: rem-calc( 5px );
+    }
+  }
+}
+
+.offcanvas-menu__social {
+  @include border-radius(3rem);
+  color: $black;
+  background-color: var( --color-primary );
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid $black;
+  padding: rem-calc( 12px );
+
+  svg {
+    display: block;
+    width: rem-calc( 32px );
+    height: rem-calc( 32px );
+  }
+  
+  .icon-fallback-text {
+    display: none;
+  }
+}
+
+
+.offcanvas-menu__login,
+.offcanvas-menu__account {
+  margin-top: rem-calc( 40px );
+  text-align: center;
+
+  a {
+    color: inherit;
+    text-transform: lowercase;
+  }
+}
+
+.offcanvas-menu__account {
+  .customer-name {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.offcanvas-menu__login {
+  // ...
+}

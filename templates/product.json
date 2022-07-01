@@ -1,0 +1,397 @@
+{
+  "sections": {
+    "main": {
+      "type": "mfr-product__top",
+      "blocks": {
+        "f8a8c673-821c-48fb-909f-17293b14fb2e": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "58ab2270-0161-4644-93c8-0f5a6d20b994": {
+          "type": "product-type",
+          "settings": {
+          }
+        },
+        "232338a8-e53f-494c-9d05-3449a2483386": {
+          "type": "product_variants",
+          "settings": {
+            "variant_picker_style": "radio"
+          }
+        },
+        "d4b8d3d4-5e88-432f-a1eb-946dfa9ff028": {
+          "type": "product_quantity",
+          "settings": {
+            "unit": "",
+            "label": ""
+          }
+        },
+        "4e7e781d-421b-4bb9-95ef-b728fd70965d": {
+          "type": "subscription_options",
+          "settings": {
+            "title": "",
+            "subscribe_and_save_text": "Your Subscription Preferences",
+            "text_single": "One-time purchase",
+            "benefits_one_time": "<p><em>✓<\/em> 15% Off<\/p><p><em>✓<\/em> Skip or Cancel Anytime<\/p>",
+            "benefits": "<p><em>✓<\/em> 15% Off<\/p><p><em>✓<\/em> Skip or Cancel Anytime<\/p><p><em>✓<\/em> Free Shipping<\/p>"
+          }
+        },
+        "1e79cee4-f395-4efc-a61f-5381e12289dc": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "68985ddd-35e1-481a-ac9a-c39aa0af7ee4": {
+          "type": "ingredient_icon",
+          "settings": {
+            "icon_1": "shopify:\/\/shop_images\/icon-vegan.png",
+            "icon_svg_1": "",
+            "icon_2": "shopify:\/\/shop_images\/icon-dairy.png",
+            "icon_svg_2": "",
+            "icon_3": "shopify:\/\/shop_images\/icon-sugar.png",
+            "icon_svg_3": "",
+            "icon_4": "shopify:\/\/shop_images\/icon-soy.png",
+            "icon_svg_4": "",
+            "icon_5": "shopify:\/\/shop_images\/icon-gluten.png",
+            "icon_svg_5": ""
+          }
+        },
+        "58480bd3-9b41-4dad-8f1c-ddb1bb3f2dd8": {
+          "type": "product_review_stars",
+          "settings": {
+          }
+        },
+        "43c50dcc-3529-412f-b1a1-2d05ff412f16": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "53094282-662a-43f3-88d0-6cf455daeef7": {
+          "type": "extended_description",
+          "settings": {
+            "text": "Full Ingredients List: Chickpea protein, oatmilk powder, coconut milk powder, mct oil powder, natural flavors, spirulina powder, stevia extract"
+          }
+        },
+        "d28a004b-8b1a-4e1e-83e3-b0c0aaaef18a": {
+          "type": "text",
+          "settings": {
+            "text": "Free shipping for subscribe and save",
+            "text_style": "small-text"
+          }
+        }
+      },
+      "block_order": [
+        "f8a8c673-821c-48fb-909f-17293b14fb2e",
+        "58ab2270-0161-4644-93c8-0f5a6d20b994",
+        "232338a8-e53f-494c-9d05-3449a2483386",
+        "d4b8d3d4-5e88-432f-a1eb-946dfa9ff028",
+        "4e7e781d-421b-4bb9-95ef-b728fd70965d",
+        "1e79cee4-f395-4efc-a61f-5381e12289dc",
+        "68985ddd-35e1-481a-ac9a-c39aa0af7ee4",
+        "58480bd3-9b41-4dad-8f1c-ddb1bb3f2dd8",
+        "43c50dcc-3529-412f-b1a1-2d05ff412f16",
+        "53094282-662a-43f3-88d0-6cf455daeef7",
+        "d28a004b-8b1a-4e1e-83e3-b0c0aaaef18a"
+      ],
+      "settings": {
+        "has_zoom": true,
+        "extra_text_one_time": "",
+        "extra_text_subscription": "",
+        "show_sticky_bar": false,
+        "sticky_bar_text": "",
+        "bottom_divider": "angled",
+        "svg_divider_bottom_color": "#197fbf"
+      }
+    },
+    "product_facts": {
+      "type": "mfr-liina__product-facts",
+      "blocks": {
+        "cb22fcc4-3fbc-49cb-9b00-aa896c8f660f": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>the <strong>power<\/strong> of algae<\/p>",
+            "header_style": "h2",
+            "make_large": false
+          }
+        },
+        "54505c6a-16ef-49ae-aa47-44073c3d7ef6": {
+          "type": "text_info",
+          "settings": {
+            "title": "Skin",
+            "description": "Spirulina aids in the production of cells that produce collagen, which keeps skin looking younger for longer. Also, it contains iron and chlorophyll, which can hydrate skin and boost its radiance!",
+            "color_theme": "color_theme__dark",
+            "bg_color": "#fffcf7",
+            "position": "top-left"
+          }
+        },
+        "6abd944b-b604-4ce9-9ef3-049ecbcfa88b": {
+          "type": "text_info",
+          "settings": {
+            "title": "Immunity",
+            "description": "Spirulina bolsters your immune system, so that your body can fight off pesky invaders. It’s also full of the essential vitamins and nutrients your body needs, to help you feel strong all day long!",
+            "color_theme": "color_theme__light",
+            "bg_color": "#197fbf",
+            "position": "left"
+          }
+        },
+        "1803cf85-f885-4910-9ece-73d117b11248": {
+          "type": "text_info",
+          "settings": {
+            "title": "Antioxidants",
+            "description": "Since it's full of antioxidants, spirulina helps maintain your joint health. This helps you perform at peak level.",
+            "color_theme": "color_theme__light",
+            "bg_color": "#197fbf",
+            "position": "top-right"
+          }
+        },
+        "8cdd3b8c-2a94-4a7d-b59c-55217e898d53": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/benefits-1.png",
+            "icon_width": 400,
+            "position": "bottom-left"
+          }
+        },
+        "7b782296-3593-4e57-b5f6-457be153ed55": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/benefits-2.png",
+            "icon_width": 400,
+            "position": "right"
+          }
+        },
+        "783d6ce5-bcc3-41a5-b8bc-229db89b771b": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 150,
+            "position_x_desktop": 0,
+            "position_y_desktop": -16,
+            "width_mobile": 150,
+            "position_x_mobile": 10,
+            "position_y_mobile": 10,
+            "animation": "none",
+            "show_shadow": false
+          }
+        },
+        "7a587f8d-d8b2-48dc-aaf9-861236835781": {
+          "type": "text_info",
+          "disabled": true,
+          "settings": {
+            "title": "Full Ingredients List",
+            "description": "Chickpea Protein, Oatmilk Powder, Coconut Milk Powder, MCT Oil Powder, Natural Flavors, Spirulina Powder, Stevia Extract.",
+            "color_theme": "color_theme__dark",
+            "bg_color": "#ffffff",
+            "position": "bottom-right"
+          }
+        },
+        "1805bc96-adbd-400a-bf62-055709877bd6": {
+          "type": "text_info",
+          "disabled": true,
+          "settings": {
+            "title": "Supplement Facts",
+            "description": "Per Serving: Calories: 200, Fat: 6g, Carbs: 23g, Fiber: 3g, Total Sugar: 3g, Added Sigar: 0g, Protein: 16g",
+            "color_theme": "color_theme__light",
+            "bg_color": "#197fbf",
+            "position": "bottom"
+          }
+        }
+      },
+      "block_order": [
+        "cb22fcc4-3fbc-49cb-9b00-aa896c8f660f",
+        "54505c6a-16ef-49ae-aa47-44073c3d7ef6",
+        "6abd944b-b604-4ce9-9ef3-049ecbcfa88b",
+        "1803cf85-f885-4910-9ece-73d117b11248",
+        "8cdd3b8c-2a94-4a7d-b59c-55217e898d53",
+        "7b782296-3593-4e57-b5f6-457be153ed55",
+        "783d6ce5-bcc3-41a5-b8bc-229db89b771b",
+        "7a587f8d-d8b2-48dc-aaf9-861236835781",
+        "1805bc96-adbd-400a-bf62-055709877bd6"
+      ],
+      "settings": {
+        "section_layout": "centered_image",
+        "image_style": "cover_image",
+        "section_image": "shopify:\/\/shop_images\/powder_copy_2.png",
+        "section_image_max_width": 800,
+        "put_on_image": false,
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "is_carousel_on_mobile": true,
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_medium_bottom",
+        "bg_color": "linear-gradient(310deg, rgba(25, 127, 191, 1) 4%, rgba(25, 127, 191, 1) 98%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "16432797946fb68f66": {
+      "type": "mfr-core__carousel-with-text",
+      "blocks": {
+        "16432797948faf2761-0": {
+          "type": "small_text",
+          "settings": {
+            "text": "Must Try Mixes"
+          }
+        },
+        "16432797948faf2761-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>a serving of <strong>liina<\/strong> <strong>is<\/strong> <strong>all<\/strong> <strong>you<\/strong> <strong>need<\/strong>; just scoop, mix, and stir, easy as that!<\/p>",
+            "header_style": "h2",
+            "make_large": false
+          }
+        },
+        "dad12f50-9398-4300-bb69-a27550995706": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/V1-0009.png",
+            "image_size": "cover",
+            "svg_code": "",
+            "text": "liina + yogurt",
+            "details": "",
+            "bg_color_1": "",
+            "bg_color_2": ""
+          }
+        },
+        "bca10b2b-0a92-4514-92d5-0ae3891a6828": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/desserts.jpg",
+            "image_size": "cover",
+            "svg_code": "",
+            "text": "desserts",
+            "details": "",
+            "bg_color_1": "",
+            "bg_color_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "16432797948faf2761-0",
+        "16432797948faf2761-1",
+        "dad12f50-9398-4300-bb69-a27550995706",
+        "bca10b2b-0a92-4514-92d5-0ae3891a6828"
+      ],
+      "settings": {
+        "carousel_type": "small-carousel",
+        "add_mobile_right_buffer": false,
+        "text_side_desktop": "left",
+        "text_side_mobile": "second",
+        "image_sizing": "contain",
+        "color_theme": "color_theme__light",
+        "is_full_width": true,
+        "is_centered": false,
+        "is_symmetrical": false,
+        "section_spacing_top": "section_spacing_large_top",
+        "section_spacing_bottom": "section_spacing_medium_bottom",
+        "bg_color": "linear-gradient(310deg, rgba(25, 127, 191, 1) 4%, rgba(25, 127, 191, 1) 98%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "product-reviews": {
+      "type": "mfr-product__reviews",
+      "blocks": {
+        "981632c9-c201-4992-9e6f-6dbadec02764": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>for the <strong>liina<\/strong> lovers<\/p>",
+            "header_style": "h2",
+            "offset_title": false,
+            "no_wrap": false
+          }
+        },
+        "1dbcd826-0571-4199-a24c-4fc6bf6c3527": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics-1.png",
+            "svg_code": "",
+            "visibility": "desktop_only",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 150,
+            "position_x_desktop": 24,
+            "position_y_desktop": 0,
+            "width_mobile": 150,
+            "position_x_mobile": 10,
+            "position_y_mobile": 10,
+            "animation": "none",
+            "show_shadow": false
+          }
+        },
+        "786bad33-01da-4654-bd18-16a918ea0ab7": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics_86e31f79-4446-4ff5-a821-28724f9a1d26.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 150,
+            "position_x_desktop": 0,
+            "position_y_desktop": 0,
+            "width_mobile": 150,
+            "position_x_mobile": 10,
+            "position_y_mobile": 10,
+            "animation": "none",
+            "show_shadow": false
+          }
+        },
+        "71bb13e0-5170-4089-bbe5-ce6a7f205dfc": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics_86e31f79-4446-4ff5-a821-28724f9a1d26.png",
+            "svg_code": "",
+            "visibility": "desktop_only",
+            "x_setting": "right",
+            "y_setting": "bottom",
+            "width_desktop": 150,
+            "position_x_desktop": 0,
+            "position_y_desktop": -12,
+            "width_mobile": 150,
+            "position_x_mobile": 10,
+            "position_y_mobile": 10,
+            "animation": "none",
+            "show_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "981632c9-c201-4992-9e6f-6dbadec02764",
+        "1dbcd826-0571-4199-a24c-4fc6bf6c3527",
+        "786bad33-01da-4654-bd18-16a918ea0ab7",
+        "71bb13e0-5170-4089-bbe5-ce6a7f205dfc"
+      ],
+      "settings": {
+        "color_theme": "color_theme__light",
+        "is_full_width": true,
+        "is_centered": false,
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "linear-gradient(310deg, rgba(25, 127, 191, 1) 4%, rgba(25, 127, 191, 1) 98%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "angled",
+        "svg_divider_bottom_color": "#fffcf6"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_facts",
+    "16432797946fb68f66",
+    "product-reviews"
+  ]
+}

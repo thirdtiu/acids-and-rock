@@ -1,0 +1,179 @@
+/* 
+ * EXCLUSIVE VARIABLES - CALLOUT
+ * Variables exclusive to this file.
+**/
+$callout-bg-color: transparent;
+
+
+/* CALLOUT */
+.upsell-wrapper {
+    .cart__callout {
+        display: flex;
+        align-items: center;
+        padding: .5rem;
+        border-radius: rem-calc( 0px );
+        background-color: $callout-bg-color;
+        // border-bottom: 2px solid $black;
+        @include breakpoint(large up) {
+            padding: 1rem;
+        }
+        &:last-child {
+            // border-bottom: none;
+        }
+    }
+}
+
+
+
+.callout__image {
+    position: relative;
+    //flex-basis: 4rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 1rem;
+    @include border-radius(50rem);
+    overflow: hidden;
+    width: 4rem;
+    height: 4rem;
+    @include breakpoint(xlarge up) {
+        width: 7rem;
+        height: 6rem;   
+    }
+
+    img {
+        // @include transform(translate(0px, 1.3rem));
+        position: absolute; 
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+}
+
+.callout__body {
+    flex: 1;
+    margin-right: 1rem;
+    font-family: $custom-font-name-4;
+    select {
+        background-color: transparent;
+        padding: .5rem 1.5rem .5rem 0;
+        color: $theme-color-white;
+        line-height: 1;
+        font-size: 1rem;
+        font-weight: bold;
+        position: relative;
+        // background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIpJREFUeNrEkckNgDAMBBfRkEt0ObRBBdsGXUDgmQfK4XhH2m8czQAAy27R3tsw4Qfe2x8uOO6oYLb6GlOor3GF+swURAOmUJ+RwtEJs9WvTGEYxBXqI1MQAZhCfUQKRzDMVj+TwrAIV6jvSUEkYAr1LSkcyTBb/V+KYfX7xAeusq3sLDtGH3kEGACPWIflNZfhRQAAAABJRU5ErkJggg==');
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMBJREFUeNrEllsOhCAMRVszC9IlzU7KCmVHTJsoMWYMUtpyv9BgbuXQB5ZSdgBYYY4ycgBivk8KYFsQMfMiTTBP4o3nUzCKzOabLJbLy2/g31evGkAginR4/ZegKH5qX3bJCscA3t0x3kgO5tQFyhhFf50xRqFLbyMUNJQzgyjGS/wgCpvKqkRBpuWrE4V9d+1E4dPUXqIg107SQOE/2DRQxMwTDygIInVDET9T3lCoj/6j/VCmGjZOl2lKpZ8AAwDQP7zIimDGFQAAAABJRU5ErkJggg==');
+        background-position: right;
+        background-repeat: no-repeat;
+        width: auto;
+        background-origin: border-box;
+        &:focus {
+            @include shadow(none);
+            outline: none;
+            border: none;
+        }
+    }
+}
+
+.callout__add {
+    .button {
+        padding: 0.8rem 0.6rem;
+        font-size: .9rem;
+        letter-spacing: 0;
+        .price {
+            margin-left: 0.3rem;
+        }
+    }
+}
+
+
+.callout__title {
+    font-family: $font-heading-h1;
+    // text-transform: capitalize;
+    // font-size: $cart-product-name-size;
+    font-size: 1rem;
+    line-height: 0.9643;
+    letter-spacing: -0.13px;
+    color: inherit;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: rem-calc( 5px );
+    padding-bottom: rem-calc( 5px ); 
+}
+
+.callout__size {
+    @include small-text;
+    
+}
+
+.callout__frequency {
+    // color: $cart-body-text-color;
+    font-family: $font-heading-h1;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.callout__product-type {
+    @include small-text;
+    font-weight: 700;
+}
+
+.callout__rating {
+    display: flex;
+    align-items: flex-start;
+
+    svg {
+        display: block;
+        width: rem-calc( 15px );
+        height: auto;
+        margin-right: rem-calc( 2px );
+    }
+
+    // Override Yotpo's colors and prevent interaction.
+    .yotpo {
+        touch-action: none;
+        pointer-events: none;
+
+        a {
+            display: none;
+        }
+
+        .yotpo-bottomline,
+        .yotpo-display-wrapper,
+        .standalone-bottomline {
+            color: inherit;
+        }
+
+        .yotpo-stars {
+            color: inherit;
+
+            .yotpo-icon-empty-star,
+            .yotpo-icon-half-star,
+            .yotpo-icon-star {
+                color: inherit;
+            }
+        }
+
+        // Hide review button.
+        .write-review-btn-hidden  {
+            display: none;
+        }
+    }
+
+    .rating-star {
+        color: inherit;
+    }
+}
+
+.callout__button {
+    font-size: rem-calc( 13px );
+    margin-top: rem-calc( 10px );
+    width: 100%;
+    // max-width: rem-calc( 120px );
+    min-width: 0;
+    justify-content: center !important;
+}

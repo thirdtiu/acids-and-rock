@@ -1,0 +1,64 @@
+#MainContent {
+  >.shopify-section:first-child > article:first-child .article-template__hero-container { //pushes down image text section if first sections so it doestn overlap the header logo
+    padding-top: 4.5rem;
+    @include breakpoint(medium) {
+      //margin-top: 4.5rem;
+    }
+  }
+}
+
+
+.article-template {
+  .article-template__hero-container {
+    position: relative;
+    .grid-x {
+      position: relative;
+    }
+    .back-button {
+      @include transform(translate(0px, -1rem));
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      font-family: var(--font-menu);
+      letter-spacing: var(--font-menu-spacing);
+      font-weight: var(--font-menu-weight);
+      font-size: var(--font-menu-size);
+      @include breakpoint(large up) {
+        @include transform(translate(1rem, -6rem));
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .icon {
+        @include transform(rotate(90deg));
+        width: 1.4rem;
+        margin-right: 0.5rem;
+      }
+    }
+    .article-template__author-date {
+      margin-bottom: 1rem;
+    }
+    .article-template__title {
+      margin-bottom: 1rem;
+    }
+    .article-template__image {
+      @include border-radius(3rem);
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+      overflow: hidden;
+      display: inline-block;
+    }
+    .article-template__category {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .article-template__body {
+    margin: 2rem auto;
+    @include breakpoint(large up) {
+      margin: 4rem auto;
+    }
+  }
+
+
+}

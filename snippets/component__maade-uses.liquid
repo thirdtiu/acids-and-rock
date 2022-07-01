@@ -1,0 +1,19 @@
+{%- assign maade_uses_text = settings.maade_uses_text | remove: "<p>" | split: "</p>" -%}
+<div class="maade-uses-scroller-wrapper">
+  <div class="shadow">
+    <img loading="lazy" src="{{ 'scroller-shadow.png' | asset_img_url: '400x' }}" alt="">
+  </div>
+  <div class="maade-uses-scroller">
+    <div class="logo">{{ settings.maade_uses_logo }}</div>
+    <div class="scrolling-text">
+      <ul>
+        {%- for text in maade_uses_text -%}
+          <li>{{ text }}</li>
+        {%- endfor -%}
+        {%- for text in maade_uses_text -%}
+          <li>{{ text }}</li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,455 @@
+{
+  "sections": {
+    "16436186883f0f01a7": {
+      "type": "mfr-core__image-with-text",
+      "blocks": {
+        "164361868840487834-0": {
+          "type": "small_text",
+          "settings": {
+            "text": "spirulina 101"
+          }
+        },
+        "164361868840487834-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>food of <\/p><p>the <strong>future<\/strong><\/p>",
+            "header_style": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "164361868840487834-0",
+        "164361868840487834-1"
+      ],
+      "settings": {
+        "main_image": "shopify:\/\/shop_images\/Group.png",
+        "text_side_desktop": "left",
+        "text_side_mobile": "first",
+        "image_sizing": "cover",
+        "color_theme": "color_theme__light",
+        "is_full_width": true,
+        "show_glow": true,
+        "is_centered": false,
+        "offset_title": false,
+        "section_spacing_top": "section_spacing_large_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "linear-gradient(0deg, rgba(25, 127, 191, 1), rgba(60, 168, 223, 1) 100%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "16436219899eaeec0b": {
+      "type": "mfr-core__text-section",
+      "blocks": {
+        "5167b4c7-a2de-4ce3-bba0-9218d1ed9f0b": {
+          "type": "small_text",
+          "settings": {
+            "text": "Yes, it’s really algae!",
+            "small_text_color": ""
+          }
+        },
+        "16436219893b27c361-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Spirulina is a blue-green [flower] microalgae that transforms carbon dioxide into protein, iron [powder] and vitamins. <\/p>",
+            "header_style": "h2",
+            "make_large": false
+          }
+        },
+        "16436219893b27c361-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Learn more about this incredible superfood, our sourcing practices, and production.<\/p>",
+            "text_style": "regular",
+            "max_width": 0
+          }
+        },
+        "aa732e80-ca2b-402a-8c9c-cc9b65b3fe67": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our Approach",
+            "button_link": "shopify:\/\/pages\/our-approach",
+            "button_style": "primary",
+            "button_has_arrow": false
+          }
+        },
+        "9551e1a2-8f07-44c9-b823-99bb265f2f26": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics-1.png",
+            "svg_code": "",
+            "visibility": "desktop_only",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 300,
+            "position_x_desktop": 0,
+            "position_y_desktop": -60,
+            "width_mobile": 150,
+            "position_x_mobile": -8,
+            "position_y_mobile": -50,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "5167b4c7-a2de-4ce3-bba0-9218d1ed9f0b",
+        "16436219893b27c361-0",
+        "16436219893b27c361-1",
+        "aa732e80-ca2b-402a-8c9c-cc9b65b3fe67",
+        "9551e1a2-8f07-44c9-b823-99bb265f2f26"
+      ],
+      "settings": {
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_medium_bottom",
+        "bg_color": "#197FBF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "16436236175df0a2b8": {
+      "type": "mfr-core__image-with-text",
+      "blocks": {
+        "16436236178bd2d348-0": {
+          "type": "small_text",
+          "settings": {
+            "text": "from aztecs"
+          }
+        },
+        "16436236178bd2d348-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>harvested from <\/p><p><strong>lake<\/strong> <strong>texcoco<\/strong><\/p>",
+            "header_style": "h2"
+          }
+        },
+        "16436236178bd2d348-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Originally, the Aztecs recognized the power of this incredible superfood and would harvest, dry it, and consume it with other vegetables. After the Spanish conquest of the Aztec Empire, Spirulina was lost for nearly 400 years. It was then rediscovered in the 1940’s and labeled as a “superfood”.<\/p>",
+            "text_style": "regular"
+          }
+        },
+        "95ae370d-c5d5-4fbf-b9e9-e45b6fc6bacb": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/algae-6_copy_3.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 370,
+            "position_x_desktop": 0,
+            "position_y_desktop": -30,
+            "width_mobile": 150,
+            "position_x_mobile": 0,
+            "position_y_mobile": -8,
+            "animation": "floating"
+          }
+        },
+        "1b2067ac-adc6-46e4-8530-9d6bfbd428a5": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/algae-5_copy_3.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 370,
+            "position_x_desktop": -10,
+            "position_y_desktop": -70,
+            "width_mobile": 150,
+            "position_x_mobile": 0,
+            "position_y_mobile": -10,
+            "animation": "floating"
+          }
+        }
+      },
+      "block_order": [
+        "16436236178bd2d348-0",
+        "16436236178bd2d348-1",
+        "16436236178bd2d348-2",
+        "95ae370d-c5d5-4fbf-b9e9-e45b6fc6bacb",
+        "1b2067ac-adc6-46e4-8530-9d6bfbd428a5"
+      ],
+      "settings": {
+        "main_image": "shopify:\/\/shop_images\/lake-texcoco.png",
+        "text_side_desktop": "left",
+        "text_side_mobile": "second",
+        "image_sizing": "contain",
+        "color_theme": "color_theme__light",
+        "is_full_width": false,
+        "show_glow": true,
+        "is_centered": true,
+        "offset_title": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_medium_bottom",
+        "bg_color": "linear-gradient(0deg, rgba(60, 168, 223, 1), rgba(25, 127, 191, 1) 100%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "1643624878884f95a8": {
+      "type": "mfr-core__image-with-text",
+      "blocks": {
+        "1643624878bd0d0910-0": {
+          "type": "small_text",
+          "settings": {
+            "text": "to astronauts"
+          }
+        },
+        "1643624878bd0d0910-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>spirulina in <strong>space<\/strong><\/p>",
+            "header_style": "h2"
+          }
+        },
+        "1643624878bd0d0910-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NASA found that Spirulina contains almost all the necessary beta-carotene (which our bodies convert to vitamin A), potassium, calcium, and magnesium that the human body needs.<\/p>",
+            "text_style": "regular"
+          }
+        },
+        "1183eba6-b3c7-45eb-b691-ccecb6545e40": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics-1.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 300,
+            "position_x_desktop": -6,
+            "position_y_desktop": -20,
+            "width_mobile": 150,
+            "position_x_mobile": -6,
+            "position_y_mobile": 0,
+            "animation": "floating"
+          }
+        },
+        "d4e4b422-ce25-4312-bbea-e56ff80b6000": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/algae-1_copy.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "bottom",
+            "width_desktop": 400,
+            "position_x_desktop": 0,
+            "position_y_desktop": 10,
+            "width_mobile": 150,
+            "position_x_mobile": 0,
+            "position_y_mobile": 44,
+            "animation": "floating"
+          }
+        }
+      },
+      "block_order": [
+        "1643624878bd0d0910-0",
+        "1643624878bd0d0910-1",
+        "1643624878bd0d0910-2",
+        "1183eba6-b3c7-45eb-b691-ccecb6545e40",
+        "d4e4b422-ce25-4312-bbea-e56ff80b6000"
+      ],
+      "settings": {
+        "main_image": "shopify:\/\/shop_images\/spirulina-in-space.png",
+        "text_side_desktop": "right",
+        "text_side_mobile": "second",
+        "image_sizing": "contain",
+        "color_theme": "color_theme__light",
+        "is_full_width": false,
+        "show_glow": true,
+        "is_centered": true,
+        "offset_title": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_medium_bottom",
+        "bg_color": "#3CA8DF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "16436263977f565fde": {
+      "type": "mfr-liina__product-facts",
+      "blocks": {
+        "e70d9db9-b084-4802-93ba-0de976e7b421": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>the <strong>benefits<\/strong> of the blue<\/p>",
+            "header_style": "h2",
+            "make_large": false
+          }
+        },
+        "24caf1f1-8d6e-4fd6-8f5b-9fe4b8d4d90f": {
+          "type": "text_info",
+          "settings": {
+            "title": "Skin",
+            "description": "Spirulina aids in the production of cells that produce collagen, which keeps skin looking younger for longer. Also, it contains iron and chlorophyll, which can hydrate skin and boost its radiance!",
+            "color_theme": "color_theme__dark",
+            "bg_color": "#fffcf7",
+            "position": "top-left"
+          }
+        },
+        "ef8fa72f-69cc-4738-a041-6ef1a2bcfa0c": {
+          "type": "text_info",
+          "settings": {
+            "title": "immunity",
+            "description": "Spirulina bolsters your immune system, so that your body can fight off pesky invaders. It’s also full of the essential vitamins and nutrients your body needs, to help you feel strong all day long!",
+            "color_theme": "color_theme__light",
+            "bg_color": "#197fbf",
+            "position": "left"
+          }
+        },
+        "833e7fbd-07bf-4ff0-b8cb-d96145905535": {
+          "type": "text_info",
+          "settings": {
+            "title": "Antioxidants",
+            "description": "Since it's full of antioxidants, spirulina helps maintain your joint health. This helps you perform at peak level.",
+            "color_theme": "color_theme__light",
+            "bg_color": "#197fbf",
+            "position": "top-right"
+          }
+        },
+        "34a781fa-5094-424a-87d8-af0b5d95ba41": {
+          "type": "text_info",
+          "settings": {
+            "title": "Ingredients",
+            "description": "Chickpea Protein, Oatmilk Powder, Coconut Milk Powder, MCT Oil Powder, Natural Flavors, Spirulina Powder, Stevia Extract.",
+            "color_theme": "color_theme__dark",
+            "bg_color": "#fffcf7",
+            "position": "bottom-right"
+          }
+        },
+        "cf79069c-00d8-4122-ae19-d1346499f369": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/benefits-1.png",
+            "icon_width": 400,
+            "position": "bottom-left"
+          }
+        },
+        "5ecf0ecf-ee84-4705-993a-bd79b1df90ad": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/benefits-2.png",
+            "icon_width": 400,
+            "position": "right"
+          }
+        }
+      },
+      "block_order": [
+        "e70d9db9-b084-4802-93ba-0de976e7b421",
+        "24caf1f1-8d6e-4fd6-8f5b-9fe4b8d4d90f",
+        "ef8fa72f-69cc-4738-a041-6ef1a2bcfa0c",
+        "833e7fbd-07bf-4ff0-b8cb-d96145905535",
+        "34a781fa-5094-424a-87d8-af0b5d95ba41",
+        "cf79069c-00d8-4122-ae19-d1346499f369",
+        "5ecf0ecf-ee84-4705-993a-bd79b1df90ad"
+      ],
+      "settings": {
+        "section_layout": "centered_image",
+        "image_style": "cover_image",
+        "section_image": "shopify:\/\/shop_images\/Canoe-unCropped-2x.jpg",
+        "section_image_max_width": 800,
+        "put_on_image": false,
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "is_carousel_on_mobile": true,
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_xlarge_bottom",
+        "bg_color": "linear-gradient(0deg, rgba(25, 127, 191, 1), rgba(60, 168, 223, 1) 100%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "angled",
+        "svg_divider_bottom_color": "#fffcf7"
+      }
+    },
+    "16437781432fb24b1d": {
+      "type": "mfr-liina__quick-add",
+      "blocks": {
+        "1643778143a3c96ea5-0": {
+          "type": "scrolling_text",
+          "settings": {
+            "marquee_text": "<p>Algae for greener way of life<\/p>",
+            "text_color": "#fffcf6"
+          }
+        },
+        "3a28ea82-adc4-4647-82da-9401a94bc774": {
+          "type": "button",
+          "settings": {
+            "position": "top-left",
+            "product": "spiru-liina-powder",
+            "title": "Lorem Ipsum",
+            "details": "<p>Morbi blandit fermentum lacinia. Maecenas ac tristique odio.<\/p>",
+            "button_text": "Quick Add"
+          }
+        },
+        "af9b5550-c80a-44ba-bc73-773242ecf993": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-left.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 360,
+            "position_x_desktop": 2,
+            "position_y_desktop": -30,
+            "width_mobile": 200,
+            "position_x_mobile": 2,
+            "position_y_mobile": -24,
+            "animation": "floating"
+          }
+        }
+      },
+      "block_order": [
+        "1643778143a3c96ea5-0",
+        "3a28ea82-adc4-4647-82da-9401a94bc774",
+        "af9b5550-c80a-44ba-bc73-773242ecf993"
+      ],
+      "settings": {
+        "image_style": "transparent_image",
+        "section_image": "shopify:\/\/shop_images\/Tub_Front.png",
+        "section_image_max_width": 190,
+        "is_centered": true,
+        "color_theme": "color_theme__dark",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_small_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    }
+  },
+  "order": [
+    "16436186883f0f01a7",
+    "16436219899eaeec0b",
+    "16436236175df0a2b8",
+    "1643624878884f95a8",
+    "16436263977f565fde",
+    "16437781432fb24b1d"
+  ]
+}

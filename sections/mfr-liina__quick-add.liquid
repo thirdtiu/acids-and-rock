@@ -1,0 +1,628 @@
+{%- comment -%}
+--------------------------------------
+assign section settings to variables
+--------------------------------------
+{%- endcomment -%}
+
+{% if section.settings.spacing_outside_section %}
+  {%- assign top_spacing_inside = section.settings.section_spacing_top -%}
+  {%- assign bottom_spacing_inside = section.settings.section_spacing_bottom -%}
+  {%- assign bg_color_on_inner = "background" -%}
+  {% assign extra_padding = "inside-padding" %}
+{% else %}
+  {%- assign top_spacing_outside = section.settings.section_spacing_top -%}
+  {%- assign bottom_spacing_outside = section.settings.section_spacing_bottom -%}
+  {%- assign bg_color_on_section = "background" -%}
+  {% assign extra_padding = "" %}
+{% endif %}
+
+{% if section.settings.color_theme %}
+  {% assign text_color = section.settings.color_theme %}
+{% else %}
+  {% assign text_color = "" %}
+{% endif %}
+
+
+{% if section.settings.is_full_width %}
+  {% assign is_full_width = "full" %}
+{% else %}
+  {% assign is_full_width = "" %}
+{% endif %}
+
+
+{% if section.settings.is_centered %}
+  {% assign text_center = "text-center" %}
+  {% assign align_center = "align-center" %}
+{% else %}
+  {% assign text_center = "" %}
+  {% assign align_center = "" %}
+{% endif %}
+
+{% if section.settings.add_gutter %}
+  {% assign grid_gutter = "grid-gutter" %}
+{% else %}
+  {% assign grid_gutter = "" %}
+{% endif %}
+
+
+{% assign animation_type = "data-aos='fade-up'" %}
+
+{%- assign quick_add_button = section.blocks | where: "type", "button" -%}
+
+
+
+
+<section class="mfr-liina__quick-add {{ top_spacing_outside }} {{ bottom_spacing_outside }} {{ bg_color_on_section }}">
+
+  <div class="grid-container {{ full_mobile }} {{ is_full_width }} {{ top_spacing_inside }} {{ bottom_spacing_inside }}">
+    <div class="inner  {{ extra_padding }} {{ bg_color_on_inner }} {{ grid_gutter }} ">
+      {% capture section_image %}
+      {% capture image_size %}{{ section.settings.section_image_max_width }}x{% endcapture %}
+      <div class="section-image {{ section_layout }}" data-aos="fade-up" style="max-width: {{ section.settings.section_image_max_width }}px;">
+        <img loading="lazy" src="{{ section.settings.section_image | img_url: image_size }}"
+          srcset="{{ section.settings.section_image | img_url: image_size }} 1x, {{ section.settings.section_image | img_url: image_size, scale: 2 }} 2x"
+          alt="{{ section.settings.section_image.alt }}">
+          {% if section.settings.show_glow %}
+            <div class="glow"></div>
+          {% endif %} 
+      </div>
+      {% endcapture %}
+
+      <div class="grid-x {{ align_center }}">
+      
+        <div class="cell small-12 section-content {{ text_color }} {{ text_center }}">
+          <div class="inner">
+            <div class="section-image-wrapper">
+              {{ section_image }}
+              {% if quick_add_button != blank %}
+                {% for block in quick_add_button %}
+                  {% assign product = block.settings.product %}
+                  {%- assign current_variant = product.selected_or_first_available_variant | default: product.variants.first -%}
+                  {% capture tooltip_content %}
+                  <div>
+                    <h3>{{ block.settings.title }}</h3>
+                    {{ block.settings.details }}
+                    <form action="/cart/add" method="post" data-cart-submit>
+                      <select name="id" class="hide">
+                        {% for variant in product.variants %}
+                        <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                        {% endfor %}
+                      </select>
+                      {% if product.available %}
+                        <button 
+                          href="#" 
+                          class="button secondary"
+                          data-open="offCanvasCart"
+                          {% unless current_variant.available %} disabled="disabled" {% endunless %}
+                          >
+                          {{ block.settings.button_text }}
+                        </button>
+                      {% else %}
+                        <button href="#" class="button secondary" disabled="disabled">
+                          {{ 'products.product.sold_out' | t }}
+                        </button>
+                      {% endif %}
+                    </form>
+                  </div>
+                  {% endcapture %}
+
+                  <button 
+                    class="button primary q-a-tooltip {{ block.settings.position }}" 
+                    type="button" 
+                    data-tooltip 
+                    data-allow-html="true"
+                    data-tooltip-class="tooltip quick-add-tooltip" 
+                    data-disable-hover="true" 
+                    data-position="auto" 
+                    data-alignment="center"
+                    data-allow-overlap="true" 
+                    data-allow-bottom-overlap="true" 
+                    data-position="left" 
+                    data-alignment="top"
+                    title="{{ tooltip_content | escape }}"
+                    tabindex="1">
+                    +
+                  </button>
+                {% endfor %}
+              {% endif %}
+
+              
+            </div>
+            {%- for block in section.blocks -%}
+              {% case block.type %}
+                {% when 'scrolling_text' %}
+                  {%- assign text_list = block.settings.marquee_text | remove: "<p>" | split: "</p>" -%}
+
+                  {% capture scroll_content %}
+  
+                    {% for text in text_list %}
+                      <span>{{ text }}</span>
+                    {% endfor %}
+
+                  {% endcapture %}
+
+                  <div class="scrolling-text">
+                    <div class="marquee-scroller__wrapper" style="color: {{ block.settings.text_color }}">
+                      <div class="marquee-scroller__group">
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                        <div class="marquee-scroller__text">
+                          {{ scroll_content }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% if section.settings.bg_image != blank %}
+    <div class="background-image-wrapper" >
+      <img loading="lazy" src="{{ section.settings.bg_image | img_url: '1000x' }}" alt="{{ section.settings.section_image.alt }}" />
+    </div>
+  {% endif %}
+  {% render 'component__section-dividers' %}
+  {% render 'component__gradient-bg-styles' %}
+  {% render 'component__accent-graphics' %}
+
+
+</section>
+
+<script>
+  $(function () {
+    var tooltipOpen = false,
+      timeOUT;
+    $('.q-a-tooltip').on('show.zf.tooltip', function () {
+      clearTimeout(timeOUT);
+      timeOUT = setTimeout(function () {
+        tooltipOpen = true;
+      }, 5);
+    }).on('hide.zf.tooltip', function () {
+      clearTimeout(timeOUT);
+      tooltipOpen = false;
+    });
+
+    $(window).on('mousedown touchstart', function (e) {
+      if (tooltipOpen && $(e.target).parents('.tooltip').length === 0) {
+        $('.q-a-tooltip').foundation('hide');
+      }
+    });
+  })
+</script>
+
+
+
+{% schema %}
+{
+  "name":"Quick Add",
+  "settings":[
+    {
+      "type":"header",
+      "content":"Section Image"
+    },
+    {
+      "type": "select",
+      "id": "image_style",
+      "options": [
+          { "value": "transparent_image", "label": "Icon or Tranparent Graphic" },
+          { "value": "cover_image", "label": "Full Image/JPG" }
+          ],
+      "label": "Image Style",
+      "default": "transparent_image"
+    },
+    {
+      "type":"image_picker",
+      "id":"section_image",
+      "label":"Section Image (Optional)"
+    },
+    {
+      "type":"range",
+      "id":"section_image_max_width",
+      "min":30,
+      "max":800,
+      "step":10,
+      "unit":"px",
+      "label":"Image width",
+      "default":400
+    },
+    {
+      "type":"header",
+      "content":"Content Settings"
+    },
+    {
+      "type":"checkbox",
+      "id":"is_centered",
+      "default":true,
+      "label":"Center Text"
+    },
+    {
+      "type": "select",
+      "id": "color_theme",
+      "options": [
+          { "value": "color_theme__dark", "label": "Dark Text" },
+          { "value": "color_theme__light", "label": "Light Text" }
+          ],
+      "label": "Color Theme",
+      "default": "color_theme__dark"
+    },
+    {
+      "type":"header",
+      "content":"Section Spacing"
+    },
+    {
+      "type":"checkbox",
+      "id":"spacing_outside_section",
+      "label":"Put the spacing outside the section"
+    },
+    {
+      "type":"checkbox",
+      "id":"is_full_width",
+      "default":true,
+      "label":"Full Width"
+    },
+    {
+      "type":"checkbox",
+      "id":"add_gutter",
+      "label":"Add margin around section"
+    },
+    {
+       "type": "select",
+       "id": "section_spacing_top",
+       "options": [
+          { "value": "section_spacing_none_top", "label": "None"},
+          { "value": "section_spacing_small_top", "label": "Small"},
+          { "value": "section_spacing_medium_top", "label": "Medium"},
+          { "value": "section_spacing_large_top", "label": "Large"},
+          { "value": "section_spacing_xlarge_top", "label": "X-Large"}
+       ],
+       "label": "Top spacing"
+    },
+    {
+       "type": "select",
+       "id": "section_spacing_bottom",
+       "options": [
+          { "value": "section_spacing_none_bottom", "label": "None"},
+          { "value": "section_spacing_small_bottom", "label": "Small"},
+          { "value": "section_spacing_medium_bottom", "label": "Medium"},
+          { "value": "section_spacing_large_bottom", "label": "Large"},
+          { "value": "section_spacing_xlarge_bottom", "label": "X-Large"}
+       ],
+       "label": "Bottom spacing"
+    },
+    {
+      "type":"header",
+      "content":"Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image",
+      "info": "for textures"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Dividers"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_divider_image",
+      "label": "Bottom divider image",
+      "info" : "will appear fullwidth at bottom of section"
+    },
+    {
+      "type": "select",
+      "id": "top_divider",
+      "options": [
+          { "value": "none", "label": "None"},
+          { "value": "animated", "label": "Show Animated Divider"}
+          ],
+      "label": "Top Divider",
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "svg_divider_top_color",
+      "label": "Top divider color"
+    },
+    {
+      "type": "select",
+      "id": "bottom_divider",
+      "options": [
+          { "value": "none", "label": "None"},
+          { "value": "animated", "label": "Show Animated Divider"}
+          ],
+      "label": "Bottom Divider",
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "svg_divider_bottom_color",
+      "label": "Bottom divider color"
+    }
+  ],
+  "blocks":[
+    {
+      "type": "button",
+      "name": "Quick Add Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "position",
+          "options": [
+            { "value": "top-left", "label": "Top Left"},
+            { "value": "top-right", "label": "Top Right"}
+          ],
+          "label": "Position",
+          "default": "top-left",
+          "info": "position of button"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product to Quick Add"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Lorem Ipsum",
+          "info": "Title in popup"
+        },
+        {
+          "type": "richtext",
+          "id": "details",
+          "label": "Details",
+          "default": "<p>Morbi blandit fermentum lacinia. Maecenas ac tristique odio.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Caption",
+          "default": "Quick Add"
+        }
+      ]
+    },
+    {
+      "type": "scrolling_text",
+      "name": "Scrolling Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type":"richtext",
+          "id":"marquee_text",
+          "label":"Scrolling Text",
+          "default": "<p>Lorem ipmsum dolor sit amet</p>"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Custom Text Color"
+        }
+      ]
+    },
+    {
+      "type": "accent_graphic", 
+      "name": "Accent Graphic",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type":"html",
+          "id":"svg_code",
+          "label":"Graphic SVG Code",
+          "info":"Paste SVG code for vector graphic"
+        },
+        {
+          "type":"header",
+          "content":"Visibility"
+        },
+        {
+          "type": "select",
+          "id": "visibility",
+          "options": [
+              { "value": "always", "label": "Always" },
+              { "value": "desktop_only", "label": "Desktop Only" },
+              { "value": "mobile_only", "label": "Mobile Only" }
+              ],
+          "label": "Show on..",
+          "default": "always"
+        },
+        {
+          "type":"header",
+          "content":"Position"
+        },
+        {
+          "type": "select",
+          "id": "x_setting",
+          "options": [
+              { "value": "left", "label": "Left" },
+              { "value": "right", "label": "Right" }
+              ],
+          "label": "X Position",
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "y_setting",
+          "options": [
+              { "value": "top", "label": "Top" },
+              { "value": "bottom", "label": "Bottom" }
+              ],
+          "label": "Y Position",
+          "default": "top"
+        },
+        {
+          "type":"header",
+          "content":"Desktop Settings"
+        },
+        {
+          "type": "range",
+          "id": "width_desktop",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Graphic Width",
+          "default": 150
+        },
+        {
+          "type": "range",
+          "id": "position_x_desktop",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X Position",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "position_y_desktop",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Y Position",
+          "default": 10
+        },
+        {
+          "type":"header",
+          "content":"Mobile Settings"
+        },
+        {
+          "type": "range",
+          "id": "width_mobile",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Graphic Width",
+          "default": 150
+        },
+        {
+          "type": "range",
+          "id": "position_x_mobile",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X Position",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "position_y_mobile",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%", 
+          "label": "Y Position",
+          "default": 10
+        },
+        {
+          "type":"header",
+          "content":"Animation Settings"
+        },
+        {
+          "type": "select",
+          "id": "animation",
+          "options": [
+              { "value": "none", "label": "None" },
+              { "value": "rotating", "label": "Rotate" },
+              { "value": "floating", "label": "Float" },
+              { "value": "flying", "label": "Fly Across Screen" },
+              { "value": "parallax", "label": "Parallax" }
+              ],
+          "label": "Animation",
+          "default": "none"
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name":"Quick Add",
+      "category":"Manufactur Custom Sections",
+      "blocks":[
+        {
+          "type":"scrolling_text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

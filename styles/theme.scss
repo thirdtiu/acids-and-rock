@@ -1,0 +1,136 @@
+@charset 'UTF-8';
+
+/**
+ * Phyll Theme | Built by Manufactur
+ */
+
+//@import './tools/normalize';
+
+@import './variables';
+
+
+// Tools
+@import './tools/util/util';
+@import './tools/mixins';
+/////////@import './tools/breakpoint';
+
+// Core
+@import './core/typography';
+@import './core/forms';
+@import './core/modals';
+@import './core/color-themes';
+@import './core/fonts';
+@import './core/colors_backgrounds';
+@import './core/helpers';
+@import './core/layout';
+@import './core/responsive-tables';
+@import './core/rte';
+@import './core/section-content';
+@import './core/animations';
+@import './core/transitions';
+@import './core/offcanvas-cart';
+@import './core/offcanvas-menu';
+@import './core/offcanvas-login';
+@import './core/offcanvas-contact';
+
+// Plugins
+@import './plugins/aos';
+@import './plugins/flickity';
+@import './plugins/yotpo';
+@import './plugins/shopify-app-styling';
+@import './plugins/ocatane-app-quiz';
+@import './plugins/klaviyo';
+
+
+// Components
+@import './components/section-dividers';
+@import './components/component__mega-menu';
+@import './components/buttons';
+@import './components/price';
+@import './components/icons';
+@import './components/accent-graphics';
+@import './components/product-card';
+@import './components/product-badges';
+@import './components/article-tags';
+@import './components/article-card';
+@import './components/tooltip';
+@import './components/quantity-picker';
+@import './components/product-sticky-bar';
+@import './components/cart-upsell';
+@import './components/text-callout-circle';
+@import './components/accordion';
+@import './components/animated-headers';
+@import './components/subscription';
+@import './components/switch';
+@import './components/quantity-selector';
+// @import './components/carousel';
+// @import './components/offcanvas-menu';
+// @import './components/offcanvas-contact';
+// @import './components/tables';
+// @import './components/tabs';
+// @import './components/icons';
+// @import './components/fancy-checkbox';
+// @import './components/placeholders';
+// @import './components/responsive-images';
+// @import './components/component__article-grid-item';
+
+// Sections
+//@import './sections/mfr-core__home-hero'; //compiled on its own now for quicker load
+@import './sections/mfr-core__text-grid';
+@import './sections/mfr-core__product-grid';
+@import './sections/mfr-core__reviews-carousel';
+@import './sections/mfr-core__customer-testimonials';
+@import './sections/mfr-core__logo-bar';
+@import './sections/mfr-core__product-carousel';
+//@import './sections/mfr-core__content-carousel';
+@import './sections/mfr-core__image-text';
+@import './sections/mfr-core__image-section';
+@import './sections/mfr-core__text-section';
+@import './sections/mfr-core__banner';
+@import './sections/mfr-core__content-columns';
+@import './sections/mfr-core__featured-product';
+@import './sections/mfr-core__custom-liquid';
+@import './sections/mfr-product__tabs';
+@import './sections/mfr-core__banner';
+@import './sections/mfr-product__reviews';
+@import './sections/mfr-article__related-articles';
+@import './sections/mfr-core__page-header';
+@import './sections/signup-form';
+@import './sections/mfr-core__scrolling-text';
+@import './sections/mfr-liina__product-facts';
+@import './sections/mfr-core__carousel-text';
+@import './sections/mfr-liina__centered-image-with-text';
+@import './sections/mfr-liina__quick-add';
+@import './sections/mfr-liina__testimonials-carousel';
+// @import './sections/featured-product';
+// @import './sections/customer-testamonials';
+// @import './sections/product-grid';
+// @import './sections/collection-list';
+// @import './sections/featured-collection';
+// @import './sections/image-grid';
+// @import './sections/featured-picks'; 
+// @import './sections/blog-grid';
+// @import './sections/recommended-products';
+// @import './sections/two-way-carousel';
+
+
+// Pages
+
+@import './pages/page-404';
+@import './pages/challenge';
+@import './pages/recharge';
+// @import './pages/find-us';
+// @import './pages/page-faq';
+// @import './pages/bundle-builder';
+
+// Templates
+//@import './templates/gift_card';
+@import './templates/product';
+@import './templates/page';
+@import './templates/cart';
+//@import './templates/blog'; //moved to root
+@import './templates/article';
+@import './templates/policy-pages';
+// @import './templates/collections';
+@import './templates/customers/account';
+@import './templates/customers/login';

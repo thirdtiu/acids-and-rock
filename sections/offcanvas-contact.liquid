@@ -1,0 +1,194 @@
+{% if section.settings.color_theme %}
+  {% assign text_color = section.settings.color_theme %}
+{% else %}
+  {% assign text_color = "" %}
+{% endif %}
+
+{%- assign form_codes = section.blocks | where: "type", "form_code" -%}
+
+<div id="panel-wrapper" class="background">
+
+  <button class="close-button close" aria-label="Close cart" type="button" data-close>
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+    <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
+  </path></svg>
+  </button>
+
+  <div class="inner text-center {{ text_color }}">
+
+    {%- for block in section.blocks -%}
+      {% case block.type %}
+
+        {%- when 'small_text' -%}
+          <div class="small-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        
+        {%- when 'heading' -%}
+          {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style, fit_text: block.settings.fit_heading %}
+        
+        {%- when 'text' -%}
+          <div class="section-text {{ block.settings.text_style }}" {{ block.shopify_attributes }} {{ page_animation }}>{{ block.settings.text }}</div>
+      
+      {%- endcase -%}
+    {%- endfor -%}
+    <ul class="tabs" data-tabs id="form-tabs">
+      {%- for block in form_codes -%}
+        <li class="tabs-title {% if forloop.index == 1 %}is-active{% endif %}">
+          <a href="#panel{{ forloop.index }}" {% if forloop.index == 1 %}aria-selected="true"{% endif %}>
+            {{ block.settings.form_title }}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+
+    <div class="tabs-content" data-tabs-content="form-tabs">
+      {%- for block in form_codes -%}
+      <div class="tabs-panel {% if forloop.index == 1 %}is-active{% endif %}" id="panel{{ forloop.index }}">
+        <div class="liquid-code {{ block.settings.section_spacing_top }} {{ block.settings.section_spacing_bottom }}">
+          {{ block.settings.custom_code }}
+        </div>
+      </div>
+      {%- endfor -%}
+    </div>
+
+    
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Get In Touch Panel",
+    "settings": [
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Theme" },
+            { "value": "color_theme__light", "label": "Light Theme" },
+            { "value": "color_theme__theme_1", "label": "Color Theme 1" },
+            { "value": "color_theme__theme_2", "label": "Color Theme 2" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "form_code",
+        "name": "Form Code",
+        "limit": 2,
+        "settings": [
+          {
+            "type": "text",
+            "id": "form_title",
+            "label": "Form Title"
+          },
+          {
+            "type": "liquid",
+            "id": "custom_code",
+            "label": "Liquid or HTML code"
+          } ,
+          {
+            "type": "header",
+            "content": "Content Spacing"
+          },
+          {
+             "type": "select",
+             "id": "section_spacing_top",
+             "options": [
+                { "value": "section_spacing_none_top", "label": "None" },
+                { "value": "section_spacing_small_top", "label": "Small" },
+                { "value": "section_spacing_medium_top", "label": "Medium" },
+                { "value": "section_spacing_large_top", "label": "Large" },
+                { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+             ],
+             "label": "Top spacing"
+          },
+          {
+             "type": "select",
+             "id": "section_spacing_bottom",
+             "options": [
+                { "value": "section_spacing_none_bottom", "label": "None" },
+                { "value": "section_spacing_small_bottom", "label": "Small" },
+                { "value": "section_spacing_medium_bottom", "label": "Medium" },
+                { "value": "section_spacing_large_bottom", "label": "Large" },
+                { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+             ],
+             "label": "Bottom spacing"
+          }
+        ]
+      },
+      {
+        "type": "small_text", 
+        "name": "Small Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "default": "Small Text",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "name": "Heading",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "heading",
+            "default": "<p>Heading H1</p>",
+            "label": "Heading H1"
+          },
+          {
+            "type": "select",
+            "id": "header_style",
+            "options": [
+                { "value": "h1", "label": "H1"},
+                { "value": "h2", "label": "H2"},
+                { "value": "h3", "label": "H3"}
+                ],
+            "label": "Header Style",
+            "default": "h1"
+          },
+          {
+            "type": "checkbox",
+            "id": "fit_heading",
+            "label": "Fit Heading on Container",
+            "default": false,
+            "info": "If checked, the heading will be resized depending on the available space of the container."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.</p>",
+            "label": "Text"
+          },
+          {
+            "type": "select",
+            "id": "text_style",
+            "options": [
+                { "value": "small", "label": "Small"},
+                { "value": "regular", "label": "Regular"},
+                { "value": "large", "label": "Large"}
+                ],
+            "label": "Text Style",
+            "default": "regular"
+          }
+        ]
+      } 
+    ]
+  }
+
+{% endschema %}

@@ -1,0 +1,243 @@
+/**
+ * Sets a media query for the specified breakpoint
+ *
+ * Accepts:
+ * - $media-query: {String} Breakpoint variable (list found in variables.scss)
+ *
+ * Usage:
+ * .selector {
+ *   @include breakpoint(medium up) {
+ *     color: red;
+ *   }
+ * }
+ */
+
+@mixin media-query($media-query) {
+    $breakpoint-found: false;
+    @each $breakpoint in $slate-breakpoints {
+        $name: nth($breakpoint, 1);
+        $declaration: nth($breakpoint, 2);
+        @if $media-query==$name and $declaration {
+            $breakpoint-found: true;
+            @media only screen and #{$declaration} {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin hashtag-transition {
+  @for $i from 1 through 100 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{$i * .09}s !important;
+    }
+  }
+}
+
+/**
+ * Outputs list of transition properties
+ *
+ * Accepts:
+ * - $transitions: {String} List of transition properties to set
+ *
+ * Usage:
+ * .selector {
+ *   @include transition(width, height 0.5s ease-in);
+ * }
+ */
+
+@mixin transition($transitions...) {
+    $output: ();
+    @each $transition in $transitions {
+        $output: append($output, get-transition-properties($transition), comma);
+    }
+    transition: $output;
+}
+
+
+/**
+ * Forces an element to self-clear its children
+ *
+ * Usage:
+ * .selector {
+ *   @include clearfix;
+ * }
+ */
+
+@mixin clearfix() {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+    // stylelint-disable-next-line
+    *zoom: 1;
+}
+
+
+/**
+ * Hide element but make it accessible to screen readers
+ *
+ * Usage:
+ * .selector {
+ *   @include visually-hidden;
+ * }
+ */
+
+@mixin visually-hidden() {
+    // stylelint-disable-next-line
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+
+/**
+ * Reverse the properties applied by @mixin visually-hidden
+ *
+ * Accepts:
+ * - $position: {String} Positioning method for element
+ *
+ * Usage:
+ * .selector {
+ *   @include visually-shown(relative);
+ * }
+ */
+
+@mixin visually-shown($position: inherit) {
+    // stylelint-disable-next-line
+    position: $position !important;
+    overflow: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    clip: auto;
+}
+
+
+/* Transition
+====================================================================
+====================================================================*/
+
+@mixin transition($transition) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+
+
+
+/* Shadow
+====================================================================
+====================================================================*/
+
+@mixin shadow($shadow) {
+    -moz-box-shadow: $shadow;
+    -o-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+
+/* Opacity
+====================================================================
+====================================================================*/
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+/* Border Radius
+====================================================================
+====================================================================*/
+
+@mixin border-radius($radius) {
+    -moz-border-radius: $radius;
+    -o-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+
+/* Transforms
+====================================================================
+====================================================================*/
+
+// generic transform
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+// rotate
+@mixin rotate ($deg) {
+    @include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+    @include transform(scale($scale));
+}
+
+// translate
+@mixin translate ($x, $y) {
+    @include transform(translate($x, $y));
+}
+
+// skew
+@mixin skew ($x, $y) {
+    @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+//transform origin
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+    -o-transform-origin: $origin;
+    -ms-transform-origin: $origin;
+    -webkit-transform-origin: $origin;
+    transform-origin: $origin;
+}
+
+
+/* Columns
+  ====================================================================
+  ====================================================================*/
+
+@mixin column-count($column-count) {
+    -webkit-column-count: $column-count;
+    -moz-column-count: $column-count;
+    column-count: $column-count;
+}
+
+@mixin column-gap($column-gap) {
+    -webkit-column-gap: $column-gap;
+    -moz-column-gap: $column-gap;
+    column-gap: $column-gap;
+}
+
+
+
+/* Hover
+  ====================================================================
+  ====================================================================*/
+  @mixin hover {
+    @media screen and ( pointer: fine ) {
+        &:hover {
+            @content;
+        }
+    }
+}

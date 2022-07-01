@@ -1,0 +1,77 @@
+
+  <div class="product__sticky-bar">
+    <div class="left_section show-for-large">
+      <div class="product__sticky-image">
+        <img loading="lazy" class="product-single__thumbnail-image" src="{{ product.featured_image | img_url: '300x' }}" alt="{{ image.alt | escape }}">
+      </div>
+      {% comment %}
+      {% unless product.has_only_default_variant %}
+        <div class="meta-label"><span class="display-variant" data-product-variant-title>{{ current_variant.title}}</span></div>
+      {% endunless %}
+      {% endcomment %}
+      
+      <div class="product__sticky-title">
+        <div class="h3">
+          {{ product.title }}
+        </div>
+        <div class="small-text">{{ section.settings.sticky_bar_text }}</div>
+      </div>
+      
+
+    </div>
+    <div class="right_section">
+      
+      <button
+        class="button add-to-cart with-price primary {% unless current_variant.available  %} sold-out {% endunless %}"
+        type="submit"
+        name="add"
+        data-cart-submit
+        data-open="offCanvasCart"
+        data-submit-button
+        {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+          <div class="button-text" data-submit-button-text>
+            {% if current_variant.available %}
+              {{ 'products.product.add_to_cart' | t }}
+            {% else %}
+              {{ 'products.product.sold_out' | t }}
+            {% endif %}
+          </div>
+          <span class="button-divider"></span>
+          <div class="price ">
+            <div class="" data-price-wrapper>
+              <span class="display-price" data-product-price>
+                {{ current_variant.price | money }}
+              </span>
+              <div data-compare-text></div>
+              {% if product.compare_at_price_max > product.price %}
+                <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+                <s data-compare-price>
+                  {% if current_variant.compare_at_price > current_variant.price %}
+                    {{ current_variant.compare_at_price | money }}
+                  {% endif %}
+                </s>
+              {% endif %}
+            </div>
+          </div>
+      </button>
+
+    </div>
+  </div>
+
+
+  <script>
+     $(window).scroll(function() {
+      var height = $(window).scrollTop();
+      var stickyButtonOffset = $('.product__add-to-cart').offset().top;
+      var headerHeight = 60;
+      var stickyButtonOffset = stickyButtonOffset - headerHeight;
+      var triggerDistance = (stickyButtonOffset - height);
+      if(height > stickyButtonOffset) {
+          $(".product__sticky-bar").addClass("scrolled-down");
+      }
+      if (height <= stickyButtonOffset) {
+          $(".product__sticky-bar").removeClass("scrolled-down");
+      }
+      
+    });
+  </script>

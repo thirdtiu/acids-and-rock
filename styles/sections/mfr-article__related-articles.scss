@@ -1,0 +1,24 @@
+.mfr-article__related-articles {
+  position: relative;
+  .article-image {
+    img {
+      @include border-radius(1.75rem);
+    }
+  }
+  .article-info {
+    padding: 2.25rem 0 4rem;
+    .article-title {
+      font-size: 1.75rem;
+    }
+  }
+  .article-tags {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+    li {
+      display: inline-block;
+    }
+  }
+
+}

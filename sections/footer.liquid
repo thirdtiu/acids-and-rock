@@ -1,0 +1,300 @@
+<link rel="stylesheet" href="{{ 'footer.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'footer.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+<footer class="footer background" id="footer">
+  <div class="footer__wrapper container-large">
+    {%- if section.settings.logo or section.settings.logo_code != blank or section.settings.contact_email -%}
+      <div class="footer__branding">
+        <a href="/" class="footer__logo">
+          {%- if section.settings.logo_code != blank -%}
+            {{ section.settings.logo_code }}
+          {%- else -%}
+            <img src="{{ section.settings.logo | img_url: "x43", scale: 2 }}" alt="{{ shop.name }}" class="image">
+          {%- endif -%}
+        </a>
+        {%- if section.settings.contact_email != blank -%}
+          <a href="mailto:{{ section.settings.contact_email }}" 
+            class="footer__contact">
+            {{ section.settings.contact_email }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.contact_phone != blank -%}
+          <a href="tel:+{{ section.settings.contact_phone | remove: "[" | remove: "]" | remove: "-" }}" 
+            class="footer__contact">
+            {{ section.settings.contact_phone }}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="footer__main">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when "footer_main_nav" -%}
+            <nav class="footer__menu footer-menu">
+              <ul class="footer-menu__items">
+                {%- for parent_link in block.settings.footer_linklist.links -%}
+                  <li class="footer-menu__item">
+                    {% if parent_link.title contains "Contact" %}
+                    <a class="footer-menu__title footer-title" data-open="offCanvasContact">{{ parent_link.title }}</a>
+                    {% else %}
+                    <a class="footer-menu__title footer-title" href="{{ parent_link.url }}">{{ parent_link.title }}</a>
+                    {% endif %}
+
+                    {%- if parent_link.links != blank -%}
+                      <ul class="footer-menu__submenu">
+                        {%- for link in parent_link.links -%}
+                          {% if link.title contains "Contact" %}
+                          <li>
+                            <a data-open="offCanvasContact">{{ link.title }}</a>
+                          </li>
+                          {% else %}
+                          <li>
+                            <a href="{{ link.url }}">{{ link.title }}</a>
+                          </li>
+                          {% endif %}
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </nav>
+            
+          {%- when "footer_form" -%}
+            <div class="footer__form footer-form">
+              {%- if block.settings.title != blank -%}
+                <p class="footer-form__title footer-title">{{ block.settings.title }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.body != blank -%}
+                <p class="footer-form__text">{{ block.settings.body }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.embed_code != blank -%}
+                <div class="footer-form__embed">
+                  {{ block.settings.embed_code }}
+                </div>
+              {%- endif -%}
+            </div>
+            
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="footer__bottom">
+      {%- if section.settings.legal_links != blank -%}
+        <ul class="footer__legal">
+          {%- for link in section.settings.legal_links.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+
+          {%- if section.settings.legal_copyright != blank -%}
+            <li class="footer__copyright">{{ section.settings.legal_copyright }}</li>
+          {%- endif -%}
+        </ul>
+      {%- endif -%}
+
+      {% if section.settings.show_socials %}
+        <ul class="footer__socials socials">
+          {%- assign social_accounts = "Instagram, Facebook, Twitter, TikTok, Pinterest, Snapchat, Tumblr, YouTube, Vimeo" | split: ', ' -%}
+
+          {%- if section.settings.socials_graphic or section.settings.socials_graphic_code != blank -%}
+            <li class="socials__graphic">
+              {%- if section.settings.socials_graphic_code != blank -%}
+                {{ section.settings.socials_graphic_code }}
+              {%- else -%}
+                <img src="{{ section.settings.socials_graphic | img_url: "x48", scale: 2 }}" alt="{{ section.settings.socials_graphic.alt }}" class="image">
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+
+          {%- for social in social_accounts -%}
+            {%- assign social_handle = social | handleize -%}
+            {%- assign link = "social_" | append: social_handle | append: "_link" -%}
+            {%- assign icon = "icon-" | append: social_handle -%}
+
+            {%- if settings[ link ] != blank -%}
+              <li class="socials__link">
+                <a 
+                  class="social"
+                  href="https://{{ settings[ link ] }}"
+                  target="_blank" 
+                  rel="noopener" 
+                  title="{{ social }}" 
+                >
+                  <div class="social__icon">
+                    {%- include icon -%}
+                  </div>
+                  
+                  <span class="social__title">{{ social }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+
+  {%- render "component__gradient-bg-styles" -%}
+</footer>
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Image"
+      },
+      {
+        "type": "textarea",
+        "id": "logo_code",
+        "label": "SVG Code",
+        "info": "(Optional) Input the SVG code of the logo directly. This will replace the uploaded image."
+      },
+
+      {
+        "type": "header",
+        "content": "Contact Details"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email"
+      },
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Phone"
+      },
+
+      {
+        "type": "header",
+        "content": "Legal"
+      },
+      {
+        "type": "link_list",
+        "id": "legal_links",
+        "label": "Links"
+      },
+      {
+        "type": "text",
+        "id": "legal_copyright",
+        "label": "Copyright Text",
+        "default": "SITE BY MANUFACTUR"
+      },
+
+      {
+        "type": "header",
+        "content": "Social"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_socials",
+        "label": "Show social media icons?",
+        "default": true,
+        "info": "If checked, all social media linked on Theme Settings will be shown on the footer."
+      },  
+      {
+        "type": "image_picker",
+        "id": "socials_graphic",
+        "label": "Graphic",
+        "info": "A graphic that will be displayed before the social media icons."
+      },
+     {
+       "type": "textarea",
+       "id": "socials_graphic_code",
+       "label": "Graphic SVG Code",
+       "info": "(Optional) The SVG Code of the graphic to add. This will replace the icon."
+     },
+
+
+      {
+        "type":"header",
+        "content":"Background"
+      },
+      {
+        "type":"color",
+        "id":"bg_color_1",
+        "label":"Background Color 1"
+      },
+      {
+        "type":"color",
+        "id":"bg_color_2",
+        "label":"Background Color 2",
+        "info":"(Optional) Background will form gradient if added."
+      },
+      {
+        "type":"color",
+        "id":"bg_color_3",
+        "label":"Background Color 3",
+        "info":"(Optional) Background will form gradient if added."
+      },
+      {
+        "type":"range",
+        "id":"gradient_balance",
+        "min":1,
+        "max":100,
+        "step":1,
+        "unit":"%",
+        "label":"Gradient Balance",
+        "default":50
+      },
+      {
+        "type":"text",
+        "id":"gradient_angle",
+        "label":"Gradient Angle",
+        "default":"0",
+        "info":"Choose a number from 1 to 360."
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "footer_form",
+        "name": "Form Embed",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "body",
+            "label": "Text"
+          },
+          {
+            "type": "html",
+            "id": "embed_code",
+            "label": "Embed Code"
+          }
+        ]
+      },
+
+      {
+        "type": "footer_main_nav",
+        "name": "Main Menu",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "link_list",
+            "id": "footer_linklist",
+            "label": "Links"
+          }
+        ]
+      }
+    ]
+  }
+
+{% endschema %}

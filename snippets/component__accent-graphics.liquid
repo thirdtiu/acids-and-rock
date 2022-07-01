@@ -1,0 +1,259 @@
+{%- comment -%}
+  Settings
+  --
+  accent_graphic
+  icon
+  svg_code
+
+  x_setting
+  y_setting
+  
+  width_desktop
+  position_x_desktop
+  position_y_desktop
+
+  width_mobile
+  position_x_mobile
+  position_y_mobile 
+  {%- endcomment -%}
+
+  {%- assign block_name = block_name | default: "accent_graphic" -%}
+
+  <div class="accent-graphic-wrapper {{ section.id }}">
+    {% assign parallax_count = 0 %}
+    {% assign floating_count = 0 %}
+
+    {% for block in section.blocks %}
+      {% if block.type == block_name %}
+        {%- case block.settings.animation -%}
+        
+          {%- when "parallax" -%}
+            {%- liquid
+              assign speed = 1
+              assign mobile_speed = 1
+              assign remainder = parallax_count | modulo: 3
+
+              case remainder
+                when 1
+                  assign speed = 3
+                  assign mobile_speed = 2
+
+                when 2
+                  assign speed = 6
+                  assign mobile_speed = 4
+              endcase
+            -%}
+
+            <div 
+              class="accent-graphic rellax graphic-{{ forloop.index }} visible__{{ block.settings.visibility }}"
+              data-rellax-speed="{{ speed }}"
+              data-rellax-mobile-speed="{{ mobile_speed }}"
+              data-animation="parallax"
+            >
+              {% render 'component__section-icon', 
+                icon: block.settings.icon, 
+                icon_width: block.settings.width_desktop, 
+                svg_code: block.settings.svg_code,
+                no_aos: true
+              %}
+            </div>
+            {%- assign parallax_count = parallax_count | plus: 1 -%}
+          
+          {%- when "floating" -%}
+            <div 
+              class="accent-graphic graphic-{{ forloop.index }} visible__{{ block.settings.visibility }} {{ block.settings.animation }}" 
+              data-float-variant="{{ floating_count | modulo: 3 }}"
+            >
+              <div data-aos="zoom-in">
+                {% render 'component__section-icon', 
+                  icon: block.settings.icon, 
+                  icon_width: block.settings.width_desktop, 
+                  svg_code: block.settings.svg_code 
+                %}
+              </div>
+            </div>
+            {%- assign floating_count = floating_count | plus: 1 -%}
+          
+
+          {%- else -%}
+            <div class="accent-graphic graphic-{{ forloop.index }} visible__{{ block.settings.visibility }} {{ block.settings.animation }}" data-aos-delay="{{ forloop.index }}00">
+              <div data-aos="zoom-in">
+                {% render 'component__section-icon', icon: block.settings.icon, icon_width: block.settings.width_desktop, svg_code: block.settings.svg_code %}
+              </div>
+            </div>
+        {%- endcase -%}
+      {% endif %}
+    {% endfor %}
+
+    <style>
+      {%- for block in section.blocks -%}
+        {%- if block.type == block_name -%}
+        .{{ section.id }} .accent-graphic.graphic-{{ forloop.index }} {
+          {{ block.settings.x_setting }}: {{ block.settings.position_x_mobile }}%;
+          {{ block.settings.y_setting }}: {{ block.settings.position_y_mobile }}%;
+          width: {{ block.settings.width_mobile }}px;
+        }
+
+        .{{ section.id }} .accent-graphic.graphic-{{ forloop.index }} img {
+          /* transform: rotate( {{ block.settings.rotation }}deg ) translateZ(0); */
+          transform: translateZ(0);
+        }
+
+        @media print, screen and (min-width: 64em) {
+          .{{ section.id }} .accent-graphic.graphic-{{ forloop.index }} {
+            {{ block.settings.x_setting }}: {{ block.settings.position_x_desktop }}%;
+            {{ block.settings.y_setting }}: {{ block.settings.position_y_desktop }}%;
+            width: {{ block.settings.width_desktop }}px;
+          }
+        }
+        {%- endif -%}
+      {%- endfor -%}
+    </style>
+  </div>
+
+
+  {%- comment -%}
+  BLOCK SCHEMA
+
+  {
+        "type": "accent_graphic", 
+        "name": "Accent Graphic",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Graphic SVG Code",
+            "info":"Paste SVG code for vector graphic"
+          },
+          {
+            "type":"header",
+            "content":"Visibility"
+          },
+          {
+            "type": "select",
+            "id": "visibility",
+            "options": [
+                { "value": "always", "label": "Always" },
+                { "value": "desktop_only", "label": "Desktop Only" },
+                { "value": "mobile_only", "label": "Mobile Only" }
+                ],
+            "label": "Show on..",
+            "default": "always"
+          },
+          {
+            "type":"header",
+            "content":"Position"
+          },
+          {
+            "type": "select",
+            "id": "x_setting",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+                ],
+            "label": "X Position",
+            "default": "left"
+          },
+          {
+            "type": "select",
+            "id": "y_setting",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "bottom", "label": "Bottom" }
+                ],
+            "label": "Y Position",
+            "default": "top"
+          },
+          {
+            "type":"header",
+            "content":"Desktop Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_desktop",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_desktop",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_desktop",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Mobile Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_mobile",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_mobile",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_mobile",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Animation Settings"
+          },
+          {
+            "type": "select",
+            "id": "animation",
+            "options": [
+                { "value": "none", "label": "None" },
+                { "value": "rotating", "label": "Rotate" },
+                { "value": "floating", "label": "Float" },
+                { "value": "flying", "label": "Fly Across Screen" }
+                ],
+            "label": "Animation",
+            "default": "none"
+          }
+        ]
+      }
+  {%- endcomment -%}

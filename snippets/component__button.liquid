@@ -1,0 +1,6 @@
+<a{% if button_link != blank %} href="{{ button_link }}"{% endif %} class="button {{ button_style }} {{ button_color }} {% if button_has_arrow %} arrow {% endif %}"{% if button_link == blank %} aria-disabled="true"{% endif %} {{ block.shopify_attributes }}>
+  <span class="button_text">{{ button_label | escape }}</span>
+  {% if button_has_arrow %}
+    <span class="arrow">{%- render 'icon__right-arrow' -%}</span>
+  {% endif %}
+</a>

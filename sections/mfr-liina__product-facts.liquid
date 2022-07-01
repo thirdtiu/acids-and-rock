@@ -1,0 +1,663 @@
+{%- comment -%}
+--------------------------------------
+assign section settings to variables
+--------------------------------------
+{%- endcomment -%}
+
+{% if section.settings.spacing_outside_section %}
+  {%- assign top_spacing_inside = section.settings.section_spacing_top -%}
+  {%- assign bottom_spacing_inside = section.settings.section_spacing_bottom -%}
+  {%- assign bg_color_on_inner = "background" -%}
+  {% assign extra_padding = "inside-padding" %}
+{% else %}
+  {%- assign top_spacing_outside = section.settings.section_spacing_top -%}
+  {%- assign bottom_spacing_outside = section.settings.section_spacing_bottom -%}
+  {%- assign bg_color_on_section = "background" -%}
+  {% assign extra_padding = "" %}
+{% endif %}
+
+{% if section.settings.color_theme %}
+  {% assign text_color = section.settings.color_theme %}
+{% else %}
+  {% assign text_color = "" %}
+{% endif %}
+
+
+{% if section.settings.is_full_width %}
+  {% assign is_full_width = "full" %}
+{% else %}
+  {% assign is_full_width = "" %}
+{% endif %}
+
+
+{% if section.settings.is_centered %}
+  {% assign text_center = "text-center" %}
+  {% assign align_center = "align-center" %}
+{% else %}
+  {% assign text_center = "" %}
+  {% assign align_center = "" %}
+{% endif %}
+
+{% if section.settings.add_gutter %}
+  {% assign grid_gutter = "grid-gutter" %}
+{% else %}
+  {% assign grid_gutter = "" %}
+{% endif %}
+
+{%- comment -%} hide main grid mobile because carousel will be showing {%- endcomment -%}
+{% if section.settings.is_carousel_on_mobile %}
+  {% assign visibility = "show-for-large" %}
+{% else %}
+  {% assign visibility = "" %}
+{% endif %}
+
+{% assign animation_type = "data-aos='fade-up'" %}
+
+{% if section.settings.is_carousel_on_mobile %}
+  {% assign full_mobile = "full-mobile" %}
+{% endif %}
+
+
+<section class="mfr-liina__product-facts {{ top_spacing_outside }} {{ bottom_spacing_outside }} {{ bg_color_on_section }}">
+
+  <div class="grid-container {{ full_mobile }} {{ is_full_width }} {{ top_spacing_inside }} {{ bottom_spacing_inside }}">
+    <div class="inner  {{ extra_padding }} {{ bg_color_on_inner }} {{ grid_gutter }} ">
+
+
+      <div class="grid-x {{ align_center }}">
+
+        <div class="cell small-11 medium-10 section-content {{ text_color }} {{ text_center }}">
+          <div class="inner">
+            {%- for block in section.blocks -%}
+              {% case block.type %}
+                  
+                {%- when 'heading' -%}
+                  {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style, text_size: block.settings.make_large %}
+              
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+
+
+
+      {% assign section_layout = section.settings.section_layout %}
+
+      {% capture section_image %}
+      {% capture image_size %}{{ section.settings.section_image_max_width }}x{% endcapture %}
+      <div class="section-image {{ section_layout }}" data-aos="fade-up" style="max-width: {{ section.settings.section_image_max_width }}px;">
+        <img loading="lazy" src="{{ section.settings.section_image | img_url: image_size }}"
+          srcset="{{ section.settings.section_image | img_url: image_size }} 1x, {{ section.settings.section_image | img_url: image_size, scale: 2 }} 2x"
+          alt="{{ section.settings.section_image.alt }}">
+      </div>
+      {% endcapture %}
+
+      {% capture button %}
+        <div class="button-set {{ align_center }}">
+          {%- for block in section.blocks -%}
+            {% if block.type == "button" %}
+              {%- render 'component__button', 
+                button_link: block.settings.button_link, 
+                button_style: block.settings.button_style, 
+                button_color: block.settings.button_color, 
+                button_has_arrow: block.settings.button_has_arrow, 
+                button_label: block.settings.button_label 
+              -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {% endcapture %}
+
+
+      {%- comment -%} show differnt layouts based on where the section image will show {%- endcomment -%}
+      {% case section_layout %}
+
+      {% when 'no_image' %}
+        <div class="grid-x {{ text_color }} small-up-2 large-up-3 {{ align_center }} {{ section_layout }} image-style__{{ section.settings.image_style }}">
+          {%- for block in section.blocks -%}
+          {% case block.type %}
+          {%- when 'text_block' -%}
+          <div class="{{ visibility }} cell">
+            {% render 'partial__text-grid-block', title: block.settings.title, text: block.settings.text, image: block.settings.image, svg_code: block.settings.svg_code, preset_icon: block.settings.preset_icon %}
+          </div>
+          {%- endcase -%}
+          {%- endfor -%}
+        </div>
+
+
+      {% when 'centered_image' %}
+        <div class="grid-x {{ text_color }} {{ align_center }} {{ section_layout }} image-style__{{ section.settings.image_style }}">
+          <div class="centered-image-wrapper">
+            {%- for block in section.blocks -%}
+              {% case block.type %}
+                {%- when 'icon' -%}
+                  <div class="fact-image {{ block.settings.position }}" {{ animation_type }}>
+                    {% render 'component__section-icon', icon: block.settings.icon, icon_width: block.settings.icon_width %}
+                  </div>
+            
+                {%- when 'text_info' -%}
+                  <div {{ animation_type }} class="text-info {{ block.settings.color_theme }} {{ block.settings.position }}" style="background-color: {{ block.settings.bg_color }};">
+                    <h4 class="h4">{{ block.settings.title }}</h4>
+                    <p>{{ block.settings.description }}</p>
+                  </div>
+            
+              {%- endcase -%}
+            {%- endfor -%}
+            {{ section_image }}
+          </div>
+        </div>
+
+      {% when 'image_above' %}
+        {{ section_image }}
+        <div class="grid-x {{ text_color }} small-up-2 large-up-3 {{ visibility }} {{ align_center }} {{ grid_inner_classes }} {{ section_layout }} image-style__{{ section.settings.image_style }}">
+          {%- for block in section.blocks -%}
+          {% case block.type %}
+          {%- when 'text_block' -%}
+          <div class="cell {{ text_block_grid_classes }}">
+            {% render 'partial__text-grid-block', title: block.settings.title, text: block.settings.text, image: block.settings.image, svg_code: block.settings.svg_code, preset_icon: block.settings.preset_icon %}
+          </div>
+          {%- endcase -%}
+          {%- endfor -%}
+        </div>
+
+
+      {% when 'image_below' %}
+        <div class="grid-x {{ text_color }} small-up-2 large-up-3 {{ visibility }} {{ align_center }} {{ grid_inner_classes }} {{ section_layout }} image-style__{{ section.settings.image_style }}">
+          {%- for block in section.blocks -%}
+          {% case block.type %}
+          {%- when 'text_block' -%}
+          <div class="cell {{ text_block_grid_classes }}">
+            {% render 'partial__text-grid-block', title: block.settings.title, text: block.settings.text, image: block.settings.image, svg_code: block.settings.svg_code, preset_icon: block.settings.preset_icon %}
+          </div>
+          {%- endcase -%}
+          {%- endfor -%}
+        </div>
+        {{ section_image }}
+
+      {% else %}
+
+      {% endcase %}
+
+
+    
+
+    </div>
+  </div>
+
+
+
+  {% render 'component__section-dividers' %}
+  {% render 'component__gradient-bg-styles' %}
+  {% render 'component__accent-graphics' %}
+
+
+</section>
+
+
+
+{% schema %}
+{
+  "name":"Product Facts",
+  "settings":[
+    {
+      "type":"header",
+      "content":"Section Image"
+    },
+    {
+      "type":"select",
+      "id":"section_layout",
+      "options":[
+        { "value":"no_image", "label":"No Image" },
+        { "value":"centered_image", "label":"Centered Image" },
+        { "value":"image_above", "label":"Image at Top" },
+        { "value":"image_below", "label":"Image at Bottom" }
+      ],
+      "label":"Section Layout",
+      "default":"no_image"
+    },
+    {
+      "type": "select",
+      "id": "image_style",
+      "options": [
+          { "value": "transparent_image", "label": "Icon or Tranparent Graphic" },
+          { "value": "cover_image", "label": "Full Image/JPG" }
+          ],
+      "label": "Image Style",
+      "default": "transparent_image"
+    },
+    {
+      "type":"image_picker",
+      "id":"section_image",
+      "label":"Section Image (Optional)"
+    },
+    {
+      "type":"range",
+      "id":"section_image_max_width",
+      "min":30,
+      "max":800,
+      "step":10,
+      "unit":"px",
+      "label":"Image width",
+      "default":400
+    },
+    {
+      "type":"checkbox",
+      "id":"put_on_image",
+      "label":"Position Button on Image?",
+      "default": false,
+      "info":"applicable for centered image layout"
+    },
+    {
+      "type":"header",
+      "content":"Content Settings"
+    },
+    {
+      "type":"checkbox",
+      "id":"is_centered",
+      "default":true,
+      "label":"Center Text"
+    },
+    {
+      "type": "select",
+      "id": "color_theme",
+      "options": [
+          { "value": "color_theme__dark", "label": "Dark Text" },
+          { "value": "color_theme__light", "label": "Light Text" }
+          ],
+      "label": "Color Theme",
+      "default": "color_theme__dark"
+    },
+    {
+      "type":"checkbox",
+      "id":"is_carousel_on_mobile",
+      "default":true,
+      "label":"Make carousel on mobile?"
+    },
+    {
+      "type":"header",
+      "content":"Section Spacing"
+    },
+    {
+      "type":"checkbox",
+      "id":"spacing_outside_section",
+      "label":"Put the spacing outside the section"
+    },
+    {
+      "type":"checkbox",
+      "id":"is_full_width",
+      "default":true,
+      "label":"Full Width"
+    },
+    {
+      "type":"checkbox",
+      "id":"add_gutter",
+      "label":"Add margin around section"
+    },
+    {
+       "type": "select",
+       "id": "section_spacing_top",
+       "options": [
+          { "value": "section_spacing_none_top", "label": "None"},
+          { "value": "section_spacing_small_top", "label": "Small"},
+          { "value": "section_spacing_medium_top", "label": "Medium"},
+          { "value": "section_spacing_large_top", "label": "Large"},
+          { "value": "section_spacing_xlarge_top", "label": "X-Large"}
+       ],
+       "label": "Top spacing"
+    },
+    {
+       "type": "select",
+       "id": "section_spacing_bottom",
+       "options": [
+          { "value": "section_spacing_none_bottom", "label": "None"},
+          { "value": "section_spacing_small_bottom", "label": "Small"},
+          { "value": "section_spacing_medium_bottom", "label": "Medium"},
+          { "value": "section_spacing_large_bottom", "label": "Large"},
+          { "value": "section_spacing_xlarge_bottom", "label": "X-Large"}
+       ],
+       "label": "Bottom spacing"
+    },
+    {
+      "type":"header",
+      "content":"Background"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Dividers"
+    },
+    {
+      "type": "select",
+      "id": "top_divider",
+      "options": [
+          { "value": "none", "label": "None" },
+          { "value": "angled", "label": "Show Angled Divider" },
+          { "value": "phyllup-flag", "label": "Show Phyllup Divider" }
+          ],
+      "label": "Top Divider",
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "svg_divider_top_color",
+      "label": "Top divider color"
+    },
+    {
+      "type": "select",
+      "id": "bottom_divider",
+      "options": [
+          { "value": "none", "label": "None" },
+          { "value": "angled", "label": "Show Angled Divider" },
+          { "value": "angled large", "label": "Show Large Angled Divider" },
+          { "value": "phyllup-flag", "label": "Show Phyllup Divider" } 
+          ],
+      "label": "Bottom Divider",
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "svg_divider_bottom_color",
+      "label": "Bottom divider color"
+    }
+  ],
+  "blocks":[
+    {
+      "type": "text_info",
+      "name": "Text Info",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "color_theme",
+          "options": [
+              { "value": "color_theme__dark", "label": "Dark Text" },
+              { "value": "color_theme__light", "label": "Light Text" }
+              ],
+          "label": "Color Theme",
+          "default": "color_theme__dark"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#fff"
+        },
+        {
+          "type":"select",
+          "id":"position",
+          "options":[
+            {
+              "value":"top-left",
+              "label":"Top Left"
+            },
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"top-right",
+              "label":"Top Right"
+            },
+            {
+              "value":"bottom",
+              "label":"Bottom"
+            },
+            {
+              "value":"bottom-right",
+              "label":"Bottom Right"
+            }
+          ],
+          "label":"Position",
+          "default":"top-left"
+        }
+      ]
+    },
+    {
+      "type": "icon", 
+      "name": "Icon",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Image width",
+          "default": 150
+        },
+        {
+          "type":"select",
+          "id":"position",
+          "options":[
+            {
+              "value":"bottom-left",
+              "label":"Bottom Left"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ],
+          "label":"Position",
+          "default":"bottom-left"
+        }
+      ]
+    },
+    {
+      "type":"heading",
+      "name":"Heading",
+      "limit":2,
+      "settings":[
+        {
+          "type":"richtext",
+          "id":"heading",
+          "default":"<p>Heading H1</p>",
+          "label":"Heading H1"
+        },
+        {
+          "type":"select",
+          "id":"header_style",
+          "options":[
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            }
+          ],
+          "label": "Header Style",
+          "default": "h1"
+        },
+        {
+          "type": "checkbox",
+          "id": "make_large",
+          "label": "Make extra large",
+          "info" : "only applies to H1"
+        }
+      ]
+    },
+    {
+      "type": "accent_graphic", 
+      "name": "Accent Graphic",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type":"html",
+          "id":"svg_code",
+          "label":"Graphic SVG Code",
+          "info":"Paste SVG code for vector graphic"
+        },
+        {
+          "type":"header",
+          "content":"Visibility"
+        },
+        {
+          "type": "select",
+          "id": "visibility",
+          "options": [
+              { "value": "always", "label": "Always" },
+              { "value": "desktop_only", "label": "Desktop Only" },
+              { "value": "mobile_only", "label": "Mobile Only" }
+              ],
+          "label": "Show on..",
+          "default": "always"
+        },
+        {
+          "type":"header",
+          "content":"Position"
+        },
+        {
+          "type": "select",
+          "id": "x_setting",
+          "options": [
+              { "value": "left", "label": "Left" },
+              { "value": "right", "label": "Right" }
+              ],
+          "label": "X Position",
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "y_setting",
+          "options": [
+              { "value": "top", "label": "Top" },
+              { "value": "bottom", "label": "Bottom" }
+              ],
+          "label": "Y Position",
+          "default": "top"
+        },
+        {
+          "type":"header",
+          "content":"Desktop Settings"
+        },
+        {
+          "type": "range",
+          "id": "width_desktop",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Graphic Width",
+          "default": 150
+        },
+        {
+          "type": "range",
+          "id": "position_x_desktop",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X Position",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "position_y_desktop",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Y Position",
+          "default": 10
+        },
+        {
+          "type":"header",
+          "content":"Mobile Settings"
+        },
+        {
+          "type": "range",
+          "id": "width_mobile",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Graphic Width",
+          "default": 150
+        },
+        {
+          "type": "range",
+          "id": "position_x_mobile",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X Position",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "position_y_mobile",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%", 
+          "label": "Y Position",
+          "default": 10
+        },
+        {
+          "type":"header",
+          "content":"Animation Settings"
+        },
+        {
+          "type": "select",
+          "id": "animation",
+          "options": [
+              { "value": "none", "label": "None" },
+              { "value": "rotating", "label": "Rotate" },
+              { "value": "floating", "label": "Float" },
+              { "value": "flying", "label": "Fly Across Screen" }
+              ],
+          "label": "Animation",
+          "default": "none"
+        },
+        {
+          "type":"checkbox",
+          "id":"show_shadow",
+          "label":"Show Shadow"
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name":"Product Facts",
+      "category":"Manufactur Custom Sections",
+      "blocks":[
+      ]
+    }
+  ]
+}
+{% endschema %}

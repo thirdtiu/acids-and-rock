@@ -1,0 +1,7 @@
+{% capture image_size %}{{ image_width }}x{% endcapture %}
+  <div class="image" data-aos="zoom-in">
+    <img loading="lazy" src="{{ image | img_url: image_size }};"
+    srcset="{{ image | img_url: image_size }} 1x, {{ image | img_url: image_size, scale: 2 }} 2x"
+    alt="{{ image.alt | default: shop.name }}"
+    itemprop="image">
+  </div>

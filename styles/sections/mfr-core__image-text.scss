@@ -1,0 +1,182 @@
+section.mfr-core__image-text {
+  background-repeat: repeat;
+  background-size: 300px;
+  position: relative;
+
+  .grid-container {
+    //overflow: hidden;
+  }
+  .small-order-1 {
+    @include breakpoint(small only) {
+      margin-bottom: 3rem;
+    }
+  }
+  .inner {
+    margin: 0 auto;
+    max-width: 40rem;
+    @include breakpoint(medium up) {
+      padding: 2rem;
+    }
+  }
+  
+  .section-content {
+    padding: 0rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+    @include breakpoint(small down) { 
+      text-align: center;
+      .button-set {
+        justify-content: center;
+      }
+    }
+    @include breakpoint(large up) {
+      padding: 3rem;
+      padding-top: 0;
+      margin-bottom: 0rem;
+    }
+    &.offset-title {
+      @include breakpoint(large up) {
+        @include transform(translate(0, -18%));
+        .section-title {
+          @include breakpoint(large up) {
+            width: 150%;
+            max-width: 150%;
+          }
+        }
+      }
+      
+    }
+    .section-title {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 3rem;
+      //text-align: center;
+      
+      &.no-wrap {
+        @include breakpoint(large up) {
+          white-space: nowrap;
+        }
+      }
+    }
+    .section-text {
+      max-width: 36rem;
+      //margin: 0 auto;
+    }
+    .button {
+      //margin-top: 2rem;
+    }
+   
+  }
+
+  .section-image {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    &.margin-bottom {
+      margin-bottom: 2rem;
+    }
+    &.margin-top {
+      margin-top: 2rem;
+    }
+    &.cover {
+      .responsive-image__wrapper {
+        height: 100%;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+    &.contain .image-wrapper {
+      //max-width: 37.5rem;
+      @include border-radius($global-radius-liquid);
+      overflow: hidden;
+      height: 30rem;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        position: relative;
+        z-index: 1;
+      }
+    }
+    .image-wrapper {
+      @include transition(1s all cubic-bezier(0.5,0,0,1));
+      width: 100%;
+      //height: 100%;
+      overflow: hidden;
+      img {
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    .video-wrapper {
+      .video-mask {
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+      }
+      .video {
+        z-index: 1;
+        position: relative;
+      }
+    }
+
+    .glow {
+      @include border-radius(50rem);
+      @include transform(translate(-50%, -50%));
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      top: 50%;
+      background: rgb(255,255,255);
+      background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 55%);
+      width: 150vw;
+      height: 100vw;
+      @include breakpoint(medium up) {
+        width: 100%;
+        height: 120%;
+      }
+      @include breakpoint(large up) {
+       width: 110%;
+       height: 150%; 
+      }
+    }
+  
+  }
+
+
+  
+}
+
+#MainContent {
+  >.shopify-section:first-child section.mfr-core__image-text { //pushes down image text section if first sections so it doestn overlap the header logo
+    padding-top: 4.5rem;
+    @include breakpoint(medium) {
+      //margin-top: 4.5rem;
+    }
+  }
+}
+
+
+//ORDERING
+// section.content__image-text {
+//   @include breakpoint(medium down) {
+//     .section-content {
+//       order: 2;
+//     }
+//     .section-image {
+//       order: 1;
+//     }
+//   }
+// }

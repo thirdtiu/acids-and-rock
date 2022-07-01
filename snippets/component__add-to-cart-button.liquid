@@ -1,0 +1,43 @@
+{% if product.available %}
+  {%- assign open_off_canvas = 'data-open="offCanvasCart"' -%}
+{% else %}
+  {%- assign open_off_canvas = '' -%}
+{% endif %}
+
+{% if show_price == true or show_price == "true" %}
+  {%- assign has_price_class = 'with-price' -%}
+{% else %}
+  {%- assign has_price_class = '' -%}
+{% endif %}
+
+{% assign button_class = button_class %}
+
+{% assign product = product %}
+
+
+<form data-cart-submit data-product-id="{{ product.id }}">
+  
+  {% render 'component-product-form-hidden-inputs', product: product %}
+
+  <select name="id" style="display:none">
+    {% for variant in product.variants %}
+     <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+   {% endfor %}
+  </select>
+
+  <button class="button {{ button_class }} {{ has_price_class }} add-to-cart " {{ open_off_canvas }} type="submit">
+    <div class="button-text">
+      {% if product.available %}
+        {{ 'products.product.add_to_cart' | t}}
+      {% else %} 
+        {{ 'products.product.sold_out' | t }}
+      {% endif %}
+    </div>
+
+    {% if show_price == true or show_price == "true" %}
+    <span class="button-divider"></span>
+      {% render 'price', product: product %}
+    {% endif %}
+  </button>
+
+</form>

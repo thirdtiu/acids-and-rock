@@ -1,0 +1,44 @@
+{% if use_bottom_margin == true %}
+
+  {%- if translate_y < 0 -%}
+    {%- assign translation_direction = "top" -%}
+    {%- assign neg = '' -%}
+  {%- else -%}
+    {%- assign translation_direction = "bottom" -%}
+    {%- assign neg = '-' -%}
+  {%- endif -%}
+
+{%- else -%}
+
+  <style>
+    .{{ section.id }}.text-callout svg > g > g > path {
+      fill: {{ circle_color }};
+    }
+    {% if translate_y != blank %}
+      .{{ section.id }}.text-callout {
+        margin-top: {{ translate_y | divided_by: 2 }}px !important;
+      }
+      @media print, screen and (min-width: 64em) { 
+        .{{ section.id }}.text-callout {
+          margin-top: {{ translate_y }}px !important; 
+        }
+      }
+    {% endif %}
+  </style>
+
+{%- endif -%}
+
+<div class="text-callout {{ section.id }} {{ callout_size }}" {% if use_bottom_margin == true %} style="margin-{{ translation_direction }}: {{ neg }}{{ translate_y }}px;" {% endif %}>
+
+  
+  <div class="text small">
+    <p class="alt">{{ text }}</p>
+  </div>
+  <div class="callout-bg {{ phyllup_style }}">
+    {% if phyllup_style == "stoked" %}
+      <div class="lottie-callout-happy"></div> 
+    {% elsif phyllup_style == "interested" %}  
+      <div class="lottie-callout-interested"></div> 
+    {% endif %}
+  </div>
+</div>

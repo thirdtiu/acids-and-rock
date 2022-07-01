@@ -1,0 +1,75 @@
+<div id="panel-wrapper" class="" style="background: {{ section.settings.panel_bg_color }};">
+
+  <button class="close" aria-label="Close menu" type="button" data-close>
+    {% render 'icon-close' %}
+  </button>
+
+  <div class="inner">
+   
+    {% if section.settings.icon %}
+      <div class="icon">
+        {% render 'component__section-icon', icon: section.settings.icon, icon_width: section.settings.icon_width, svg_code: section.settings.svg_code %} 
+      </div>
+    {% endif %}
+    
+    <div class="panel__title text-center">
+      <h1 class="h1">{{ section.settings.title }}</h1>
+    </div>
+
+
+    {% render 'partial__account-login' %}
+    
+
+
+    
+  </div>
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Login Panel",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Panel Graphic"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Image"
+      },
+      {
+        "type": "range",
+        "id": "icon_width",
+        "min": 40,
+        "max": 400,
+        "step": 10,
+        "unit": "px",
+        "label": "Image width",
+        "default": 150
+      },
+      {
+        "type":"html",
+        "id":"svg_code",
+        "label":"Image SVG Code",
+        "info":"Paste SVG code for vector graphic"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Sign In"
+      },
+      {
+        "type": "color_background",
+        "id": "panel_bg_color",
+        "label": "Background",
+        "default": "#000"
+      }
+    ]
+  }
+
+{% endschema %}

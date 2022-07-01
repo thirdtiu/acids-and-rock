@@ -1,0 +1,231 @@
+
+  /* Txt Backgrounds
+  ====================================================================
+  ====================================================================*/
+
+.tw {
+  .h1 {
+    overflow: hidden;
+    //line-height: 3.1rem;
+    @include breakpoint(large up) {
+      //line-height: 3.9rem;
+    }
+  }
+  span.o {
+    // overflow: hidden;
+    padding: 0px 18px 0;
+    margin: 0 -18px; //used to add some invisible space around text for backgrounds and overflow hidden
+    @for $i from 1 through 100 {
+      &:nth-child(#{$i}) span.i {
+        transition-delay: #{$i * .04}s !important;
+      }
+    }
+  }
+  // strong:after {
+  //   @include transition(.2s all cubic-bezier(0.5,0,0,1) .8s);
+  //   width: 0;
+  // }
+  span.i {
+    @include transform(translate(0, 10rem));
+    @include transition(.4s all cubic-bezier(0.5,0,0,1));
+    @include breakpoint(medium up) {
+      @include transform(translate(0, 8rem));
+    }
+  }
+  &.aos-animate span.i {
+    @include transform(translate(0, 0rem));
+    // strong:after {
+    //   width: calc(100% + 1.6rem);
+    //   @include breakpoint(large up) {
+    //     width: calc(100% + 1.6rem);
+    //   }
+    // }
+  }
+}
+
+
+  /* Fade In
+  ====================================================================
+  ====================================================================*/
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @mixin animation-fade-in($speed: 500ms, $delay: 50ms) {
+    will-change: opacity;
+    transform: translateZ(0);
+    animation: fadeIn $speed ease normal;
+    animation-delay: $delay;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.65,.49,.21,.98);
+  }
+
+.is-hidden { display: block !important; }
+
+/*--------------------------------
+Float
+-------------------------------- */
+.floating {
+    animation-name: floating;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, 0px); }
+}
+
+@keyframes floating-reverse {
+  from { transform: translate(0,  0px); }
+  65%  { transform: translate(0, -15px); }
+  to   { transform: translate(0, 0px); }
+}
+
+.floating.reverse {
+  animation-name: floating-reverse;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+
+/* --------------------------------
+Shadow Blur
+-------------------------------- */
+.shadow-blur img {
+  animation-name: shadow-blur;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes shadow-blur {
+  from { filter: blur(1.3rem) grayscale(1) brightness(0); @include transform(scale(1) skew(30deg, -4deg)); }
+  65%  { filter: blur(.8rem) grayscale(1) brightness(0); @include transform(scale(.85) skew(30deg, -4deg)); }
+  to   { filter: blur(1.3rem) grayscale(1) brightness(0); @include transform(scale(1) skew(30deg, -4deg)); }
+}
+
+.shadow-blur.reverse img {
+  animation-name: shadow-blur-reverse;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes shadow-blur-reverse {
+  from { filter: blur(.8rem) grayscale(1) brightness(0); @include transform(scale(.85) skew(30deg, -4deg)); }
+  65%  { filter: blur(1rem) grayscale(1) brightness(0); @include transform(scale(1) skew(30deg, -4deg)); }
+  to   { filter: blur(.8rem) grayscale(1) brightness(0); @include transform(scale(.85) skew(30deg, -4deg)); }
+}
+
+
+//sharper shadow
+.shadow-blur-small img {
+  animation-name: shadow-blur-small;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes shadow-blur-small {
+  from { filter: blur(.3rem) grayscale(1) brightness(0); @include transform(scale(.95)); }
+  65%  { filter: blur(.5rem) grayscale(1) brightness(0); @include transform(scale(1)); }
+  to   { filter: blur(.3rem) grayscale(1) brightness(0); @include transform(scale(.95)); }
+}
+
+.shadow-blur-small.reverse img {
+  animation-name: shadow-blur-reverse-small;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes shadow-blur-reverse-small {
+  from { filter: blur(.5rem) grayscale(1) brightness(0); @include transform(scale(.95)); }
+  65%  { filter: blur(.3rem) grayscale(1) brightness(0); @include transform(scale(1)); }
+  to   { filter: blur(.5rem) grayscale(1) brightness(0); @include transform(scale(.95)); }
+}
+
+
+
+
+/* --------------------------------
+Flying
+-------------------------------- */
+.flying {
+    animation-name: flying;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes flying {
+    from { left: -5%; }
+    65%  { left: 70%; }
+    100%   { left: 110%; }
+}
+
+
+/* --------------------------------
+Rotate
+-------------------------------- */
+.rotating {
+    animation-name: rotating;
+    animation-duration: 26s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.rotating-slow {
+    animation-name: rotating;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotating {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+
+
+  /* --------------------------------
+  Custom AOS
+  -------------------------------- */
+  [data-aos="fade-up-small"] {
+    opacity: 0;
+    transition-property: transform, opacity;
+
+    &.aos-animate {
+      opacity: 1;
+    }
+
+    @media screen and (min-width: 768px) {
+      transform: translateY(30px);
+
+      &.aos-animate {
+        transform: translateX(0);
+      }
+    }
+  }
+
+
+
+  [data-aos="height"] {
+    @include transition(.6s all cubic-bezier(0.5,0,0,1));
+    height: 0%;
+    transition-property: height;
+    &.aos-animate {
+      height: 100%;
+    }
+  }

@@ -1,0 +1,21 @@
+.mfr-core__custom-liquid {
+  position: relative;
+  
+  .section-content {
+    .section-title {
+      margin-bottom: rem-calc( 48px );
+    }
+  }
+
+  .eapps-instagram-feed {
+    .eapps-instagram-feed-posts-item:nth-child( odd ) {
+      transform: translateY( -58px );
+    }
+
+    .eapps-instagram-feed-posts-view {
+      padding-top: rem-calc( 58px );
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

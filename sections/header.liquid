@@ -1,0 +1,484 @@
+
+{%- comment -%}{{ 'header.css' | asset_url | stylesheet_tag }}{%- endcomment -%}
+<link rel="stylesheet" href="{{ 'header.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'header.css' | asset_url | stylesheet_tag }}</noscript>
+
+{% if section.settings.logo_alternate != blank %}
+  {% assign logo_alternate_class = "has-alternate-logo" %}
+{% else %}
+  {% assign logo_alternate_class = "" %}
+{% endif %}
+
+{% capture header_logo %}
+  <div class="" itemscope itemtype="http://schema.org/Organization">
+    {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+    <a href="/" itemprop="url"class="logo" style="max-width:{{ section.settings.logo_max_width }}px;">
+      {% if section.settings.logo != blank %}
+        {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+        <img src="{{ section.settings.logo | img_url: image_size }}"
+            srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+            class="{{ logo_alternate_class }}"
+            loading="lazy"
+            alt="{{ section.settings.logo.alt | default: shop.name }}"
+            itemprop="logo">
+        {% if section.settings.logo_alternate != blank %}
+        <img src="{{ section.settings.logo_alternate | img_url: image_size }}"
+          srcset="{{ section.settings.logo_alternate | img_url: image_size }} 1x, {{ section.settings.logo_alternate | img_url: image_size, scale: 2 }} 2x"
+          class="alternate-logo"
+          loading="lazy" alt="{{ section.settings.logo_alternate.alt | default: shop.name }}" itemprop="logo">
+        {% endif %}
+      {% elsif section.settings.logo_svg != blank %}
+        <div class="svg">
+          {{ section.settings.logo_svg }}
+        </div>
+      {% else %}
+        <div class="h1">{{ shop.name }}</div>
+      {% endif %}
+    </a>
+  </div>
+{% endcapture %}
+
+
+
+
+{% capture header_menu %}
+  <nav role="navigation" class="show-for-large">
+    <ul class="main-menu menu">
+    {% for link in linklists[section.settings.menu].links %}
+      {% assign linkname = link.title | downcase %}
+      {% assign mega_menu_trigger = section.settings.mega_menu_trigger | downcase %}
+      {% if link.links != blank %}
+        <li class="has-dropdown">
+          <a class="{% if link.active %}current {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+          <ul class="dropdown">
+            {% for childlink in link.links %}
+              <li>
+                <a href="{{ childlink.url }}">
+                  {{ childlink.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        <li>
+          <a class="{% if link.active %}current {% endif %}" id="{% if mega_menu_trigger == linkname %}open-mega-menu{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </nav>
+{% endcapture %}
+
+{% capture header_menu_right %}
+  <nav role="navigation" class="show-for-large">
+    <ul class="main-menu menu">
+      {% for link in linklists[section.settings.menu_right].links %}
+      {% if link.links != blank %}
+      <li class="has-dropdown">
+        <a class="{% if link.active %}current {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+        <ul class="dropdown">
+          {% for childlink in link.links %}
+          <li>
+            <a href="{{ childlink.url }}">
+              {{ childlink.title }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% else %}
+      <li>
+        <a class="{% if link.active %}current {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endcapture %}
+
+
+{% capture annoucement_bar %}
+  {%- if section.settings.announcement_bar_enabled -%}
+    <div class="announcement-bar text-center">
+      {%- if section.settings.announcement_bar_home_page_only == false  -%}
+        {%- if section.settings.announcement_bar_link != blank -%}
+          <a href="{{ section.settings.announcement_bar_link }}">
+            {{ section.settings.announcement_bar_text | escape }}
+          </a>
+        {%- else -%}
+          <span>{{ section.settings.announcement_bar_text | escape }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+{% endcapture %}
+
+
+
+{% assign header_layout = section.settings.header_layout %}
+{% case header_layout %}
+
+  {% when 'logo_centered_layout' %}
+    {% assign header_center = header_logo %}
+    {% assign header_left = header_menu  %}
+    {% assign header_right = header_menu_right %}
+
+  {% when 'logo_left_layout' %}
+  {% assign header_center = header_menu  %}
+  {% assign header_left = header_logo %}
+
+  {% else %}
+{% endcase %}
+
+
+
+<section data-section-id="{{ section.id }}" data-section-type="header">
+  {{ annoucement_bar }}
+   
+    {% if template.suffix == 'our-approach' or 
+        template.suffix == 'spirulina-101' or
+        template.name == 'login' or
+        template.name == 'register' or
+        template.name == 'page' 
+        and template.suffix != 'faq' %} 
+      {% assign sticky_bar_class = "bar" %}
+    {% endif %}
+    
+    <header role="banner" class="{{ sticky_bar_class }} {%- if section.settings.announcement_bar_enabled -%}announcement_bar_enabled {% endif %}" data-sticky  data-sticky-on="small" data-margin-top="0">
+
+      {% assign shop_ctas = section.blocks | where: "type", "shop_cta" %}
+      {% assign mobile_buttons = section.blocks | where: "type", "mobile_button" %}
+      {% assign desktop_buttons = section.blocks | where: "type", "desktop_button" %}
+     {%- comment -%}
+      <!-- {% render 'component__mega-menu',
+          shop_ctas: shop_ctas,
+          mobile_buttons: mobile_buttons,
+          desktop_buttons: desktop_buttons,
+          mega_menu_bg: section.settings.mega_menu_bg
+      %} -->
+      {%- endcomment -%}
+
+      <div class="inner">
+
+        <div class="header-links__left">
+
+          {%- comment -%}
+          <!-- <button aria-label="Mobile Menu Trigger" class="mobile-menu-trigger hide-for-large" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button> -->
+          {%- endcomment -%}
+          <button
+            aria-label="Mobile Menu Trigger" 
+            class="mobile-menu-trigger hide-for-large"
+             type="button" data-toggle="offCanvasMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          {{ header_left }}
+
+        </div>
+
+
+
+        <div class="header-links__center">
+
+          {{ header_center }}
+
+        </div>
+
+
+
+      <div class="header-links__right">
+        {{ header_right }}
+
+        {% if section.settings.show_right_cta %}
+          {% if section.settings.right_cta_link != blank %}
+            {{ section.settings.right_cta_link }}
+            <a href="{{section.settings.right_cta_link}}" class="header-cta-icon button show-for-medium">
+              {{section.settings.right_cta_icon}}
+              <span>{{section.settings.right_cta_text}}</span>
+            </a>
+          {% else %}
+            {% comment %}
+            {%- include 'component__account-header-link' -%} 
+            {% endcomment %}
+          {% endif %}
+        {% endif %}
+
+        <div class="cart" data-open="offCanvasCart" data-cart-view="data-cart-view">
+          {%- if section.settings.show_cart_icon -%}
+          <div class="cart-icon">
+            {{ section.settings.cart_icon_svg }}
+          </div>
+          {%- endif -%}
+          <div class="item-count" data-cart-render="item_count">{{ cart.item_count }}</div>
+        </div>
+
+
+
+        </div><!-- end top bar right-->
+
+    </div>
+
+
+
+
+  </header>
+
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Announcement bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_bar_enabled",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_bar_home_page_only",
+        "label": "Show on home page only",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "announcement_bar_text",
+        "label": "Announcement text",
+        "default": "Announce something here"
+      },
+      {
+        "type": "url",
+        "id": "announcement_bar_link",
+        "label": "Announcement link",
+        "info": "Optional"
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+         "type": "select",
+         "id": "header_layout",
+         "options": [
+            { "value": "logo_centered_layout", "label": "Logo Centered Layout"},
+            { "value": "logo_left_layout", "label": "Logo Left Layout"}
+         ],
+         "label": "Logo Position",
+         "default": "logo_left_layout"
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_alternate",
+        "label": "Logo image(alternate)",
+        "info": "for pages with blue backgrounds (e.g. our approach, spirulina 101"
+      },
+      {
+        "type": "html",
+        "id": "logo_svg",
+        "label": "Logo SVG Code",
+        "info": "optional"
+      },
+      {
+        "type": "range",
+        "id": "logo_max_width",
+        "min": 50,
+        "max": 750,
+        "step": 10,
+        "unit": "px",
+        "label": "Custom logo width",
+        "default": 250
+      },
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_right",
+        "label": "Right Menu"
+      },
+      {
+        "type": "header",
+        "content": "Right CTA"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_right_cta",
+        "label": "Show Right CTA",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "right_cta_text",
+        "label": "Right CTA text",
+        "default": "Find Us"
+      },
+      {
+        "type": "html",
+        "id": "right_cta_icon",
+        "label": "Right CTA Icon",
+        "info": "Optional SVG Icon",
+        "default": "<i class='fas fa-map-marker-alt'></i>"
+      },
+      {
+        "type": "url",
+        "id": "right_cta_link",
+        "label": "Right CTA link"
+      },
+      {
+        "type": "header",
+        "content": "Cart Icon"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_icon",
+        "label": "Show Cart Icon",
+        "default": false
+      },
+      {
+        "type": "html",
+        "id": "cart_icon_svg",
+        "label": "Cart icon SVG code"
+      },
+
+      {
+        "type": "header",
+        "content": "Mega Dropdown Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_mega_menu",
+        "label": "Show Mega Menu",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "mega_menu_trigger",
+        "label": "Name of link to open mega menu",
+        "default": "shop"
+      },
+      {
+        "type": "color_background",
+        "id": "mega_menu_bg",
+        "label": "Background"
+      }
+      
+    ],
+    "blocks": [
+      {
+        "type": "shop_cta",
+        "name": "Shop Menu Products",
+        "limit": 4,
+        "settings": [
+          { 
+            "type": "product",
+            "id": "menu_product",
+            "label": "Product"
+          }
+        ]
+      },
+      {
+        "type": "mobile_button",
+        "name": "Mobile Mega Menu Button",
+        "limit": 3,
+        "settings": [
+          {
+            "type":"text",
+            "id":"button_label",
+            "default":"Button label",
+            "label":"Button",
+            "info":"Leave the label blank to hide the button."
+          },
+          {
+            "type":"url",
+            "id":"button_link",
+            "label":"Button Link"
+          }
+        ]
+      },
+      {
+        "type": "desktop_button",
+        "name": "Desktop Mega Menu Button",
+        "limit": 1,
+        "settings": [
+          {
+            "type":"text",
+            "id":"button_label",
+            "default":"Button label",
+            "label":"Button",
+            "info":"Leave the label blank to hide the button."
+          },
+          {
+            "type":"url",
+            "id":"button_link",
+            "label":"Button Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "{{ shop.name }}",
+  {% if section.settings.logo %}
+    {% assign image_size = section.settings.logo.width | append:'x' %}
+    "logo": "https:{{ section.settings.logo | img_url: image_size }}",
+  {% endif %}
+  "sameAs": [
+    "{{ settings.social_twitter_link }}",
+    "{{ settings.social_facebook_link }}",
+    "{{ settings.social_pinterest_link }}",
+    "{{ settings.social_instagram_link }}",
+    "{{ settings.social_tumblr_link }}",
+    "{{ settings.social_snapchat_link }}",
+    "{{ settings.social_youtube_link }}",
+    "{{ settings.social_vimeo_link }}"
+  ],
+  "url": "{{ shop.url }}{{ page.url }}"
+}
+</script>
+
+{% if template.name == 'index' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "url": "{{ shop.url }}{{ page.url }}"
+    }
+  </script>
+{% endif %}

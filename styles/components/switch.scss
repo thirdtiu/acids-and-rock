@@ -1,0 +1,38 @@
+.product__subscription {
+  .switch {
+    @include border-radius($global-radius-liquid);
+    border: $pdp-form-component-border;
+    height: auto;
+    margin: 0;
+    display: flex;
+    
+    .switch-paddle {
+      @include pdp_form_container_styling;
+      @include border-radius($global-radius-liquid);
+      width: 100%;
+      height: 3.5rem;
+      background: none;
+      &::after {
+        @include border-radius($global-radius-liquid);
+        background: $color-accent;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 50%;
+      }
+      span {
+        z-index: 1;
+      }
+      .switch-inactive {
+        color: $color-accent;
+      }
+      .switch-active {
+        color: $white;
+        display: block;
+      }
+    }
+    input:checked~.switch-paddle::after {
+      left: 50%;
+    }
+  }
+}

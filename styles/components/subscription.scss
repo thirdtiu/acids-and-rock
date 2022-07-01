@@ -1,0 +1,269 @@
+/* SUBSCRIPTION */
+.subscription {
+    color: inherit;
+}
+
+.subscription__title {
+    font-size: rem-calc( 13px );
+    line-height: 1.1538;
+    letter-spacing: 0;
+    margin-bottom: rem-calc( 12px );
+}
+
+
+/* SUBSCRIPTION GROUP */
+.sub-group { 
+    @include border-radius( $button-border-radius );
+    @include transition(.2s all);
+    position: relative;
+    border: 1px solid $color-accent-3;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background: none;
+    & + .sub-group {
+        margin-top: rem-calc( 10px );
+    }
+    &.is-selected {
+        background: $color-accent-3;
+        .sub-group__options {
+            display: flex;
+        }
+        .sub-group__benefits {
+            display: block;
+        }
+				color: $theme-color-white;
+				.sub-group__title,
+				.sub-group__price {
+					color: $theme-color-white;
+				}
+    }
+    .sub-group__options, .sub-group__benefits {
+        display: none;
+    }
+
+		// hide options for liina since there's only one option
+    .sub-group__options {
+        display: none;
+        flex-wrap: wrap;
+        .sub-group__option {
+            // color: $theme-color-white;
+        }
+    }
+}
+
+.sub-group__name {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-transform: none;
+    padding: 1.3rem .6rem;
+
+    @include breakpoint(large up) {
+        padding: .3875rem 1rem;
+    }
+}
+
+.sub-group__title {
+    margin-right: rem-calc( 15px );
+    margin-bottom: 0;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    line-height: 1.5rem;
+		font-family: $custom-font-name-4;
+		color: $color-accent-3;
+    @include breakpoint(large up) {
+        font-weight: 400;
+        line-height: 2rem;
+        font-size: var(--font-body-size-large);
+    }
+}
+.sub-group__price {
+	font-weight: bold !important;
+	font-size: 1rem !important;
+	line-height: 1.5rem;
+	font-family: $custom-font-name-4;	
+	color: $color-accent-3;
+}
+
+.sub-group__savings {
+    font-weight: 700;
+}
+
+.sub-group__price {
+    margin-left: auto;
+    font-size: rem-calc( 19px );
+}
+
+.sub-group__input {
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    margin: 0;
+    visibility: hidden;
+
+    // Show radio background color when radio is checked.
+    &:checked ~ .sub-group__radio {
+        background-color: var( --product-button-color-light );
+    }
+}
+
+.sub-group__radio {
+    @include border-radius( 50% );
+    cursor: pointer;
+    position: relative;
+    width: rem-calc( 14px );
+    height: rem-calc( 14px );
+    border: 2.5px solid currentColor;
+    margin-right: rem-calc( 12px );
+    top: rem-calc( -2px );
+    background-color: transparent;
+}
+
+.sub-group__options {
+    display: flex;
+    align-items: center;
+    margin-top: rem-calc( 10px );
+    // border-bottom: 2px solid #0001;
+    padding-bottom: 0.7rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+
+    @include breakpoint(large up) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .sub-label {
+        @include small-text;
+        // margin-right: 0.5rem;
+        margin: .5rem 0;
+        width: 100%;
+    }
+    .sub-option {
+        width: 33.33%;
+
+        & + .sub-option {
+            @include breakpoint(large up) {
+                // margin-left: rem-calc( 12px );
+            }
+        }
+    }
+}
+
+.sub-group__benefits {
+    font-size: rem-calc( 12px );
+    letter-spacing: 0;
+    color: inherit;
+    margin-top: 0;
+    padding-left: rem-calc( 0px );
+    font-weight: 700;
+    font-family: $custom-font-name-4;
+    //letter-spacing: 1px;
+    //text-transform: uppercase;
+    // column-count: 2;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-bottom: 1rem;
+
+    @include breakpoint(large up) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    p {
+        font-size: inherit;
+        font-weight: normal;
+        font-family: $custom-font-name-4;
+        line-height: 1;
+        margin-bottom: 0;
+
+        & + p {
+            margin-top: rem-calc( 10px );
+        }
+        em {
+            color: #98D61D;
+        }
+    }
+		// .sub-group__label {
+		// 	font-family: $custom-font-name-4;
+		// 	font-weight: bold;
+		// 	font-size: 1rem;
+		// }
+}
+
+
+/* SUBSCRIPTION OPTION */
+.sub-option {
+    cursor: pointer;
+    position: relative;
+    font-weight: 700;
+    font-size: rem-calc( 13px );
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.sub-option__input {
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    margin: 0;
+    visibility: hidden;
+
+    &:checked ~ .sub-option__label {
+        color: $color-accent-3;
+        font-family: $custom-font-name-4;
+        &:before { 
+            // background-color: var( --product-highlight-color ); 
+            opacity: 1;
+            background-color: $theme-color-white;
+        }
+    }
+
+    &:disabled ~ .sub-option__label {
+        cursor: not-allowed;
+
+        &:before { 
+            opacity: 0.5;
+        }
+    }
+}
+
+.sub-option__label {
+    // @include pdp_small_font;
+    display: block;
+    position: relative;
+    // padding: rem-calc( 6px ) rem-calc( 10px ) rem-calc( 6px );
+    // color: var( --color-black );
+    color: $theme-color-white;
+    margin-bottom: 0;
+    //font-size: inherit;
+    line-height: inherit;
+    //font-weight: inherit;
+    user-select: none;
+    font-size: 1rem;
+    @include breakpoint(small only) {
+        font-size: rem-calc( 11px );
+        font-weight: 800;
+    }
+
+    span {
+        position: relative;
+        font-size: inherit;
+    }
+
+    &:before {
+        @include border-radius( rem-calc( 5px ) );
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var( --product-button-color-light );
+        opacity: 0.68;
+    }
+}

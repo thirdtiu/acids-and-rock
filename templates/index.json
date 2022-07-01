@@ -1,0 +1,650 @@
+{
+  "sections": {
+    "1643082437919e2a7d": {
+      "type": "mfr-core__image-banner",
+      "blocks": {
+        "a60b86c3-ed89-463d-a240-b1416f7dfae5": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/new-hero-banner-image.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/new-liina-mobile-banner.jpg"
+          }
+        },
+        "164308243779a0a766-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>the <strong>future<\/strong> [circulartext] <\/p><p>of spiru—liina<\/p>",
+            "header_style": "h1",
+            "make_large": true
+          }
+        },
+        "164308243779a0a766-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>A delicious superfood for you and the planet.<\/strong><\/p>",
+            "text_style": "regular"
+          }
+        },
+        "0fa721e1-72e7-4e39-b44a-df914abe99e8": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Protein",
+            "button_link": "shopify:\/\/products\/spiru-liina-powder",
+            "button_style": "primary",
+            "button_color": "outline",
+            "button_has_arrow": false
+          }
+        }
+      },
+      "block_order": [
+        "a60b86c3-ed89-463d-a240-b1416f7dfae5",
+        "164308243779a0a766-0",
+        "164308243779a0a766-1",
+        "0fa721e1-72e7-4e39-b44a-df914abe99e8"
+      ],
+      "settings": {
+        "is_centered": false,
+        "color_theme": "color_theme__dark",
+        "text_side": "left-align-content",
+        "mobile_alignment": "mobile-align-top",
+        "banner_height": "large_height",
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "#FFFCF7",
+        "top_divider": "none",
+        "svg_divider_top_color": "rgba(0,0,0,0)",
+        "bottom_divider": "animated",
+        "svg_divider_bottom_color": "#197fbf"
+      }
+    },
+    "1643093172b1710966": {
+      "type": "mfr-core__text-section",
+      "blocks": {
+        "46f5da01-accb-47e8-b1bb-9bf3a6deaa17": {
+          "type": "small_text",
+          "settings": {
+            "text": "The power of algae",
+            "small_text_color": ""
+          }
+        },
+        "16430931716388f010-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>a <strong>superfood<\/strong> for the body and the planet<\/p>",
+            "header_style": "h1",
+            "make_large": false
+          }
+        },
+        "16430931716388f010-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>As one of nature’s most magical superfoods, spirulina is a clear step forward in our food (r)evolution. This powerful, blue microalgae will empower you on your health journey and foster a healthier planet.<\/p>",
+            "text_style": "regular",
+            "max_width": 36
+          }
+        },
+        "8b0e887e-dfa9-4114-bc79-7c9b88a2d41e": {
+          "type": "button",
+          "settings": {
+            "button_label": "SPIRULINA 101",
+            "button_link": "shopify:\/\/pages\/spirulina-101",
+            "button_style": "primary",
+            "button_has_arrow": false
+          }
+        },
+        "d0bad1f1-3dd1-4f0b-86c3-ac35f0d980fb": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics-1.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 340,
+            "position_x_desktop": 10,
+            "position_y_desktop": -16,
+            "width_mobile": 150,
+            "position_x_mobile": 10,
+            "position_y_mobile": 10,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "46f5da01-accb-47e8-b1bb-9bf3a6deaa17",
+        "16430931716388f010-0",
+        "16430931716388f010-1",
+        "8b0e887e-dfa9-4114-bc79-7c9b88a2d41e",
+        "d0bad1f1-3dd1-4f0b-86c3-ac35f0d980fb"
+      ],
+      "settings": {
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_xlarge_top",
+        "section_spacing_bottom": "section_spacing_xlarge_bottom",
+        "text_background": "shopify:\/\/shop_images\/water-drop-graphics.png",
+        "bg_color": "#197FBF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "164333995378b13474": {
+      "type": "mfr-core__featured-product",
+      "blocks": {
+        "ab0526d8-df8e-4469-9724-20328c2617f4": {
+          "type": "small_text",
+          "settings": {
+            "text": "vanilla + coconut",
+            "text_color": "#fffcf6"
+          }
+        },
+        "166b1b5c-cbbf-4bdb-8c0a-7ed953410615": {
+          "type": "product_title",
+          "settings": {
+            "use_custom_title": true,
+            "custom_title": "<p>spiru—liina <\/p><p><strong>powder<\/strong><\/p>"
+          }
+        },
+        "f999366e-8342-4415-a929-c459aaf91a21": {
+          "type": "product_variants",
+          "settings": {
+            "cta_button_label": "Shop Now",
+            "cta_button_link": "shopify:\/\/products\/spiru-liina-powder",
+            "cta_button_style": "secondary"
+          }
+        },
+        "3fff2bff-43ba-443e-8cd8-65de3ad8104d": {
+          "type": "product_reviews",
+          "settings": {
+            "stars_count": 5,
+            "text": "105 Reviews"
+          }
+        },
+        "f35b4c9a-5643-4662-8e6f-751418d0a89f": {
+          "type": "product_desc",
+          "settings": {
+            "use_custom_desc": true,
+            "custom_desc": "<p>Our tasty, spirulized protein powder is a SuperProduct with a SuperFood for the best SuperYou. Made with only 7 ingredients, add our powder to your choice of base. Blend or shake, and <em><strong>enjoy the power of algae!<\/strong><\/em><\/p><p><\/p><p><strong>Ingredients:<\/strong> Chickpea Protein, Oatmilk Powder, Coconut Milk Powder, MCT Oil Powder, Natural Flavors, Spirulina Powder, Stevia Extract.<\/p>"
+          }
+        },
+        "282a9ef0-6b86-4365-bc42-a4b572173438": {
+          "type": "product_image",
+          "settings": {
+            "use_custom_img": true,
+            "custom_image": "shopify:\/\/shop_images\/featured-product-image_78e8a046-6eab-4a39-ba1c-33c66f923b4a.png"
+          }
+        },
+        "94438924-bf0a-49aa-a7a9-2dca79d6b998": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics_86e31f79-4446-4ff5-a821-28724f9a1d26.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 200,
+            "position_x_desktop": 4,
+            "position_y_desktop": -16,
+            "width_mobile": 110,
+            "position_x_mobile": 0,
+            "position_y_mobile": -8,
+            "animation": "floating"
+          }
+        }
+      },
+      "block_order": [
+        "ab0526d8-df8e-4469-9724-20328c2617f4",
+        "166b1b5c-cbbf-4bdb-8c0a-7ed953410615",
+        "f999366e-8342-4415-a929-c459aaf91a21",
+        "3fff2bff-43ba-443e-8cd8-65de3ad8104d",
+        "f35b4c9a-5643-4662-8e6f-751418d0a89f",
+        "282a9ef0-6b86-4365-bc42-a4b572173438",
+        "94438924-bf0a-49aa-a7a9-2dca79d6b998"
+      ],
+      "settings": {
+        "color_theme": "color_theme__light",
+        "show_glow": true,
+        "product": "spiru-liina-powder",
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_medium_bottom",
+        "bg_color": "#197FBF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "164335386839e89e3d": {
+      "type": "mfr-liina__centered-image-with-text",
+      "blocks": {
+        "d7a40abe-ac00-4903-86d3-64b51f8913cd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/how-do-you-eat-it.png",
+            "image_width": 800,
+            "hosted_video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0622\/9963\/5941\/files\/blend.mp4?v=1645532899"
+          }
+        },
+        "1643353868e5b2ff36-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>yeah, but how do you <strong>eat<\/strong> <strong>it?<\/strong><\/p>",
+            "header_style": "h2",
+            "make_large": false
+          }
+        },
+        "07c27dab-70b4-4b63-a760-6f75b223c595": {
+          "type": "entry",
+          "settings": {
+            "text_link": "",
+            "text": "hydrates"
+          }
+        },
+        "e0a2c64b-b850-447e-a058-13461901fc56": {
+          "type": "entry",
+          "settings": {
+            "text_link": "",
+            "text": "collagen-boosting"
+          }
+        },
+        "b63fb7b7-98c8-4565-972b-ffb524764076": {
+          "type": "entry",
+          "settings": {
+            "text_link": "",
+            "text": "healthy skin"
+          }
+        },
+        "0d0d4ace-a44a-42bd-bf86-33aa08943e7d": {
+          "type": "entry",
+          "settings": {
+            "text_link": "",
+            "text": "immune system support"
+          }
+        },
+        "7e8da34c-c616-4c93-977f-01d617bda83a": {
+          "type": "entry",
+          "settings": {
+            "text_link": "",
+            "text": "antioxidants"
+          }
+        },
+        "7ee63c7f-3ef6-48e6-8380-256506e31448": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics-1.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 300,
+            "position_x_desktop": -4,
+            "position_y_desktop": -6,
+            "width_mobile": 150,
+            "position_x_mobile": -16,
+            "position_y_mobile": -2,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        },
+        "9c62c956-f1e2-477c-aa2a-022fc4205e89": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-right.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "bottom",
+            "width_desktop": 300,
+            "position_x_desktop": -6,
+            "position_y_desktop": 0,
+            "width_mobile": 200,
+            "position_x_mobile": -8,
+            "position_y_mobile": 50,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "d7a40abe-ac00-4903-86d3-64b51f8913cd",
+        "1643353868e5b2ff36-0",
+        "07c27dab-70b4-4b63-a760-6f75b223c595",
+        "e0a2c64b-b850-447e-a058-13461901fc56",
+        "b63fb7b7-98c8-4565-972b-ffb524764076",
+        "0d0d4ace-a44a-42bd-bf86-33aa08943e7d",
+        "7e8da34c-c616-4c93-977f-01d617bda83a",
+        "7ee63c7f-3ef6-48e6-8380-256506e31448",
+        "9c62c956-f1e2-477c-aa2a-022fc4205e89"
+      ],
+      "settings": {
+        "is_centered": true,
+        "show_glow": true,
+        "color_theme": "color_theme__light",
+        "spacing_outside_section": false,
+        "is_full_width": false,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "text_background": "shopify:\/\/shop_images\/lowopacity-symbols.png",
+        "bg_color": "#197FBF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "164335933485b749c8": {
+      "type": "mfr-core__scrolling-text",
+      "settings": {
+        "marquee_text": "<p>blue algae for a greener world<\/p>",
+        "color_theme": "color_theme__dark",
+        "marquee_style": "large",
+        "make_angled": false,
+        "spacer_image": "shopify:\/\/shop_images\/leaf-accent-graphics_86e31f79-4446-4ff5-a821-28724f9a1d26.png",
+        "spacer_svg_code": "",
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_medium_bottom",
+        "bg_color": "#197FBF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "164357594093742a40": {
+      "type": "mfr-core__text-grid",
+      "blocks": {
+        "16435759407921e77b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>nourish your body, save the <strong>planet<\/strong><\/p>",
+            "header_style": "h1",
+            "make_large": false
+          }
+        },
+        "16435759407921e77b-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Spirulina transforms CO2 into oxygen, protein, iron, and vitamins. It requires 200x less land and 215x less water to produce the same volume of protein found in 1 pound of beef, and is 400x more effective at removing CO2 from the air than a tree. Learn how we’re using one of the most sustainable food sources on Earth to reshape how we think about food.<\/p>",
+            "text_style": "regular",
+            "max_width": 39
+          }
+        },
+        "3bedfd02-9da8-4d77-98c0-9e882f465cf3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our Approach",
+            "button_link": "shopify:\/\/pages\/our-approach",
+            "button_style": "primary"
+          }
+        },
+        "bea541e5-c59a-4e97-9931-5689a85179a7": {
+          "type": "text_block",
+          "settings": {
+            "title": "Requires Minimal Land and Water",
+            "text": "",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 45 46\"><g fill=\"#98D61D\" fill-rule=\"nonzero\"><path d=\"M26.594 17.703a3.897 3.897 0 0 1-3.891 3.89.703.703 0 1 0 0 1.407A5.302 5.302 0 0 0 28 17.703a.703.703 0 0 0-1.406 0Z\"><\/path><path d=\"M32 17.624C32 12.667 23.91 1.27 23.562.79L23 0l-.562.791C22.09 1.279 14 12.667 14 17.624c0 3.35 1.715 6.445 4.5 8.12a8.688 8.688 0 0 0 9 0c2.785-1.675 4.5-4.77 4.5-8.12Zm-9 7.911c-2.013-.003-3.943-.837-5.367-2.32-1.423-1.483-2.225-3.494-2.227-5.591 0-3.418 5.044-11.457 7.594-15.139 2.55 3.702 7.594 11.72 7.594 15.139-.003 2.097-.804 4.108-2.227 5.591-1.424 1.483-3.354 2.317-5.367 2.32ZM40.383 37.208l4.336-8.847c.315-.642.368-1.39.145-2.073l-2.425-7.482a2.616 2.616 0 0 0-1.766-1.715 2.493 2.493 0 0 0-2.351.568 2.741 2.741 0 0 0-.863 2.35l.126 4.793a2.33 2.33 0 0 0-1.432-.061c-.473.13-.896.407-1.215.794l-5.364 6.572a2.605 2.605 0 0 0-.538 2.068l1.009 6.031h-.175a.719.719 0 0 0-.558.202.775.775 0 0 0-.228.572l.073 3.382a.746.746 0 0 0 .664.738l10.339.9h.063c.39-.01.703-.341.708-.748l-.072-3.383a.751.751 0 0 0-.665-.743l-.359-.03.417-3.489c.019-.14.063-.276.131-.4Zm-9.786 6.44-.039-1.854h.301l2.58.227 5.999.506.038 1.9-8.879-.778Zm.083-10.53 5.368-6.572a.95.95 0 0 1 .845-.339c.318.04.597.24.746.536l.024.855a1.084 1.084 0 0 1-.136.227l-2.371 3.07a.778.778 0 0 0 .079 1.102.707.707 0 0 0 1.05-.153l2.377-3.068c.175-.227.311-.483.402-.759.015-.038.028-.076.039-.116.091-.328.118-.672.078-1.01a2.555 2.555 0 0 0-.097-.471l-.175-6.497a.522.522 0 0 0 0-.086 1.184 1.184 0 0 1 .567-1.183c.29-.168.636-.195.945-.072.31.123.552.383.66.71l2.425 7.482c.096.296.073.62-.063.9l-4.355 8.842c-.135.279-.224.58-.262.89l-.421 3.539-6.862-.587-1.077-6.425c-.046-.291.032-.589.213-.814ZM10.052 25.524a2.41 2.41 0 0 0-1.212-.8 2.327 2.327 0 0 0-1.433.057l.126-4.79a2.74 2.74 0 0 0-.87-2.338 2.49 2.49 0 0 0-2.344-.562c-.822.23-1.482.87-1.761 1.708L.136 26.276c-.223.683-.17 1.43.145 2.072l4.33 8.84c.06.12.098.251.112.385l.417 3.486-.354.03a.75.75 0 0 0-.668.743l-.054 3.395c-.003.204.071.4.208.546a.71.71 0 0 0 .52.227h.062l10.328-.9v.001a.745.745 0 0 0 .663-.738l.073-3.38a.775.775 0 0 0-.228-.591.72.72 0 0 0-.557-.202h-.174l1.008-6.027a2.603 2.603 0 0 0-.558-2.072l-5.357-6.567Zm4.36 18.092-8.894.788.039-1.86 5.997-.505 2.572-.227h.3l-.015 1.804ZM1.573 27.66a1.207 1.207 0 0 1-.063-.9l2.422-7.477a1.119 1.119 0 0 1 1.056-.788c.193 0 .381.052.548.152.4.238.619.707.552 1.182a.522.522 0 0 0 0 .086l-.174 6.492a2.55 2.55 0 0 0-.097.475c-.041.339-.013.683.082 1.01a2.635 2.635 0 0 0 .436.87l2.374 3.066a.705.705 0 0 0 1.05.153.778.778 0 0 0 .08-1.102l-2.385-3.083c-.054-.07-.1-.146-.136-.227l.025-.859c.064-.13.155-.244.266-.334a.941.941 0 0 1 1.323.142l5.372 6.583c.182.227.26.526.213.818l-1.075 6.417-6.855.596-.422-3.537a2.803 2.803 0 0 0-.261-.889l-4.33-8.846Z\"><\/path><\/g><\/svg>"
+          }
+        },
+        "51055086-8922-47cf-9cdc-39f122b81bde": {
+          "type": "text_block",
+          "settings": {
+            "title": "Removes CO2 from the Air",
+            "text": "",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 30 47\"><path fill=\"#98D61D\" fill-rule=\"nonzero\" d=\"M17.3 24.523c6.206 6.341 5.459 16.988-1.84 22.289-.271.279-.896.272-1.196-.189-.276-.376-.185-1.034.184-1.316 6.382-4.545 6.854-13.968 1.564-19.375l-3.405-3.48C6.402 16.113 7.15 5.465 14.447.165c.369-.282 1.013-.188 1.29.188.275.376.183 1.035-.185 1.317-6.38 4.544-6.855 13.966-1.565 19.373l3.313 3.48Zm9.387.188-3.68-3.761c-3.681-3.762-3.681-9.969 0-13.731a.925.925 0 0 0 0-1.317.877.877 0 0 0-1.289 0c-4.417 4.514-4.417 11.85 0 16.364l3.68 3.762c3.682 3.761 3.682 9.968 0 13.73a.925.925 0 0 0 0 1.317.883.883 0 0 0 1.29 0c4.416-4.515 4.416-11.85 0-16.364ZM4.601 20.95c-3.68-3.762-3.68-9.969 0-13.731a.923.923 0 0 0 0-1.317.877.877 0 0 0-1.288 0c-4.417 4.514-4.417 11.85 0 16.364l3.68 3.762c3.681 3.761 3.681 9.969 0 13.73a.923.923 0 0 0 0 1.317.883.883 0 0 0 1.289 0c4.417-4.514 4.417-11.85 0-16.364l-3.68-3.761Z\"><\/path><\/svg>"
+          }
+        },
+        "9c2b302c-5f63-43c1-aafa-36af3e8d9a48": {
+          "type": "text_block",
+          "settings": {
+            "title": "Grows in Bad Weather",
+            "text": "",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 50 50\"><g fill=\"#98D61D\" fill-rule=\"nonzero\" stroke=\"#98D61D\" stroke-width=\".5\"><path d=\"M10.597 30h30.225c.066 0 .13-.012.19-.033 4.491-.324 7.988-4.098 7.988-8.66 0-4.655-3.645-8.468-8.205-8.682.13-.641.197-1.29.197-1.936C40.992 5.346 36.687 1 31.395 1c-3.763 0-7.178 2.25-8.725 5.674a7.477 7.477 0 0 0-3.99-1.146c-3.239 0-6.122 2.09-7.185 5.143a8.419 8.419 0 0 0-.897-.05C5.306 10.621 1 14.968 1 20.31S5.305 30 10.597 30Zm0-18.163c.372 0 .764.033 1.233.103a.595.595 0 0 0 .668-.44c.765-2.8 3.306-4.756 6.18-4.756a6.32 6.32 0 0 1 3.9 1.341.6.6 0 0 0 .931-.276c1.2-3.346 4.368-5.594 7.885-5.594 4.628 0 8.394 3.802 8.394 8.474 0 .797-.115 1.598-.343 2.382a.61.61 0 0 0 .104.545c.12.154.31.245.5.233l.15-.01c.063-.004.126-.009.19-.009 4.084 0 7.406 3.355 7.406 7.477 0 3.967-3.076 7.242-7.003 7.455a.564.564 0 0 0-.126.022l-30.07.001c-4.627 0-8.393-3.802-8.393-8.474 0-4.672 3.765-8.474 8.394-8.474ZM18.856 43.244a.67.67 0 0 1 .876-.14c.285.181.353.537.154.795l-3.742 4.857a.648.648 0 0 1-.516.244.673.673 0 0 1-.36-.103c-.285-.182-.353-.538-.154-.796Zm-7.881 1.009a.546.546 0 0 1 .785-.146.612.612 0 0 1 .138.825l-1.873 2.815a.544.544 0 0 1-.785.146.612.612 0 0 1-.138-.825Zm17.757-5.15a.541.541 0 0 1 .206.716l-.052.08-3.742 4.857a.675.675 0 0 1-.876.14.541.541 0 0 1-.206-.715l.052-.08 3.742-4.857c.199-.26.591-.321.876-.141Zm-7.987-6.994c.243.172.321.493.196.755l-.05.085-6.803 9.794a.595.595 0 0 1-.833.148.606.606 0 0 1-.196-.755l.049-.084 6.804-9.795a.595.595 0 0 1 .833-.148Zm-6.01-.002a.574.574 0 0 1 .204.739l-.05.083-5.76 7.82a.643.643 0 0 1-.865.145.573.573 0 0 1-.203-.74l.051-.083 5.759-7.819a.641.641 0 0 1 .864-.145Zm12 0a.573.573 0 0 1 .204.739l-.051.083-5.758 7.82a.645.645 0 0 1-.865.145.573.573 0 0 1-.204-.74l.051-.083 5.758-7.819a.641.641 0 0 1 .865-.145Zm12.195.157a.57.57 0 0 1 .819-.152.64.64 0 0 1 .145.862L32.07 44.736a.567.567 0 0 1-.82.152.64.64 0 0 1-.144-.862Zm-5.934.006c.175-.287.519-.355.769-.156.25.2.31.594.136.88l-2.897 4.736a.533.533 0 0 1-.453.27.504.504 0 0 1-.316-.114c-.25-.201-.31-.594-.135-.88Z\"><\/path><\/g><\/svg>"
+          }
+        },
+        "a0c74fcb-4139-4b3e-988c-53bc5f9160c8": {
+          "type": "text_block",
+          "settings": {
+            "title": "Doubles in Growth Daily",
+            "text": "",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 34 52\"><path fill=\"#98D61D\" fill-rule=\"nonzero\" d=\"M34 16.636a16.401 16.401 0 0 0-4.139-10.884C27.188 2.728 23.491.748 19.445.172a17.315 17.315 0 0 0-11.61 2.45C4.392 4.777 1.859 8.072.699 11.904a16.278 16.278 0 0 0 .82 11.584c1.69 3.64 4.664 6.562 8.378 8.232v4.201H8.05a.848.848 0 0 0-.857.838c0 .463.384.838.857.838h1.846v2.2H8.051a.848.848 0 0 0-.857.84c0 .462.384.837.857.837h1.846v2.195H8.051a.848.848 0 0 0-.857.839c0 .462.384.837.857.837h1.863c.1 2.41 1.47 4.595 3.622 5.772a7.234 7.234 0 0 0 6.927 0c2.152-1.177 3.523-3.363 3.623-5.772h1.863a.848.848 0 0 0 .857-.837.848.848 0 0 0-.858-.839h-1.845v-2.173h1.846a.848.848 0 0 0 .857-.838.848.848 0 0 0-.858-.837h-1.845v-2.202h1.846a.848.848 0 0 0 .857-.838.848.848 0 0 0-.858-.838h-1.845v-4.2a16.864 16.864 0 0 0 7.216-6.133A16.326 16.326 0 0 0 34 16.636ZM17 50.295a5.462 5.462 0 0 1-3.68-1.429 5.225 5.225 0 0 1-1.691-3.499H22.37a5.225 5.225 0 0 1-1.691 3.5A5.462 5.462 0 0 1 17 50.294Zm5.389-6.604H11.61v-2.195H22.39v2.195Zm0-3.871H11.61v-2.201H22.39v2.2ZM19.657 12.64a6.22 6.22 0 0 1 5.829-1.586 5.906 5.906 0 0 1-1.26 5.31 6.21 6.21 0 0 1-5.134 2.126l4.268-4.174a.828.828 0 0 0 .04-1.23.867.867 0 0 0-.641-.24.866.866 0 0 0-.616.297l-4.269 4.173a5.915 5.915 0 0 1 1.783-4.676Zm-3.514 9.67v.465l-4.286-4.174a.869.869 0 0 0-1.233-.021.828.828 0 0 0 .022 1.206l4.268 4.173a6.21 6.21 0 0 1-5.152-2.132 5.904 5.904 0 0 1-1.248-5.332 6.263 6.263 0 0 1 5.228 1.073 5.974 5.974 0 0 1 2.401 4.665v.078Zm1.714 13.632V20.015a8.03 8.03 0 0 0 5.34-.72 7.758 7.758 0 0 0 3.614-3.911A7.533 7.533 0 0 0 27 10.116l-.132-.408-.417-.128a8.01 8.01 0 0 0-7.354 1.306c-2.07 1.618-3.168 4.147-2.92 6.727a9.007 9.007 0 0 0-.623-.692 7.905 7.905 0 0 0-3.728-2.044 8.032 8.032 0 0 0-4.271.166l-.418.135-.131.408a7.51 7.51 0 0 0 .175 5.274 7.733 7.733 0 0 0 3.618 3.915 8.004 8.004 0 0 0 5.35.704v10.464h-4.537v-4.749a.844.844 0 0 0-.526-.776c-4.374-1.794-7.649-5.473-8.862-9.956-1.214-4.484-.23-9.264 2.664-12.94C7.78 3.849 12.256 1.695 17 1.695s9.219 2.154 12.112 5.829c2.894 3.675 3.878 8.456 2.664 12.939-1.214 4.483-4.488 8.161-8.862 9.956a.843.843 0 0 0-.526.777v4.748h-4.53Z\"><\/path><\/svg>"
+          }
+        },
+        "b095188b-55dd-4bd9-b877-084474df5767": {
+          "type": "text_block",
+          "settings": {
+            "title": "Produces Oxygen",
+            "text": "",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 28 51\"><path fill=\"#98D61D\" fill-rule=\"nonzero\" d=\"M14.795 23.008V11.141a7.888 7.888 0 0 0 7.354-2.134A7.934 7.934 0 0 0 24.09.919l-.132-.4-.4-.127a7.942 7.942 0 0 0-7.494 1.403A7.952 7.952 0 0 0 13.2 8.864a7.924 7.924 0 0 0-8.812-2.782l-.401.127-.132.4a7.944 7.944 0 0 0 3.883 9.534 7.93 7.93 0 0 0 5.44.688v6.178a14 14 0 0 0-11.567 7.46 14.016 14.016 0 0 0 .404 13.764 13.999 13.999 0 0 0 23.97 0 14.015 14.015 0 0 0 .404-13.764 14 14 0 0 0-11.566-7.46h-.028ZM26.31 36.176h-4.25c-.143-4.389-1.415-8.23-3.334-10.583a12.387 12.387 0 0 1 7.568 10.573l.016.01ZM13.15 24.747v11.418H7.535c.208-5.81 2.626-10.665 5.615-11.429v.011Zm0 13.075V49.24c-2.99-.762-5.407-5.634-5.615-11.429l5.615.011Zm1.645 11.43v-11.44h5.615c-.208 5.793-2.6 10.665-5.615 11.428v.011Zm0-13.076v-11.44c3.016.763 5.407 5.619 5.615 11.43l-5.615.01Zm1.842-32.684a6.293 6.293 0 0 1 6.032-1.646 6.302 6.302 0 0 1-1.32 5.635A6.294 6.294 0 0 1 15.99 9.66l4.387-4.39a.828.828 0 0 0 0-1.162.817.817 0 0 0-1.162 0l-4.387 4.416a6.28 6.28 0 0 1 1.81-5.031Zm-9.679 10.04a6.301 6.301 0 0 1-1.645-6.034 6.299 6.299 0 0 1 7.837 6.03v.087a5.16 5.16 0 0 1-.033.549L8.73 9.74a.824.824 0 1 0-1.163 1.17l4.387 4.416a6.272 6.272 0 0 1-4.996-1.794Zm2.26 12.072c-1.92 2.37-3.192 6.172-3.334 10.583H1.65a12.385 12.385 0 0 1 7.568-10.606v.023ZM1.65 37.81h4.234c.142 4.39 1.414 8.23 3.334 10.584A12.378 12.378 0 0 1 1.65 37.81Zm17.076 10.584c1.92-2.37 3.192-6.173 3.334-10.584h4.234a12.377 12.377 0 0 1-7.568 10.584Z\"><\/path><\/svg>"
+          }
+        },
+        "39621482-a240-4c60-8261-74423037beda": {
+          "type": "text_block",
+          "settings": {
+            "title": "Renewable Energy",
+            "text": "",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 47 50\"><g fill=\"#98D61D\" fill-rule=\"nonzero\"><path d=\"M47 24.809a.808.808 0 1 0-1.615 0 21.732 21.732 0 0 1-5.897 14.878 21.663 21.663 0 0 1-14.473 6.787.805.805 0 0 0 .207-1.118.802.802 0 0 0-1.117-.208l-2.723 1.676a.815.815 0 0 0-.382.69c0 .28.145.54.382.685l2.723 1.683a.807.807 0 0 0 1.109-.264.82.82 0 0 0-.264-1.117l-.624-.41a23.27 23.27 0 0 0 16.056-7.03A23.347 23.347 0 0 0 47 24.81ZM21.014 3.537a.818.818 0 0 0-.264 1.087.805.805 0 0 0 1.119.267L24.573 3.2A.822.822 0 0 0 25 2.509a.811.811 0 0 0-.384-.69L21.912.122a.811.811 0 0 0-1.12.266.82.82 0 0 0 .266 1.126l.416.256A23.351 23.351 0 0 0 6.198 9.268 23.6 23.6 0 0 0 0 25.185c0 .45.363.815.811.815a.813.813 0 0 0 .811-.815 21.98 21.98 0 0 1 5.615-14.642 21.745 21.745 0 0 1 13.912-7.11l-.135.104ZM21.633 41.58l10.272-19.31a.796.796 0 0 0-.698-1.171h-6.163l.768-12.264a.8.8 0 0 0-.582-.806.787.787 0 0 0-.915.403L15.084 26.46a.808.808 0 0 0 .031.774c.144.237.4.382.677.382h5.227l-.878 13.54a.792.792 0 0 0 1.491.424Zm-4.544-15.566 6.877-13.477-.556 9.31a.792.792 0 0 0 .788.843h5.687L21.95 37.582l.699-10.72a.796.796 0 0 0-.207-.594.776.776 0 0 0-.576-.254h-4.777Z\"><\/path><\/g><\/svg>"
+          }
+        },
+        "198cdf79-f066-4e29-aedc-081117db438b": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-left.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 340,
+            "position_x_desktop": 8,
+            "position_y_desktop": -6,
+            "width_mobile": 150,
+            "position_x_mobile": 0,
+            "position_y_mobile": -4,
+            "animation": "floating"
+          }
+        },
+        "6c71ca3d-fffe-4190-bb17-6cf898c2bddf": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/floating-leaves.png",
+            "svg_code": "",
+            "visibility": "desktop_only",
+            "x_setting": "right",
+            "y_setting": "bottom",
+            "width_desktop": 250,
+            "position_x_desktop": -4,
+            "position_y_desktop": 0,
+            "width_mobile": 150,
+            "position_x_mobile": -2,
+            "position_y_mobile": 0,
+            "animation": "floating"
+          }
+        }
+      },
+      "block_order": [
+        "16435759407921e77b-0",
+        "16435759407921e77b-1",
+        "3bedfd02-9da8-4d77-98c0-9e882f465cf3",
+        "bea541e5-c59a-4e97-9931-5689a85179a7",
+        "51055086-8922-47cf-9cdc-39f122b81bde",
+        "9c2b302c-5f63-43c1-aafa-36af3e8d9a48",
+        "a0c74fcb-4139-4b3e-988c-53bc5f9160c8",
+        "b095188b-55dd-4bd9-b877-084474df5767",
+        "39621482-a240-4c60-8261-74423037beda",
+        "198cdf79-f066-4e29-aedc-081117db438b",
+        "6c71ca3d-fffe-4190-bb17-6cf898c2bddf"
+      ],
+      "settings": {
+        "section_layout": "centered_image",
+        "image_style": "transparent_image",
+        "section_image": "shopify:\/\/shop_images\/blue-powder.png",
+        "section_image_max_width": 400,
+        "show_circle": true,
+        "show_glow": true,
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "is_carousel_on_mobile": true,
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "linear-gradient(0deg, rgba(60, 168, 223, 1) 7%, rgba(25, 127, 191, 1) 96%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "1643604270f4e0c4fd": {
+      "type": "mfr-liina__testimonials-carousel",
+      "blocks": {
+        "050f0f8d-7ce4-4115-9473-297b6e18dbd5": {
+          "type": "entry",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-1.png",
+            "heading": "A WONDERFUL PRODUCT",
+            "testimony": "<p>Donec sollicitudin molestie malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.<\/p>",
+            "small_text": "Rafael M."
+          }
+        },
+        "6db3ebe3-5807-426d-a251-fd1985cc3c6a": {
+          "type": "entry",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-1.png",
+            "heading": "feeling much better",
+            "testimony": "<p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum congue leo eget malesuada.<\/p>",
+            "small_text": "Monica T."
+          }
+        },
+        "f2c353dc-5709-4311-a6d9-9c0de828d636": {
+          "type": "entry",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-1.png",
+            "heading": "part of my morning routine",
+            "testimony": "<p>Vivamus suscipit tortor eget felis porttitor volutpat. Vivamus suscipit tortor eget felis porttitor volutpat. <\/p>",
+            "small_text": "Sophia D."
+          }
+        },
+        "0643439f-1f72-4c96-9339-4e3b4aeac58e": {
+          "type": "entry",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-1.png",
+            "heading": "love spirulina, love liina!",
+            "testimony": "<p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum congue leo eget malesuada.<\/p>",
+            "small_text": "Alex K."
+          }
+        },
+        "64da4a11-39e6-473d-96a1-e68a953ebde0": {
+          "type": "entry",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-1.png",
+            "heading": "A WONDERFUL PRODUCT",
+            "testimony": "<p>Donec sollicitudin molestie malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.<\/p>",
+            "small_text": "Raphael M."
+          }
+        },
+        "dcbc8787-0f45-4129-a9b5-4c1bd6624c64": {
+          "type": "entry",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-1.png",
+            "heading": "Feeling Much Better",
+            "testimony": "<p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum congue leo eget malesuada.<\/p>",
+            "small_text": "Monica T."
+          }
+        }
+      },
+      "block_order": [
+        "050f0f8d-7ce4-4115-9473-297b6e18dbd5",
+        "6db3ebe3-5807-426d-a251-fd1985cc3c6a",
+        "f2c353dc-5709-4311-a6d9-9c0de828d636",
+        "0643439f-1f72-4c96-9339-4e3b4aeac58e",
+        "64da4a11-39e6-473d-96a1-e68a953ebde0",
+        "dcbc8787-0f45-4129-a9b5-4c1bd6624c64"
+      ],
+      "settings": {
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_xlarge_bottom",
+        "bg_color": "#3CA8DF",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": "rgba(0,0,0,0)"
+      }
+    },
+    "16436135771e197d5f": {
+      "type": "mfr-core__custom-liquid",
+      "blocks": {
+        "78a989df-53a0-4466-b26b-07b28dbf2b60": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>#<strong>love<\/strong>liina<\/p>",
+            "header_style": "h2"
+          }
+        },
+        "f96e35b6-173d-4e01-9a69-9e9042a1abb9": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"elfsight-sapp-074324b0-efe5-4554-877d-ebbc583b36c2\"><\/div>",
+            "section_spacing_top": "section_spacing_none_top",
+            "section_spacing_bottom": "section_spacing_none_bottom",
+            "translate_y": 0
+          }
+        },
+        "4f538317-d7b7-4951-9b8c-543a66e6c524": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-left.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "bottom",
+            "width_desktop": 300,
+            "position_x_desktop": 2,
+            "position_y_desktop": 0,
+            "width_mobile": 150,
+            "position_x_mobile": -2,
+            "position_y_mobile": 10,
+            "animation": "floating"
+          }
+        }
+      },
+      "block_order": [
+        "78a989df-53a0-4466-b26b-07b28dbf2b60",
+        "f96e35b6-173d-4e01-9a69-9e9042a1abb9",
+        "4f538317-d7b7-4951-9b8c-543a66e6c524"
+      ],
+      "settings": {
+        "color_theme": "color_theme__light",
+        "section_spacing_top": "section_spacing_small_top",
+        "section_spacing_bottom": "section_spacing_medium_bottom",
+        "bg_color": "linear-gradient(0deg, rgba(25, 127, 191, 1), rgba(60, 168, 223, 1) 100%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "phyllup-flag",
+        "svg_divider_bottom_color": "#fffcf7"
+      }
+    }
+  },
+  "order": [
+    "1643082437919e2a7d",
+    "1643093172b1710966",
+    "164333995378b13474",
+    "164335386839e89e3d",
+    "164335933485b749c8",
+    "164357594093742a40",
+    "1643604270f4e0c4fd",
+    "16436135771e197d5f"
+  ]
+}

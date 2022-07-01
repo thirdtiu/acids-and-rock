@@ -1,0 +1,278 @@
+{%- comment -%}
+--------------------------------------
+assign section settings to variables
+--------------------------------------
+{%- endcomment -%}
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+{% assign animation_type = "fade-up" %}
+
+
+{% if section.settings.color_theme %}
+  {% assign color_theme = section.settings.color_theme %}
+{% else %}
+  {% assign color_theme = "" %}
+{% endif %}
+
+{% if section.settings.make_angled %}
+  {% assign make_angled = 'angled' %}
+  {% assign background_angled = 'background' %}
+  {% assign background_regular = '' %}
+  {% else %}
+  {% assign make_angled = "" %}
+  {% assign background_regular = 'background' %}
+  {% assign background_angled = '' %}
+{% endif %}
+
+{%- assign text_list = section.settings.marquee_text | remove: "<p>" | split: "</p>" -%}
+
+
+{% capture scroll_content %}
+  
+    {% for text in text_list %}
+      <span>{{ text }}</span>
+      {% if section.settings.spacer_image or section.settings.spacer_svg_code %}
+        {% render 'component__section-icon', icon: section.settings.spacer_image, icon_width: "", svg_code: section.settings.spacer_svg_code %}   
+      {% endif %}
+    {% endfor %}
+
+    {% for block in section.blocks %}
+      {% render 'component__section-icon', class: 'logo', icon: block.settings.logo, icon_width: "", svg_code: block.settings.svg_code %}   
+      {% if section.settings.spacer_image or section.settings.spacer_svg_code %}
+        {% render 'component__section-icon', icon: section.settings.spacer_image, icon_width: "", svg_code: section.settings.spacer_svg_code %}   
+      {% endif %}
+    {% endfor %}
+
+{% endcapture %}
+
+
+<section class="mfr-core__scrolling-text {{ background_regular }} {{ top_spacing }} {{ bottom_spacing }} ">
+
+  
+
+  <div class="marquee-scroller__wrapper {{ background_angled }} {{ color_theme }} {{ section.settings.marquee_style }} {{ make_angled }}">
+    <div class="marquee-scroller__group">
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+      <div class="marquee-scroller__text">
+        {{ scroll_content }}
+      </div>
+    </div>
+  </div>
+
+  {% render 'component__section-dividers' %}
+  {% render 'component__gradient-bg-styles' %}
+
+
+</section>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Scrolling Text",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type":"richtext",
+        "id":"marquee_text",
+        "label":"Scrolling Text"
+      },
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Text" },
+            { "value": "color_theme__light", "label": "Light Text" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      },
+      {
+        "type": "select",
+        "id": "marquee_style",
+        "options": [
+            { "value": "small", "label": "Small Text" },
+            { "value": "large", "label": "Large Text" },
+            { "value": "logos", "label": "Logos" }
+            ],
+        "label": "Marquee Style",
+        "default": "small"
+      },
+      {
+        "type": "checkbox",
+        "id": "make_angled",
+        "label": "Make Angled?"
+      },
+      {
+        "type": "image_picker",
+        "id": "spacer_image",
+        "label": "Spacer Image"
+      },
+      {
+        "type": "textarea",
+        "id": "spacer_svg_code",
+        "label": "Spacer SVG code",
+        "info": "overrides image"
+      },
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None" },
+            { "value": "section_spacing_small_bottom", "label": "Small" },
+            { "value": "section_spacing_medium_bottom", "label": "Medium" },
+            { "value": "section_spacing_large_bottom", "label": "Large" },
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+         ],
+         "label": "Bottom spacing"
+      },
+      {
+        "type":"header",
+        "content":"Background"
+      },
+      {
+        "type": "color_background",
+        "id": "bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Dividers"
+      },
+      {
+        "type": "select",
+        "id": "top_divider",
+        "options": [
+            { "value": "none", "label": "None" },
+            { "value": "angled", "label": "Show Angled Divider" },
+            { "value": "phyllup-flag", "label": "Show Phyllup Divider" }
+            ],
+        "label": "Top Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_top_color",
+        "label": "Top divider color"
+      },
+      {
+        "type": "select",
+        "id": "bottom_divider",
+        "options": [
+            { "value": "none", "label": "None"},
+            { "value": "angled", "label": "Show Angled Divider" },
+            { "value": "phyllup-flag", "label": "Show Phyllup Divider" } 
+            ],
+        "label": "Bottom Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_bottom_color",
+        "label": "Bottom divider color"
+      }
+    ],
+    "blocks":[
+      {
+        "type": "logo", 
+        "name": "Logo/Graphic",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Image"
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Icon SVG Code",
+            "info":"Paste SVG code for vector icon"
+          }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "Scrolling Text",
+      "category": "Manufactur Core Sections"
+    }
+    ]
+  }
+{% endschema %}

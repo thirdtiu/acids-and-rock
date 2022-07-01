@@ -1,0 +1,218 @@
+{
+  "sections": {
+    "16425777961711078d": {
+      "type": "mfr-core__text-section",
+      "blocks": {
+        "164257779631fe0f75-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>frequently asked<\/p>",
+            "header_style": "h1",
+            "make_large": false
+          }
+        }
+      },
+      "block_order": [
+        "164257779631fe0f75-0"
+      ],
+      "settings": {
+        "is_centered": true,
+        "color_theme": "color_theme__dark",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_xlarge_top",
+        "section_spacing_bottom": "section_spacing_small_bottom",
+        "bg_color": "#ffffff",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": "#e9ffd4"
+      }
+    },
+    "16425781514700210e": {
+      "type": "mfr-core__tabbed-accordions",
+      "blocks": {
+        "984c3454-e959-4421-8735-33f97ee49c13": {
+          "type": "accordion",
+          "settings": {
+            "title": "urabitur aliquet quam id dui posuere blandit?",
+            "content": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.<\/p>"
+          }
+        },
+        "04d7a965-0868-43dd-aca4-bbd92e8f6780": {
+          "type": "accordion",
+          "settings": {
+            "title": "Vestibulum ac diam sit vehicula?",
+            "content": "<p>Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor volutpat. <\/p>"
+          }
+        },
+        "56dd8caf-34eb-4641-9f3c-7d3f49fa8ad8": {
+          "type": "accordion",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing?",
+            "content": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.<\/p>"
+          }
+        },
+        "5ba85d19-139b-450a-a2f6-497e7b43ec0d": {
+          "type": "accordion",
+          "settings": {
+            "title": "Donec rutrum congue?",
+            "content": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.<\/p>"
+          }
+        },
+        "0c7b968b-10fb-4c1d-a318-444f47fc1ed6": {
+          "type": "accordion",
+          "settings": {
+            "title": "aliquet quam id dui posuere blandit?",
+            "content": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.<\/p>"
+          }
+        },
+        "abb43e5c-9ed1-4eb2-8816-8556b7fa57b5": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-accent-graphics-1.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 300,
+            "position_x_desktop": 2,
+            "position_y_desktop": -4,
+            "width_mobile": 150,
+            "position_x_mobile": 0,
+            "position_y_mobile": -2,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "984c3454-e959-4421-8735-33f97ee49c13",
+        "04d7a965-0868-43dd-aca4-bbd92e8f6780",
+        "56dd8caf-34eb-4641-9f3c-7d3f49fa8ad8",
+        "5ba85d19-139b-450a-a2f6-497e7b43ec0d",
+        "0c7b968b-10fb-4c1d-a318-444f47fc1ed6",
+        "abb43e5c-9ed1-4eb2-8816-8556b7fa57b5"
+      ],
+      "settings": {
+        "title": "<p>product question<\/p>",
+        "title_style": "h2",
+        "color_theme": "color_theme__light",
+        "color": "rgba(0,0,0,0)",
+        "name": "",
+        "section_spacing_top": "section_spacing_xlarge_top",
+        "section_spacing_bottom": "section_spacing_small_bottom",
+        "bg_color": "linear-gradient(0deg, rgba(60, 168, 223, 1) 50%, rgba(25, 127, 191, 1) 100%)",
+        "top_divider": "angled",
+        "svg_divider_top_color": "#ffffff",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "16425790834959c4b4": {
+      "type": "mfr-core__tabbed-accordions",
+      "blocks": {
+        "8cd17ace-f5b8-4751-8dcb-9373b9acfe5f": {
+          "type": "accordion",
+          "settings": {
+            "title": "urabitur aliquet quam id dui posuere blandit?",
+            "content": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.<\/p>"
+          }
+        },
+        "e9f3b417-324c-4229-87ff-788c17e39204": {
+          "type": "accordion",
+          "settings": {
+            "title": "Vestibulum ac diam sit vehicula?",
+            "content": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.<\/p>"
+          }
+        },
+        "b85e1cab-9543-4df4-aad0-e3536dabda91": {
+          "type": "accordion",
+          "settings": {
+            "title": "Donec rutrum congue?",
+            "content": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.<\/p>"
+          }
+        },
+        "aefe3634-4e41-416f-9fad-92e66968bce5": {
+          "type": "accordion",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing?",
+            "content": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.<\/p>"
+          }
+        },
+        "bfa36fc5-41d2-457e-bbd0-254e1a2d1657": {
+          "type": "accordion",
+          "settings": {
+            "title": "aliquet quam id dui posuere blandit?",
+            "content": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.<\/p>"
+          }
+        },
+        "31a5fe43-904d-40f7-9a3a-40f0d7122909": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/algae-6_copy_3.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 370,
+            "position_x_desktop": 0,
+            "position_y_desktop": 0,
+            "width_mobile": 150,
+            "position_x_mobile": 0,
+            "position_y_mobile": -6,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        },
+        "882e5480-5755-4c36-9772-73f452c69cc0": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/leaf-left.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "bottom",
+            "width_desktop": 360,
+            "position_x_desktop": 0,
+            "position_y_desktop": -2,
+            "width_mobile": 150,
+            "position_x_mobile": 0,
+            "position_y_mobile": 4,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "8cd17ace-f5b8-4751-8dcb-9373b9acfe5f",
+        "e9f3b417-324c-4229-87ff-788c17e39204",
+        "b85e1cab-9543-4df4-aad0-e3536dabda91",
+        "aefe3634-4e41-416f-9fad-92e66968bce5",
+        "bfa36fc5-41d2-457e-bbd0-254e1a2d1657",
+        "31a5fe43-904d-40f7-9a3a-40f0d7122909",
+        "882e5480-5755-4c36-9772-73f452c69cc0"
+      ],
+      "settings": {
+        "title": "<p>our brand<\/p>",
+        "title_style": "h2",
+        "color_theme": "color_theme__light",
+        "color": "",
+        "name": "",
+        "section_spacing_top": "section_spacing_small_top",
+        "section_spacing_bottom": "section_spacing_xlarge_bottom",
+        "bg_color": "linear-gradient(0deg, rgba(25, 127, 191, 1), rgba(60, 168, 223, 1) 50%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "#e9ffd4",
+        "bottom_divider": "angled",
+        "svg_divider_bottom_color": "#fffcf7"
+      }
+    }
+  },
+  "order": [
+    "16425777961711078d",
+    "16425781514700210e",
+    "16425790834959c4b4"
+  ]
+}

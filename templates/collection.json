@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "mfr-collection-header": {
+      "type": "mfr-collection-header",
+      "settings": {
+        "color_theme": "color_theme__light",
+        "is_centered": true,
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "section_spacing_top": "section_spacing_large_top",
+        "section_spacing_bottom": "section_spacing_small_bottom",
+        "bg_color_1": "#4ff1f6",
+        "bg_color_2": "#fff",
+        "bg_color_3": "#fff",
+        "gradient_balance": 50,
+        "gradient_angle": "0",
+        "show_svg_divider_top": false,
+        "svg_divider_top_color": "#fff20c",
+        "show_svg_divider_bottom": false,
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "mfr-collection-products": {
+      "type": "mfr-collection-products",
+      "settings": {
+        "is_full_width": true,
+        "grid_columns": 4,
+        "product_layout_style": "grid",
+        "show_secondary_image": true,
+        "primary_product_image_style": "contain",
+        "secondary_product_image_style": "contain",
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_large_bottom"
+      }
+    }
+  },
+  "order": [
+    "mfr-collection-header",
+    "mfr-collection-products"
+  ]
+}

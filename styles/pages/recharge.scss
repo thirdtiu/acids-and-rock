@@ -1,0 +1,36 @@
+.recharge-te {
+  padding-top: 8rem;
+  background: none !important;
+}
+.rct_navigation {
+  background: $white;
+}
+
+#ReCharge.user-customer {
+  padding-top: 9rem;
+  @include breakpoint(large up) {
+    padding-top: 9rem;
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+  #customer_tab_content {
+    .grid__item {
+      margin-left: 0;
+    }
+    button {
+      @extend .primary;  
+    }
+  }
+}
+
+
+#ReCharge {
+  #content__customers__request-invite {
+    #customer_tab_content {
+      .row {
+        justify-content: center;
+      }
+    } 
+  }  
+}

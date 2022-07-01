@@ -1,0 +1,617 @@
+.customer__account-page,
+.customer__address-page {
+  @include breakpoint (small only) {
+    padding: 8rem 0;
+  }
+  background: $off-white;
+  .myaccount__header {
+    margin-bottom: 1rem;
+    text-align: center;
+    h1 {
+      width: 100%;
+      //color: $neutral_medium;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-weight: bold;
+    }
+    .button {
+      display: inline-block !important;
+    }
+  }
+
+  .address-list {
+    ul {
+      list-style-type: none;
+    }
+    
+    li {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid $color-accent-3;
+      h2 {
+        font-weight: bold;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.7143;
+      }
+
+      @include breakpoint( medium up ) {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        h2 {
+          width: 100%;
+        }
+
+        p {
+          flex: 1;
+          padding-right: rem-calc( 20px );
+        }
+      }
+    }
+
+    .button.small {
+      @include shadow(none);
+      min-width: auto !important;
+      padding-left: .875rem;
+      padding-right: .875rem;
+      margin-right: .5rem;
+    }
+    .button.link {
+      color: var( --color-off-white );
+      display: inline-block;
+      color: $color-accent-3;
+      min-width: auto !important;
+      &:hover {
+        @include shadow(none);
+      }
+    }
+
+    h2 {
+      font-size: rem-calc( 18px );
+      line-height: 1.2;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      margin-bottom: rem-calc( 20px );
+    }
+  }
+  .myaccount__wrapper {
+    margin-top: 4rem;
+    .myaccount__tabs {
+      
+      //border: 1px $light-gray solid;
+      background: none;
+      .tabs {
+        display: flex;
+        background: none;
+        border: none;
+        //margin-bottom: 1rem;
+        padding: 0;
+        align-items: baseline;
+        margin-bottom: -2px;
+        @include breakpoint(medium down) {
+          //flex-wrap: wrap;
+        }
+        // border-top: none;
+        // border-left: none;
+        // border-right: none;
+        li {
+          @include breakpoint(medium down) {
+            width: 50%;
+          }
+          &.is-active {
+            &:first-child {
+              a {
+                &::after {
+                  content: " ";
+                  position: absolute;
+                  width: 5px;
+                  height: 5px;
+                  border-left: 1px solid $color-accent-3;
+                  background: $theme-color-white;
+
+                  bottom: -3px;
+                  left: -1px;
+                }
+              }
+            }
+          }
+          &.is-active a {
+            background: $white;
+            color: $black;
+            border: 1px solid $color-accent-3;
+            position: relative;
+            border-bottom: 1px solid $theme-color-white;
+            &:after {
+              // content: "";
+              // position: absolute;
+              // bottom: -4px;
+              // border-right: 1px solid $color-accent-3;
+              // border-left: 1px solid $color-accent-3;
+              // height: 4px;
+              // width: calc(100% + 2px);
+              // left: 0;
+              // background: $white;
+            }
+            &:hover {
+              // background: $color-accent-3;
+              // color: $theme-color-white;
+              background: transparent;
+              color: $color-accent-3;
+            }
+          }
+          &:not(.is-active) a {
+            background: none;
+            color: $black;
+          }
+
+          a {
+            @include border-radius(12px 12px 0 0);
+            font-size: 1rem;
+            border: 2px solid transparent;
+            padding: 1.25rem 2.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: $black;
+            outline: none;
+            position: relative;
+            @include breakpoint(medium down) {
+              padding: 1.25rem 0.7rem;
+              font-size: 0.8rem;
+              font-weight: 800;
+              height: 4rem;
+            }
+            @include breakpoint(large up) {
+              &:hover {
+                background: $color-accent-3;
+                color: $white;
+              }
+            }
+          }
+        }
+        #subscription-link {
+          @extend .meta-label;
+          margin-left: .5rem;
+          span {
+            padding-bottom: .3rem;
+            border-bottom: 1px solid $color-accent-3;
+          }
+        }
+      }
+
+      .tabs-content {
+        @include border-radius(rem-calc(5px));
+        padding: 0.5rem;
+        border: 1px solid $color-accent-3;
+        background: $color-body;
+        .tabs-panel {
+          outline: none;
+          padding: 1rem;
+          @include breakpoint(large up) {
+            padding: 3rem;
+          }
+          .inner {
+            align-items: flex-start;
+            @include breakpoint(small) {
+              flex-direction: column;
+            }
+            & >.cell {
+              @include breakpoint(small) {
+                margin-bottom: 60px;
+              }
+            }
+            .info p {
+              font-size: 1.1rem;
+            }
+            select {
+              @include breakpoint(small) {
+                font-size: 14px;
+                padding: 15px 20px;
+                margin-bottom: 25px;
+                height: auto;
+              }
+            }
+            label {
+              color: $theme-color-black;
+              margin-bottom: 10px;
+            }
+            ul {
+                list-style: none;
+                display: flex;
+                @include border-radius(5px);
+                border: 2px solid $black;
+                justify-content: center;
+                align-items: center;
+                li {
+                    flex-direction: row;
+                    text-align: center;
+                    flex-grow: 1;
+                    padding: 10px;
+                    // display: inline-block;
+                    // width: 32%;
+                    &.active {
+                        background: $color-accent-2;
+                        @include border-radius(5px);
+                        a {
+                            color: white;
+                            // padding: 17px 22px 17px 21px;
+                            // padding: 15px;
+                            background-color: $black;
+                            @include border-radius(5px);
+                        }
+                    }
+                    a {
+                        float: none;
+                        margin: 0;
+                        text-transform: uppercase;
+                        color: $black;
+                        // padding: 10px;
+                        font-size: 13px;
+                        font-weight: 400;
+                    }
+                    &:nth-child(2) {
+                        border-right: 2px solid $black;
+                        border-left: 2px solid $black;
+                    }
+                }
+            }
+          }
+          &#profile {
+            .inner {
+              display: flex;
+              flex-flow: row;
+              @include breakpoint(medium down) {
+                flex-wrap: wrap;
+              }
+              .content {
+                &:first-child {
+                  margin-right: 2rem;
+                  padding-right: 2rem;
+                  margin-bottom: 2rem;
+                  padding-bottom: 2rem;
+                  border-bottom: 2px rgba(0,0,0,.1) solid;
+                  @include breakpoint(medium up) {
+                    padding-bottom: 0;
+                    border-right: 2px rgba(0,0,0,.1) solid;
+                    border-bottom: none;
+                    margin-bottom: 0rem;
+                  }
+                  @include breakpoint(large up) {
+                    margin-right: 4rem;
+                    padding-right: 4rem;
+                  }
+                }
+              }
+            }
+            .info {
+              p {
+                color: $black;
+              }
+              .address {
+                .address-count {
+                  @include opacity(.3);
+                }
+              }
+            }
+
+            .account__edit {
+              display: none;
+              &.expanded {
+                display: block;
+              }
+              .survey-data {
+                display: none;
+              }
+              input[type="text"], input[type="email"], input[type="password"] {
+                padding: 2rem 1rem;
+                border: none;
+                background: $white;
+              }
+            }
+          }
+
+          &#tests {
+            .test-item-wrapper {
+              display: flex;
+              flex-flow: row;
+              .test-item {
+                max-width: 12rem;
+                @include breakpoint(large up) {
+                  margin-right: 2rem;
+                }
+                h2 {}
+                .test-header {
+                  margin-bottom: 1rem;
+                }
+                .test-pdf {
+                  .image {
+                    display: block;
+                    max-width: 8.5rem;
+                    margin-bottom: 1rem;
+                  }
+                  .download {
+                    font-size: 1.1rem;
+                  }
+                }
+              }
+            }
+          }
+
+        }
+        .profile-content {
+          @include breakpoint( medium up ) {
+            display: flex;
+            flex-direction: row;
+          }
+
+          .left-section,
+          .right-section {
+            padding: rem-calc( 23px ) 1rem 1rem;
+
+            @include breakpoint( small down ) {
+              padding-top: 0;
+              padding-left: 0;
+            }
+
+            .subheading {
+              margin-bottom: 1.5rem;
+            }
+
+          }
+
+          .left-section {
+            // font-size: .875rem;
+
+            @include breakpoint( medium up ) {
+              flex-basis: 20rem;
+              flex-grow: 0;
+              flex-shrink: 1;
+              border-right: 1px solid #292929;
+            }
+
+            // p {
+            //   margin-bottom: 1.75rem;
+            //   line-height: 1;
+            //   font-size: .875rem;
+
+            //   strong {
+            //     display: inline-block;
+            //     font-size: 1rem;
+            //     font-weight: 600;
+            //     text-transform: uppercase;
+            //     line-height: 1;
+            //     letter-spacing: -0.3px;
+            //     margin-bottom: 1rem;
+            //     color: #FE7614;
+            //   }
+            // }
+            
+            & > *:last-child {
+              margin-bottom: 0;
+            }
+          }
+
+          .right-section {
+            flex: 1;
+            // font-size: .875rem;
+            margin-top: rem-calc( 20px );
+            
+            @include breakpoint( medium up ) {
+              margin-left: 3rem;
+              margin-top: 0;
+            }
+            .button {
+              display: inline-block !important;
+              min-width: auto !important;
+            }
+          }
+        }
+        .tab-content-title {
+          color: $font-body-color;
+        }
+      }
+    }
+  }
+}
+
+
+
+.tabs-panel#orders {
+  .order__wrapper {
+    .order__info {
+      margin-bottom: 3rem;
+    }
+    .order__product {
+      //border-right: 1px $black solid;
+      display: flex;
+      .order__product-image {
+        width: 6rem;
+        margin-right: 1rem;
+        margin-bottom: 2rem;
+        @include breakpoint(large up) {
+          margin-bottom: 0;
+        }
+      }
+      .order__item-info {
+        flex-grow: 1;
+         p {
+          //color: $black;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: .9rem;
+          margin-bottom: 0;
+         }
+      }
+    }
+  }
+}
+
+
+
+
+.myaccount__recommended-products {
+  .product__preview-grid-item {
+    .product-image {
+      text-align: center;
+    }
+    .title {
+      font-weight: 100;
+    }
+  }
+}
+
+
+
+
+//Order Reciept Page
+.myaccount__order-reciept {
+  @include border-radius(1rem);
+  background: $off-white;
+  padding: 1rem;
+  @include breakpoint(large up) {
+    padding: 2rem;
+  }
+
+  .reciept-footer {
+    display: flex;
+    align-items: center;
+    .address {
+      margin: 1rem;
+      .meta-label {
+        margin-bottom: .5rem;
+      }
+      p {
+        font-size: 0.9rem;
+        font-weight: 400;
+        line-height: 1.2rem;
+        color: $black;
+      }
+      p.status {
+        color: $black;
+      }
+    }
+  }
+}
+
+
+.myaccount__add-address {
+  margin-bottom: 2rem;
+  flex-grow: 1;
+  text-align: center;
+  button {
+    display: inline-block;
+  }
+  form {
+    background: $off-white;
+    padding: 1rem;
+    input[type="text"], input[type="email"], input[type="password"] {
+      padding: 2rem 1rem;
+      border: none;
+      background: $white;
+    }
+    select {
+      height: auto;
+    }
+  }
+  .cancel-btn {
+    margin-top: 1.8rem;
+  }
+}
+.myaccount__address-wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-flow: column;
+  @include breakpoint(large up) {
+    flex-flow: row;
+  }
+  .button {
+    margin-top: 1rem;
+  }
+  .myaccount__address-single {
+    @include border-radius(1rem);
+    margin: 1rem 2rem;
+    padding: 1rem;
+    @include breakpoint(medium down) {
+      margin: 1rem auto;
+      //border-bottom: 2px $off-white-green solid;
+      hr {
+        display: none;
+      }
+    }
+    &.default {
+      background: $off-white;
+    }
+    h4 {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.address-form {
+  text-align: center;
+  padding: rem-calc( 60px ) rem-calc( 20px ) rem-calc( 50px );
+
+  h2 {
+    margin-bottom: 2.5rem;
+    line-height: 1.5rem;
+  }
+  .action-buttons {
+    justify-content: center;
+    .button {
+      @include shadow(none);
+      &.link {
+        color: $color-accent-3;
+        min-width: auto;
+      }
+    }
+  }
+  .select {
+    position: relative;
+    svg {
+      @include transform(translate(0, -50%));
+      width: 1.5rem;
+      position: absolute;
+      right: 1rem;
+      top: calc(50% - .5rem);
+    }
+  }
+  input[type="text"], 
+  input[type="email"], 
+  input[type="password"],
+  input[type="tel"] {
+    @include border-radius(rem-calc(5px));
+    padding: 2rem 1rem;
+    background: $theme-color-white;
+    height: 3.4375rem;
+    padding: 1rem;
+    font-size: 1.25rem;
+    color: $color-accent-3 !important;
+    font-family: $button-font-custom-name !important; font-weight: bold; text-transform: uppercase;
+    &::placeholder{ color: $color-accent-3 !important; opacity: 1 !important; font-family: $button-font-custom-name !important; font-weight: bold; text-transform: uppercase;}
+    &:-ms-input-placeholder {color: $color-accent-3 !important; opacity: 1 !important; font-family: $button-font-custom-name !important; font-weight: bold; text-transform: uppercase;}
+    &::-ms-input-placeholder {color: $color-accent-3 !important; opacity: 1 !important; font-family: $button-font-custom-name !important; font-weight: bold; text-transform: uppercase;}
+  }
+  select {
+    appearance: none;
+    background: $theme-color-white;
+    height: 3.4375rem;
+    padding: 0 1rem;
+    border: 1px solid #cacaca;
+    font-family: $button-font-custom-name !important; font-weight: bold; text-transform: uppercase;
+    color: $color-accent-3 !important;
+    font-size: 1.25rem;
+    // padding-left: 0;
+    // padding-right: 0;
+    // // padding-bottom: rem-calc( 22px );
+    // text-transform: lowercase;
+    // border-bottom: 1px solid var( --color-primary );
+    // font-size: inherit;
+    // font-weight: inherit;
+    // margin-top: .5rem;
+  }
+
+}

@@ -1,0 +1,112 @@
+$review_item_width_small: 100%;
+$review_item_width_medium: 100%;
+$review_item_width_xlarge: 100%;
+
+$review_item_height_small: auto;
+$review_item_height_medium: auto;
+$review_item_height_xlarge: auto;
+
+$review_item_padding_small: 0rem 10% 0rem 10%;
+$review_item_padding_medium: 2rem;
+$review_item_padding_xlarge: 4rem 3rem;
+
+
+
+section.mfr-core__reviews-carousel {
+  position: relative;
+
+  .review-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    .icon {
+      margin: 0 .2rem;
+    }    
+  }
+
+  .flickity-slider {
+    align-items: center;
+    display: flex;
+  }
+  .reviews-carousel {
+    height: auto;
+    position: inherit !important;
+    .review-item {
+      width: $review_item_width_small;
+      height: $review_item_height_small;
+      padding: $review_item_padding_small;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include breakpoint(medium up) {
+        width: $review_item_width_medium;
+        height: $review_item_height_medium;
+        padding: $review_item_padding_medium;
+        margin: 0;
+      }
+      @include breakpoint(xlarge up) {
+        width: $review_item_width_xlarge;
+        height: $review_item_height_xlarge;
+        padding: $review_item_padding_xlarge;
+        margin: 0;
+      }
+      .inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        height: 100%;
+        max-width: 50rem;
+        width: 90%;
+        text-align: center;
+        &.inverted {
+          .quote, .name {
+            color: $white;
+          }
+        }
+        .quote {}
+        .image {
+          @include opacity(.3);
+          width: 7rem;
+          margin: 0 auto;
+          height: 5rem;
+          object-fit: contain;
+        }
+        .name {
+          @include opacity(1)
+        }
+      }
+    }
+
+    
+    .flickity-page-dots {}
+    .flickity-prev-next-button {
+      //width: 50%;
+    }
+
+    //Custom Cursor Arrow
+    /*
+    .flickity-button.previous {
+      @include breakpoint(medium up) {
+        &:hover {
+          cursor: url('https://cdn.shopify.com/s/files/1/0550/7684/7770/files/left-arrow-silver.svg?v=1619050734') 38 43, auto;
+        }
+      }
+      @include breakpoint(medium up) {
+        left: 25%;
+      }
+    }
+    .flickity-button.next {
+      @include breakpoint(medium up) {
+        &:hover {
+          cursor: url('https://cdn.shopify.com/s/files/1/0550/7684/7770/files/right-arrow-silver.svg?v=1619050570') 38 43, auto;
+        }
+      }
+    }
+    */
+    
+  }
+
+
+}

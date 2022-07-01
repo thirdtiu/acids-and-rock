@@ -1,0 +1,227 @@
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+
+{%- assign content_alignment = section.settings.text_side -%}
+
+{%- assign mobile_alignment = section.settings.mobile_alignment -%}
+
+
+{% if section.settings.background_texture %}
+  {% assign background_texture = section.settings.background_texture %}
+{% else %}
+  {% assign background_texture = "" %}
+{% endif %}
+
+{% if section.settings.background_texture_align %}
+  {% assign background_texture_align = section.settings.background_texture_align %}
+{% else %}
+  {% assign background_texture_align = "" %}
+{% endif %}
+
+{% if section.settings.is_centered %}
+  {% assign text_alignment = "text-center" %}
+{% else %}
+  {% assign text_alignment = "text-left" %}
+{% endif %}
+
+
+
+<section class="mfr-core__page-header background {{ background_texture }} {{ background_texture_align }} {{ top_spacing }} {{ bottom_spacing }}">
+  <div class="grid-container full contains_carousel">
+
+    <div class="grid-x">
+      
+      <div class="cell small-12 content-wrapper {{ mobile_alignment }} {{ banner_height }}">
+          
+        {%- if section.settings.show_collection_image and collection.image -%}
+        <div class="image {% if section.settings.image_overlay %} overlay {% endif %}">
+          {% render 'component__responsive-image', image: collection.image %}
+        </div>
+        {%- endif -%}
+
+        <div class="inner {{ content_alignment }}">
+          <div class="section-content {{ section.settings.color_theme }} {{ text_alignment }}">
+
+            {% render 'component__title-block', text: collection.title, classes: 'h1' %}
+
+            {%- if section.settings.show_collection_description -%}
+              <div class="description rte">{{ collection.description }}</div>
+            {%- endif -%}
+          
+          </div>
+        </div>
+      
+      </div>
+
+    </div>
+
+  
+    
+  </div>
+
+  {% render 'component__section-dividers' %}
+  {% render 'component__gradient-bg-styles' %}
+
+</section>
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Collection Banner",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Theme" },
+            { "value": "color_theme__light", "label": "Light Theme" },
+            { "value": "color_theme__theme_1", "label": "Color Theme 1" },
+            { "value": "color_theme__theme_2", "label": "Color Theme 2" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      },
+      {
+       "type": "select",
+       "id": "text_side",
+       "options": [
+          { "value": "left-align-content", "label": "Left" }, 
+          { "value": "center-align-content", "label": "Center" },
+          { "value": "right-align-content", "label": "Right" }
+       ],
+       "label": "Text Side",
+       "default": "left-align-content"
+      },
+      {
+        "type": "select",
+        "id": "mobile_alignment",
+        "options": [
+           { "value": "mobile-align-top", "label": "Top" },
+           { "value": "mobile-align-center", "label": "Center" },
+           { "value": "mobile-align-bottom", "label": "Bottom" }
+        ],
+        "label": "Mobile Vertical Position",
+        "default":   "mobile-align-center"
+      },
+      {
+        "type": "checkbox",
+        "id": "is_centered",
+        "default": false,
+        "label": "Center Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_description",
+        "default": false,
+        "label": "Show Collection Description"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_image",
+        "default": true,
+        "label": "Show Collection Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "image_overlay",
+        "label": "Add image overlay",
+        "default": false,
+        "info": "use to darken images so text shows better"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "default": "section_spacing_large_top",
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None"},
+            { "value": "section_spacing_small_bottom", "label": "Small"},
+            { "value": "section_spacing_medium_bottom", "label": "Medium"},
+            { "value": "section_spacing_large_bottom", "label": "Large"},
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large"}
+         ],
+         "default": "section_spacing_large_bottom",
+         "label": "Bottom spacing"
+      },
+      {
+        "type": "header",
+        "content": "Background"
+      },
+      {
+        "type": "color",
+        "id": "bg_color_1",
+        "label": "Background Color 1"
+      },
+      {
+        "type": "select",
+        "id": "background_texture",
+        "options": [
+          { "value": "", "label": "None"},
+          { "value": "texture_1", "label": "Texture 1"},
+          { "value": "texture_2", "label": "Texture 2"},
+          { "value": "texture_3", "label": "Texture 3"},
+          { "value": "texture_4", "label": "Texture 4"},
+          { "value": "texture_5", "label": "Texture 5"},
+          { "value": "texture_6", "label": "Texture 6"},
+          { "value": "texture_7", "label": "Texture 7"}
+        ],
+        "label": "Background Texture"
+      },
+      {
+        "type": "select",
+        "id": "background_texture_align",
+        "options": [
+            { "value": "align_left", "label": "Left"},
+            { "value": "align_center", "label": "Center"},
+            { "value": "align_right", "label": "Right"}
+        ],
+        "label": "Background Texture Align"
+      },
+      {
+        "type": "header",
+        "content": "Dividers"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_svg_divider_top",
+        "label": "Show top uneven divider"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_top_color",
+        "label": "Top divider color"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_svg_divider_bottom",
+        "label": "Show bottom uneven divider"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_bottom_color",
+        "label": "Bottom divider color"
+      }
+    ]
+  }
+{% endschema %}

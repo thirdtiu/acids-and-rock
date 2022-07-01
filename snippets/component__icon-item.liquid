@@ -1,0 +1,11 @@
+{%- if image or svg != blank -%}
+  <div class="icons-set__item">
+    <div class="icons-set__image">
+        {%- if svg != blank -%}
+            {{ svg }}
+        {%- else -%}
+            <img src="{{ image | img_url: '162x' }}" alt="{{ image.alt | default: text }}">
+        {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}

@@ -1,0 +1,429 @@
+{%- comment -%}
+--------------------------------------
+assign section settings to variables
+--------------------------------------
+{%- endcomment -%}
+
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+
+{% if section.settings.is_full_width %}
+  {% assign is_full_width = "full" %}
+{% else %}
+  {% assign is_full_width = "" %}
+{% endif %}
+
+{% if section.settings.color_theme %}
+  {% assign text_color = section.settings.color_theme %}
+{% else %}
+  {% assign text_color = "" %}
+{% endif %}
+
+{% assign page_animation = "data-aos='fade-up' data-aos-easing='ease-in-quart'" %}
+
+
+
+<section class="mfr-product__reviews background">
+  <div class="grid-container {{ is_full_width }} {{ top_spacing }} {{ bottom_spacing }}">
+
+    <div class="grid-x align-center">
+
+      <div class="cell small-11 medium-10 section-content {{ text_color }} {{ text_center }}">
+        <div class="inner">
+
+          {%- for block in section.blocks -%}
+            {% case block.type %}
+              
+              {%- when 'icon' -%}
+                {% render 'component__section-icon', icon: block.settings.icon, icon_width: block.settings.icon_width, svg_code: block.settings.svg_code %} 
+              
+              {%- when 'small_text' -%}
+                <div class="small-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+              
+              {%- when 'heading' -%}
+                {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style %}
+             
+              {%- when 'text' -%}
+                <div class="section-text {{ block.settings.text_style }}" {{ block.shopify_attributes }} {{ animation_type }}>{{ block.settings.text }}</div>
+            
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="grid-x grid-padding-x align-center">
+      <div class="cell small-11 medium-8 large-6 mfr-yotpo-theme-light">
+        <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  {% render 'component__section-dividers' %}
+  {% render 'component__gradient-bg-styles' %}
+  {% render 'component__accent-graphics' %}
+
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Product Reviews",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content Settings"
+      },
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Text" },
+            { "value": "color_theme__light", "label": "Light Text" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      },
+      {
+       "type": "checkbox",
+       "id": "is_full_width",
+       "default": true,
+       "label": "Full Width"
+      },
+      {
+       "type": "checkbox",
+       "id": "is_centered",
+       "default": false,
+       "label": "Center Text"
+      },
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None" },
+            { "value": "section_spacing_small_bottom", "label": "Small" },
+            { "value": "section_spacing_medium_bottom", "label": "Medium" },
+            { "value": "section_spacing_large_bottom", "label": "Large" },
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+         ],
+         "label": "Bottom spacing"
+      },
+      {
+        "type":"header",
+        "content":"Background"
+      },
+      {
+        "type": "color_background",
+        "id": "bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Dividers"
+      },
+      {
+        "type": "select",
+        "id": "top_divider",
+        "options": [
+            { "value": "none", "label": "None" },
+            { "value": "angled", "label": "Show Angled Divider" },
+            { "value": "phyllup-flag", "label": "Show Phyllup Divider" }
+            ],
+        "label": "Top Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_top_color",
+        "label": "Top divider color"
+      },
+      {
+        "type": "select",
+        "id": "bottom_divider",
+        "options": [
+            { "value": "none", "label": "None" },
+            { "value": "angled", "label": "Show Angled Divider" },
+            { "value": "angled large", "label": "Show Large Angled Divider" },
+            { "value": "phyllup-flag", "label": "Show Phyllup Divider" } 
+            ],
+        "label": "Bottom Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_bottom_color",
+        "label": "Bottom divider color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "icon", 
+        "name": "Icon",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "range",
+            "id": "icon_width",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Image width",
+            "default": 150
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Icon SVG Code",
+            "info":"Paste SVG code for vector icon"
+          }
+        ]
+      },
+      {
+        "type": "small_text",
+        "name": "Small Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "default": "Small Text",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "name": "Heading",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "heading",
+            "default": "<p>Heading H1</p>",
+            "label": "Heading H1"
+          },
+          {
+            "type": "select",
+            "id": "header_style",
+            "options": [
+                { "value": "h1", "label": "H1" },
+                { "value": "h2", "label": "H2" },
+                { "value": "h3", "label": "H3" }
+                ],
+            "label": "Header Style",
+            "default": "h1"
+          },
+          {
+            "type": "checkbox",
+            "id": "offset_title",
+            "default": false,
+            "label": "Offset title",
+            "info": "Makes title overlap image"
+           },
+           {
+            "type": "checkbox",
+            "id": "no_wrap",
+            "default": false,
+            "label": "Force title to one line"
+           }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.</p>",
+            "label": "Text"
+          },
+          {
+            "type": "select",
+            "id": "text_style",
+            "options": [
+                { "value": "small", "label": "Small" },
+                { "value": "regular", "label": "Regular" },
+                { "value": "large", "label": "Large" }
+                ],
+            "label": "Text Style",
+            "default": "regular"
+          }
+        ]
+      },
+      {
+        "type": "accent_graphic", 
+        "name": "Accent Graphic",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Graphic SVG Code",
+            "info":"Paste SVG code for vector graphic"
+          },
+          {
+            "type":"header",
+            "content":"Visibility"
+          },
+          {
+            "type": "select",
+            "id": "visibility",
+            "options": [
+                { "value": "always", "label": "Always" },
+                { "value": "desktop_only", "label": "Desktop Only" },
+                { "value": "mobile_only", "label": "Mobile Only" }
+                ],
+            "label": "Show on..",
+            "default": "always"
+          },
+          {
+            "type":"header",
+            "content":"Position"
+          },
+          {
+            "type": "select",
+            "id": "x_setting",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+                ],
+            "label": "X Position",
+            "default": "left"
+          },
+          {
+            "type": "select",
+            "id": "y_setting",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "bottom", "label": "Bottom" }
+                ],
+            "label": "Y Position",
+            "default": "top"
+          },
+          {
+            "type":"header",
+            "content":"Desktop Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_desktop",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_desktop",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_desktop",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Mobile Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_mobile",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_mobile",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_mobile",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%", 
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Animation Settings"
+          },
+          {
+            "type": "select",
+            "id": "animation",
+            "options": [
+                { "value": "none", "label": "None" },
+                { "value": "rotating", "label": "Rotate" },
+                { "value": "floating", "label": "Float" },
+                { "value": "flying", "label": "Fly Across Screen" }
+                ],
+            "label": "Animation",
+            "default": "none"
+          },
+          {
+            "type":"checkbox",
+            "id":"show_shadow",
+            "label":"Show Shadow"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

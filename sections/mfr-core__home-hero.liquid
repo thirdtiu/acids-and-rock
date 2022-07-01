@@ -1,0 +1,547 @@
+<link rel="stylesheet" href="{{ 'mfr-core__home-hero.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'mfr-core__home-hero.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+{% if section.settings.color_theme %}
+{% assign text_color = section.settings.color_theme %}
+{% else %}
+{% assign text_color = "" %}
+{% endif %}
+
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+
+
+
+
+<section class="mfr-core__home-hero hero-section background">
+
+  <div class="grid-container full {{ top_spacing }} {{ bottom_spacing }}">
+
+    <div class="hero-content {{ text_color }} ">
+
+
+      <div class="section-content text-center align-center">
+
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+          
+          {%- when 'icon' -%}
+            {% render 'component__section-icon', icon: block.settings.icon, icon_width: block.settings.icon_width, svg_code: block.settings.svg_code %} 
+      
+          
+          {%- when 'small_text' -%}
+            <div class="small-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          
+          {%- when 'heading' -%}
+            {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style, text_size: block.settings.make_large %}
+          
+          {%- when 'sub_headline' -%}
+            <div class="section-text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          
+          {%- when 'button' -%}
+            {%- if block.settings.button_label != blank -%}
+              <div class="button-set text-center align-center">
+                {%- include 'component__button', 
+                  button_link: block.settings.button_link, 
+                  button_style: block.settings.button_style, 
+                  button_color: block.settings.button_color, 
+                  button_has_arrow: block.settings.button_has_arrow, 
+                  button_label: block.settings.button_label 
+                -%}
+              </div>
+            {%- endif -%}
+
+        {%- endcase -%} 
+      {%- endfor -%}
+
+      </div>
+
+        <div class="hero__product-lineup">
+
+          {%- comment -%} PRODUCTS {%- endcomment -%}
+          {% if section.settings.product_image_1 != blank %}
+          <div class="hero__product product_1">
+            <div class="product-inner floating">
+              {% assign image  = section.settings.product_image_1 %}
+              {% assign image_size = '300x' %}
+              <img loading="lazy" src="{{ image | img_url: image_size }};"
+                srcset="{{ image | img_url: image_size }} 1x, {{ image | img_url: image_size, scale: 2 }} 2x"
+                alt="{{ image.alt | default: shop.name }}"
+                itemprop="image">
+            </div>
+            <div class="hero-product__shadow shadow shadow-blur">
+              <img loading="lazy" src="{{ section.settings.product_image_1 | img_url: '200x' }}" alt="shadow">
+            </div>
+          </div>
+          {% endif %} 
+          {% if section.settings.product_image_2 != blank %}
+          <div class="hero__product product_2">
+            <div class="product-inner floating reverse">
+              {% assign image  = section.settings.product_image_2 %}
+              {% assign image_size = '300x' %}
+              <img loading="lazy" src="{{ image | img_url: image_size }};"
+                srcset="{{ image | img_url: image_size }} 1x, {{ image | img_url: image_size, scale: 2 }} 2x"
+                alt="{{ image.alt | default: shop.name }}"
+                itemprop="image">
+            </div>
+            <div class="hero-product__shadow shadow reverse shadow-blur">
+              <img loading="lazy" src="{{ section.settings.product_image_2 | img_url: '200x' }}" alt="shadow">
+            </div>
+          </div>
+          {% endif %}
+          {% if section.settings.product_image_2 != blank %}
+          <div class="hero__product product_3">
+            <div class="product-inner floating">
+              {% assign image  = section.settings.product_image_3 %}
+              {% assign image_size = '300x' %}
+              <img loading="lazy" src="{{ image | img_url: image_size }};"
+                srcset="{{ image | img_url: image_size }} 1x, {{ image | img_url: image_size, scale: 2 }} 2x"
+                alt="{{ image.alt | default: shop.name }}"
+                itemprop="image">
+            </div>
+            <div class="hero-product__shadow shadow shadow-blur">
+              <img loading="lazy" src="{{ section.settings.product_image_3 | img_url: '200x' }}" alt="shadow">
+            </div>
+          </div>
+          {% endif %}  
+          
+          <div class="burst">
+            <svg class="rotating-slow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 771 771"><defs><filter x="-3.5%" y="-3.5%" width="107%" height="107%" filterUnits="objectBoundingBox" id="filter-bm-58z8e9r-1"><feGaussianBlur stdDeviation="9" in="SourceGraphic"/></filter></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity=".65"><g id="Home" transform="translate(-526 -192)" fill="#FFF"><path id="Star" filter="url(#filter-bm-58z8e9r-1)" d="m911.5 701.893-21.167 252.513 7.239-253.296-49.306 248.556 35.554-250.892-76.825 241.472 63.421-245.334-103.379 231.353 90.491-236.691-128.632 218.323 116.423-225.071-152.267 202.548 140.89-210.62L659.954 858.98l163.587-193.521L630.02 829.046l184.226-173.988-210.62 140.89 202.548-152.267-225.071 116.423 218.323-128.632-236.691 90.491 231.353-103.379-245.334 63.421 241.472-76.825-250.892 35.554 248.556-49.306-253.296 7.239L787.107 577.5l-252.513-21.167 253.296 7.239-248.556-49.306 250.892 35.554-241.472-76.825 245.334 63.421-231.353-103.379 236.691 90.491-218.323-128.632 225.071 116.423-202.548-152.267 210.62 140.89L630.02 325.954l193.521 163.587L659.954 296.02l173.988 184.226-140.89-210.62 152.267 202.548-116.423-225.071 128.632 218.323-90.491-236.691 103.379 231.353-63.421-245.334 76.825 241.472-35.554-250.892 49.306 248.556-7.239-253.296L911.5 453.107l21.167-252.513-7.239 253.296 49.306-248.556-35.554 250.892 76.825-241.472-63.421 245.334 103.379-231.353-90.491 236.691 128.632-218.323-116.423 225.071 152.267-202.548-140.89 210.62 173.988-184.226-163.587 193.521 193.521-163.587-184.226 173.988 210.62-140.89-202.548 152.267 225.071-116.423-218.323 128.632 236.691-90.491-231.353 103.379 245.334-63.421-241.472 76.825 250.892-35.554-248.556 49.306 253.296-7.239-252.513 21.167 252.513 21.167-253.296-7.239 248.556 49.306-250.892-35.554 241.472 76.825-245.334-63.421 231.353 103.379-236.691-90.491 218.323 128.632-225.071-116.423 202.548 152.267-210.62-140.89 184.226 173.988-193.521-163.587 163.587 193.521-173.988-184.226 140.89 210.62-152.267-202.548 116.423 225.071-128.632-218.323 90.491 236.691-103.379-231.353 63.421 245.334-76.825-241.472 35.554 250.892-49.306-248.556 7.239 253.296z"/></g></g></svg>
+          </div>
+        </div>
+
+
+    </div>
+
+  </div>  
+
+
+  
+  {% render 'component__gradient-bg-styles' %}
+  {% render 'component__accent-graphics' %}
+  {% render 'component__hero-divider', color: section.settings.svg_divider_bottom_color %}
+
+  
+
+</section>
+
+
+
+
+{% schema %}
+{
+  "name": "Home Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "select",
+      "id": "color_theme",
+      "options": [
+          { "value": "color_theme__dark", "label": "Dark Text" },
+          { "value": "color_theme__light", "label": "Light Text" }
+          ],
+      "label": "Color Theme",
+      "default": "color_theme__dark"
+    },
+    {
+      "type": "header",
+      "content": "Hero Product Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_1",
+      "label": "Product 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_2",
+      "label": "Product 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_3",
+      "label": "Product 3"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+       "type": "select",
+       "id": "section_spacing_top",
+       "options": [
+          { "value": "section_spacing_none_top", "label": "None" },
+          { "value": "section_spacing_small_top", "label": "Small" },
+          { "value": "section_spacing_medium_top", "label": "Medium" },
+          { "value": "section_spacing_large_top", "label": "Large" },
+          { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+       ],
+       "label": "Top spacing"
+    },
+    {
+       "type": "select",
+       "id": "section_spacing_bottom",
+       "options": [
+          { "value": "section_spacing_none_bottom", "label": "None" },
+          { "value": "section_spacing_small_bottom", "label": "Small" },
+          { "value": "section_spacing_medium_bottom", "label": "Medium" },
+          { "value": "section_spacing_large_bottom", "label": "Large" },
+          { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+       ],
+       "label": "Bottom spacing"
+    },
+    {
+      "type":"header",
+      "content":"Background"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Dividers"
+    },
+    {
+      "type": "color",
+      "id": "svg_divider_bottom_color",
+      "label": "Bottom divider color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon", 
+      "name": "Icon",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Image width",
+          "default": 150
+        },
+        {
+          "type":"html",
+          "id":"svg_code",
+          "label":"Icon SVG Code",
+          "info":"Paste SVG code for vector icon"
+        }
+      ]
+    },
+    {
+      "type": "small_text", 
+      "name": "Small Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Small Text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "default": "<p>Heading H1</p>",
+          "label": "Heading H1"
+        },
+        {
+          "type": "select",
+          "id": "header_style",
+          "options": [
+              { "value": "h1", "label": "H1"},
+              { "value": "h2", "label": "H2"},
+              { "value": "h3", "label": "H3"}
+              ],
+          "label": "Header Style",
+          "default": "h1"
+        },
+        {
+          "type": "checkbox",
+          "id": "make_large",
+          "label": "Make extra large",
+          "info" : "only applies to H1"
+        }
+      ]
+    },
+    {
+      "type": "sub_headline",
+      "name": "Sub Headline",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.</p>",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+              { "value": "small", "label": "Small"},
+              { "value": "regular", "label": "Regular"},
+              { "value": "large", "label": "Large"}
+              ],
+          "label": "Text Style",
+          "default": "regular"
+        }
+      ]
+    },
+    {
+      "type": "intro_text",
+      "name": "Intro Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.</p>",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+              { "value": "small", "label": "Small"},
+              { "value": "regular", "label": "Regular"},
+              { "value": "large", "label": "Large"}
+              ],
+          "label": "Text Style",
+          "default": "regular"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "Button",
+          "info": "Leave the label blank to hide the button."
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+            "type": "select",
+            "id": "button_style",
+            "options": [
+                { "value": "primary", "label": "Primary"},
+                { "value": "secondary", "label": "Secondary"},
+                { "value": "tertiary", "label": "Tertiary"}
+                ],
+            "label": "Button Style",
+            "default": "primary"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_has_arrow",
+          "label": "Add Arrow to button",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "accent_graphic", 
+      "name": "Accent Graphic",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type":"html",
+          "id":"svg_code",
+          "label":"Graphic SVG Code",
+          "info":"Paste SVG code for vector graphic"
+        },
+        {
+          "type":"header",
+          "content":"Visibility"
+        },
+        {
+          "type": "select",
+          "id": "visibility",
+          "options": [
+              { "value": "always", "label": "Always" },
+              { "value": "desktop_only", "label": "Desktop Only" },
+              { "value": "mobile_only", "label": "Mobile Only" }
+              ],
+          "label": "Show on..",
+          "default": "always"
+        },
+        {
+          "type":"header",
+          "content":"Position"
+        },
+        {
+          "type": "select",
+          "id": "x_setting",
+          "options": [
+              { "value": "left", "label": "Left" },
+              { "value": "right", "label": "Right" }
+              ],
+          "label": "X Position",
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "y_setting",
+          "options": [
+              { "value": "top", "label": "Top" },
+              { "value": "bottom", "label": "Bottom" }
+              ],
+          "label": "Y Position",
+          "default": "top"
+        },
+        {
+          "type":"header",
+          "content":"Desktop Settings"
+        },
+        {
+          "type": "range",
+          "id": "width_desktop",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Graphic Width",
+          "default": 150
+        },
+        {
+          "type": "range",
+          "id": "position_x_desktop",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X Position",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "position_y_desktop",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Y Position",
+          "default": 10
+        },
+        {
+          "type":"header",
+          "content":"Mobile Settings"
+        },
+        {
+          "type": "range",
+          "id": "width_mobile",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Graphic Width",
+          "default": 150
+        },
+        {
+          "type": "range",
+          "id": "position_x_mobile",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X Position",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "position_y_mobile",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Y Position",
+          "default": 10
+        },
+        {
+          "type":"header",
+          "content":"Animation Settings"
+        },
+        {
+          "type": "select",
+          "id": "animation",
+          "options": [
+              { "value": "none", "label": "None" },
+              { "value": "rotating", "label": "Rotate" },
+              { "value": "floating", "label": "Float" },
+              { "value": "flying", "label": "Fly Across Screen" }
+              ],
+          "label": "Animation",
+          "default": "none"
+        },
+        {
+          "type": "select",
+          "id": "preset_graphic",
+          "options": [
+              { "value": "none", "label": "None" },
+              { "value": "home-hero-phyllup", "label": "Home Hero Phyllup" },
+              { "value": "walking-phyllup", "label": "Walking Phyllup" },
+              { "value": "ask-me-phyllup", "label": "Ask Me Phyllup" }
+              ],
+          "label": "Preset Graphic",
+          "default": "none"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Hero",
+      "category": "Manufactur Core Sections",
+      "blocks": [
+        {
+          "type": "small_text"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "sub_headline"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

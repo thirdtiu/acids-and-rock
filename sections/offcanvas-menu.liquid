@@ -1,0 +1,180 @@
+
+<div class="offcanvas-menu__panel offcanvas-menu-panel">
+  <!-- Close button -->
+  <button class="offcanvas-menu__close test close-button close" aria-label="Close" type="button" data-close>
+    {% render 'icon-close' %}
+  </button>
+
+  <a 
+    class="offcanvas-menu__logo" 
+    href="/" 
+    style="max-width: {{ section.settings.offcanvas_image_width }}px;"
+    itemprop="url"
+  >
+    {% if section.settings.offcanvas_image_svg != blank %}
+      {{ section.settings.offcanvas_image_svg }}
+
+    {%- elsif section.settings.offcanvas_image != blank -%}
+      {%- assign image_size = section.settings.offcanvas_image_width | append: 'x' -%}
+
+      <img 
+        src="{{ section.settings.offcanvas_image | img_url: image_size }}"
+        srcset="{{ section.settings.offcanvas_image | img_url: image_size }} 1x, {{ section.settings.offcanvas_image | img_url: image_size, scale: 2 }} 2x"
+        alt="{{ section.settings.offcanvas_image.alt | default: shop.name }}"
+        itemprop="logo"
+      />
+
+    {% else %}
+      {{ shop.name }}
+    {% endif %}
+  </a>
+
+  <!-- Mobile Menu -->
+  <nav class="offcanvas-menu__navigation" role="navigation">
+    <ul class="menu vertical accordion-menu mobile-menu" data-accordion-menu>
+
+      {% for link in section.settings.menu.links %}
+        <li class="mobile-menu__item">
+          <a class="mobile-menu__title {%- if link.links != blank %} is-parent {% endif -%}" href="{{ link.url }}">
+            <span>{{ link.title }}</span>
+            {%- if link.links != blank -%}
+              {%- render "icon-chevron-down" -%}
+            {%- endif -%}
+          </a>
+          
+          {% if link.links != blank %}
+            <ul class="mobile-menu__submenu menu vertical nested">
+              {% for sublink in link.links %}
+                <li><a href="{{ sublink.url }}">{{ sublink.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+
+  {% if shop.customer_accounts_enabled %}
+
+    {% if customer %}
+      <div class="offcanvas-menu__account account-info">
+        <div class="user-account-icon">
+          {% if customer.first_name != blank %}
+            <a href="/account" class="customer-name button tertiary">
+              {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+              Welcome, {{  customer.first_name }}!
+            </a>
+          {% endif %}
+        </div>
+        <a class="button small underline" href="/account">Your account</a>
+      </div>
+
+    {% else %}
+      <div class="offcanvas-menu__login login-wrapper">
+        <div class="create-account-button">
+        <a class="account-link button small underline" href="/account">
+           Create Account
+          </a>
+        </div>
+        {% if template contains "customers" %}
+          <a class="login-button button small underline" href="/account">Login</a>
+        {% else %}
+          <div class="button small underline" data-close data-open="offCanvasLogin">Login</div>
+        {% endif %}
+        
+      </div>
+    {% endif %}
+
+  {% endif %}
+
+
+  <div class="offcanvas-menu__socials social-wrapper">
+    {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+    
+    <p class="social-title small-text">{{ section.settings.social_title }}</p>
+
+    <ul class="icon-set small nav-social-links">
+      {%- for social in social_accounts -%}
+        {%- assign social_handle = social | handleize -%}
+        {%- assign link = "social_" | append: social_handle | append: "_link" -%}
+        {%- assign icon = "icon-" | append: social_handle -%}
+
+        {%- if settings[ link ] != blank -%}
+          <li>
+            <a 
+              class="offcanvas-menu__social"
+              href="https://{{ settings[ link ] }}"
+              target="_blank" 
+              rel="noopener" 
+              title="{{ social }}" 
+              onClick="_gaq.push(['_trackEvent', 'button', 'click', 'Footer - {{ settings[ link ] }} ']);"
+            >
+              {%- include icon -%}
+              <span class="icon-fallback-text">{{ social }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div> <!-- .offcanvas-menu__socials -->
+  
+</div> <!-- .offcanvas-menu__panel -->
+
+
+
+
+{% schema %}
+{
+  "name": "OffCanvas Menu",
+  "class": "offcanvas-menu__inner", 
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "offcanvas_image",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "offcanvas_image_svg",
+      "label": "SVG Code",
+      "info": "(Optional) In the case of an SVG, add the SVG code. This will override the image."
+    },
+    {
+      "type": "range",
+      "id": "offcanvas_image_width",
+      "min": 10,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Max Width",
+      "default": 150
+    },
+
+    {
+      "type": "header",
+      "content": "Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation"
+    },
+
+    {
+      "type": "header",
+      "content": "Social"
+    },
+    {
+      "type": "text",
+      "id": "social_title",
+      "label": "Title",
+      "default": "Follow Us"
+    }
+  ]
+}
+{% endschema %}

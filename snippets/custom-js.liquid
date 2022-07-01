@@ -1,0 +1,181 @@
+
+<script>
+
+  jQuery(function(){
+
+      init();
+
+  });
+
+
+  function init() {
+
+
+    // $( '.accordion__header' ).not( '.is-active' ).click( function( ) {
+    //   var pane = $(this);
+    //   if ( pane.hasClass("is-active")) {
+    //     //nothing
+    //   } else {
+    //     console.log('TEST');  
+    //     setTimeout(function(){
+    //       var $panel = pane.next();
+          
+    //       $('html,body').animate({
+    //         scrollTop: $panel.offset().top - 200
+    //       }, 300); 
+    //     }, 300 );
+    //   }    
+    // });
+
+
+    $(window).scroll(function() {
+      var height = $(window).scrollTop();
+      //general stick bar
+      if(height  > 50) {
+          $(".custom-sticky-bar").addClass("scrolled-down");
+      }
+      if (height <= 50) {
+          $(".custom-sticky-bar").removeClass("scrolled-down");
+      }
+      
+    });
+
+    $('.footer__back-to-top').click(function(){
+      $("html, body").animate({ scrollTop: 0 });
+      return false;
+    });
+
+
+    //open mega menu on hover
+    $( "#open-mega-menu" ).hover(
+      function() {
+        $( '#mega-menu' ).addClass( "open" );
+        console.log('hover');
+      }, function() {
+      }
+    );
+
+    //cloes mega menu on hover out
+    $( "#mega-menu" ).hover(
+      function() {
+        console.log('hover');
+      }, function() {
+        $( '#mega-menu' ).removeClass( "open" );
+      }
+    );
+
+    //open mega menu on mobile
+    $('.mobile-menu-trigger').click(function(){
+      $( '#mega-menu' ).toggleClass( "open" );
+    });
+
+
+
+    // $('.video-player').click(function () {
+    //   var videoEl = $(this).find("video").get(0);
+    //   if( videoEl.paused ){
+    //       videoEl.play();
+    //       $(this).find(".playpause, .cover-image").fadeOut();
+    //   }else{
+    //       videoEl.pause();
+    //       $(this).find(".playpause, .cover-image").fadeIn();
+    //   }
+    // });
+
+  
+    var minusTrigger = $('.js-quantity-picker-minus');
+    var plusTrigger = $('.js-quantity-picker-plus');
+    var quantityInput = $('.js-quantity-picker-input');
+    let count = quantityInput.val();
+    // Quantity
+    minusTrigger.click(function(e) {
+    e.preventDefault();
+    //console.log('THIS IS TRIGGERED');
+    if (count > 1) {
+        count--;
+        quantityInput.val(count)
+    }
+    });
+    plusTrigger.click(function(e) {
+      e.preventDefault();
+      //console.log('PLUS IS TRIGGERED');
+      count++;
+      quantityInput.val(count);
+    });
+
+
+    AOS.init({
+      duration: 300,
+      easing: 'ease',
+      once: false,
+      mirror: false,
+      anchorPlacement: 'top-bottom'
+    });
+
+
+    jQuery('.lottie-callout-interested').each(function(){
+      var lottie_callout_happy = lottie.loadAnimation({
+        container: jQuery(this)[0],
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '{{ 'callout-interested.json' | asset_url }}',
+        rendererSettings: {
+          preserveAspectRatio: 'none'
+        }
+      });
+    });
+    jQuery('.lottie-callout-happy').each(function(){
+      var lottie_callout_happy = lottie.loadAnimation({
+        container: jQuery(this)[0],
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '{{ 'callout-happy.json' | asset_url }}',
+        rendererSettings: {
+          preserveAspectRatio: 'none'
+        }
+      });
+    });
+
+    jQuery('.wave-up').each(function(){
+      var waveUp = lottie.loadAnimation({
+        container: jQuery(this)[0],
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '{{ 'wave-up.json' | asset_url }}',
+        rendererSettings: {
+          preserveAspectRatio: 'none'
+        }
+      });
+    });
+    jQuery('.wave-down').each(function(){
+      var waveDown = lottie.loadAnimation({
+        container: jQuery(this)[0],
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '{{ 'wave-up.json' | asset_url }}',
+        rendererSettings: {
+          preserveAspectRatio: 'none'
+        }
+      });
+      waveDown.setSpeed(1.2);
+    });
+
+
+  }
+
+
+  document.addEventListener("shopify:section:load", function(event) {
+    init();
+  });
+
+
+</script>
+
+
+<script src="{{ 'cart.js' | asset_url }}" type="text/javascript"></script>
+<script src="{{ 'product-form.js' | asset_url }}" type="text/javascript"></script>
+<script src="{{ 'blog.js' | asset_url }}" type="text/javascript"></script>

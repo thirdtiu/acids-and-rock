@@ -1,0 +1,452 @@
+{%- comment -%}
+--------------------------------------
+assign section settings to variables
+--------------------------------------
+{%- endcomment -%}
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+{% assign caption_layout = section.settings.caption_layout %}
+{% assign animation_type = "fade-up" %}
+
+{% if section.settings.color_theme %}
+  {% assign color_theme = section.settings.color_theme %}
+{% else %}
+  {% assign color_theme = "" %}
+{% endif %}
+
+
+<section class="mfr-core__logo-bar background {{ top_spacing }} {{ bottom_spacing }}">
+
+  <div class="grid-container full">
+    <div class="grid-x align-center">
+
+      <div class="cell small-12 medium-8 large-6 section-content text-center content-margin {{ color_theme }}">
+        <div class="inner">
+          {%- for block in section.blocks -%}
+            {% case block.type %}
+              
+              {%- when 'icon' -%}
+                {% render 'component__section-icon', icon: block.settings.icon, icon_width: block.settings.icon_width, svg_code: block.settings.svg_code %}   
+           
+              {%- when 'small_text' -%}
+                <div class="small-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+              
+              {%- when 'heading' -%}
+                {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style, text_size: block.settings.make_large %}
+             
+              {%- when 'text' -%}
+                <div class="section-text {{ block.settings.text_style }}" {{ block.shopify_attributes }} {{ page_animation }}>{{ block.settings.text }}</div>
+            
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="cell small-12">
+        <div class="carousel-wrapper center logos {{ section.id }} {{ color_theme }}">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'logo' -%}
+
+            {% assign box_color = block.settings.logo_box_color %}
+
+              {%- comment -%}
+              --------------------------------------
+              display selected layout style
+              --------------------------------------
+              {%- endcomment -%}
+              {%- case caption_layout -%}
+                {%- when 'no_caption' -%}
+                  <div class="logo" data-aos="{{ animation_type }}" data-aos-delay="{{ forloop.index }}00">
+                    <div class="inner" style="background-color:{{ box_color }};">
+                      <div class="image">
+                        {% render 'component__section-icon', icon: block.settings.image, icon_width: '400x', svg_code: block.settings.svg_code %} 
+                      </div>
+                      <div class="visually-hidden">{{ block.settings.name }}</div>
+                    </div>
+                  </div>
+
+                {%- when 'caption_under_logo' -%}
+                  <div class="logo" data-aos="{{ animation_type }}" data-aos-delay="{{ forloop.index }}00">
+                    <div class="inner" style="background-color:{{ box_color }};">
+                      <div class="image">
+                        {% render 'component__section-icon', icon: block.settings.image, icon_width: '400x', svg_code: block.settings.svg_code %} 
+                      </div>
+                      <div class="visually-hidden">{{ block.settings.name }}</div>
+                      <p class="caption">
+                        {{ block.settings.text }}
+                      </p>
+                    </div>
+                  </div>
+                
+                {%- when 'caption_above_logo' -%} 
+                  <div class="logo" data-aos="{{ animation_type }}" data-aos-delay="{{ forloop.index }}00">
+                    <div class="inner"  style="background-color:{{ box_color }};">
+                      <p class="caption">
+                        {{ block.settings.text }}
+                      </p>
+                      <div class="image">
+                        {% render 'component__section-icon', icon: block.settings.image, icon_width: '400x', svg_code: block.settings.svg_code %} 
+                      </div>
+                      <div class="visually-hidden">{{ block.settings.name }}</div>
+                    </div>
+                  </div>
+
+                {%- when 'caption_tooltip' -%}
+                  <div class="logo top" data-tooltip tabindex="2" title="{{ block.settings.text }}" data-aos="{{ animation_type }}" data-aos-delay="{{ forloop.index }}00">
+                    <div class="inner">
+                      <div class="image">
+                        {% render 'component__section-icon', icon: block.settings.image, icon_width: '400x', svg_code: block.settings.svg_code %} 
+                      </div>
+                      <div class="visually-hidden">{{ block.settings.name }}</div>
+                    </div>
+                  </div>
+
+                  {%- when 'caption_carousel' -%}
+                    <div class="caption-item">
+                      <div class="inner">
+                        <div class="h1">{{ block.settings.text }}</div>
+                      </div>
+                    </div>
+
+              {%- endcase -%}
+                
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+
+        {% if section.settings.caption_layout == "caption_carousel" %}
+          <div class="{{ section.id }} logo-nav">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'logo' -%}
+              <div class="logo">
+                {% render 'component__section-icon', icon: block.settings.image, icon_width: '', svg_code: block.settings.svg_code %} 
+              </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>  
+                    
+            <script type="text/javascript">
+              function nav_carousel() {
+                var $carousel_nav = $('.{{ section.id }}.logo-nav').flickity({
+                  selectedAttraction: 0.1,
+                  friction: 0.55,
+                  asNavFor: '.{{ section.id }}.carousel-wrapper.logos',
+                  initialIndex: 1,
+                  prevNextButtons: false,
+                  contain: true,
+                  cellAlign: 'center',
+                  imagesLoaded: true,
+                  lazyLoad: false,
+                  pageDots: false,
+                  draggable: '>1',
+                  wrapAround: false,
+                });
+              }
+              jQuery(function(){
+                nav_carousel();
+              });
+              document.addEventListener("shopify:section:load", function(event) {
+                nav_carousel();
+              });
+            </script>
+
+        {% endif %}
+        
+      </div>
+
+    </div>
+  </div>
+
+  
+  {% render 'component__section-dividers' %}
+  {% render 'component__gradient-bg-styles' %}
+  {% render 'component__accent-graphics' %}
+
+
+  <script type="text/javascript">
+    function logo_carousel() {
+      var $carousel = $('.{{ section.id }}.carousel-wrapper.logos').flickity({
+        selectedAttraction: 0.1,
+        friction: 0.55,
+        initialIndex: 1,
+        prevNextButtons: false,
+        contain: true,
+        cellAlign: 'center',
+        imagesLoaded: true,
+        lazyLoad: false,
+        pageDots: true,
+        draggable: '>1',
+        wrapAround: false,
+      });
+    }
+    jQuery(function(){
+      logo_carousel();
+    });
+    
+    document.addEventListener("shopify:section:load", function(event) {
+      logo_carousel();
+    });
+  </script>
+
+
+</section>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Logo Bar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content Settings"
+      },
+      {
+        "type": "select",
+        "id": "caption_layout",
+        "options": [
+           { "value": "no_caption", "label": "None" },
+           { "value": "caption_under_logo", "label": "Under Logo" },
+           { "value": "caption_above_logo", "label": "Above Logo" },
+           { "value": "caption_tooltip", "label": "Tooltip" },
+           { "value": "caption_carousel", "label": "Carousel" }
+        ],
+        "label": "Caption Layout"
+      },
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Text" },
+            { "value": "color_theme__light", "label": "Light Text" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      },
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None" },
+            { "value": "section_spacing_small_bottom", "label": "Small" },
+            { "value": "section_spacing_medium_bottom", "label": "Medium" },
+            { "value": "section_spacing_large_bottom", "label": "Large" },
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+         ],
+         "label": "Bottom spacing"
+      },
+      {
+        "type":"header",
+        "content":"Background"
+      },
+      {
+        "type": "color_background",
+        "id": "bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Dividers"
+      },
+      {
+        "type": "select",
+        "id": "top_divider",
+        "options": [
+            { "value": "none", "label": "None" },
+            { "value": "angled", "label": "Show Angled Divider" },
+            { "value": "phyllup-flag", "label": "Show Phyllup Divider" }
+            ],
+        "label": "Top Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_top_color",
+        "label": "Top divider color"
+      },
+      {
+        "type": "select",
+        "id": "bottom_divider",
+        "options": [
+            { "value": "none", "label": "None" },
+            { "value": "angled", "label": "Show Angled Divider" },
+            { "value": "phyllup-flag", "label": "Show Phyllup Divider" }
+            ],
+        "label": "Bottom Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_bottom_color",
+        "label": "Bottom divider color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Logo"
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Graphic SVG Code",
+            "info":"Paste SVG code for vector graphic"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Logo Name",
+            "info": "Will be hidden"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "color",
+            "id": "logo_box_color",
+            "label": "Background Color",
+            "info": "optional"
+          }
+        ]
+      },
+      {
+        "type": "icon", 
+        "name": "Icon",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "range",
+            "id": "icon_width",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Image width",
+            "default": 150
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Icon SVG Code",
+            "info":"Paste SVG code for vector icon"
+          }
+        ]
+      },
+      {
+        "type": "small_text", 
+        "name": "Small Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "default": "Small Text",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "name": "Heading",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "heading",
+            "default": "<p>Heading H1</p>",
+            "label": "Heading H1"
+          },
+          {
+            "type": "select",
+            "id": "header_style",
+            "options": [
+                { "value": "h1", "label": "H1"},
+                { "value": "h2", "label": "H2"},
+                { "value": "h3", "label": "H3"}
+                ],
+            "label": "Header Style",
+            "default": "h1"
+          },
+          {
+            "type": "checkbox",
+            "id": "make_large",
+            "label": "Make extra large",
+            "info" : "only applies to H1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.</p>",
+            "label": "Text"
+          },
+          {
+            "type": "select",
+            "id": "text_style",
+            "options": [
+                { "value": "small", "label": "Small"},
+                { "value": "regular", "label": "Regular"},
+                { "value": "large", "label": "Large"}
+                ],
+            "label": "Text Style",
+            "default": "regular"
+          }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "Logo Bar",
+      "category": "Manufactur Core Sections",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+    ]
+  }
+{% endschema %}

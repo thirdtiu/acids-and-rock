@@ -1,0 +1,260 @@
+html {
+  background-color: $color-body;
+  box-sizing: border-box;
+}
+
+body {
+  //background-image: $body-background-image;
+  background: $color-body;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  outline: none;
+}
+
+ul {
+  padding: 0;
+}
+
+
+/* Off Canvas Settings
+=============================
+=============================*/
+#offCanvasMenu, #offCanvasCart {
+  .wrapper {
+    height: 100%;
+  }
+}
+.off-canvas-content {
+  @include transition(.4s all cubic-bezier(0,.96,.4,.93));
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+}
+.off-canvas-content.is-open-right.has-transition-push {
+  @include transform(translateX(-50%));
+}
+
+.off-canvas.position-left {
+  // @include transition(.4s all $smooth_ease);
+  width: 100%;
+  @include transition(.4s all $smooth_ease);
+  @include transform(translateX(-100%));
+  width: 100%;
+  z-index: 999;
+  @include breakpoint(large up) {
+    width: 50%;
+  }
+  &.is-open {
+    @include transform(translateX(0%));
+  }
+}
+
+.off-canvas.position-right {
+  @include transition(.4s all $smooth_ease);
+  @include transform(translateX(100%));
+  width: 100%;
+  z-index: 999;
+  @include breakpoint(large up) {
+    width: 50%;
+  }
+  &.is-open {
+    @include transform(translateX(0%));
+  }
+}
+
+.js-off-canvas-overlay {
+  @extend .transition-4;
+  &.is-visible {
+    @include opacity(0.9);
+    z-index: 98;
+    background: $overlay_color;
+  }
+} 
+.off-canvas.is-transition-overlap {
+    z-index: 99;
+}
+
+/* Reveal Modal Settings
+=============================
+=============================*/
+.reveal-overlay {
+  @include opacity(1);
+  z-index: 98;
+  background: $overlay_color;
+}
+
+
+/* Section Settings
+=============================
+=============================*/
+// #MainContent {
+//   >.shopify-section:first-child > section:first-of-type { //pushes down image text section if first sections so it doestn overlap the header logo
+//     padding-top: 6rem;
+//     @include breakpoint(medium) {
+//       padding-top: 9em;
+//     }
+//   }
+// }
+
+
+
+/* Grid Container
+=============================
+=============================*/
+.grid-container.full-mobile {
+  @include breakpoint(medium down) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.grid-gutter {
+  @include breakpoint(medium up) {
+    margin: 2rem;
+  }
+  @include breakpoint(large up) {
+    margin: 4rem;
+  }
+  @include breakpoint(xlarge up) {
+    margin: 4rem;
+  }
+}
+
+.grid-container.overflow-hidden {
+  overflow: hidden;
+}
+
+
+
+/* Section Spacing
+=============================
+=============================*/
+.section_spacing_none_top {
+  padding-top: 0;
+}
+.section_spacing_small_top {
+  padding-top: 1rem;
+  @include breakpoint(medium up) {
+    padding-top: 2rem;
+  }
+  @include breakpoint(large up) {
+    padding-top: 1rem;
+  }
+}
+.section_spacing_medium_top {
+  padding-top: 2rem;
+  @include breakpoint(medium up) {
+    padding-top: 4rem;
+  }
+  @include breakpoint(large up) {
+    padding-top: 4rem;
+  }
+}
+.section_spacing_large_top {
+  padding-top: 4rem;
+  @include breakpoint(medium up) {
+    padding-top: 6rem;
+  }
+  @include breakpoint(large up) {
+    padding-top: 8rem;
+  }
+}
+.section_spacing_xlarge_top {
+  padding-top: 8rem;
+  @include breakpoint(medium up) {
+    padding-top: 10rem;
+  }
+  @include breakpoint(large up) {
+    padding-top: 12rem;
+  }
+  @include breakpoint(xlarge up) {
+    padding-top: 16rem;
+  }
+}
+////////////////////
+////////////////////
+.section_spacing_none_bottom {
+  padding-bottom: 0;
+}
+.section_spacing_small_bottom {
+  padding-bottom: 1rem;
+  @include breakpoint(medium up) {
+    padding-bottom: 2rem;
+  }
+  @include breakpoint(large up) {
+    padding-bottom: 1rem;
+  }
+}
+.section_spacing_medium_bottom {
+  padding-bottom: 2rem;
+  @include breakpoint(medium up) {
+    padding-bottom: 4rem;
+  }
+  @include breakpoint(large up) {
+    padding-bottom: 4rem;
+  }
+}
+.section_spacing_large_bottom {
+  padding-bottom: 4rem;
+  @include breakpoint(medium up) {
+    padding-bottom: 6rem;
+  }
+  @include breakpoint(large up) {
+    padding-bottom: 8rem;
+  }
+}
+.section_spacing_xlarge_bottom {
+  padding-bottom: 8rem;
+  @include breakpoint(medium up) {
+    padding-bottom: 10rem;
+  }
+  @include breakpoint(large up) {
+    padding-bottom: 12rem;
+  }
+  @include breakpoint(xlarge up) {
+    padding-bottom: 16rem;
+  }
+}
+
+
+
+
+
+/* Lazy loading
+=============================
+=============================*/
+.lazyload,
+.lazyloading {
+  opacity:0;
+}
+.lazyloaded{
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+
+/* Tabs
+=============================
+=============================*/
+.tabs-panel, .tabs-title a, .tabs-title a *, .tabs-panel a * {
+  outline: none;
+}
+
+
+// flex spacer
+.spacer {
+  flex: 1 1 auto;
+}
+
+
+//FOR EDITING
+[data-theme-editor-setting ~= "section"] {
+  @include opacity(1);
+}

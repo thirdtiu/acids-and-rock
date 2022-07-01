@@ -1,0 +1,29 @@
+@mixin green-gradient {
+  background: $color-accent;
+  background: linear-gradient(180deg, #00CCB6 0%, #00C5AF 28.66%, #00947C 100%);
+  background: -moz-linear-gradient(180deg, #00CCB6 0%, #00C5AF 28.66%, #00947C 100%);
+  background: -webkit-linear-gradient(180deg, #00CCB6 0%, #00C5AF 28.66%, #00947C 100%);
+}
+
+@mixin white-gradient {
+  background: $white;
+  background: linear-gradient(180deg, #FFFFFF 0%, #CAEAFE 100%);
+  background: -moz-linear-gradient(180deg, #FFFFFF 0%, #CAEAFE 100%);
+  background: -webkit-linear-gradient(180deg, #FFFFFF 0%, #CAEAFE 100%);
+}
+
+@mixin blue-gradient {
+  background: $white;
+  background: linear-gradient(-90deg, #36A9DC 0%, #0C86C0 100%);
+  background: -moz-linear-gradient(-90deg, #36A9DC 0%, #0C86C0 100%);
+  background: -webkit-linear-gradient(-90deg, #36A9DC 0%, #0C86C0 100%);
+}
+
+.bg {
+    &__white { background-color:$white; }
+    &__offwhite { background-color:$off-white; }
+    &__green-gradient {
+      @include green-gradient;
+    }
+}
+

@@ -1,0 +1,241 @@
+section.mfr-liina__product-facts {
+  position: relative;
+  z-index: 1;
+  .section-content {
+    max-width: 60rem;
+    margin: 0 auto 0rem;
+    @include breakpoint(large up) {
+      &.padding-large {
+        padding: 3rem;
+      }
+    }
+    @include breakpoint(large up) {
+      padding: 3rem;
+      &.padding-large {
+        padding: 4rem;
+      }
+    }
+    .button-set {
+      .button {
+        margin-top: 2rem;
+      }
+    }
+  }
+  .section-image-wrapper {
+    position: relative;
+    max-width: 27rem;
+    @include breakpoint(small only) {
+      order: -1;
+      margin-bottom: 3rem;
+    }
+
+    .section-image {
+      margin: 0 auto;
+      img, svg {
+        width: 100%;
+      }
+    }
+    .button-set {
+      @include transform(translate(-50%, 0));
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+    }
+  }
+  .image-style {
+    &__transparent_image {
+      .text-grid-block {
+        @include breakpoint(large up) {
+          padding: 1rem 4rem;
+        }
+      }
+      .block-image {
+        height: 14rem;
+        margin-bottom: 3rem;
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+    &__cover_image .block-image {
+      @include border-radius(2rem);
+      overflow: hidden;
+      height: 20rem;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+  .text-grid-block {
+    text-align: center;
+    padding: 1rem;
+    //max-width: 20rem;
+    margin: 0 auto;
+    @include breakpoint(large up) {
+      padding: 2rem;
+    }
+    .block-image {
+      margin: 0 auto 2rem;
+      width: 100%;
+      // height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .title {
+      margin-bottom: 1rem;
+    }
+    .text {
+      @include breakpoint(small only) {
+        height: 5rem;
+      }
+      p {
+        
+      }
+    }
+  }
+  .centered-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 78.75rem;
+    margin-left: auto;
+    margin-right: auto;
+    @include breakpoint(large up) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .section-image.centered_image {
+      height: 50rem;
+      width: 52rem;
+      padding: 6rem 11rem;
+      // background: radial-gradient(circle at center, white 0, transparent 100%);
+      @include breakpoint(medium down) {
+        @include transform(translate(-50%, -50%));
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 0;
+      }
+      img {
+        @include border-radius(100rem);
+        @include shadow(0rem 0rem 20rem rgba(255,255,255,1));
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .fact-image {
+      @include border-radius(.3125rem);
+      height: 16.25rem;
+      width: 16.25rem;
+      position: relative;
+      z-index: 1;
+      margin: 0 auto 1.5rem;
+      @include breakpoint(large up) {
+        position: absolute;
+        margin: 0;
+      }
+      &.right {
+        @include breakpoint(large up) {
+          @include transform(translateY(-50%));
+          right: 0;
+          top: 50%;
+        }
+      }
+      &.bottom-left {
+        @include breakpoint(large up) {
+          bottom: 0;
+          left: 10%;
+        }
+      }
+      .icon {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .text-info {
+      @include border-radius(.3125rem);
+      max-width: 95%;
+      padding: 1.75rem;
+      margin: 0 auto 1.5rem;
+      position: relative;
+      z-index: 1;
+      @include breakpoint(medium up) {
+        max-width: 21.875rem;
+      }
+      @include breakpoint(large up) {
+        position: absolute;
+        margin: 0;
+      }
+      &.color_theme {
+        &__dark {
+          .h1, .h2, .h3, .h4, p, .color_theme_text {
+            color: $color-theme__dark;
+            font-family: $custom-font-name-4;
+          }
+          .small-text {
+            color: $color-accent;
+          }
+        }
+        &__light {
+          .h1, .h2, .h3, .h4, p, .color_theme_text {
+            color: $color-theme__light;
+            font-family: $custom-font-name-4;
+          }
+          .small-text {
+            color: $color-accent;
+          }
+        }
+      }
+      &.top-left {
+        @include breakpoint(large up) {
+          top: 0;
+          left: 14%;
+        }
+      }
+      &.top-right {
+        @include breakpoint(large up) {
+          top: 0;
+          right: 0;
+        }
+      }
+      &.left {
+        @include breakpoint(large up) {
+          @include transform(translateY(-50%));
+          left: 0;
+          top: 50%;
+        }
+      }
+      &.bottom {
+        @include breakpoint(large up) {
+          bottom: 2%;
+          left: 50%;
+          @include transform(translateX(-50%));
+
+        }
+      }
+      &.bottom-right {
+        @include breakpoint(large up) {
+          bottom: 0;
+          right: 0;
+        }
+        // 
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.375rem;
+      }
+      .h4 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

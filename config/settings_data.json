@@ -1,0 +1,471 @@
+{
+  "current": {
+    "color_main_bg": "#fffcf7",
+    "overlay_color": "#0f3c59",
+    "global_radius": 5,
+    "global_border_width": 1,
+    "white_color": "#fffcf6",
+    "off_white_color": "#fbf9f3",
+    "black_color": "#000000",
+    "color_accent": "#98d61d",
+    "color_accent_2": "#83dfff",
+    "color_accent_3": "#197fbf",
+    "color_body_text": "#197fbf",
+    "color_theme_light": "#fffcf6",
+    "color_theme_dark": "#197fbf",
+    "custom_font_1_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0622\/9963\/5941\/files\/Verlag-Light.ttf?v=1642992248",
+    "custom_font_1_name": "Verlag",
+    "custom_font_1_weight": "400",
+    "custom_font_2_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0622\/9963\/5941\/files\/Verlag-XLight.ttf?v=1642992248",
+    "custom_font_2_name": "Verlag",
+    "custom_font_2_weight": "100",
+    "custom_font_3_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0622\/9963\/5941\/files\/Verlag-Black.ttf?v=1642992248",
+    "custom_font_3_name": "Verlag",
+    "custom_font_3_weight": "800",
+    "custom_font_4_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0622\/9963\/5941\/files\/Gellix-Regular.woff2?v=1642992309",
+    "custom_font_4_name": "Gellix",
+    "custom_font_4_weight": "400",
+    "custom_font_5_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0622\/9963\/5941\/files\/Gellix-Bold.woff2?v=1642992309",
+    "custom_font_5_name": "Gellix",
+    "custom_font_5_weight": "800",
+    "body_font": "archivo_n4",
+    "body_font_custom_name": "Verlag",
+    "body_font_size_small": 16,
+    "body_font_size_regular": 20,
+    "body_font_size_large": 22,
+    "h1_font_family_custom_name": "Verlag",
+    "h1_font_case": false,
+    "h1_font_weight": false,
+    "h1_font_spacing": 0,
+    "h1_font_size": 100,
+    "h1_font_size_mobile": 36,
+    "h1_font_size_alt": 120,
+    "h1_font_size_mobile_alt": 50,
+    "h2_font_family": "helvetica_n3",
+    "h2_font_family_custom_name": "Verlag",
+    "h2_font_case": false,
+    "h2_font_weight": false,
+    "h2_font_size": 60,
+    "h2_font_size_mobile": 30,
+    "h3_font_family_custom_name": "Verlag",
+    "h3_font_case": true,
+    "h3_font_weight": false,
+    "h3_font_size": 40,
+    "h3_font_size_mobile": 24,
+    "h4_font_family_custom_name": "Verlag",
+    "h4_font_case": true,
+    "h4_font_weight": true,
+    "h4_font_size": 18,
+    "h4_font_size_mobile": 18,
+    "small_title_font_family_custom_name": "Gellix",
+    "small_title_font_case": false,
+    "small_title_font_weight": true,
+    "small_title_font_spacing": 0,
+    "small_title_font_size": 20,
+    "small_title_font_size_mobile": 18,
+    "menu_font_family": "archivo_n7",
+    "menu_font_family_custom_name": "Gellix",
+    "menu_font_case": true,
+    "menu_font_spacing": 2,
+    "menu_font_size": 16,
+    "header_bg_color": "rgba(0,0,0,0)",
+    "header_menu_font_color": "#197fbf",
+    "header_menu_bg_color_hover": "#197fbf",
+    "header_menu_font_color_hover": "#fff",
+    "announcement_bar_bg_color": "#197fbf",
+    "announcement_bar_text_color": "#fff",
+    "footer_menu_font_family_custom_name": "Gellix",
+    "footer_menu_font_case": true,
+    "footer_menu_font_size": 16,
+    "footer_bg_color": "#fffcf6",
+    "footer_font_color": "#197fbf",
+    "footer_menu_color_hover": "#197fbf",
+    "offcanvas_panel_menu_size": 22,
+    "offcanvas_panel_bg_color": "#ffffff",
+    "offcanvas_panel_menu_color": "#197fbf",
+    "button_border_radius": 6,
+    "button_font_family_custom_name": "Gellix",
+    "general_button_case": true,
+    "general_button_spacing": 1,
+    "primary_button_size": 16,
+    "primary_button_text": "#fff",
+    "primary_button_bg": "#197fbf",
+    "primary_button_border": 1,
+    "primary_border_color": "#83dfff",
+    "primary_button_hover_text": "#fff",
+    "primary_button_hover_bg": "#197fbf",
+    "primary_border_color_hover": "#83dfff",
+    "secondary_button_size": 16,
+    "secondary_button_text": "#197fbf",
+    "secondary_button_bg": "#ffffff",
+    "secondary_button_border": 1,
+    "secondary_border_color": "#197fbf",
+    "secondary_button_hover_text": "#197fbf",
+    "secondary_button_hover_bg": "#ffffff",
+    "secondary_border_color_hover": "#197fbf",
+    "tertiary_button_size": 18,
+    "tertiary_button_text": "#ffffff",
+    "tertiary_button_bg": "#197fbf",
+    "tertiary_button_border": 0,
+    "tertiary_border_color": "#83dfff",
+    "tertiary_button_hover_text": "#ffffff",
+    "tertiary_button_hover_bg": "#197fbf",
+    "tertiary_border_color_hover": "#83dfff",
+    "carousel_banner_height_large": "90vh",
+    "social_facebook_link": "https:\/\/facebook.com\/",
+    "social_instagram_link": "https:\/\/instagram.com\/",
+    "favicon": "shopify:\/\/shop_images\/maade-logomark-small.png",
+    "currency_code_enabled": false,
+    "cart_notes_enabled": false,
+    "checkout_logo_image": "shopify:\/\/shop_images\/maade-logo.png",
+    "checkout_body_background_color": "#cff503",
+    "checkout_sidebar_background_color": "#fbf9f3",
+    "checkout_accent_color": "#fe2bbf",
+    "checkout_button_color": "#fe2bbf",
+    "checkout_error_color": "#fe2bbf",
+    "general_button_size": 18,
+    "color_theme_1": "#000000",
+    "color_theme_2": "#000000",
+    "maade_uses_text": "<p>for Pregnancy<\/p><p>for Breastfeeding<\/p><p>for Energy<\/p><p>for Exercise<\/p><p>for Hydration<\/p>",
+    "maade_uses_logo": "<svg viewbox=\"0 0 158 51\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <g id=\"Page-1\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"Homepage---R4\" transform=\"translate(-489.000000, -1412.000000)\" fill=\"#000000\">\n            <g id=\"Group\" transform=\"translate(451.000000, 1393.000000)\">\n                <path d=\"M38,50.9962629 C38,40.8947302 41.0502878,36 48.1670591,36 C52.2978415,36 55.7927787,38.1962629 57.0005103,42.0234306 C58.2072213,38.1962629 61.7021585,36 65.8329409,36 C72.9497122,36 76,40.8947302 76,50.9962629 L76,66.7832878 C76,67.4554692 75.4485259,68 74.7677735,68 L72.1485268,68 C71.4677744,68 70.9163003,67.4554692 70.9163003,66.7832878 L70.9163003,50.9962629 C70.9163003,43.5925257 69.1370225,40.64346 65.1970957,40.64346 C60.6859629,40.64346 59.3513344,45.0356498 59.3513344,50.9962629 L59.3513344,66.7832878 C59.3513344,67.4554692 58.7995201,68 58.1191079,68 L55.8808921,68 C55.2004799,68 54.6486656,67.4554692 54.6486656,66.7832878 L54.6486656,50.9962629 C54.6486656,45.0356498 53.3147175,40.64346 48.8029043,40.64346 C44.8629775,40.64346 43.0836997,43.5925257 43.0836997,50.9962629 L43.0836997,66.7832878 C43.0836997,67.4554692 42.5322256,68 41.8514732,68 L39.2322265,68 C38.5518143,68 38,67.4554692 38,66.7832878 L38,50.9962629 Z\" id=\"Fill-1\"><\/path>\n                <path d=\"M92.1208015,64.2979935 C86.8525959,64.2979935 83.9414284,61.575654 83.9414284,58.0240083 C83.9414284,54.5304582 86.8525959,51.8665541 92.1208015,51.8665541 C97.0055576,51.8665541 100.22892,54.5304582 100.22892,58.0240083 C100.22892,61.575654 97.0055576,64.2979935 92.1208015,64.2979935 M91.8086066,36 C86.9235191,36 84.1260277,37.4265698 81.5562198,39.9593341 C81.0590942,40.4539961 81.0448433,41.2697127 81.5419689,41.7497658 L83.245784,43.4386151 C83.7144077,43.8897903 84.438554,43.8897903 84.9071777,43.4386151 C86.0005226,42.3612984 88.2866375,40.7016668 91.8086066,40.7016668 C96.6930313,40.7016668 100.044321,43.802477 100.044321,48.242204 L100.044321,50.2215313 C97.8148781,48.3149084 94.904042,47.1648873 91.6236759,47.1648873 C84.0126831,47.1648873 79,51.4884231 79,58.0240083 C79,64.6180289 85.1202789,69 91.6236759,69 C96.6459701,69 99.4878714,67.7925628 101.37264,65.892395 C104.561867,62.6777717 105,59.8450166 105,54.2104228 L105,48.242204 C105,41.0801375 99.8597214,36 91.8086066,36\" id=\"Fill-3\"><\/path>\n                <path d=\"M121.120634,64.2979935 C115.852496,64.2979935 112.941697,61.575654 112.941697,58.0240083 C112.941697,54.5304582 115.852496,51.8665541 121.120634,51.8665541 C126.005328,51.8665541 129.228649,54.5304582 129.228649,58.0240083 C129.228649,61.575654 126.005328,64.2979935 121.120634,64.2979935 M120.808443,36 C115.923418,36 113.125962,37.4265698 110.556187,39.9593341 C110.059068,40.4539961 110.044817,41.2697127 110.541936,41.7497658 L112.24573,43.4386151 C112.714348,43.8897903 113.438485,43.8897903 113.907102,43.4386151 C115.000433,42.3612984 117.286851,40.7016668 120.808443,40.7016668 C125.693137,40.7016668 129.044052,43.802477 129.044052,48.242204 L129.044052,50.2215313 C126.81497,48.3149084 123.903839,47.1648873 120.623515,47.1648873 C113.012619,47.1648873 108,51.4884231 108,58.0240083 C108,64.6180289 114.120201,69 120.623515,69 C125.645745,69 128.48761,67.7925628 130.372686,65.892395 C133.561541,62.6777717 134,59.8450166 134,54.2104228 L134,48.242204 C134,41.0801375 128.859787,36 120.808443,36\" id=\"Fill-5\"><\/path>\n                <path d=\"M142.06113,52.2312554 C141.7754,59.2570586 144.844554,64.5918715 150.124661,65.0560914 C155.38925,65.5199735 159.381377,60.469639 159.688698,52.9772507 C159.980837,45.7575157 156.421859,40.5051408 151.136693,40.514925 C145.838032,40.5240609 142.335053,45.4612123 142.06113,52.2312554 M164.724567,53.1968599 C164.26578,64.1479232 157.94834,70.7966744 149.698258,69.9233057 C141.407357,69.0492613 136.61505,61.9281815 137.024248,52.0248228 C137.409832,42.3724942 142.778323,35.7825306 151.112404,35.6244121 C154.764826,35.5774495 158.141301,37.6856973 159.956886,40.9649685 C159.983873,34.1608016 159.799346,27.350891 159.401955,20.5467241 C159.360125,19.8196489 159.868502,19.1976482 160.542178,19.1567671 C161.406453,19.1050745 162.27039,19.0537198 163.134328,19.0020272 C163.808341,18.9614839 164.391946,19.5277377 164.435126,20.266638 C165.075068,31.2440543 165.170873,42.2343094 164.724567,53.1968599\" id=\"Fill-7\"><\/path>\n                <path d=\"M182.230916,40.6994255 C187.455589,40.6994255 191.092985,45.5156661 190.977443,50.4623047 L173.037042,50.4623047 C173.16707,45.0786287 177.135934,40.6994255 182.230916,40.6994255 M194.435293,59.9199028 L191.641727,59.9199028 C191.25434,59.9199028 190.899965,60.1022564 190.670228,60.4167061 C189.593965,61.889118 186.598621,64.2845041 182.230916,64.2845041 C181.841171,64.2845041 181.437278,64.2553003 181.047533,64.1826306 C177.135934,63.6002536 173.498875,60.1233103 173.037042,55.1620698 L194.484474,55.1620698 C195.278449,55.1620698 195.942397,54.5362268 195.971367,53.7215782 C196,53.2991427 196,52.8485221 196,52.4264262 C196,42.4020717 190.284525,36 182.230916,36 C173.67202,36 168,42.6054791 168,52.4264262 C168,61.9274904 173.152585,68.3580866 181.047533,68.9404636 C181.437278,68.9693278 181.827023,68.9839296 182.230916,68.9839296 C182.230916,68.9839296 190.980137,69.6963651 195.558042,61.6340946 C195.991579,60.8707224 195.308093,59.9199028 194.435293,59.9199028\" id=\"Fill-10\"><\/path>\n            <\/g>\n        <\/g>\n    <\/g>\n<\/svg>",
+    "made_uses_text": "<p>for Pregnancy<\/p><p>for Breastfeeding<\/p><p>for Energy <\/p><p>for Exercise<\/p><p>for Focus<\/p>",
+    "general_button_weight": false,
+    "sections": {
+      "offcanvas-menu": {
+        "type": "offcanvas-menu",
+        "settings": {
+          "offcanvas_image": "shopify:\/\/shop_images\/liina-logo.png",
+          "offcanvas_image_svg": "",
+          "offcanvas_image_width": 100,
+          "menu": "mfr-mobile-menu",
+          "social_title": "Follow Us"
+        }
+      },
+      "offcanvas-cart": {
+        "type": "offcanvas-cart",
+        "blocks": {
+          "4ef68a6e-7991-4eb9-a4c3-0f0413aaf0da": {
+            "type": "callout",
+            "settings": {
+              "title_text": "",
+              "featured_product": "spiru-liina-powder"
+            }
+          }
+        },
+        "block_order": [
+          "4ef68a6e-7991-4eb9-a4c3-0f0413aaf0da"
+        ],
+        "settings": {
+          "announcement_text": "Free shipping on subscriptions",
+          "cart_title": "my cart",
+          "show_additional_checkout_buttons": false,
+          "cart_bg_color": "#FFFCF6",
+          "cart_divider_colors": "#450073",
+          "cart_body_text_color": "#197fbf",
+          "cart_variant_color": "#450073",
+          "cart_price_color": "#450073",
+          "cart_product_name_case": true,
+          "cart_product_name_weight": true,
+          "cart_product_name_spacing": 0,
+          "cart_product_name_size": 18,
+          "make_subscription": "Make it a subscription",
+          "make_subscription_button_text": "Subscribe",
+          "subscribe_note_icon": "shopify:\/\/shop_images\/Check-Mark.png",
+          "subscribe_note": "Subscribe and save 15% + Free Shipping",
+          "callout_title": "Your cart looks a little empty",
+          "show_cart_upsells": true,
+          "cart_footer_text_color": "#fffcf7",
+          "cart_footer_separator_color": "#197fbf",
+          "cart_footer_bg_color": "linear-gradient(180deg, rgba(25, 127, 191, 1), rgba(60, 168, 223, 1) 100%)",
+          "checkout_button_style": "secondary"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "announcement_bar_enabled": true,
+          "announcement_bar_home_page_only": false,
+          "announcement_bar_text": "+ Subscribe and Save for Free Shipping +",
+          "announcement_bar_link": "",
+          "header_layout": "logo_centered_layout",
+          "logo": "shopify:\/\/shop_images\/Liina_Logo_Blue.png",
+          "logo_alternate": "shopify:\/\/shop_images\/Logo-1.png",
+          "logo_svg": "",
+          "logo_max_width": 190,
+          "menu": "mfr-left-menu",
+          "menu_right": "mfr-right-menu",
+          "show_right_cta": true,
+          "right_cta_text": "",
+          "right_cta_icon": "<svg width=\"25\" height=\"26\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><g fill=\"#FFF\" fill-rule=\"nonzero\"><circle cx=\"12.5\" cy=\"6.5\" r=\"6.5\"><\/circle><path d=\"M25 22.928C25 17.445 19.404 13 12.5 13S0 17.445 0 22.928c0 4.096 25 4.096 25 0Z\"><\/path><\/g><\/svg>",
+          "right_cta_link": "",
+          "show_cart_icon": true,
+          "cart_icon_svg": "",
+          "show_mega_menu": false,
+          "mega_menu_trigger": "shop",
+          "mega_menu_bg": "#ffffff"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "4488036f-39ec-460f-b4d8-8f4ae4a821c2": {
+            "type": "footer_main_nav",
+            "settings": {
+              "footer_linklist": "mfr-footer-menu"
+            }
+          },
+          "d39fb1ac-8672-4085-aee6-d6ee7fe3eb35": {
+            "type": "footer_form",
+            "settings": {
+              "title": "Stay In Loop",
+              "body": "Sign up for 15% off first order",
+              "embed_code": ""
+            }
+          }
+        },
+        "block_order": [
+          "4488036f-39ec-460f-b4d8-8f4ae4a821c2",
+          "d39fb1ac-8672-4085-aee6-d6ee7fe3eb35"
+        ],
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/liina-logo.png",
+          "logo_code": "",
+          "contact_email": "hello@liveliina.com",
+          "contact_phone": "",
+          "legal_links": "mfr-policies",
+          "legal_copyright": "2021 LIINA LLC | SITE BY MANUFACTUR",
+          "show_socials": false,
+          "socials_graphic_code": "",
+          "bg_color_1": "",
+          "bg_color_2": "",
+          "bg_color_3": "",
+          "gradient_balance": 50,
+          "gradient_angle": "0"
+        }
+      },
+      "password": {
+        "type": "password",
+        "settings": {
+          "password_logo": "shopify:\/\/shop_images\/maade-logo.png",
+          "password_logo_width": 250,
+          "description": "<p>Hey Moms!<\/p><p>maade is coming.<\/p><p>Get early access to something truly special, just for moms!<\/p>",
+          "title": "",
+          "form_title": "",
+          "form_embed": "<div class=\"klaviyo-form-Usxm7w\"><\/div>",
+          "background_color": "#ff33ba",
+          "password_button_color": "#000000",
+          "password_extra_image_width": 500
+        }
+      },
+      "mfr-core__scrolling-text": {
+        "type": "mfr-core__scrolling-text",
+        "settings": {
+          "marquee_text": "<p>#maadeformoms<\/p>",
+          "color_theme": "color_theme__light",
+          "section_spacing_top": "section_spacing_medium_top",
+          "section_spacing_bottom": "section_spacing_medium_bottom",
+          "top_divider": "none",
+          "svg_divider_top_color": "",
+          "bottom_divider": "none",
+          "svg_divider_bottom_color": ""
+        }
+      },
+      "mfr-core__custom-liquid": {
+        "type": "mfr-core__custom-liquid",
+        "blocks": {
+          "8621d979-0368-413c-9d7f-e0cfd42bb33b": {
+            "type": "liquid",
+            "settings": {
+              "custom_liquid": "<div class=\"elfsight-sapp-8c68f91c-b7a8-4588-b359-d2bad9929a3d\"><\/div>",
+              "section_spacing_top": "section_spacing_none_top",
+              "section_spacing_bottom": "section_spacing_none_bottom"
+            }
+          }
+        },
+        "block_order": [
+          "8621d979-0368-413c-9d7f-e0cfd42bb33b"
+        ],
+        "settings": {
+          "color_theme": "color_theme__light",
+          "section_spacing_top": "section_spacing_medium_top",
+          "section_spacing_bottom": "section_spacing_medium_bottom",
+          "top_divider": "none",
+          "svg_divider_top_color": "",
+          "bottom_divider": "none",
+          "svg_divider_bottom_color": ""
+        }
+      },
+      "offcanvas-login": {
+        "type": "offcanvas-login",
+        "settings": {
+          "icon_width": 200,
+          "svg_code": "",
+          "title": "Login",
+          "panel_bg_color": "#E9FFD4"
+        }
+      },
+      "offcanvas-contact": {
+        "type": "offcanvas-contact",
+        "blocks": {
+          "c9045435-9296-4fe0-8c06-d106c5877aed": {
+            "type": "heading",
+            "settings": {
+              "heading": "<p>get in <strong>touch<\/strong><\/p>",
+              "header_style": "h2",
+              "fit_heading": false
+            }
+          }
+        },
+        "block_order": [
+          "c9045435-9296-4fe0-8c06-d106c5877aed"
+        ],
+        "settings": {
+          "color_theme": "color_theme__light"
+        }
+      },
+      "base-page-settings": {
+        "type": "base-page-settings",
+        "settings": {
+          "is_full_width": true,
+          "section_spacing_top": "section_spacing_medium_top",
+          "section_spacing_bottom": "section_spacing_medium_bottom",
+          "bg_color": "linear-gradient(0deg, rgba(201, 255, 87, 1) 7%, rgba(2, 224, 136, 1) 94%)",
+          "top_divider": "none",
+          "svg_divider_top_color": "",
+          "bottom_divider": "angled",
+          "svg_divider_bottom_color": "#450073"
+        }
+      },
+      "register": {
+        "type": "register",
+        "settings": {
+          "color_theme": "color_theme__light",
+          "bg_color": "#197FBF",
+          "show_glow": true,
+          "show_svg_divider_top": false,
+          "svg_divider_top_color": "",
+          "show_svg_divider_bottom": false,
+          "svg_divider_bottom_color": "#450073"
+        }
+      },
+      "klaviyo-popup": {
+        "type": "klaviyo-popup",
+        "blocks": {
+          "3c96e7a5-ba3e-4f68-822c-f8d89aea5485": {
+            "type": "small_text",
+            "settings": {
+              "text": "Stay in the loop for 15% off"
+            }
+          },
+          "1bb33c4b-6b83-4301-adbf-c2a491743043": {
+            "type": "heading",
+            "settings": {
+              "heading": "<p>Sign up now!<\/p>",
+              "header_style": "h2",
+              "make_large": false
+            }
+          },
+          "c3fb0090-d56f-4664-826c-cba6e3527aa5": {
+            "type": "text",
+            "settings": {
+              "text": "<p>Sign up for our newsletter and receive 15% off your next order<\/p>",
+              "text_style": "regular",
+              "max_width": 0
+            }
+          },
+          "e59a4521-7c92-4ca1-8801-12c11550bb29": {
+            "type": "small_note",
+            "settings": {
+              "text": "*Vivamus magna justo, lacinia eget constecter sed, convallis at tellus. Curabitur allequet quam id."
+            }
+          },
+          "57e3e2f6-54d5-4798-95a2-cb6b38d0e615": {
+            "type": "accent_graphic",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/leaf-left.png",
+              "svg_code": "",
+              "visibility": "desktop_only",
+              "x_setting": "left",
+              "y_setting": "top",
+              "width_desktop": 150,
+              "position_x_desktop": -4,
+              "position_y_desktop": -2,
+              "width_mobile": 150,
+              "position_x_mobile": 10,
+              "position_y_mobile": 10,
+              "animation": "none"
+            }
+          }
+        },
+        "block_order": [
+          "3c96e7a5-ba3e-4f68-822c-f8d89aea5485",
+          "1bb33c4b-6b83-4301-adbf-c2a491743043",
+          "c3fb0090-d56f-4664-826c-cba6e3527aa5",
+          "e59a4521-7c92-4ca1-8801-12c11550bb29",
+          "57e3e2f6-54d5-4798-95a2-cb6b38d0e615"
+        ],
+        "settings": {
+          "list_id": "",
+          "submit_text": "Continue",
+          "color_theme": "color_theme__light",
+          "background_color": "#4c9fd7"
+        }
+      },
+      "login": {
+        "type": "login",
+        "blocks": {
+          "ca81f128-24e1-418c-a2b4-0b68abaae54d": {
+            "type": "accent_graphic",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/leaf-accent-graphics-1.png",
+              "svg_code": "",
+              "visibility": "desktop_only",
+              "x_setting": "right",
+              "y_setting": "top",
+              "width_desktop": 330,
+              "position_x_desktop": -6,
+              "position_y_desktop": 12,
+              "width_mobile": 150,
+              "position_x_mobile": 10,
+              "position_y_mobile": 14,
+              "animation": "none"
+            }
+          },
+          "e58be590-5387-4bf1-9e1d-96c4916c6673": {
+            "type": "accent_graphic",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/floating-leaves.png",
+              "svg_code": "",
+              "visibility": "desktop_only",
+              "x_setting": "left",
+              "y_setting": "bottom",
+              "width_desktop": 330,
+              "position_x_desktop": 0,
+              "position_y_desktop": 0,
+              "width_mobile": 150,
+              "position_x_mobile": 10,
+              "position_y_mobile": 10,
+              "animation": "none"
+            }
+          }
+        },
+        "block_order": [
+          "ca81f128-24e1-418c-a2b4-0b68abaae54d",
+          "e58be590-5387-4bf1-9e1d-96c4916c6673"
+        ],
+        "settings": {
+          "color_theme": "color_theme__light",
+          "bg_color": "#197FBF",
+          "show_glow": true,
+          "show_svg_divider_top": false,
+          "svg_divider_top_color": "",
+          "show_svg_divider_bottom": false,
+          "svg_divider_bottom_color": ""
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}

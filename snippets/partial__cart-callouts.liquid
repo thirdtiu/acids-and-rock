@@ -1,0 +1,135 @@
+{% if section.settings.show_cart_upsells %}
+  
+
+  {%- for callout in callouts -%}
+    {%- assign featured_product = callout.settings.featured_product -%}
+    {%- assign current_selling_plan = featured_product.selected_or_first_available_selling_plan_allocation -%}
+    {%- assign selling_plan_groups = featured_product.selling_plan_groups -%}
+
+    {% if section.settings.callout_title %}
+    <div class="cart__callout-title small-title" rv-if="{{ featured_product.first_available_variant.id }} | not_in_cart cart.items">
+      {{ section.settings.callout_title }}
+    </div>
+    {% endif %}
+
+    {% if featured_product.available %}
+      
+      <div
+      id="callout-{{ featured_product.first_available_variant.id }}"
+      data-toggler=".hide" 
+      class="cart__callout callout" 
+      data-product-id="{{ featured_product.first_available_variant.id }}" 
+      data-background-color="{{ featured_product.metafields.my_fields.gradient_dark_color }}"
+      data-highlight-color="{{ featured_product.metafields.my_fields.gradient_light_color }}"
+      data-compare-price="{{ featured_product.compare_at_price }}"
+      {% if current_selling_plan %}
+        {% assign plan = current_selling_plan.selling_plan %}
+        data-available-selling-plan="{{ plan.id }}"
+      {% endif %}
+      rv-if="{{ featured_product.first_available_variant.id }} | not_in_cart cart.items"
+    >
+      {%- unless featured_product == empty -%}
+        <div class="callout__image" style="background:{{ featured_product.metafields.my_fields.gradient_dark_color }};">
+          <img loading="lazy" src="{{ featured_product.featured_image | img_url: "200x" }}" alt="{{ featured_product.title }}">
+        </div>
+      {%- endunless -%}
+      
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-toggle="callout-{{ featured_product.first_available_variant.id }}">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="callout__body">
+        
+        <div class="callout__title product-title">{{ featured_product.title }}</div>
+        
+        
+          <div class="callout__size"></div> 
+        
+        {% unless featured_product.first_available_variant.title == "Default Title" %}
+          {{ featured_product.first_available_variant.title | downcase }} 
+        {% endunless %}
+        {{ featured_product.type | downcase }}
+
+        {% comment %}
+        {% if current_selling_plan %}
+          {% assign plan = current_selling_plan.selling_plan %}
+          <div class="callout__frequency">{{ plan.name }}</div>
+        {% endif %}
+        {% endcomment %}
+
+        <select name="selling_plan" id="co_selling_plan_options">
+          {% assign variant = featured_product.first_available_variant %}
+          <option value="0">
+            No subscription
+          </option>
+          {% for allocation in variant.selling_plan_allocations %}
+            <option value="{{ allocation.selling_plan.id }}">
+              {{ allocation.selling_plan.name }}
+            </option>
+          {% endfor %}
+        </select>
+
+        {%- unless featured_product == empty -%}
+          <button 
+            class="callout__button button add-to-cart primary small with-price" 
+            type="button"
+            style="background-color: {{ featured_product.metafields.my_fields.highlight_color }};"
+            {% unless featured_product.available -%} disabled {%- endunless -%}
+          >
+            {% if featured_product.available %}
+              Add&nbsp;
+            {% else %} 
+              {{ "products.product.sold_out" | t }}
+            {% endif %}
+            {% render 'price', product: featured_product %}
+          </button>
+        {%- endunless -%}
+
+        {%- comment -%}
+        <div class="callout__product-type">{{ featured_product.type }}</div>
+        <div class="callout__size">{{ callout.settings.title_text }}</div>
+        {%- endcomment -%}
+
+        {%- comment -%}
+        <div class="callout__rating rating">
+          <div class="yotpo bottomLine"
+            data-appkey="fkgCuWjzOPT8D6D14Gqrpww31T69tovsmmcTPgDI"
+            data-domain="{{shop.permanent_domain | escape }}"
+            data-product-id="{{ featured_product.id }}"
+            data-product-models="{{ featured_product.id }}"
+            data-name="{{ featured_product.title | escape }}"
+            data-url="{{ shop.url }}{{ featured_product.url }}"
+            data-image-url="{{ featured_product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+            data-description="{{ featured_product.description | escape }}"
+            data-bread-crumbs="{% for tag in featured_product.tags %}{{ tag | escape }};{% endfor %}"
+            data-allow-empty
+          >
+          </div>
+        </div>
+        {%- endcomment -%}
+
+      </div>
+      {%- comment -%}
+      <div class="callout__add">
+        
+      </div>
+      {%- endcomment -%}
+
+    </div>
+
+
+    {% endif %}
+    
+  {%- endfor -%}
+
+
+  <script type="text/javascript">
+    $(function() {
+      $('#co_selling_plan_options').on('click', function() {
+        console.log($(this).val())
+        $(this).closest('div.callout').attr('data-available-selling-plan', $(this).val());
+      })
+    })
+  </script>
+
+{% endif %}
+

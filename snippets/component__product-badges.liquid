@@ -1,0 +1,28 @@
+{%- assign badge = "" -%}
+
+ {% for tag in product.tags %}
+
+  {% if tag contains 'new' %}
+    {% capture badge %}
+      <div class="product-badge new"><span>New</span></div>
+    {% endcapture %}
+
+  {% elsif tag contains 'best-seller' %}
+    {% capture badge %}
+      <div class="product-badge best-seller"><span>Best Seller</span></div>
+    {% endcapture %}
+
+  {% elsif tag contains 'coming-soon' %}
+    {% capture badge %}
+      <div class="product-badge coming-soon"><span>Coming Soon</span></div>
+     {% endcapture %}
+
+
+  {% elsif current_variant.inventory_quantity < 10 %}
+    {% capture badge %}
+      <div class="product-badge low-stock"><span>Low Stock</span></div>
+     {% endcapture %}
+
+  {% else %}
+  {% endif %}
+ {% endfor %}

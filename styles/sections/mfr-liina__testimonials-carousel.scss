@@ -1,0 +1,90 @@
+.mfr-liina__testimonials-carousel {
+    position: relative;
+    
+    .testimonials-carousel {
+
+        &__entry {
+            padding: rem-calc( 15px );
+            background-color: $white;
+            border-radius: $global-radius-liquid;
+            width: 90%;
+            max-width: rem-calc( 320px );
+            margin: rem-calc( 12.5px );
+
+            &:not( .is-selected ) {
+                opacity: 30% !important;
+            }
+
+            &-header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 95%;
+                margin-bottom: rem-calc( 15px );
+
+                &-image {
+                    margin-right: rem-calc( 15px );
+
+                    &-wrapper {
+                        padding-top: 100%;
+                        width: rem-calc( 64px );
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: 50%;
+
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                &-text {
+                    margin-bottom: 0;
+                    font-size: rem-calc( 16px );
+                    font-family: $font-family-gellix;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    line-height: rem-calc( 20px );
+                    letter-spacing: rem-calc( 1px );
+                }
+            }
+
+            &-body {
+                font-size: rem-calc( 16px );
+                font-family: $font-family-gellix;
+                line-height: rem-calc( 222px );
+                letter-spacing: rem-calc( .23px );
+                margin-bottom: rem-calc( 15px );
+            }
+
+            &-footer {
+                p {
+                    text-transform: capitalize;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .flickity-prev-next-button {
+            width: rem-calc( 62px );
+            height: rem-calc( 62px );
+            background-color: $white;
+            border-radius: 50%;
+            padding: rem-calc( 18px ) rem-calc( 16px );
+
+            &:disabled {
+                opacity: 0;
+            }
+            
+            svg {
+                height: unset;
+                width: unset;
+            }
+        }
+    }
+}

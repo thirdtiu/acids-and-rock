@@ -1,0 +1,255 @@
+@mixin global-button-text-style {
+  @include border-radius($button-border-radius);
+  text-decoration: none;
+  user-select: none;
+  appearance: none;
+  position: relative;
+  white-space: nowrap;
+  line-height: 1.1rem;
+  letter-spacing: $button-spacing;
+  outline: none;
+  background: inherit;
+  font-family: $button-font-custom-name;
+}
+
+$general-button-padding-mobile: rem-calc( 13px ) rem-calc( 13px );
+$general-button-padding:  rem-calc( 13px ) rem-calc( 13px );
+$button-font-size-mobile: 1rem;
+
+.button {
+  @include transition(.2s all $sharp_ease);
+  @include global-button-text-style;
+  //@include shadow(.5rem .5rem 0px rgba(0,0,0,.1));
+  display: inline-block;
+  margin-bottom: 0;
+  //font-size: $button-font-size;
+  letter-spacing: $button-spacing;
+  color: $primary-button-text-color;
+  padding: 0.6rem 1.3rem;
+  min-width: rem-calc( 230px );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include breakpoint(large up) {
+    &:hover {
+      &:not(.disabled) {
+        @include transform(translate(0rem, -2px) scale(1.05));
+        @include shadow(1rem 1rem 1rem rgba(0,0,0,.3));
+        &:hover {
+          // cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%23FFF' cx='16.2' cy='16.2' r='14.429'/%3E%3Cpath d='M16 32a16.007 16.007 0 0 1-11.315-4.685 16.005 16.005 0 0 1 0-22.63 16.005 16.005 0 0 1 22.63 0 16.005 16.005 0 0 1 0 22.63C24.313 30.315 20.244 32 16 32Zm0-29a13 13 0 1 0 .001 26A13 13 0 0 0 16 3Z' fill='%23000'/%3E%3Cpath d='M10.557 14.92h11.636c.804 0 1.455.804 1.455 1.455 0 .804-.651 1.455-1.455 1.455H10.557c-.804 0-1.455-.804-1.455-1.455 0-.804.651-1.455 1.455-1.455Z' fill='%23000'/%3E%3Cpath d='M16.375 9.102c.804 0 1.455.804 1.455 1.455v11.636c0 .804-.651 1.455-1.455 1.455s-1.455-.804-1.455-1.455V10.557c0-.804.651-1.455 1.455-1.455Z' fill='%23000'/%3E%3C/g%3E%3C/svg%3E"), default;
+        }
+      }
+    }
+  }
+  span {
+    display: inline-block;
+  }
+  span.text {
+    position: relative;
+    line-height: 1.7rem;
+    flex-grow: 1;
+    width: 100%;
+  }
+  span.arrow {
+    margin-left: 1rem;
+    max-width: 100%;
+    flex-shrink: 1;
+    position: relative;
+    top: 1px;
+    svg {
+      width: 100%;
+    }
+  }
+    
+
+  &.primary {
+    font-size: 1rem;
+    border: $primary-button-border-weight solid $primary-button-border-color;
+    //font-size: $button-font-size-mobile;
+    letter-spacing: $button-spacing;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: $primary-button-bg-color;
+    color: $primary-button-text-color;
+    padding: $general-button-padding-mobile;
+    @include breakpoint(medium up) {
+      //font-size: $button-font-size;
+      padding: $general-button-padding;
+    }
+    &:hover:not(.disabled) {
+      border: $primary-button-border-weight solid $primary-button-border-color;
+      background-color: $primary-button-bg-color;
+      color: $primary-button-text-color;
+    }
+    @include breakpoint(large up) {
+      font-size: $primary-button-size;
+      padding: $general-button-padding;
+      &:hover:not(.disabled) {
+        border: $primary-button-border-weight solid $primary-button-border-color-hover;
+        background-color: $primary-button-hover-bg-color;
+        color: $primary-button-hover-text-color;
+      }
+    }
+    &:focus, &:active {
+      background-color: $primary-button-bg-color;
+    }
+    .arrow svg g {
+      stroke: $primary-button-text-color;
+    }
+  }
+  &.secondary {
+    font-size: 1rem;
+    border: $secondary-button-border-weight solid $secondary-button-border-color;
+    font-weight: 600;
+    //font-size: $button-font-size-mobile;
+    letter-spacing: $button-spacing;
+    background-color: $secondary-button-bg-color;
+    color: $secondary-button-text-color;
+    padding: $general-button-padding-mobile;
+    @include breakpoint(medium up) {
+      //font-size: $button-font-size;
+      padding: $general-button-padding;
+    }
+    &:hover:not(.disabled) {
+      border: $secondary-button-border-weight solid $secondary-button-border-color;
+      background-color: $secondary-button-bg-color;
+      color: $secondary-button-text-color;
+    }
+    @include breakpoint(large up) {
+      font-size: $secondary-button-size;
+      padding: $general-button-padding;
+      &:hover:not(.disabled) {
+        border: $secondary-button-border-weight solid $secondary-button-border-color-hover;
+        background-color: $secondary-button-hover-bg-color;
+        color: $secondary-button-hover-text-color;
+      }
+    }
+    .arrow svg g {
+      stroke: $secondary-button-text-color;
+    }
+    &:focus, &:active {
+      background-color: $secondary-button-bg-color;
+    }
+  }
+
+  &.tertiary {
+    font-size: 1rem;
+    border: $tertiary-button-border-weight solid $tertiary-button-border-color;
+    //font-size: $button-font-size-mobile;
+    //letter-spacing: $button-spacing;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: $tertiary-button-bg-color;
+    color: $tertiary-button-text-color;
+    padding: $general-button-padding-mobile;
+    @include breakpoint(medium up) {
+      //font-size: $button-font-size;
+      padding: $general-button-padding;
+    }
+    &:hover {
+      border: $tertiary-button-border-weight solid $tertiary-button-border-color;
+      background-color: $tertiary-button-bg-color;
+      color: $tertiary-button-text-color;
+    }
+    @include breakpoint(large up) {
+      font-size: $tertiary-button-size;
+      &:hover {
+        border: $tertiary-button-border-weight solid $tertiary-button-border-color-hover;
+        //background-color: $tertiary-button-hover-bg-color;
+        //color: $tertiary-button-hover-text-color;
+      }
+    }
+    &:focus, &:active {
+      background-color: $tertiary-button-bg-color;
+    }
+  }
+  &.add-to-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.with-price {
+      justify-content: space-between;
+      //justify-content: center;
+      .button-text {
+        //margin-right: 1rem;
+      } 
+    }
+    .price {}
+    .button-divider {
+      height: 2px;
+      width: 1rem;
+      margin: 0 .7rem;
+      background: $color-accent;
+    }
+  }
+  &.small {
+    font-weight: 700;
+    letter-spacing: 1px;
+    justify-content: center;
+    font-size: rem-calc(11);
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+    @include breakpoint(large up) {
+      &:hover {
+        //background-color: $primary-button-hover-bg-color;
+        //color: $primary-button-hover-text-color;
+      }
+    }
+  }
+  &.disabled {
+    cursor: default;
+  }
+  &.underline {
+    @include shadow(none);
+    @include border-radius(0rem);
+    border-bottom: 2px solid $color-accent;
+    display: inline-block;
+    color: $color-accent;
+    font-weight: 600;
+    padding: 0.1rem .1rem;
+    width: auto;
+    min-width: auto;
+  }
+  &.rounded {
+    @include border-radius(50rem);
+  }
+  &.full {
+    width: 100%;
+  }
+  &.dropdown {
+    background-position: right 0 center;
+    background-size: 11px 11px;
+    background-repeat: no-repeat;
+    //background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: rgb%280, 0, 0%29'></polygon></svg>");
+    &.hover {
+      //@include border-radius($global-radius $global-radius 0 0);
+    }
+    // &::after {
+    //   display: block;
+    //   width: 0;
+    //   height: 0;
+    //   border: inset 0.5em;
+    //   content: '';
+    //   border-bottom-width: 0;
+    //   border-top-style: solid;
+    //   border-color: #000 #0000 #0000;
+    //   position: relative;
+    //   top: 0.8em;
+    //   display: inline-block;
+    //   float: right;
+    //   margin-left: 1em;
+    // }
+    }
+  }
+
+
+
+.button-set {
+  display: flex;
+  .button:nth-child(2) {
+    margin-left: 1rem;
+  }
+  &.align-center {
+    align-items: center;
+  }
+}

@@ -1,0 +1,131 @@
+{% if section.settings.announcement_bar_marquee_enabled %}
+      <div class="announcement-bar announcement-bar-marquee">
+        <div class="announcement-bar-marquee__container {% if section.settings.announcement_bar_enable_infinite %}announcement-bar-marquee__container--infinite{% endif %}">
+          {% if section.settings.announcement_bar_text != blank %}
+          <div class="announcement-bar-marquee__entry">
+            {%- if section.settings.announcement_bar_link != blank -%}
+              <a href="{{ section.settings.announcement_bar_link }}">
+                {{ section.settings.announcement_bar_text | escape }}
+              </a>
+            {%- else -%}
+              <span>{{ section.settings.announcement_bar_text | escape }}</span>
+            {%- endif -%}
+          </div>
+          {% endif %}
+          {% if section.settings.announcement_bar_text_2 != blank %}
+          <div class="announcement-bar-marquee__entry announcement-bar-marquee__entry--hide-on-small">
+            {%- if section.settings.announcement_bar_link_2 != blank -%}
+              <a href="{{ section.settings.announcement_bar_link }}">
+                {{ section.settings.announcement_bar_text_2 | escape }}
+              </a>
+            {%- else -%}
+              <span>{{ section.settings.announcement_bar_text_2 | escape }}</span>
+            {%- endif -%}
+          </div>
+          {% endif %}
+          {% if section.settings.announcement_bar_text_3 != blank %}
+          <div class="announcement-bar-marquee__entry announcement-bar-marquee__entry--hide-on-medium">
+            {%- if section.settings.announcement_bar_link_3 != blank -%}
+              <a href="{{ section.settings.announcement_bar_link }}">
+                {{ section.settings.announcement_bar_text_3 | escape }}
+              </a>
+            {%- else -%}
+              <span>{{ section.settings.announcement_bar_text_3 | escape }}</span>
+            {%- endif -%}
+          </div>
+          {% endif %}
+          {% if section.settings.announcement_bar_text_4 != blank %}
+          <div class="announcement-bar-marquee__entry announcement-bar-marquee__entry--hide-on-medium">
+            {%- if section.settings.announcement_bar_link_4 != blank -%}
+              <a href="{{ section.settings.announcement_bar_link }}">
+                {{ section.settings.announcement_bar_text_4 | escape }}
+              </a>
+            {%- else -%}
+              <span>{{ section.settings.announcement_bar_text_4 | escape }}</span>
+            {%- endif -%}
+          </div>
+          {% endif %}
+          {% if section.settings.announcement_bar_text_5 != blank %}
+          <div class="announcement-bar-marquee__entry announcement-bar-marquee__entry--hide-on-medium">
+            {%- if section.settings.announcement_bar_link_5 != blank -%}
+              <a href="{{ section.settings.announcement_bar_link }}">
+                {{ section.settings.announcement_bar_text_5 | escape }}
+              </a>
+            {%- else -%}
+              <span>{{ section.settings.announcement_bar_text_5 | escape }}</span>
+            {%- endif -%}
+          </div>
+          {% endif %}
+
+          {% if section.settings.announcement_bar_enable_infinite %}
+            {% if section.settings.announcement_bar_text != blank %}
+            <div class="announcement-bar-marquee__entry">
+              {%- if section.settings.announcement_bar_link != blank -%}
+                <a href="{{ section.settings.announcement_bar_link }}">
+                  {{ section.settings.announcement_bar_text | escape }}
+                </a>
+              {%- else -%}
+                <span>{{ section.settings.announcement_bar_text | escape }}</span>
+              {%- endif -%}
+            </div>
+            {% endif %}
+            {% if section.settings.announcement_bar_text_2 != blank %}
+            <div class="announcement-bar-marquee__entry announcement-bar-marquee__entry--hide-on-small">
+              {%- if section.settings.announcement_bar_link_2 != blank -%}
+                <a href="{{ section.settings.announcement_bar_link }}">
+                  {{ section.settings.announcement_bar_text_2 | escape }}
+                </a>
+              {%- else -%}
+                <span>{{ section.settings.announcement_bar_text_2 | escape }}</span>
+              {%- endif -%}
+            </div>
+            {% endif %}
+            {% if section.settings.announcement_bar_text_3 != blank %}
+            <div class="announcement-bar-marquee__entry announcement-bar-marquee__entry--hide-on-medium">
+              {%- if section.settings.announcement_bar_link_3 != blank -%}
+                <a href="{{ section.settings.announcement_bar_link }}">
+                  {{ section.settings.announcement_bar_text_3 | escape }}
+                </a>
+              {%- else -%}
+                <span>{{ section.settings.announcement_bar_text_3 | escape }}</span>
+              {%- endif -%}
+            </div>
+            {% endif %}
+            {% if section.settings.announcement_bar_text_4 != blank %}
+            <div class="announcement-bar-marquee__entry announcement-bar-marquee__entry--hide-on-medium">
+              {%- if section.settings.announcement_bar_link_4 != blank -%}
+                <a href="{{ section.settings.announcement_bar_link }}">
+                  {{ section.settings.announcement_bar_text_4 | escape }}
+                </a>
+              {%- else -%}
+                <span>{{ section.settings.announcement_bar_text_4 | escape }}</span>
+              {%- endif -%}
+            </div>
+            {% endif %}
+            {% if section.settings.announcement_bar_text_5 != blank %}
+            <div class="announcement-bar-marquee__entry announcement-bar-marquee__entry--hide-on-medium">
+              {%- if section.settings.announcement_bar_link_5 != blank -%}
+                <a href="{{ section.settings.announcement_bar_link }}">
+                  {{ section.settings.announcement_bar_text_5 | escape }}
+                </a>
+              {%- else -%}
+                <span>{{ section.settings.announcement_bar_text_5 | escape }}</span>
+              {%- endif -%}
+            </div>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    {% else %}
+      <div class="announcement-bar text-center">
+        {%- if section.settings.announcement_bar_home_page_only == false  -%}
+          {%- if section.settings.announcement_bar_link != blank -%}
+            <a href="{{ section.settings.announcement_bar_link }}">
+              {{ section.settings.announcement_bar_text | escape }}
+            </a>
+          {%- else -%}
+            <span>{{ section.settings.announcement_bar_text | escape }}</span>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    {% endif %}

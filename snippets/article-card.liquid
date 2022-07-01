@@ -1,0 +1,46 @@
+
+
+{% capture article_tags %}
+  {%- if article.tags.size > 0 -%}
+  {%- for tag in article.tags -%}
+    <span>{{ tag | downcase }}</span>
+{%- endfor -%}
+  {%- endif -%}
+{% endcapture %}
+
+<article class="article-card blog-grid__item item-selector {%for tag in article.tags%} {{ tag  | handle | replace: '', '' | downcase}} {%endfor%}" data-aos="{{ animation_type }}" data-aos-delay="{{ forloop.index }}00"  aria-labelledby="Article-{{ article.id }}">
+  <a href="{{ article.url }}" class="wrapper">
+    <div class="card-media">
+        <img loading="lazy" src="{{ article.image.src | img_url: '600x' }}"
+          srcset="{{ article.image.src | img_url: '600x' }} 1x, {{ article.image.src | img_url: '600x', scale: 2 }} 2x"
+          alt="{{ article.image.alt }}">
+      <div class="maade-logo">
+        {% render 'icon__logomark' %}
+      </div>
+    </div>
+    <div class="card-text-bar" style="background-color: {{ block.settings.bg_color }};">
+      {%- for tag in article.tags -%}
+        <span class="">{{ tag  | handle | replace: '', '' | downcase}}</span>
+      {%- endfor -%}
+      <span class=""> — {{- article.published_at | time_tag: format: 'month_year' -}}</span>
+    </div>
+    <div class="card-content">
+      <div class="name">
+        <div class="h4">{{ article.title | escape }}</div>
+      </div>
+      <div class="caption">
+        {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+          <p class="article-card__excerpt small rte-width">
+            {%- if article.excerpt.size > 0 -%}
+              {{ article.excerpt | strip_html | truncatewords: 30 }}
+            {%- else -%}
+              {{ article.content | strip_html | truncatewords: 30 }}
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+      </div>
+      
+    </div>
+  </a>
+
+</article>

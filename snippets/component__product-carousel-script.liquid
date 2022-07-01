@@ -1,0 +1,69 @@
+<script type="text/javascript">
+  jQuery(function(){
+    carouseInit();
+  });
+
+  document.addEventListener("shopify:section:load", function(event) {
+    carouseInit();
+  });
+
+  function carouseInit() {
+    var $carousel = $('.product-carousel-section-{{ section_id }}').flickity({
+      selectedAttraction: 0.2,
+      friction: 0.8,
+      initialIndex: 0,
+      prevNextButtons: true,
+      contain: true,
+      cellAlign: 'center',
+      imagesLoaded: true,
+      lazyLoad: true,
+      wrapAround: false,
+      pageDots: false,
+      draggable: '>1',
+      arrowShape: {
+        x0: 10,
+        x1: 60, y1: 50,
+        x2: 70, y2: 40,
+        x3: 30
+      }
+    });
+
+    
+    // Flickity instance
+    var flkty = $carousel.data('flickity');
+    
+    {%- if show_carousel_navigation == 'true' -%}
+      // elements
+      var $cellButtonGroup = $('.carousel-nav');
+      var $cellButtons = $cellButtonGroup.find('.collection-selector');
+
+      // select cell on button click
+      $cellButtonGroup.on( 'click', '.collection-selector', function() {
+        var index = $(this).index();
+        var slideIndex = $(this).data('count');
+        $('.collection-selector').filter('.is-selected').removeClass('is-selected');
+        $(this).addClass('is-selected');
+        //console.log(slideIndex);
+        $carousel.flickity( 'select', slideIndex );
+      });
+
+      $carousel.on( 'change.flickity', function( event, index ) {
+        //console.log( 'Slide changed to ' + index );
+        var carouseIndex = index;
+        $('.collection-selector').each(function( index, element ){
+          var data = $(this).data('count');
+          //console.log(carouseIndex);
+          if ( carouseIndex == data) {
+            $('.collection-selector').filter('.is-selected').removeClass('is-selected');
+            $('.carousel-nav li[data-count="' + carouseIndex + '"]').addClass('is-selected');
+          }
+        });
+      });
+    {%- endif -%}
+
+
+  }
+  
+
+
+</script>

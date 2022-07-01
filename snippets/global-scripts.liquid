@@ -1,0 +1,22 @@
+<script type="text/javascript">
+    window.executeOnLoad = function( func ) {
+        // Executes a function on the following events.
+        jQuery( document )
+            .ready( func )
+            .on( "shopify:section:load", func );
+    }
+
+    function initializeGlobals() {
+
+        // Initialize parallax elements of Rellax.
+        if( window.Rellax ) {
+            const parallax = new Rellax( ".rellax", {
+                center: true,
+                round: true
+            } );
+        }
+    }
+
+    // Initialize the globals on load.
+    executeOnLoad( initializeGlobals );
+</script>

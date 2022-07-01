@@ -1,0 +1,1335 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Manufactur x Liina",
+    "theme_version": "1.0",
+    "theme_author": "Manufactur",
+    "theme_documentation_url": "https:\/\/shopify.dev\/themes\/tools\/dawn",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "General Global Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Backgrounds and Dividers"
+      },
+      {
+        "type": "color",
+        "id": "color_main_bg",
+        "label": "Background color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "overlay_color",
+        "label": "Overlay color",
+        "default": "#fff"
+      },
+      {
+        "type": "range",
+        "id": "global_radius",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Global Border Radius",
+        "default": 2
+      },
+      {
+        "type": "range",
+        "id": "global_border_width",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Global Border Width",
+        "default": 2
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global"
+      },
+      {
+        "type": "color",
+        "id": "white_color",
+        "label": "White",
+        "default": "#ffffff",
+        "info": "specific color of white"
+      },
+      {
+        "type": "color",
+        "id": "off_white_color",
+        "label": "Off white",
+        "default": "#F7F1E7",
+        "info": "for off white accents"
+      },
+      {
+        "type": "color",
+        "id": "black_color",
+        "label": "Black",
+        "default": "#383838",
+        "info": "specific color of black"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent Color",
+        "default": "#c4cdd5",
+        "info": "for special accents"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_2",
+        "label": "Accent Color 2",
+        "default": "#E891B4",
+        "info": "for special accents"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_3",
+        "label": "Accent Color 3",
+        "default": "#E891B4",
+        "info": "for special accents"
+      },
+      {
+        "type": "color",
+        "id": "color_body_text",
+        "label": " Main text color",
+        "default": "#161d25"
+      }
+    ]
+  },
+  {
+    "name": "Colors Themes",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Use to configure text colors"
+      },
+      {
+        "type": "color",
+        "id": "color_theme_light",
+        "label": "Light Text",
+        "default": "#006853",
+        "info": "main light text color"
+      },
+      {
+        "type": "color",
+        "id": "color_theme_dark",
+        "label": "Dark Text",
+        "default": "#ffffff",
+        "info": "main dark text color"
+      }
+    ]
+  },
+  {
+    "name": "Custom Fonts",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Custom Font 1"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_1_url",
+        "label": "URL for custom font",
+        "info": "Upload in settings > files"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_1_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_1_weight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          }
+        ],
+        "label": "Header Style",
+        "default": "400"
+      },
+      {
+        "type": "header",
+        "content": "Custom Font 2"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_2_url",
+        "label": "URL for custom font",
+        "info": "Upload in settings > files"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_2_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_2_weight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          }
+        ],
+        "label": "Header Style",
+        "default": "400"
+      },
+      {
+        "type": "header",
+        "content": "Custom Font 3"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_3_url",
+        "label": "URL for custom font",
+        "info": "Upload in settings > files"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_3_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_3_weight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          }
+        ],
+        "label": "Header Style",
+        "default": "400"
+      },
+      {
+        "type": "header",
+        "content": "Custom Font 4"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_4_url",
+        "label": "URL for custom font",
+        "info": "Upload in settings > files"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_4_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_4_weight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          }
+        ],
+        "label": "Header Style",
+        "default": "400"
+      },
+      {
+        "type": "header",
+        "content": "Custom Font 5"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_5_url",
+        "label": "URL for custom font",
+        "info": "Upload in settings > files"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_5_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_5_weight",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          }
+        ],
+        "label": "Header Style",
+        "default": "400"
+      }
+    ]
+  },
+  {
+    "name": "Body Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Body Text"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "default": "helvetica_n4",
+        "label": "Body Font"
+      },
+      {
+        "type": "text",
+        "id": "body_font_custom_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "range",
+        "id": "body_font_size_small",
+        "min": 6,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "label": "Body Font Size - Small",
+        "default": 14
+      },
+      {
+        "type": "range",
+        "id": "body_font_size_regular",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Body Font Size - Regular",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "body_font_size_large",
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Body Font Size - Large",
+        "default": 30
+      }
+    ]
+  },
+  {
+    "name": "Title Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "H1 Typography"
+      },
+      {
+        "type": "font_picker",
+        "id": "h1_font_family",
+        "default": "helvetica_n4",
+        "label": "H1 Font"
+      },
+      {
+        "type": "text",
+        "id": "h1_font_family_custom_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "checkbox",
+        "id": "h1_font_case",
+        "label": "Make Uppercase",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "h1_font_weight",
+        "label": "Make Bold",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "h1_font_spacing",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "H1 Font Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "h1_font_size",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "H1 Font Size - Desktop",
+        "default": 56
+      },
+      {
+        "type": "range",
+        "id": "h1_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "H1 Font Size - Mobile",
+        "default": 66
+      },
+      {
+        "type": "range",
+        "id": "h1_font_size_alt",
+        "min": 10,
+        "max": 130,
+        "step": 2,
+        "unit": "px",
+        "label": "H1 Font Size Large - Desktop",
+        "default": 56
+      },
+      {
+        "type": "range",
+        "id": "h1_font_size_mobile_alt",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "H1 Font Size Large - Mobile",
+        "default": 66
+      },
+      {
+        "type": "header",
+        "content": "H2 Typography"
+      },
+      {
+        "type": "font_picker",
+        "id": "h2_font_family",
+        "default": "helvetica_n4",
+        "label": "H2 Font Family"
+      },
+      {
+        "type": "text",
+        "id": "h2_font_family_custom_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "checkbox",
+        "id": "h2_font_case",
+        "label": "Make Uppercase",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "h2_font_weight",
+        "label": "Make Bold",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "h2_font_spacing",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "H2 Font Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "h2_font_size",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "H2 Font Size - Desktop",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "h2_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "H2 Font Size - Mobile",
+        "default": 50
+      },
+      {
+        "type": "header",
+        "content": "H3 Typography"
+      },
+      {
+        "type": "font_picker",
+        "id": "h3_font_family",
+        "default": "helvetica_n4",
+        "label": "H3 Font Family"
+      },
+      {
+        "type": "text",
+        "id": "h3_font_family_custom_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "checkbox",
+        "id": "h3_font_case",
+        "label": "Make Uppercase",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "h3_font_weight",
+        "label": "Make Bold",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "h3_font_spacing",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "H3 Font Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "h3_font_size",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "H3 Font Size - Desktop",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "h3_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "H3 Font Size - Mobile",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "H4 Typography"
+      },
+      {
+        "type": "font_picker",
+        "id": "h4_font_family",
+        "default": "helvetica_n4",
+        "label": "H4 Font Family"
+      },
+      {
+        "type": "text",
+        "id": "h4_font_family_custom_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "checkbox",
+        "id": "h4_font_case",
+        "label": "Make Uppercase",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "h4_font_weight",
+        "label": "Make Bold",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "h4_font_spacing",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "H4 Font Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "h4_font_size",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "H4 Font Size - Desktop",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "h4_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "H4 Font Size - Mobile",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "Small Title"
+      },
+      {
+        "type": "font_picker",
+        "id": "small_title_font_family",
+        "default": "helvetica_n4",
+        "label": "Font Family"
+      },
+      {
+        "type": "text",
+        "id": "small_title_font_family_custom_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "checkbox",
+        "id": "small_title_font_case",
+        "label": "Make Uppercase",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "small_title_font_weight",
+        "label": "Make Bold",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "small_title_font_spacing",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "small_title_font_size",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size - Desktop",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "small_title_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size - Mobile",
+        "default": 20
+      }
+    ]
+  },
+  {
+    "name": "Header Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Typography"
+      },
+      {
+        "type": "font_picker",
+        "id": "menu_font_family",
+        "default": "helvetica_n4",
+        "label": "Menu Font Family"
+      },
+      {
+        "type": "text",
+        "id": "menu_font_family_custom_name",
+        "label": "Name for custom font",
+        "info": "Will override selected font. Must be same as an uploaded custom font"
+      },
+      {
+        "type": "checkbox",
+        "id": "menu_font_case",
+        "label": "Make Uppercase",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "menu_font_spacing",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Menu Font Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "menu_font_size",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Menu Font Size - Desktop",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "Header Colors"
+      },
+      {
+        "type": "color",
+        "id": "header_bg_color",
+        "label": "Header Background Color",
+        "default": "#F4F2EF",
+        "info": "for when sticky"
+      },
+      {
+        "type": "color",
+        "id": "header_menu_font_color",
+        "label": "Header Font Color",
+        "default": "#383838"
+      },
+      {
+        "type": "color",
+        "id": "header_menu_bg_color_hover",
+        "label": "Header Menu BG Hover Color"
+      },
+      {
+        "type": "color",
+        "id": "header_menu_font_color_hover",
+        "label": "Header Menu Hover Color",
+        "default": "#787777"
+      },
+      {
+        "type": "header",
+        "content": "Annoucement Bar Colors"
+      },
+      {
+        "type": "color",
+        "id": "announcement_bar_bg_color",
+        "label": "Announcement Bar BG Color",
+        "default": "#383838"
+      },
+      {
+        "type": "color",
+        "id": "announcement_bar_text_color",
+        "label": "Announcement Bar Text Color",
+        "default": "#F4F2EF"
+      }
+    ]
+  },
+  {
+    "name": "Footer Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Typography"
+      },
+      {
+        "type": "font_picker",
+        "id": "footer_menu_font_family",
+        "default": "helvetica_n4",
+        "label": "Font Family"
+      },
+      {
+        "type": "text",
+        "id": "footer_menu_font_family_custom_name",
+        "label": "Name for custom font"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_menu_font_case",
+        "label": "Make Uppercase?",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "footer_menu_font_spacing",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "footer_menu_font_size",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Font Size - Desktop",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "footer_bg_color",
+        "label": "Footer Background Color",
+        "default": "#383838"
+      },
+      {
+        "type": "color",
+        "id": "footer_font_color",
+        "label": "Footer Font Color",
+        "default": "#787777"
+      },
+      {
+        "type": "color",
+        "id": "footer_menu_color_hover",
+        "label": "Footer Menu Hover Color",
+        "default": "#F4F2EF"
+      }
+    ]
+  },
+  {
+    "name": "Offcanvas Menu Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Typography"
+      },
+      {
+        "type": "range",
+        "id": "offcanvas_panel_menu_size",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Off Canvas Menu Size",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "offcanvas_panel_bg_color",
+        "label": "Off Canvas Menu Background Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "offcanvas_panel_menu_color",
+        "label": "Off Canvas Menu Color",
+        "default": "#383838"
+      }
+    ]
+  },
+  {
+    "name": "Button Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Button Config"
+      },
+      {
+        "type": "range",
+        "id": "button_border_radius",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Button Border Radius",
+        "default": 2
+      },
+      {
+        "type": "text",
+        "id": "button_font_family_custom_name",
+        "label": "Custom Font Family Name"
+      },
+      {
+        "type": "checkbox",
+        "id": "general_button_case",
+        "label": "Make uppercase",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "general_button_spacing",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Primary Button"
+      },
+      {
+        "type": "range",
+        "id": "primary_button_size",
+        "min": 8,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 18
+      },
+      {
+        "type": "color",
+        "id": "primary_button_text",
+        "label": "Text color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "primary_button_bg",
+        "label": "Background color",
+        "default": "#000"
+      },
+      {
+        "type": "range",
+        "id": "primary_button_border",
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "unit": "px",
+        "label": "Border weight",
+        "default": 1
+      },
+      {
+        "type": "color",
+        "id": "primary_border_color",
+        "label": "Border color",
+        "default": "#383838"
+      },
+      {
+        "type": "color",
+        "id": "primary_button_hover_text",
+        "label": "Hover text color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "primary_button_hover_bg",
+        "label": "Background color Hover",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "primary_border_color_hover",
+        "label": "Border color hover",
+        "default": "#383838"
+      },
+      {
+        "type": "header",
+        "content": "Secondary Button"
+      },
+      {
+        "type": "range",
+        "id": "secondary_button_size",
+        "min": 8,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 17
+      },
+      {
+        "type": "color",
+        "id": "secondary_button_text",
+        "label": "Text color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "secondary_button_bg",
+        "label": "Background color",
+        "default": "#000"
+      },
+      {
+        "type": "range",
+        "id": "secondary_button_border",
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "unit": "px",
+        "label": "Border weight",
+        "default": 1
+      },
+      {
+        "type": "color",
+        "id": "secondary_border_color",
+        "label": "Border color",
+        "default": "#383838"
+      },
+      {
+        "type": "color",
+        "id": "secondary_button_hover_text",
+        "label": "Hover text color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "secondary_button_hover_bg",
+        "label": "Hover bg color",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "secondary_border_color_hover",
+        "label": "Border color hover",
+        "default": "#383838"
+      },
+      {
+        "type": "header",
+        "content": "Tertiary Button"
+      },
+      {
+        "type": "range",
+        "id": "tertiary_button_size",
+        "min": 8,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 17
+      },
+      {
+        "type": "color",
+        "id": "tertiary_button_text",
+        "label": "Text color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "tertiary_button_bg",
+        "label": "Background color",
+        "default": "#000"
+      },
+      {
+        "type": "range",
+        "id": "tertiary_button_border",
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "unit": "px",
+        "label": "Border weight",
+        "default": 1
+      },
+      {
+        "type": "color",
+        "id": "tertiary_border_color",
+        "label": "Border color",
+        "default": "#383838"
+      },
+      {
+        "type": "color",
+        "id": "tertiary_button_hover_text",
+        "label": "Hover text color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "tertiary_button_hover_bg",
+        "label": "Hover bg color",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "tertiary_border_color_hover",
+        "label": "Border color hover",
+        "default": "#383838"
+      }
+    ]
+  },
+  {
+    "name": "Product Badges",
+    "settings": [
+      {
+        "type": "color",
+        "id": "badge_text_color",
+        "label": "Badge Text Color",
+        "default": "#ffffff",
+        "info": "applies to all badges"
+      },
+      {
+        "type": "header",
+        "content": "Badge 1"
+      },
+      {
+        "type": "text",
+        "id": "badge_1_Name",
+        "label": "Badge 1 Name",
+        "default": "New",
+        "info": "use lowercase, add as tag to products"
+      },
+      {
+        "type": "color",
+        "id": "badge_1_color",
+        "label": "Badge 1 Color",
+        "default": "#383838"
+      },
+      {
+        "type": "header",
+        "content": "Badge 2"
+      },
+      {
+        "type": "text",
+        "id": "badge_2_Name",
+        "label": "Badge 2 Name",
+        "default": "Bestseller",
+        "info": "use lowercase, add as tag to products"
+      },
+      {
+        "type": "color",
+        "id": "badge_2_color",
+        "label": "Badge 2 Color",
+        "default": "#383838"
+      },
+      {
+        "type": "header",
+        "content": "Badge 3"
+      },
+      {
+        "type": "text",
+        "id": "badge_3_Name",
+        "label": "Badge 3 Name",
+        "default": "Lowstock",
+        "info": "use lowercase, add as tag to products"
+      },
+      {
+        "type": "color",
+        "id": "badge_3_color",
+        "label": "Badge 3 Color",
+        "default": "#383838"
+      },
+      {
+        "type": "header",
+        "content": "Badge 4"
+      },
+      {
+        "type": "text",
+        "id": "badge_4_Name",
+        "label": "Badge 4 Name",
+        "default": "Coming Soon!",
+        "info": "use lowercase, add as tag to products"
+      },
+      {
+        "type": "color",
+        "id": "badge_4_color",
+        "label": "Badge 4 Color",
+        "default": "#383838"
+      }
+    ]
+  },
+  {
+    "name": "Global Banner Height ",
+    "settings": [
+      {
+        "type": "text",
+        "id": "carousel_banner_height_small",
+        "label": "Small",
+        "default": "30rem",
+        "info": "units: rem, px, vh"
+      },
+      {
+        "type": "text",
+        "id": "carousel_banner_height_medium",
+        "label": "Medium",
+        "default": "50rem",
+        "info": "units: rem, px, vh"
+      },
+      {
+        "type": "text",
+        "id": "carousel_banner_height_large",
+        "label": "Large",
+        "default": "100vh",
+        "info": "units: rem, px, vh"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.social-media.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.social-media.settings.header.content"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "t:settings_schema.social-media.settings.social_twitter_link.label",
+        "info": "t:settings_schema.social-media.settings.social_twitter_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "t:settings_schema.social-media.settings.social_facebook_link.label",
+        "info": "t:settings_schema.social-media.settings.social_facebook_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "t:settings_schema.social-media.settings.social_pinterest_link.label",
+        "info": "t:settings_schema.social-media.settings.social_pinterest_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "t:settings_schema.social-media.settings.social_instagram_link.label",
+        "info": "t:settings_schema.social-media.settings.social_instagram_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "t:settings_schema.social-media.settings.social_tiktok_link.label",
+        "info": "t:settings_schema.social-media.settings.social_tiktok_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "t:settings_schema.social-media.settings.social_tumblr_link.label",
+        "info": "t:settings_schema.social-media.settings.social_tumblr_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "t:settings_schema.social-media.settings.social_snapchat_link.label",
+        "info": "t:settings_schema.social-media.settings.social_snapchat_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "t:settings_schema.social-media.settings.social_youtube_link.label",
+        "info": "t:settings_schema.social-media.settings.social_youtube_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "t:settings_schema.social-media.settings.social_vimeo_link.label",
+        "info": "t:settings_schema.social-media.settings.social_vimeo_link.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.favicon.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "t:settings_schema.favicon.settings.favicon.label",
+        "info": "t:settings_schema.favicon.settings.favicon.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.currency_format.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.currency_format.settings.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.currency_format.settings.paragraph"
+      },
+      {
+        "type": "checkbox",
+        "id": "currency_code_enabled",
+        "label": "t:settings_schema.currency_format.settings.currency_code_enabled.label",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Slideout Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enabled",
+        "label": "Enable cart notes",
+        "default": true
+      }
+    ]
+  }
+]

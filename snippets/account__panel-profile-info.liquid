@@ -1,0 +1,48 @@
+<div class="inner">
+    <div class="content">
+        <h2 class="h4 content-margin">General</h2>
+        <div class="info">
+            <label>Name</label>
+            <p>{{ customer.name }}</p>
+        </div>
+
+        {% if customer.email %}
+        <div class="info">
+            <label>Email</label>
+            <p>{{ customer.email }}</p>
+        </div>
+        {% endif %}
+
+        {% if customer.phone %}
+        <div class="info">
+            <label>Phone</label>
+            <p>{{ customer.phone }}</p>
+        </div>
+        {% endif %}
+
+
+      {% comment %} Reactivate if Customer Fields app is installed
+      <a data-toggle="editAccount" class="small button small outline rounded content-margin">Edit account</a>
+
+      <div class="account__edit" id="editAccount" data-toggler=".expanded">
+        {% render "customer-fields", form_id: "o8bt7e" %}
+      </div>
+      {% endcomment %}
+
+
+    </div>
+    <div class="content">
+
+        <div class="info">
+            <h2 class="h4">Address</h2>
+            <div class="address">
+              <p>{{ customer.default_address | format_address }}</p>
+              <a class="underline button small" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} <span class="address-count">{{ customer.addresses_count }}</span> </a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

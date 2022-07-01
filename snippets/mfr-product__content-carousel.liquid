@@ -1,0 +1,104 @@
+{{ 'mfr-core__content-carousel.css' | asset_url | stylesheet_tag }}
+
+<section class="cell small-12 mfr-core__content-carousel product__reviews-carousel">
+
+  <div class="product__reviews-carousel-header">
+    <div class="stars">
+      {% render 'icon__5-stars', star_color: '#FFF20C', border_color: '#000', border_width: .5 %}
+    </div>
+    <span class="small-title">4.8/5 rating - 3 reviews</span>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div class="content-carousel {{ section.id }}">
+      
+      
+
+      {% for review_content in product.metafields.manufactur.review_content %}      
+         
+        
+          <div class="content-card carousel-cell" data-aos="{{ animation_type }}" data-aos-delay="{{ forloop.index }}00">
+            <div class="wrapper">
+              <div class="card-media">
+                {% for image in product.metafields.manufactur.review_image[forloop.index0] %}
+                  <img loading="lazy" src="{{ image.cloudinary_src | append: 'w_800' }}"
+                    srcset="{{ image.cloudinary_src | append: 'w_800' }} 1x, {{ image.cloudinary_src | append: 'w_800', scale: 2 }} 2x"
+                    alt="{{ image.alt }}">
+                {% endfor %}
+                <div class="maade-logo">
+                  {% render 'icon__logomark' %}
+                </div>
+              </div>
+              <div class="card-text-bar" style="background-color: {{ product.metafields.my_fields.highlight_color }};">
+                <div class="stars">
+                  {% render 'icon__5-stars', star_color: '#FFF20C', border_color: '#000', border_width: .5 %}
+                </div>
+                <span class="small-text">5 stars</span>
+              </div>
+              <div class="card-content">
+                <div class="name">
+                  <div class="h4">{{ product.metafields.manufactur.reviewer_name[forloop.index0] | strip_html }}</div>
+                </div>
+                <p class="small-text">
+                  {{ product.metafields.manufactur.reviewer_product[forloop.index0] | strip_html }}
+                </p>
+                <div class="caption">
+                  <p class="small">{{ product.metafields.manufactur.review_content[forloop.index0] | strip_html }}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        
+      
+        {% endfor %}
+
+    </div>
+
+    {%- comment -%}
+    <div class="custom-carousel-nav-button button__previous">
+      <svg viewBox="0 0 96 56">
+        <path d="M25.158.61c.6-.623 1.627-.629 2.202-.073.587.569.629 1.61.073 2.202L5.126 26.45H94.45c.853 0 1.549.695 1.549 1.548 0 .852-.696 1.548-1.549 1.548H5.126l22.307 23.709c.556.593.526 1.645-.073 2.202-.593.556-1.554.568-2.202-.073L.384 29.06a1.663 1.663 0 0 1 0-2.129L25.158.61Z" fill="#000" fill-rule="nonzero"/>
+      </svg>
+    </div>
+    <div class="custom-carousel-nav-button button__next">
+      <svg viewBox="0 0 96 56">
+        <path d="M70.839.61c-.599-.623-1.627-.629-2.202-.073-.587.569-.629 1.61-.072 2.202L90.87 26.45H1.547c-.853 0-1.548.695-1.548 1.548 0 .852.695 1.548 1.548 1.548h89.324L68.565 53.254c-.557.593-.527 1.645.072 2.202.593.556 1.555.568 2.202-.073L95.613 29.06a1.663 1.663 0 0 0 0-2.129L70.84.61Z" fill="#000" fill-rule="nonzero"/>
+      </svg>
+    </div>
+    {%- endcomment -%}
+
+  </div>
+
+</section>
+
+<script type="text/javascript">
+  function content_carousel() {
+    var $carousel = $('.{{ section.id }}.content-carousel').flickity({
+      selectedAttraction: 0.1,
+      friction: 0.55,
+      prevNextButtons: false,
+      contain: true,
+      cellAlign: 'center',
+      imagesLoaded: true,
+      lazyLoad: false,
+      pageDots: true,
+      draggable: '>1',
+      initialIndex: 1,
+      wrapAround: false
+    });
+    $('.custom-carousel-nav-button.button__previous').on( 'click', function() {
+      $carousel.flickity('previous');
+    });
+    $('.custom-carousel-nav-button.button__next').on( 'click', function() {
+      $carousel.flickity('next');
+    });
+  }
+  jQuery(function(){
+    content_carousel();
+  });
+  
+  document.addEventListener("shopify:section:load", function(event) {
+    content_carousel();
+  });
+</script>

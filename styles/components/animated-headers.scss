@@ -1,0 +1,74 @@
+
+.tw {
+  .h1 {
+    margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    overflow: hidden;
+    padding: rem-calc( 10px ) 0;
+    @include breakpoint(large up) {
+      margin-bottom: 2rem;
+    }
+    // &.large {
+    //   line-height: 1.8rem;
+    //   @include breakpoint(large up) {
+    //     line-height: 3.4rem;
+    //   }
+    // }
+
+    span.i {
+      @include breakpoint( large up ) {
+        line-height: rem-calc( 95px );
+      }
+    }
+  }
+  .h2 {
+    //line-height: 1.8rem;
+    overflow: hidden;
+    padding: rem-calc( 10px ) 0;
+    @include breakpoint(large up) {
+      //line-height: 2.2rem;
+    }
+
+    span.i {
+      @include breakpoint( large up ) {
+        line-height: rem-calc( 45px );
+      }
+    }
+  }
+  span.o {
+    // overflow: hidden;
+    padding: 0;
+    margin: 0 .2rem; //used to add some invisible space around text for backgrounds and overflow hidden
+    vertical-align: middle;
+
+    &.has-shortcode {
+      overflow: visible;
+    }
+    
+    @for $i from 1 through 100 {
+      &:nth-child(#{$i}) span.i {
+        transition-delay: #{$i * .04}s !important;
+      }
+    }
+  }
+  // strong:after {
+  //   @include transition(.2s all cubic-bezier(0.5,0,0,1) .8s);
+  //   width: 0;
+  // }
+  span.i {
+    @include transform(translate(0, 10rem));
+    @include transition(.4s all cubic-bezier(0.5,0,0,1));
+    @include breakpoint(medium up) {
+      @include transform(translate(0, 15rem));
+    }
+  }
+  &.aos-animate span.i {
+    @include transform(translate(0, 0rem));
+    // strong:after {
+    //   width: calc(100% + 1.6rem);
+    //   @include breakpoint(large up) {
+    //     width: calc(100% + 1.6rem);
+    //   }
+    // }
+  }
+}

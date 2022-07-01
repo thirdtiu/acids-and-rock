@@ -1,0 +1,211 @@
+{%- comment -%}
+--------------------------------------
+styles from metafields
+--------------------------------------
+
+product.metafields.my_fields.product_accent_color
+product.metafields.my_fields.product_main_color
+product.metafields.my_fields.gradient_light_color
+product.metafields.my_fields.gradient_dark_color
+
+{%- endcomment -%}
+
+
+{% style %}
+  @media print, screen and (min-width: 40em) {
+    .product-card .product-{{ product.id }} .product-card__add-to-cart-plus:hover {
+      background-color: {{ product.metafields.my_fields.product_accent_color }};
+    }
+  }
+
+  .product-card .product-{{ product.id }} .card-background {
+    background: {{ product.metafields.my_fields.gradient_dark_color }};
+    background: linear-gradient(0deg, {{ product.metafields.my_fields.gradient_dark_color }} 80px, {{ product.metafields.my_fields.gradient_light_color }} 100%);
+  }
+  .product-card .product-{{ product.id }} .product-card__add-to-cart-plus,
+  .product-card .product-{{ product.id }} .button,
+  .product-card .product-{{ product.id }} .product-card__price { border: 9px {{ product.metafields.my_fields.gradient_dark_color }} solid };
+
+{% endstyle %}
+
+
+{%- comment -%}
+--------------------------------------
+capture elements for ease of placement
+--------------------------------------
+{%- endcomment -%}
+{% capture product_reviews_stars %}
+  <div class="product-card__reviews-stars">
+    <div class="yotpo bottomLine"
+      data-appkey="oTmsWm3pm6BC6oKxORYSrHLwePtF8ngNEmX1ZuYA"
+      data-domain="{{shop.permanent_domain | escape }}"
+      data-product-id="{{ product.id }}"
+      data-product-models="{{ product.id }}"
+      data-name="{{ product.title | escape }}"
+      data-url="{{ shop.url }}{{ product.url }}"
+      data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+      data-description="{{ product.description | escape }}"
+      data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+      </div>
+  </div>
+{% endcapture %}
+
+
+{% capture product_title %}
+  <div class="product-card__title">
+    <h2 class="h3">{{ product.title | escape }}</h2>
+  </div>
+{% endcapture %}
+
+{% capture product_description %}
+  <div class="product-card__description">
+    <p class="small">{{ product.description | truncate: 100 | strip_html }}</p>
+  </div>
+{% endcapture %}
+
+
+{% capture product_price %}
+  <div class="product-card__price button primary disabled">
+    <div class="size">{{ product.metafields.my_fields.pack_size }}</div>
+    <div class="divider"></div>
+    {% render 'price', product: product %}
+  </div>
+{% endcapture %}
+
+{% capture shop_now %}
+  {%- render 'component__button', 
+    button_link: product.url, 
+    button_style: 'primary', 
+    button_has_arrow: 'true', 
+    button_label: "Shop Now" 
+  -%}
+{% endcapture %}
+
+
+{% capture add_to_cart %}
+  <div class="product-card__add-to-cart-plus">
+    {% if product.available %}
+      <div class="text">
+        {% render 'icon__quick-add-text' %}
+      </div>
+      {% render 'component__add-to-cart-plus', product: product %}
+    {% else %}
+      <div class="sold-out">{{ 'products.product.sold_out' | t }}</div>
+    {% endif %}
+  </div>
+{% endcapture %}
+
+
+{% capture product_variant %}
+  <div class="product-card__variant">
+    <div class="meta-label variant">
+      {{ product.variants.first.title }}
+    </div>
+  </div>
+{% endcapture %}
+
+{% capture product_type %}
+  <div class="product-card__product-type">
+    <div class="small-text">{{ product.type | escape }}</div>
+  </div>
+{% endcapture %}
+
+{% capture product_fruits %}
+  <div class="fruits">
+    <div class="fruit-1">
+      {% include 'component__image-with-width', image: product.metafields.my_fields.fruit_1 %}
+    </div>
+    <div class="fruit-2">
+      {% include 'component__image-with-width', image: product.metafields.my_fields.fruit_2 %}
+    </div>
+    <div class="kale">
+      {% include 'component__image-with-width', image: product.metafields.my_fields.kale_image %}
+    </div>
+  </div>
+{% endcapture %}
+
+{%- render 'component__product-badges' -%}
+
+
+
+{%- comment -%}
+--------------------------------------
+Product Card Layout
+--------------------------------------
+{%- endcomment -%}
+<div class="product-card-inner product-{{ product.id }}">
+
+  <span class="visually-hidden">{{ product.title | escape }}</span>
+
+  <a href="{{ product.url }}" class="product-image-wrapper">
+    <div class="product-image-inner">
+      <div class="primary-image product-image image-size-{{ section.settings.primary_product_image_style }}">
+        <img srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
+          {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
+          {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+          {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+          {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+          {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
+          src="{{ product.featured_media | img_url: '533x' }}"
+          sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+          alt="{{ product.featured_media.alt | escape }}"
+          loading="lazy"
+          class="motion-reduce"
+          width="{{ product.featured_media.width }}"
+          height="{{ product.featured_media.height }}"
+        >
+        <div class="shadow">
+          <img loading="lazy" src="{{ product.featured_media | img_url: '100x' }}" alt="shadow">
+        </div>
+      </div>
+      {%- if product.media[1] != nil and section.settings.secondary_product_image_style -%}
+        <div class="secondary-image product-image image-size-{{ product_image_style }}">
+          <img srcset="{%- if product.media[1].width >= 165 -%}{{ product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
+            {%- if product.media[1].width >= 360 -%}{{ product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
+            {%- if product.media[1].width >= 533 -%}{{ product.media[1] | img_url: '533x' }} 533w,{%- endif -%}
+            {%- if product.media[1].width >= 720 -%}{{ product.media[1] | img_url: '720x' }} 720w,{%- endif -%}
+            {%- if product.media[1].width >= 940 -%}{{ product.media[1] | img_url: '940x' }} 940w,{%- endif -%}
+            {%- if product.media[1].width >= 1066 -%}{{ product.media[1] | img_url: '1066x' }} 1066w{%- endif -%}"
+            src="{{ product.media[1] | img_url: '533x' }}"
+            sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+            alt="{{ product.media[1].alt | escape }}"
+            loading="lazy"
+            class="motion-reduce"
+          width="{{ product.media[1].width }}"
+          height="{{ product.media[1].height }}"
+          >
+        </div>
+      {%- endif -%}
+    </div>
+  </a>
+
+  <a href="{{ product.url }}" class="card-background"></a>
+
+  <div class="product-details-wrapper">
+    <div class="product-details-inner {{ product_card_style }}">
+
+      {%- comment -%}
+        {{ product_title }}
+        {{ product_variant }}
+        {{ product_description }}
+        {{ product_reviews_stars }}
+        {{ product_type }}
+      {%- endcomment -%}
+
+      {% if product_card_style == "add_to_cart" %}
+        {{ product_price }}
+        {{ add_to_cart }}  
+      {% elsif product_card_style == "shop_now"  %}
+        {{ product_description }}
+        {{ shop_now }}  
+      {% endif %}
+      
+      
+  
+    </div>
+  </div>
+
+
+
+
+</div>

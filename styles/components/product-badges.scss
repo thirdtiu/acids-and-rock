@@ -1,0 +1,54 @@
+.product-badge {
+  @include border-radius(50rem);
+  padding: .3rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  margin-bottom: .5rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -0.6rem;
+  right: -0.6rem;
+  text-align: center;
+  z-index: 10;
+  font-size: 2.1rem;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  &.new {
+    background: $badge_color_new;
+  }
+  &.best-seller {
+    background: $badge_color_bestseller;
+  }
+  &.low-stock {
+    background: $badge_color_lowstock;
+    flex-wrap: 1.3rem;
+    line-height: 1rem;
+  }
+  &.coming-soon {
+    background: $badge_color_comingsoon;
+    font-size: 1.5rem;
+    line-height: 1.2rem;
+    letter-spacing: 0;
+  }
+  &.badge-counter {
+    border: 2px solid $theme-color-black;
+    font-family: $font-body;
+  }
+  span {}
+}
+
+.product-page__top {
+  .product-badge {
+    @include border-radius($global-radius);
+    width: auto;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0.2rem 0.8rem;
+    margin-left: .5rem;
+  }
+}

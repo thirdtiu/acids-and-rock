@@ -1,0 +1,36 @@
+.color_theme {
+  &__dark {
+    .h1, .h2, .h3, p, .color_theme_text {
+      color: $color-theme__dark;
+    }
+    .small-text {
+      color: $color-accent;
+    }
+  }
+  &__light {
+    .h1, .h2, .h3, p, .color_theme_text {
+      color: $color-theme__light;
+    }
+    .small-text {
+      color: $color-accent;
+    }
+  }
+  .color_theme {
+    &__dark {
+      .h1, .h2, .h3, p, .color_theme_text {
+        color: $color-theme__dark;
+      }
+      .small-text {
+        color: $color-accent;
+      }
+    }
+    &__light {
+      .h1, .h2, .h3, p, .color_theme_text {
+        color: $color-theme__light;
+      }
+      .small-text {
+        color: $color-accent;
+      }
+    }
+  }
+}

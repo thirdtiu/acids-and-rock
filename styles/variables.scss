@@ -1,0 +1,283 @@
+// Text colors
+$color-body-text: var(--color-body-text);
+
+// Background colors
+$color-body: var(--color-main-background);
+$overlay_color: var(--overlay-color);
+$overlay_color_alpha: var(--overlay-color-alpha);
+
+// Placeholders
+$placeholder-color-foreground: #161d25;
+$placeholder-color-background: #f9fafb;
+
+// Colors
+$color-accent: var(--color-accent);
+$color-accent-hover: var(--color-accent-hover);
+$color-accent-2: var(--color-accent-2);
+$color-accent-2-hover: var(--color-accent-2-darker);
+$color-accent-3: var(--color-accent-3);
+$color-accent-3-hover: var(--color-accent-3-darker);
+$color-border: var(--color-border);
+$theme-color-white: var(--color-white);
+$off-white: var(--color-off-white);
+$theme-color-black: var(--color-black);
+
+$white: $theme-color-white;
+$black: $theme-color-black;
+
+$color-theme__dark: var(--color-theme-dark);
+$color-theme__light: var(--color-theme-light);
+
+//Extras
+$green: #98D61D;
+$dark-blue: #197FBF;
+
+// Helper colors for form error states
+$color-disabled: #000000;
+$color-disabled-border: #000000;
+$color-error: #ff6d6d;
+$color-error-bg: #ffffff;
+$color-success: #000000;
+$color-success-bg: #000000;
+
+
+// Typography
+
+
+//Curves
+$sharp_ease: cubic-bezier(0.83, 0, 0.17, 1);
+$smooth_ease: cubic-bezier(0.5,0,0,1);
+
+
+$font-heading-h1: var(--font-heading-h1);
+$font-heading-h1-alt: var(--font-heading-h1);
+$font-heading-h1-spacing: var(--font-heading-h1-spacing);
+$font-heading-h1-weight: var(--font-heading-h1-weight);
+$font-heading-h1-size: var(--font-heading-h1-size);
+$font-heading-h1-size-mobile: var(--font-heading-h1-size-mobile);
+$font-heading-h1-size-alt: var(--font-heading-h1-size-alt); 
+$font-heading-h1-size-mobile-alt: var(--font-heading-h1-size-mobile-alt);
+
+$font-heading-h2: var(--font-heading-h2);
+$font-heading-h2-spacing: var(--font-heading-h2-spacing);
+$font-heading-h2-weight: var(--font-heading-h2-weight);
+$font-heading-h2-size: var(--font-heading-h2-size);
+$font-heading-h2-size-mobile: var(--font-heading-h2-size-mobile);
+
+$font-heading-h3: var(--font-heading-h3);
+$font-heading-h3-spacing: var(--font-heading-h3-spacing);
+$font-heading-h3-weight: var(--font-heading-h3-weight);
+$font-heading-h3-size: var(--font-heading-h3-size);
+$font-heading-h3-size-mobile: var(--font-heading-h3-size-mobile);
+
+$font-heading-h4: var(--font-heading-h4);
+$font-heading-h4-spacing: var(--font-heading-h4-spacing);
+$font-heading-h4-weight: var(--font-heading-h4-weight);
+$font-heading-h4-size: var(--font-heading-h4-size);
+$font-heading-h4-size-mobile: var(--font-heading-h4-size-mobile);
+
+$font-heading-small-title: var(--font-heading-small-title);
+$font-heading-small-title-spacing: var(--font-heading-small-title-spacing);
+$font-heading-small-title-weight: var(--font-heading-small-title-weight);
+$font-heading-small-title-size: var(--font-heading-small-title-size);
+$font-heading-small-title-size-mobile: var(--font-heading-small-title-size-mobile);
+
+$font-menu: var(--font-menu);
+$font-menu-custom-url: var(--font-menu-custom-url);
+$font-menu-spacing: var(--font-menu-spacing);
+$font-menu-weight: var(--font-menu-weight);
+$font-menu-size: var(--font-menu-size);
+
+$font-footer-menu: var(--font-footer-menu);
+$font-footer-menu-custom-url: var(--font-footer-menu-custom-url);
+$font-footer-menu-spacing: var(--font-footer-menu-spacing);
+$font-footer-menu-weight: var(--font-footer-menu-weight);
+$font-footer-menu-size: var(--font-footer-menu-size);
+
+
+$font-body: var(--font-body);
+$font-body-custom-url: var(--font-body-custom-url);
+$font-body-color: var(--font-body-color);
+$font-body-size-small: var(--font-body-size-small);
+$font-body-size-regular: var(--font-body-size-regular);
+$font-body-size-large: var(--font-body-size-large);
+
+$font-family-verlag: "Verlag", Tahoma, sans-serif;
+$font-family-gellix: "Gellix", sans-serif;
+
+//Custom Font Names
+$custom-font-name-1: var(--custom-font-name-1);
+$custom-font-name-2: var(--custom-font-name-2);
+$custom-font-name-3: var(--custom-font-name-3);
+$custom-font-name-4: var(--custom-font-name-4);
+$custom-font-name-5: var(--custom-font-name-5);
+
+// Genearl Settings
+$global-radius-liquid: var(--global-radius);
+$global-border-width: var(--global-border-width);
+$body-background-image: var(--image-main-background);
+
+$header-sticky-color: var(--header-bg-color);
+$header-menu-font-color: var(--header-menu-font-color);
+$header-menu-bg-color-hover: var(--header-menu-bg-color-hover);
+$header-menu-font-color-hover: var(--header-menu-font-color-hover);
+
+$footer-background-color: var(--footer-background-color);
+$footer-font-color: var(--footer-font-color);
+$footer-menu-color-hover: var(--footer-menu-color-hover);
+$footer-background-image: var(--footer-background-image);
+
+$offcanvas-panel-bg-color: var(--offcanvas-panel-bg-color);
+$offcanvas-panel-menu-color: var(--offcanvas-panel-menu-color);
+$offcanvas-panel-menu-size: var(--offcanvas-panel-menu-size);
+
+$offcanvas-products-panel-bg-color: var(--offcanvas-products-panel-bg-color);
+$offcanvas-products-panel-menu-color: var(--offcanvas-products-panel-menu-color);
+$offcanvas-products-panel-menu-size: var(--offcanvas-products-panel-menu-size);
+
+$offcanvas-contact-panel-bg-color: var(--offcanvas-contact-panel-bg-color);
+$offcanvas-contact-panel-menu-color: var(--offcanvas-contact-panel-menu-color);
+$offcanvas-contact-panel-menu-size: var(--offcanvas-contact-panel-menu-size);
+
+
+
+//Product Grid/Carousel Item
+$carousel_banner_height_small: var(--carousel-banner-height-small);
+$carousel_banner_height_medium: var(--carousel-banner-height-medium);
+$carousel_banner_height_large: var(--carousel-banner-height-large);
+
+//Product Badges Color
+$badge_color_new: var(--badge-color-new);
+$badge_color_bestseller: var(--badge-color-bestseller);
+$badge_color_lowstock: var(--badge-color-lowstock);
+$badge_color_comingsoon: var(--badge-color-comingsoon);
+
+
+//Carousel Banner Height Settings
+$product-preview-bg-color: var(--product-preview-bg-color);
+$product-preview-button-color: var(--product-preview-button-color);
+$product-preview-button-hover-color: var(--product-preview-button-hover);
+
+
+//Cart Slideout Settings
+$cart-body-bg-color: var(--cart-body-bg-color);
+$cart-footer-bg-color: var(--cart-footer-bg-color);
+$cart-footer-text-color: var(--cart-footer-text-color);
+$cart-divider-colors: var(--cart-divider-colors);
+$cart-checkout-button-color: var(--cart-checkout-button-color);
+$cart-checkout-button-hover-color: var(--cart-checkout-button-hover-color);
+
+$cart-product-name-case: var(--cart-product-name-case);
+$cart-product-name-weight: var(--cart-product-name-weight);
+$cart-product-name-spacing: var(--cart-product-name-spacing);
+$cart-product-name-size: var(--cart-product-name-size);
+
+$cart-variant-color: var(--cart-product-variant-color);
+$cart-body-text-color: var(--cart-body-text-color);
+$cart-price-color: var(--cart-price-color);
+
+
+//Header
+$announcement-bar-bg-color: var(--announcement-bar-bg-color);
+$announcement-bar-text-color: var(--announcement-bar-text-color);
+
+
+// Buttons
+$button-font-size: var(--button-size);
+$button-border-radius: var(--button-border-radius);
+$button-spacing: var(--button-spacing);
+$button-font-custom-name: var(--button-font-custom-name);
+
+$primary-button-size: var(--primary-button-size);
+$primary-button-bg-color: var(--primary-button-bg-color);
+$primary-button-text-color: var(--primary-button-text-color);
+$primary-button-border-color: var(--primary-button-border-color);
+$primary-button-border-weight: var(--primary-button-border-weight);
+$primary-button-hover-bg-color: var(--primary-button-hover-bg-color);
+$primary-button-hover-text-color: var(--primary-button-hover-text-color);
+$primary-button-border-color-hover: var(--primary-button-border-color-hover);
+
+$secondary-button-size: var(--secondary-button-size);
+$secondary-button-bg-color: var(--secondary-button-bg-color);
+$secondary-button-text-color: var(--secondary-button-text-color);
+$secondary-button-border-color: var(--secondary-button-border-color);
+$secondary-button-border-weight: var(--secondary-button-border-weight);
+$secondary-button-hover-bg-color: var(--secondary-button-hover-bg-color);
+$secondary-button-hover-text-color: var(--secondary-button-hover-text-color);
+$secondary-button-border-color-hover: var(--secondary-button-border-color-hover);
+
+$tertiary-button-size: var(--tertiary-button-size);
+$tertiary-button-bg-color: var(--tertiary-button-bg-color);
+$tertiary-button-text-color: var(--tertiary-button-text-color);
+$tertiary-button-border-color: var(--tertiary-button-border-color);
+$tertiary-button-border-weight: var(--tertiary-button-border-weight);
+$tertiary-button-hover-bg-color: var(--tertiary-button-hover-bg-color);
+$tertiary-button-hover-text-color: var(--tertiary-button-hover-text-color);
+$tertiary-button-border-color-hover: var(--tertiary-button-border-color-hover);
+
+// Transitions
+$transition-duration: 250ms;
+$transition-timing: ease-in-out;
+
+// Grid
+$grid-max-width: 73.75em;
+$grid-gutter: 30px;
+
+
+// 2. Breakpoints
+// --------------
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1440px,
+  xxlarge: 1600px
+);
+$print-breakpoint: large;
+$breakpoint-classes: (small medium large xlarge xxlarge);
+
+// 3. The Grid
+// -----------
+
+$grid-row-width: 1600px;
+$grid-column-count: 12;
+$grid-column-gutter: (
+  small: 20px,
+  medium: 30px,
+  large: 60px
+);
+$grid-column-align-edge: true;
+$grid-column-alias: 'columns';
+$block-grid-max: 8;
+
+
+
+$global-weight-normal: normal;
+$global-weight-bold: bold;
+$black: $theme-color-black;
+$white: $theme-color-white;
+$light-gray: #ccc;
+$body-background: $white;
+$body-font-color: $black;
+
+$body-font-family: $font-body;
+//$body-font-family: '';
+$header-font-family: $body-font-family;
+
+$header-font-weight: 800;
+$header-font-style: normal;
+$global-margin: 1rem;
+$global-padding: 1rem;
+$global-position: 1rem;
+$global-weight-normal: normal;
+$global-weight-bold: bold;
+$global-radius: $global-radius-liquid;
+
+
+
+///extra settings
+$pdp-form-component-border: $global-border-width solid $color-accent;
+$pdp-form-component-padding: 1.5rem;
+$product-top-large-size-mobile: 1.1rem;
+$product-top-large-size-desktop: 1.1rem;

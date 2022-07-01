@@ -1,0 +1,122 @@
+{
+  "sections": {
+    "main": {
+      "type": "mfr-core__text-section",
+      "blocks": {
+        "4c83e1b3-23fe-49ab-819f-5b91b190a0d6": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Are we in your hood?<\/p>",
+            "header_style": "h1",
+            "make_large": false
+          }
+        },
+        "86710b98-4aa5-4bcd-93d2-a74d711e3ceb": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/strawberry.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 140,
+            "position_x_desktop": 2,
+            "position_y_desktop": 50,
+            "width_mobile": 120,
+            "position_x_mobile": 0,
+            "position_y_mobile": 62,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        },
+        "78724ff2-ebe0-4c4d-af8a-f80c0bb4bf7d": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/blueberry-2.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 60,
+            "position_x_desktop": 6,
+            "position_y_desktop": 62,
+            "width_mobile": 60,
+            "position_x_mobile": 20,
+            "position_y_mobile": 66,
+            "animation": "rotating",
+            "show_shadow": false
+          }
+        },
+        "d3199c3d-4027-4e52-8c11-355d1b2611f2": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/kale-right.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 210,
+            "position_x_desktop": 0,
+            "position_y_desktop": 48,
+            "width_mobile": 170,
+            "position_x_mobile": 0,
+            "position_y_mobile": 52,
+            "animation": "none",
+            "show_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "4c83e1b3-23fe-49ab-819f-5b91b190a0d6",
+        "86710b98-4aa5-4bcd-93d2-a74d711e3ceb",
+        "78724ff2-ebe0-4c4d-af8a-f80c0bb4bf7d",
+        "d3199c3d-4027-4e52-8c11-355d1b2611f2"
+      ],
+      "settings": {
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "spacing_outside_section": false,
+        "is_full_width": false,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_xlarge_bottom",
+        "bg_color": "linear-gradient(0deg, rgba(161, 217, 255, 1), rgba(174, 88, 255, 1) 100%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "angled",
+        "svg_divider_bottom_color": "#e9ffd4"
+      }
+    },
+    "1642580429ab85656c": {
+      "type": "mfr-core__custom-liquid",
+      "blocks": {
+        "20b000d0-b994-4ef5-a1cd-5b0e9131ef0e": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div id='storerocket-widget' style='width:100%;' data-storerocket-env='p' data-storerocket-id='BZJWPgz80o'><p style='text-align:center;font-size:13px;padding:10px;'>Store locator is loading from StoreRocket <a target='_blank' href='https:\/\/storerocket.io' style='font-size:13px;'>Store Locator Widget<\/a>..<\/p><\/div><script>(function(){var a=document.createElement('script');a.type='text\/javascript';a.async=!0;a.src='https:\/\/cdn.storerocket.io\/js\/widget-mb.js';var b=document.getElementsByTagName('script')[0];b.parentNode.insertBefore(a,b);}());<\/script>",
+            "section_spacing_top": "section_spacing_none_top",
+            "section_spacing_bottom": "section_spacing_none_bottom",
+            "translate_y": -150
+          }
+        }
+      },
+      "block_order": [
+        "20b000d0-b994-4ef5-a1cd-5b0e9131ef0e"
+      ],
+      "settings": {
+        "color_theme": "color_theme__dark",
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_xlarge_bottom",
+        "bg_color": "",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "angled",
+        "svg_divider_bottom_color": "#450073"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1642580429ab85656c"
+  ]
+}

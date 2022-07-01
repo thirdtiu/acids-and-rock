@@ -1,0 +1,35 @@
+<div class="grid-container {% if section.settings.full_width %}full{% endif %}">
+  <div class="grid-x grid-margin-x">
+    {%- for block in section.blocks -%}
+      <div class="cell small-12">
+        {% render block %}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.apps.name",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "Is full width"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.apps.presets.name"
+    }
+  ]
+}
+{% endschema %}

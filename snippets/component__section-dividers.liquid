@@ -1,0 +1,14 @@
+{% if section.settings.top_divider != "none" %}
+    {%- render 'component__top-wave', color: section.settings.svg_divider_top_color, id: section.id, divider_type: section.settings.top_divider -%}
+  {% endif %}
+
+{% if section.settings.bottom_divider != "none" %}
+  {%- render 'component__bottom-wave', color: section.settings.svg_divider_bottom_color, id: section.id, divider_type: section.settings.bottom_divider -%}
+{% endif %}
+
+{% if section.settings.section_divider_image %}
+  <div class="divider">
+    <img src="{{ section.settings.section_divider_image | img_url: '1200x' }}" srcset="{{ section.settings.section_divider_image | img_url: '1200x' }} 375w, {{ section.settings.section_divider_image | img_url: '1800x' }} 900w" alt="section divider">
+  </div>
+{% endif %}
+

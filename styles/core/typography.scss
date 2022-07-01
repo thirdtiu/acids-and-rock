@@ -1,0 +1,375 @@
+/*
+--------------------------------------
+typography mixins
+--------------------------------------
+*/
+@mixin small-text {
+  font-weight: 800;
+  //font-family: $body-font-family;
+  font-family: $custom-font-name-5;
+  line-height: rem-calc( 20px );
+  font-size: $font-heading-small-title-size-mobile;
+  text-transform: lowercase;
+  @include breakpoint(medium up) {
+    font-size: $font-heading-small-title-size;
+    // font-size: $font-body-size-small;
+    // line-height: 1.1rem;
+  }
+}
+
+@mixin small-title {
+  font-family: $font-heading-small-title;
+  letter-spacing: $font-heading-small-title-spacing;
+  //font-weight: $font-heading-small-title-weight;
+  font-weight: 800 !important;
+  text-transform: lowercase;
+  font-size: $font-heading-small-title-size-mobile;
+  line-height: .9rem;
+  @include breakpoint(large up) {
+    font-size: $font-heading-small-title-size;
+    font-weight: $font-heading-small-title-weight;
+  }
+}
+
+//PDP Form Container Stlying - put here for consistency
+@mixin pdp_form_container_styling {
+	font-family: $font-body;
+	font-size: 1.1rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	line-height: .9rem;
+	@include breakpoint(large up) {
+		font-size: 1.1rem;
+	}
+}
+
+
+
+
+// SELECTION
+::-moz-selection { color:$white; background:$color-accent; }
+::selection { color:$white; background:$color-accent; }
+
+
+
+/*
+--------------------------------------
+core
+--------------------------------------
+*/
+body {
+  color: $font-body-color;
+  font-family: $body-font-family;
+}
+
+html {
+  font-size: 100%;
+}
+
+body,
+input,
+textarea,
+button,
+select {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6
+{
+  font-family: $header-font-family;
+  // font-weight: 700;
+  margin: 0;
+  &.white { color: $white; }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+p {
+  &.no-margin {
+    margin: 0;
+  }
+}
+
+
+/*
+--------------------------------------
+headers
+--------------------------------------
+*/
+h1,.h1 {
+  font-family: $font-heading-h1;
+  letter-spacing: $font-heading-h1-spacing;
+  font-size: $font-heading-h1-size-mobile;
+  line-height: $font-heading-h1-size-mobile;
+  //line-height: 2.2rem;
+  //font-weight: $font-heading-h1-weight;
+  font-weight: 100;
+  @include breakpoint(medium up) {
+    // font-size: 8vw;
+    // line-height: 7vw;
+  }
+  @include breakpoint(large up) {
+    // font-size: 4.2vw;
+    // line-height: 4vw;
+    font-size: $font-heading-h1-size;
+    line-height: 5.2rem;
+  }
+  &.large {
+    font-size: $font-heading-h1-size-mobile-alt;
+    line-height: $font-heading-h1-size-mobile-alt;
+    @include breakpoint(medium up) {
+      font-size: 8vw;
+      line-height: 7vw;
+    }
+    @include breakpoint(large up) {
+      font-size: 8vw;
+      line-height: 7vw;
+    }
+    @include breakpoint(xlarge up) {
+      font-size: $font-heading-h1-size-alt; 
+      line-height: $font-heading-h1-size-alt;
+    }
+  }
+  span {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+  }
+  strong {
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    // &:after {
+    //   content: "";
+    //   display: inline-flex;
+    //   position: absolute;
+    //   top: -.6rem;
+    //   height: 100%;
+    //   z-index: 0;
+    //   background: $theme-color-white;
+    //   width: calc(100% + 14px);
+    //   left: -8px;
+    //   @include breakpoint(large up) {
+    //     width: calc(100% + 14px);
+    //     left: -10px;
+    //   }
+    // }
+  }
+}
+h2,.h2 {
+  letter-spacing: 0px;
+  font-family: $font-heading-h2;
+  letter-spacing: $font-heading-h2-spacing;
+  font-weight: $font-heading-h2-weight;
+  font-size: $font-heading-h2-size-mobile;
+  line-height: $font-heading-h2-size-mobile;
+  @include breakpoint(large up) {
+    font-size: $font-heading-h2-size;
+    line-height: $font-heading-h2-size;
+  }
+}
+h3,.h3 {
+  font-family: $font-heading-h3;
+  letter-spacing: $font-heading-h3-spacing;
+  font-weight: $font-heading-h3-weight;
+  font-size: $font-heading-h3-size-mobile;
+  line-height: 1.3rem;
+  letter-spacing: 1px;
+  @include breakpoint(large up) {
+    font-size: $font-heading-h3-size;
+    line-height: 2.4rem;
+  }
+}
+h4,.h4 {
+  font-family: $font-heading-h4;
+  letter-spacing: $font-heading-h4-spacing;
+  font-weight: $font-heading-h4-weight;
+  font-size: $font-heading-h4-size-mobile;
+  @include breakpoint(large up) {
+    font-size: $font-heading-h4-size;
+  }
+}
+
+.small-text {
+  @include small-text;
+}
+.small-title {
+  @include small-title;
+}
+
+
+
+/*
+--------------------------------------
+anchors
+--------------------------------------
+*/
+a {
+  @include transition(.2s all);
+  text-decoration: none;
+  color: $theme-color-black;
+  &.underline {
+    color: $theme-color-black;
+    border-bottom: 2px $black solid;
+    //font-weight: 600;
+    font-family: $body-font-family;
+    // letter-spacing: 2px;
+    // text-transform: uppercase;
+    // font-size: rem-calc(11);
+    // padding: 3px 3px 1px;
+    @include breakpoint(large up) {
+      &:hover {
+        @include border-radius(4px !important);
+        //color: $white;
+        border-bottom: 2px transparent solid;
+        background: $color-accent;
+      }
+    }
+  }
+}
+p.underline a {
+  color: $theme-color-black;
+  border-bottom: 2px $black solid;
+  @include breakpoint(large up) {
+    &:hover {
+      color: $white;
+      background: $theme-color-black;
+    }
+  }
+}
+p a {
+  border-bottom: 2px $black solid;
+  @include breakpoint(large up) {
+    &:hover {
+      color: $white;
+      background: $theme-color-black;
+    }
+  }
+}
+
+
+a:focus {
+  color: inherit;
+}
+.subtle-link {
+  font-size: 1rem;
+  color: rgba(0,0,0,.3);
+  @include breakpoint(large down) {
+    font-size: 0.8rem;
+  }
+  @include breakpoint(large up) {
+    &:hover {
+      color: $black;
+      border-bottom: 1px solid $black;
+    }
+  }
+}
+
+
+
+/*
+--------------------------------------
+paragraph
+--------------------------------------
+*/
+p, .p {
+  font-family: $body-font-family;
+  font-size: $font-body-size-regular;
+  line-height: 1.6rem;
+  font-weight: 400;
+  margin-top: 0;
+  @include breakpoint(large up) {
+    line-height: 1.8rem;
+  }
+  &.black {
+    color: $black;
+  }
+  &.grey {
+    color: rgba($black,.5);
+  }
+b, strong {
+    //color: $color-accent;
+    font-weight: 800;
+  }
+}
+.large p, p.large, .large-text p, p.large-text {
+  font-size: $font-body-size-regular;
+  line-height: 1.7rem;
+  font-weight: 400;
+  @include breakpoint(large up) {
+    font-size: $font-body-size-large;
+    line-height: 2.4rem;
+  }
+  @include breakpoint(xlarge up) {
+    //font-size: 1.9vw;
+    line-height: 2.6rem;
+  }
+}
+.small p, p.small {
+  @include breakpoint(large down) {
+    font-size: rem-calc(14);
+    line-height: rem-calc(14);
+  }
+  font-size: $font-body-size-small;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.3rem;
+  font-weight: 600;
+  //@include small-text;
+  &.alt {
+    font-family: $custom-font-name-1;
+  }
+}
+
+
+
+/*
+--------------------------------------
+other global text styling
+--------------------------------------
+*/
+.meta-label {
+  @include small-text;
+  font-size: rem-calc(11px);
+}
+.caption-text {
+  font-size: rem-calc(17);
+  font-family: $custom-font-name-1;
+  font-weight: 800;
+}
+.detail-note {
+  font-size: 1rem;
+  color: $black;
+  @include breakpoint(large down) {
+    font-size: 0.8rem;
+  }
+}
+
+//custom list style
+.custom-list-style {
+  li, .custom-bullet {
+    position: relative;
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M12.907.112c-4.165 2.623-8.214 7.58-8.214 7.58A32.568 32.568 0 0 0 2.08 5.255a1.268 1.268 0 0 0-1.815 1.75 32.62 32.62 0 0 1 3.383 5.427 1.25 1.25 0 0 0 2.224.025c2.59-4.872 4.833-7.604 7.957-11.29h-.001a.709.709 0 0 0-.921-1.055Z' fill='%23000' fill-rule='nonzero'/%3E%3C/svg%3E");
+      position: absolute;
+      left: -1.5rem;
+      top: 0.1rem;
+      content: "";
+      width: .8rem;
+      height: .8rem;
+    }
+  }
+}
+
+

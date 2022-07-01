@@ -1,0 +1,24 @@
+<div class="cell text-grid-block to-slider" data-slider-id="aoc-mobile-slider">
+  {% if preset_icon != 'none' and preset_icon %}
+    <div class="block-image" >
+      {% render 'component__icon', icon_name: preset_icon %}
+    </div>
+  {% elsif svg_code != blank %}
+    <div class="block-image" data-aos>{{ svg_code }}</div>
+  {% elsif image != "" and svg_code == blank %}
+    <div class="block-image" data-aos>
+      <img loading="lazy" src="{{ image | img_url: '200x' }}"
+    srcset="{{ image | img_url: '200x' }} 1x, {{ image | img_url: '200x', scale: 2 }} 2x"
+    alt="{{ image.alt }}">
+    </div>
+  {% endif %}
+
+  {%- if title -%}
+  <div class="small-title color_theme_text">{{ title }}</div>
+  {%- endif -%}
+
+  {%- if text != blank -%}
+  <div class="text color_theme_text">{{ text }}</div>
+  {%- endif -%}
+</div>
+

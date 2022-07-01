@@ -1,0 +1,403 @@
+
+{% style %}
+
+{%- comment -%} --------------------------------------
+output font-face for custom fonts if they exist
+-------------------------------------- {%- endcomment -%}
+
+{%- if settings.custom_font_1_url != blank -%}
+    @font-face {
+      font-family: '{{ settings.custom_font_1_name }}';
+      src: url('{{ settings.custom_font_1_url }}') format('woff2');
+      font-weight: {{ settings.custom_font_1_weight }};
+      font-style: normal;
+      font-display: swap;
+    }
+  {%- endif -%}
+  {%- if settings.custom_font_2_url != blank -%}
+    @font-face {
+      font-family: '{{ settings.custom_font_2_name }}';
+      src: url('{{ settings.custom_font_2_url }}') format('woff2');
+      font-weight: {{ settings.custom_font_2_weight }};
+      font-style: normal;
+      font-display: swap;
+    }
+  {%- endif -%}
+  {%- if settings.custom_font_3_url != blank -%}
+    @font-face {
+      font-family: '{{ settings.custom_font_3_name }}';
+      src: url('{{ settings.custom_font_3_url }}') format('woff2');
+      font-weight: {{ settings.custom_font_3_weight }};
+      font-style: normal;
+      font-display: swap;
+    }
+  {%- endif -%}
+  {%- if settings.custom_font_4_url != blank -%}
+    @font-face {
+      font-family: '{{ settings.custom_font_4_name }}';
+      src: url('{{ settings.custom_font_4_url }}') format('woff2');
+      font-weight: {{ settings.custom_font_4_weight }};
+      font-style: normal;
+      font-display: swap;
+    }
+  {%- endif -%}
+  {%- if settings.custom_font_5_url != blank -%}
+    @font-face {
+      font-family: '{{ settings.custom_font_5_name }}';
+      src: url('{{ settings.custom_font_5_url }}') format('woff2');
+      font-weight: {{ settings.custom_font_5_weight }};
+      font-style: normal;
+      font-display: swap;
+    }
+  {%- endif -%}
+
+
+  {%- comment -%} --------------------------------------
+  output font-face for shopify fonts if they exist
+  -------------------------------------- {%- endcomment -%}
+
+  {%- if settings.h1_font_family_custom_name == blank -%}
+    {{ settings.h1_font_family | font_face }}
+    {%- assign h1_bold = settings.h1_font_family | font_modify: 'weight', 'bolder' -%}
+    {{ h1_bold | font_face }}
+  {%- endif -%}
+
+  {%- if settings.h2_font_family_custom_name == blank -%}
+    {{ settings.h2_font_family | font_face }}
+    {%- assign h2_bold = settings.h2_font_family | font_modify: 'weight', 'bolder' -%}
+    {{ h2_bold | font_face }}
+  {%- endif -%}
+
+  {%- if settings.h3_font_family_custom_name == blank -%}
+    {{ settings.h3_font_family | font_face }}
+    {%- assign h3_bold = settings.h3_font_family | font_modify: 'weight', 'bolder' -%}
+    {{ h3_bold | font_face }}
+  {%- endif -%}
+
+  {%- if settings.h4_font_family_custom_name == blank -%}
+    {{ settings.h4_font_family | font_face }}
+    {%- assign h4_bold = settings.h4_font_family | font_modify: 'weight', 'bolder' -%}
+    {{ h4_bold | font_face }}
+  {%- endif -%}
+
+  {%- if settings.body_font_custom_name == blank -%}
+    {{ settings.body_font | font_face }}
+    {%- assign body_font_bold = settings.body_font | font_modify: 'weight', 'bolder' -%}
+    {%- assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic' -%}
+  {%- endif -%}
+
+  {%- if settings.menu_font_family_custom_name != blank -%}
+    {{ settings.menu_font_family | font_face }}
+    {%- assign menu_font_family_bold = settings.menu_font_family | font_modify: 'weight', 'bolder' -%}
+    {%- assign menu_font_family_bold_italic = menu_font_family_bold | font_modify: 'style', 'italic' -%}
+  {% endif %}
+
+
+
+  {%- comment -%} --------------------------------------
+  assign settings to variables
+  -------------------------------------- {%- endcomment -%}
+
+  :root {
+
+    /* Colors */
+    --color-accent: {{ settings.color_accent }};
+    --color-accent-hover: {{ settings.color_accent | color_darken: 10 }};
+    --color-accent-2: {{ settings.color_accent_2 }};
+    --color-accent-2-darker: {{ settings.color_accent_2 | color_darken: 25 | color_desaturate: 20 }};
+    --color-accent-3: {{ settings.color_accent_3 }};
+    --color-accent-3-darker: {{ settings.color_accent_3 | color_darken: 25 | color_desaturate: 20 }};
+    --color-body-text: {{ settings.color_body_text }};
+    --color-border: {{ settings.color_body_text | color_lighten: 50 }};
+    --color-white: {{ settings.white_color }};
+    --color-off-white: {{ settings.off_white_color }};
+    --color-black: {{ settings.black_color }};
+
+    /* Color Themes */
+    --color-theme-dark: {{ settings.color_theme_dark }};
+    --color-theme-light: {{ settings.color_theme_light }};
+    --color-theme-1: {{ settings.color_theme_1 }};
+    --color-theme-2: {{ settings.color_theme_2 }};
+
+
+    /* Typography */
+    {% if settings.h1_font_family_custom_name != blank %}
+      --font-heading-h1: {{ settings.h1_font_family_custom_name }}, {{ settings.h1_font_family.family }}, {{ settings.h1_font_family.fallback_families }};  
+      {% else %}
+      --font-heading-h1: {{ settings.h1_font_family.family }}, {{ settings.h1_font_family.fallback_families }};
+    {% endif %}
+    --font-heading-h1-weight: {{ settings.h1_font_family.weight }};
+    --font-heading-h1-spacing: {{ settings.h1_font_spacing }}px;
+    --font-heading-h1-size: {{ settings.h1_font_size }}px;
+    --font-heading-h1-size-mobile: {{ settings.h1_font_size_mobile }}px;
+    --font-heading-h1-size-alt: {{ settings.h1_font_size_alt }}px;
+    --font-heading-h1-size-mobile-alt: {{ settings.h1_font_size_mobile_alt }}px;
+
+    {% if settings.h2_font_family_custom_name != blank %}
+      --font-heading-h2: {{ settings.h2_font_family_custom_name }}, {{ settings.h2_font_family.family }}, {{ settings.h2_font_family.fallback_families }};  
+      {% else %}
+      --font-heading-h2: {{ settings.h2_font_family.family }}, {{ settings.h2_font_family.fallback_families }};
+    {% endif %}
+    --font-heading-h2-weight: {{ settings.h2_font_family.weight }};
+    --font-heading-h2-spacing: {{ settings.h2_font_spacing }}px;
+    --font-heading-h2-size: {{ settings.h2_font_size }}px;
+    --font-heading-h2-size-mobile: {{ settings.h2_font_size_mobile }}px;
+
+
+    {% if settings.h3_font_family_custom_name != blank %}
+      --font-heading-h3: {{ settings.h3_font_family_custom_name }}, {{ settings.h3_font_family.family }}, {{ settings.h3_font_family.fallback_families }};  
+      {% else %}
+      --font-heading-h3: {{ settings.h3_font_family.family }}, {{ settings.h3_font_family.fallback_families }};
+    {% endif %}
+    --font-heading-h3-weight: {{ settings.h3_font_family.weight }};
+    --font-heading-h3-spacing: {{ settings.h3_font_spacing }}px;
+    --font-heading-h3-size: {{ settings.h3_font_size }}px;
+    --font-heading-h3-size-mobile: {{ settings.h3_font_size_mobile }}px;
+
+
+    {% if settings.h4_font_family_custom_name != blank %}
+      --font-heading-h4: {{ settings.h4_font_family_custom_name }}, {{ settings.h4_font_family.family }}, {{ settings.h4_font_family.fallback_families }};  
+      {% else %}
+      --font-heading-h4: {{ settings.h4_font_family.family }}, {{ settings.h4_font_family.fallback_families }};
+    {% endif %}
+    --font-heading-h4-weight: {{ settings.h4_font_family.weight }};
+    --font-heading-h4-spacing: {{ settings.h4_font_spacing }}px;
+    --font-heading-h4-size: {{ settings.h4_font_size }}px;
+    --font-heading-h4-size-mobile: {{ settings.h4_font_size_mobile }}px;
+
+
+    {% if settings.small_title_font_family_custom_name != blank %}
+      --font-heading-small-title: {{ settings.small_title_font_family_custom_name }}, {{ settings.small_title_font_family.family }}, {{ settings.small_title_font_family.fallback_families }};  
+      {% else %}
+      --font-heading-small-title: {{ settings.small_title_font_family.family }}, {{ settings.small_title_font_family.fallback_families }};
+    {% endif %}
+    --font-heading-small-title-weight: {{ settings.small_title_font_family.weight }};
+    --font-heading-small-title-spacing: {{ settings.small_title_font_spacing }}px;
+    --font-heading-small-title-size: {{ settings.small_title_font_size }}px;
+    --font-heading-small-title-size-mobile: {{ settings.small_title_font_size_mobile }}px;
+    
+
+    {% if settings.menu_font_family_custom_name != blank %}
+      --font-menu: {{ settings.menu_font_family_custom_name }}, {{ settings.menu_font_family.fallback_families }};  
+      {% else %}
+      --font-menu: {{ settings.menu_font_family.fallback_families }};
+    {% endif %}
+    --font-menu-weight: {{ settings.menu_font_family.weight }};
+    --font-menu-spacing: {{ settings.menu_font_spacing }}px;
+    --font-menu-size: {{ settings.menu_font_size }}px;
+    
+
+    {% if settings.footer_menu_font_family_custom_name != blank %}
+      --font-footer-menu: {{ settings.footer_menu_font_family_custom_name }}, {{ settings.footer_menu_font_family.family }}, {{ settings.footer_menu_font_family.fallback_families }};  
+      {% else %}
+      --font-footer-menu: {{ settings.footer_menu_font_family.family }}, {{ settings.footer_menu_font_family.fallback_families }};
+    {% endif %}
+    --font-footer-menu-weight: {{ settings.footer_menu_font_family.weight }};
+    --font-footer-menu-spacing: {{ settings.footer_menu_font_spacing }}px;
+    --font-footer-menu-size: {{ settings.footer_menu_font_size }}px;
+
+    {% if settings.body_font_custom_name != blank %}
+      --font-body: {{ settings.body_font_custom_name }}, {{ settings.body_font.family }}, {{ settings.body_font.fallback_families }};  
+      {% else %}
+      --font-body: {{ settings.body_font.family }}, {{ settings.body_font.fallback_families }};
+    {% endif %}
+    --font-body-color: {{ settings.color_body_text }};
+    --font-body-size-small: {{ settings.body_font_size_small }}px;
+    --font-body-size-regular: {{ settings.body_font_size_regular }}px;
+    --font-body-size-large: {{ settings.body_font_size_large }}px;
+
+
+    /* Assign Custom fonts to vars for optional dev use*/
+    {% if settings.custom_font_1_name %}
+      --custom-font-name-1: {{ settings.custom_font_1_name }};
+    {% endif %}
+    {% if settings.custom_font_2_name %}
+      --custom-font-name-2: {{ settings.custom_font_2_name }};
+    {% endif %}
+    {% if settings.custom_font_3_name %}
+      --custom-font-name-3: {{ settings.custom_font_3_name }};
+    {% endif %}
+    {% if settings.custom_font_4_name %}
+      --custom-font-name-4: {{ settings.custom_font_4_name }};
+    {% endif %}
+    {% if settings.custom_font_5_name %}
+      --custom-font-name-5: {{ settings.custom_font_5_name }};
+    {% endif %}
+
+    /* General Settings */
+    --color-main-background: {{ settings.color_main_bg }};
+    --overlay-color: {{ settings.overlay_color | color_modify: 'alpha', 0.85 }};
+    --overlay-color-alpha: {{ settings.overlay_color | color_modify: 'alpha', 0.85 }};
+      {% if settings.body_background_image %}
+      --image-main-background: url({{ settings.body_background_image | img_url "700x" }});
+      {% endif %}
+    --global-radius: {{ settings.global_radius }}px;
+    --global-border-width: {{ settings.global_border_width }}px;
+
+    --header-bg-color: {{ settings.header_bg_color }};
+    --header-menu-font-color: {{ settings.header_menu_font_color }};
+    --header-menu-bg-color-hover: {{ settings.header_menu_bg_color_hover }};
+    --header-menu-font-color-hover: {{ settings.header_menu_font_color_hover }};
+
+    --announcement-bar-bg-color: {{ settings.announcement_bar_bg_color }};
+    --announcement-bar-text-color: {{ settings.announcement_bar_text_color }};
+
+    --footer-background-color: {{ settings.footer_bg_color }};
+    --footer-font-color: {{ settings.footer_font_color }};
+    --footer-menu-color-hover: {{ settings.footer_menu_color_hover }};
+    {% if settings.footer_bg_image %}
+    --footer-background-image: url({{ settings.footer_bg_image | img_url "700x" }});
+    {% endif %}
+
+    --offcanvas-panel-bg-color: {{ settings.offcanvas_panel_bg_color }};
+    --offcanvas-panel-menu-color: {{ settings.offcanvas_panel_menu_color }};
+    --offcanvas-panel-menu-size: {{ settings.offcanvas_panel_menu_size }}px;
+
+    --offcanvas-products-panel-bg-color: {{ settings.offcanvas_products_panel_bg_color }};
+    --offcanvas-products-panel-menu-color: {{ settings.offcanvas_products_panel_menu_color }};
+    --offcanvas-products-panel-menu-size: {{ settings.offcanvas_products_panel_menu_size }}px;
+
+    --offcanvas-contact-panel-bg-color: {{ settings.offcanvas_contact_panel_bg_color }};
+    --offcanvas-contact-panel-menu-color: {{ settings.offcanvas_contact_panel_menu_color }};
+    --offcanvas-contact-panel-menu-size: {{ settings.offcanvas_contact_panel_menu_size }}px;
+
+
+    /* Product Badge Colors */
+    --badge-color-new: {{ settings.badge_color_new }};
+    --badge-color-bestseller: {{ settings.badge_color_bestseller }};
+    --badge-color-lowstock: {{ settings.badge_color_lowstock }};
+    --badge-color-comingsoon: {{ settings.badge_color_comingsoon }};
+
+
+
+    /* Carousel Banner Height Settings */
+    --carousel-banner-height-small: {{ settings.carousel_banner_height_small }};
+    --carousel-banner-height-medium: {{ settings.carousel_banner_height_medium }};
+    --carousel-banner-height-large: {{ settings.carousel_banner_height_large }};
+
+
+   
+    
+    /* Button Settings */
+    --button-size: {{ settings.general_button_size }}px;
+    --button-border-radius: {{ settings.button_border_radius }}px;
+    --button-spacing: {{ settings.general_button_spacing }}px;
+    {% if settings.button_font_family_custom_name != blank %}
+      --button-font-custom-name: {{ settings.button_font_family_custom_name }};
+    {% else %}
+      --button-font-custom-name: {{ settings.body_font.family }}, {{ settings.body_font.fallback_families }};
+    {% endif %}
+
+    {%- if settings.h1_font_weight -%}
+      font-weight: 700;
+    {%- endif -%}
+    
+    
+    --primary-button-size: {{ settings.primary_button_size }}px;
+    --primary-button-bg-color: {{ settings.primary_button_bg }};
+    --primary-button-text-color: {{ settings.primary_button_text }};
+    --primary-button-border-weight: {{ settings.primary_button_border }}px;
+    --primary-button-border-color: {{ settings.primary_border_color }};
+    --primary-button-hover-bg-color: {{ settings.primary_button_hover_bg }};
+    --primary-button-hover-text-color: {{ settings.primary_button_hover_text }};
+    --primary-button-border-color-hover: {{ settings.primary_border_color_hover }};
+    
+    --secondary-button-size: {{ settings.secondary_button_size }}px;
+    --secondary-button-bg-color: {{ settings.secondary_button_bg }};
+    --secondary-button-text-color: {{ settings.secondary_button_text }};
+    --secondary-button-border-weight: {{ settings.secondary_button_border }}px;
+    --secondary-button-border-color: {{ settings.secondary_border_color }};
+    --secondary-button-hover-bg-color: {{ settings.secondary_button_hover_bg }};
+    --secondary-button-hover-text-color: {{ settings.secondary_button_hover_text }};
+    --secondary-button-border-color-hover: {{ settings.secondary_border_color_hover }};
+    
+    --tertiary-button-size: {{ settings.tertiary_button_size }}px;
+    --tertiary-button-bg-color: {{ settings.tertiary_button_bg }};
+    --tertiary-button-text-color: {{ settings.tertiary_button_text }};
+    --tertiary-button-border-weight: {{ settings.tertiary_button_border }}px;
+    --tertiary-button-border-color: {{ settings.tertiary_border_color }};
+    --tertiary-button-hover-bg-color: {{ settings.tertiary_button_hover_bg }};
+    --tertiary-button-hover-text-color: {{ settings.tertiary_button_hover_text }};
+    --tertiary-button-border-color-hover: {{ settings.tertiary_border_color_hover }};
+
+
+  }
+
+
+  {%- comment -%} --------------------------------------
+  set css for bold and uppercase settings
+  -------------------------------------- {%- endcomment -%}
+  .h1 {
+    {%- if settings.h1_font_weight -%}
+      font-weight: 700 !important;
+    {%- endif -%}
+    {%- if settings.h1_font_case -%}
+      text-transform: uppercase;
+    {%- endif -%}
+  }
+  .h2 {
+    {%- if settings.h2_font_weight -%}
+      font-weight: 700 !important;
+    {%- endif -%}
+    {%- if settings.h2_font_case -%}
+      text-transform: uppercase;
+    {%- endif -%}
+  }
+  .h3 {
+    {%- if settings.h3_font_weight -%}
+      font-weight: 800 !important;
+    {%- endif -%}
+    {%- if settings.h3_font_case -%}
+      text-transform: uppercase;
+    {%- endif -%}
+  }
+  .h4 {
+    {%- if settings.h4_font_weight -%}
+      font-weight: 800 !important;
+    {%- endif -%}
+    {% if settings.h4_font_case -%}
+      text-transform: uppercase;
+    {%- endif -%}
+  }
+  .small-text {
+    {%- if settings.small_title_font_weight -%}
+      font-weight: 700 !important;
+    {%- endif -%}
+    {% if settings.small_title_font_case -%}
+      text-transform: uppercase;
+    {%- endif -%}
+  }
+  
+
+  .menu a, .header-cta {
+    {%- if settings.menu_font_weight -%}
+      font-weight: 700 !important;
+    {%- endif -%}
+    {%- if settings.menu_font_case -%}
+      text-transform: uppercase;
+    {%- endif -%}
+  }
+
+  .button, button {
+    {%- if settings.general_button_weight -%}
+      font-weight: 800 !important;
+    {%- else -%}
+      font-weight: 400;
+    {%- endif -%}
+    {%- if settings.general_button_case -%}
+      text-transform: uppercase;
+    {%- endif -%}
+  }
+
+
+  #offCanvasCart .product__name {
+    {%- if settings.cart_product_name_weight -%}
+      font-weight: 700 !important;
+    {%- endif -%}
+    {%- if settings.cart_product_name_case -%}
+      text-transform: uppercase;
+    {%- endif -%}
+  }
+
+
+  {% endstyle %}

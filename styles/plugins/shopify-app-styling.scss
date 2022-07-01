@@ -1,0 +1,20 @@
+.NBIS-Modal__btn {
+  @extend .button;
+  @extend .tertiary;
+}
+#esc-oos-form-app {
+  z-index: 999;
+  .NBIS-Modal__popup {
+    .NBIS-Modal__email {
+      font-size: 1.1rem;
+      padding: 1rem;
+    }
+  }
+  .NBIS-Modal__popup__header_title,
+  .NBIS-Modal__popup__header_subtitle {
+    text-align: center;
+  }
+  .esc-modal-footer-success {
+    font-size: 1.1rem;
+  }
+}

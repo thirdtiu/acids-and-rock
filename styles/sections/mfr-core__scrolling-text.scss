@@ -1,0 +1,114 @@
+//logo width
+$scrolling_logo_bar_logo_width_small: 7.7rem;
+$scrolling_logo_bar_logo_width_medium: 12rem;
+$scrolling_logo_bar_logo_width_xlarge: 14rem;
+
+//logo height
+$scrolling_logo_bar_logo_height_small: 2.5rem;
+$scrolling_logo_bar_logo_height_medium: 2.5rem;
+$scrolling_logo_bar_logo_height_xlarge: 2.5rem;
+
+//logo margin
+$scrolling_logo_bar_logo_margin_small: 1rem 1rem;
+$scrolling_logo_bar_logo_margin_medium: 1rem 2rem;
+$scrolling_logo_bar_logo_margin_xlarge: 1rem 2rem;
+
+
+$marquee-width: 102vw;
+$offset: 20vw;
+$move-initial: calc(-25% + 20vw);
+$move-final: calc(-50% + 20vw);
+
+section.mfr-core__scrolling-text {
+  position: relative;
+  overflow-x: clip;
+
+  .color_theme__dark .marquee-scroller__text { color: $color-theme__dark; }
+  .color_theme__light .marquee-scroller__text { color: $color-theme__light; }
+
+  .marquee-scroller__wrapper {
+    width: $marquee-width;
+    overflow: hidden;
+    position: relative;
+    left: -1vw;
+    z-index: 2;
+    &.small {
+      font-size: 1rem;
+      .icon {
+        width: .5rem;
+      }
+    }
+    &.large {
+      font-size: rem-calc( 50px );
+      font-family: $font-family-verlag;
+      font-weight: 800;
+      line-height: rem-calc( 100px );
+      color: rgba(65,158,201,0);
+      letter-spacing: rem-calc( 2.36px );
+      text-shadow: 0 1px 0px $green, 0 -1px 0px $green, 1px 0px 0px $green, -1px 0px 0px $green;
+      padding: rem-calc( 10px ) 0; //to avoid text shadow from being cut off
+
+      @include breakpoint( medium up ) {
+        font-size: rem-calc( 120px );
+      }
+
+      .icon {
+        width: 3.5rem;
+      }
+    }
+    &.logos {
+      .logo {
+        width: 10.5rem;
+        height: 4rem;
+        margin: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+   &.angled {
+      @include transform(translate(0, 4rem) rotate(-3.6deg));
+      padding: 2rem 0;
+      margin-top: -7rem;
+      margin-bottom: 3rem;
+      @include breakpoint(medium up) {
+        margin-bottom: 0;
+      }
+      @include breakpoint(large up) {
+        padding: 5rem 0;
+        margin-top: -10rem;
+      }
+    }
+  }
+  .marquee-scroller__group {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d($move-initial, 0, 0);
+    animation: marquee-left 100s linear infinite;
+  }
+  .marquee-scroller__text {
+    //@include transition(5s all);
+    font-weight: 800;
+    white-space: nowrap;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      padding: 0 1vw;
+    }
+    .icon {
+      display: flex;
+    }
+  }
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translate3d($move-initial, 0, 0);
+  }
+  100% {
+    transform: translate3d($move-final, 0, 0);
+  }
+}

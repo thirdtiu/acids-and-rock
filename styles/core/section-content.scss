@@ -1,0 +1,139 @@
+
+/* Section Content Settings
+=============================
+=============================*/
+.section-content {
+  margin-bottom: 0rem;
+  @include breakpoint(large up) {
+    margin-bottom: 0rem;
+  }
+  &.inverted {
+    .h1,, .h2, .h3, .small-text, p {
+      color: $white;
+    }
+  }
+  &.text-center {
+    //center icon if txt is centered
+    .section-icon, .section-title, .section-text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .button-set {
+      justify-content: center;
+    }
+  }
+  &.text-left {
+    //left align icon if txt is left
+    .section-icon {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  .section-top-image {
+    margin: 0 auto 2rem;
+    &.align-left {
+      @include breakpoint(medium up) {
+        margin: 0 0 1rem;
+      }
+    }
+  }
+  .section-icon {
+    margin: 0 auto 1rem;
+    &.align-left {
+      @include breakpoint(medium up) {
+        margin: 0 0 1rem;
+      }
+    }
+  }
+  .small-text {
+    margin-bottom: 1rem;
+    display: block;
+    position: relative;
+  }
+  .section-title {
+    margin-bottom: 1rem;
+    // max-width: 55rem;
+    // overflow: hidden;
+
+    &.with-circular-text {
+      padding-top: 3rem;
+    }
+
+    span.o.has-circulartext {
+      overflow: visible;
+      position: relative;
+      margin-right: rem-calc( 25px );
+
+      @include breakpoint( medium up ) {
+        margin-right: rem-calc( 90px );
+      }
+    }
+
+    span.circle-text {
+      height: rem-calc( 40px );
+      width: rem-calc( 40px );
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate( 60%, -10%);
+
+      @include breakpoint( medium up ) {
+        height: 6vw;
+        width: 6vw;
+      }
+
+      @include breakpoint( xlarge up ) {
+        width: 9rem;
+        height: 9rem;
+        transform: translate( 70%, -30% );
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    
+    span.flower,
+    span.blue-powder {
+      width: rem-calc( 40px );
+      height: rem-calc( 40px );
+
+      @include breakpoint( medium up ) {
+        transform: translateY( 0px );    
+      }
+
+      @include breakpoint( large up ) {
+        width: rem-calc( 82px );
+        height: rem-calc( 82px );
+        transform: translateY(10px);
+      }
+    }
+  }
+  .icon {
+    margin: 0 .25rem 1.5rem;
+    max-width: calc(25% - 1rem);
+    display: inline-block;
+    @include breakpoint(xlarge up) {
+      margin: 0 .75rem 1.5rem;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .section-text {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    @include breakpoint(xlarge up) {
+      margin-bottom: 2rem;
+      //margin-top: 2rem;
+    }
+  }
+  .button {
+    //margin-top: 1rem;
+    @include breakpoint(large up) {
+      //margin-top: 2rem;
+    }
+  }
+}

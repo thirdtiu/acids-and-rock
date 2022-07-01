@@ -1,0 +1,141 @@
+section.mfr-liina__centered-image-with-text {
+    position: relative;
+    .section-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .image  {
+        margin: 3rem auto;
+      }
+      &.text-center {
+        .section-text {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  
+    .ciwt-section {
+        &__image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 85%;
+            max-width: rem-calc( 400px );
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+            .overlay {
+                position: absolute;
+                background-color: transparent;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+            video {
+                @include border-radius(16rem);
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            &-wrapper {
+                position: relative;
+                margin-bottom: 2rem;
+
+                @include breakpoint( large up ) {
+                    margin-bottom: 0;
+                }
+
+                .text-background.image {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    max-width: 500px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    z-index: 1;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .glow {
+                    @include border-radius(50rem);
+                    @include transform(translate(-50%, -50%));
+                    position: absolute;
+                    z-index: 0;
+                    left: 50%;
+                    top: 50%;
+                    background: rgb(255,255,255);
+                    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+                    width: 130vw;
+                    height: 130vw;
+                    @include breakpoint(medium up) {
+                      width: 100%;
+                      height: 120%;
+                    }
+                    @include breakpoint(large up) {
+                     width: 150%;
+                     height: 150%; 
+                    }
+                }
+            }
+        }
+
+        &__texts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &-wrapper {
+                position: relative;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            &-entry {
+                @include transition(.2s all $smooth_ease);
+                width: 100%;
+                text-align: center;
+                margin: rem-calc( 2.5px ) 0;
+                opacity: 0.3;
+                font-weight: 100;
+                transform: scale( 0.8 );
+
+                &.active-entry,
+                &:hover {
+                    opacity: 1;
+                    font-weight: 800;
+                    transform: scale( 1 );
+                }
+
+                &:first-child {
+                    margin-top: 0;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                p, a {
+                    margin: 0;
+                    font-size: rem-calc( 50px );
+                    line-height: rem-calc( 50px );
+                    font-family: $font-family-verlag;
+
+                    @include breakpoint( medium up ) {
+                        font-size: rem-calc( 61px );
+                        line-height: rem-calc( 61px );
+                    }
+                }
+            }
+        }
+    }
+    
+}

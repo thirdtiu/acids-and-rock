@@ -1,0 +1,398 @@
+{% if section.settings.color_theme %}
+  {% assign text_color = section.settings.color_theme %}
+{% else %}
+  {% assign text_color = "" %}
+{% endif %}
+
+{% style %}
+  .{{ section.id }}.klaviyo_modal .klaviyo_inner{
+    background: {{ section.settings.background_color }} !important;
+  }
+{% endstyle %}
+<div class="klaviyo_modal {{ section.id }}" id="k_id_modal" style="display:none;">
+   <div class="klaviyo_inner {{ text_color }}">
+    <a href="#" class="klaviyo_close_modal klaviyo_header_close">
+      {% render 'icon-close' %}
+    </a>
+    <form data-abide action="//manage.kmail-lists.com/subscriptions/subscribe" method="POST" novalidate="novalidate" class="klaviyo_subscription_form">
+        <input type="hidden" name="g" value="{{section.settings.list_id}}">
+        <input type="hidden" name="$fields" value="phone">
+        <div class="klaviyo_fieldset top">
+
+          {%- for block in section.blocks -%}
+            {% case block.type %}
+              {%- when 'small_text' -%}
+                <div class="small-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+              
+              {%- when 'heading' -%}
+              {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style, text_size: block.settings.make_large %}
+
+              {%- when 'page_title' -%}
+              {% render 'component__title-block', text: page.title, classes: block.settings.header_style, text_size: block.settings.make_large %}
+              
+              {%- when 'text' -%}
+              <div class="section-text {{ block.settings.text_style }}" {{ block.shopify_attributes }} {{ animation_type }} style="{% if block.settings.max_width == 0 %}max-width: 100%;{% elsif block.settings.max_width >= 1 %} max-width: {{ block.settings.max_width }}rem; width: 90%; {% endif %}">{{ block.settings.text }}</div>
+
+              
+            
+            {%- endcase -%}
+          {%- endfor -%}
+
+        </div>
+        <label class="form-error" data-form-error-for="k_id_modal_$email">Email is required.</label>
+        
+        <div class="klaviyo_fieldset hide_on_submit">
+          <div class="klaviyo_field_group">
+            {% comment %}
+            <div class="k-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            {% endcomment %}
+            <label for="k_id_modal_$email" class="show-for-sr">Email Address</label>
+            <input type="email" id="k_id_modal_$email" name="email" placeholder="Email Address *" required pattern="email">
+            <span class="form-error" data-form-error-on="pattern">Invalid Email</span>
+          </div>
+        </div>
+        {% comment %}
+        <div class="klaviyo_fieldset hide_on_submit">
+          <div class="klaviyo_field_group">
+            <div class="k-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </div>
+            <label for="klaviyo_form_phone" class="show-for-sr">Phone Number</label>
+            <input type="text" id="klaviyo_form_phone" name="phone" placeholder="enter your phone #">
+          </div>
+        </div>
+        {% endcomment %}
+        <div class="klaviyo_fine_print"></div>
+        <div class="klaviyo_form_actions hide_on_submit">
+            <button type="submit" class="klaviyo_submit_button button primary">
+            {{ section.settings.submit_text }}
+            </button>
+        </div>
+        <div class="klaviyo_below_submit">
+          {%- for block in section.blocks -%}
+            {% case block.type %}
+              {% when 'small_note' %}
+              <p class="text-center">
+                <small>{{ block.settings.text }}</small>
+              </p>
+            {% endcase %}
+          {%- endfor -%}
+        </div>
+    </form>
+   <div class="error_message hide">
+    
+   </div>
+   <div class="success_message hide">
+     <h3>Thanks! Check your email for a confirmation.</h3>
+   </div>
+  {% render 'component__accent-graphics' %}
+   </div>
+
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Klaviyo Popup",
+
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "text",
+        "id": "list_id",
+        "label": "List ID",
+        "info": "klaviyo list id"
+      },
+      {
+        "type": "text",
+        "id": "submit_text",
+        "label": "Form Submit Label",
+        "default": "Continue"
+      },
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Text" },
+            { "value": "color_theme__light", "label": "Light Text" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Popup Background color",
+        "default": "#4C9FD7"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "small_text",
+        "name": "Small Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "default": "Section Title",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "type": "small_note",
+        "name": "Small Note",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "default": "*Vivamus magna justo, lacinia eget constecter sed, convallis at tellus. Curabitur allequet quam id.",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "type":"heading",
+        "name":"Heading",
+        "limit":2,
+        "settings":[
+          {
+            "type":"richtext",
+            "id":"heading",
+            "default":"<p>Heading H1</p>",
+            "label":"Heading H1"
+          },
+          {
+            "type":"select",
+            "id":"header_style",
+            "options":[
+              {
+                "value": "h1",
+                "label": "H1"
+              },
+              {
+                "value": "h2",
+                "label": "H2"
+              },
+              {
+                "value": "h3",
+                "label": "H3"
+              }
+            ],
+            "label": "Header Style",
+            "default": "h1"
+          },
+          {
+            "type": "checkbox",
+            "id": "make_large",
+            "label": "Make extra large",
+            "info" : "only applies to H1"
+          }
+        ]
+      },
+      {
+        "type":"text",
+        "name":"Text",
+        "limit":1,
+        "settings":[
+          {
+            "type":"richtext",
+            "id":"text",
+            "default":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.</p>",
+            "label":"Text"
+          },
+          {
+            "type":"select",
+            "id":"text_style",
+            "options":[
+              {
+                "value":"small",
+                "label":"Small"
+              },
+              {
+                "value":"regular",
+                "label":"Regular"
+              },
+              {
+                "value":"large",
+                "label":"Large"
+              }
+            ],
+            "label":"Text Style",
+            "default":"regular"
+          },
+          {
+            "type": "range",
+            "id": "max_width",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "unit": "rem",
+            "label": "max_width",
+            "default": 0,
+            "info" : "set 0 for 100%"
+          }
+        ]
+      },
+      {
+        "type": "accent_graphic", 
+        "name": "Accent Graphic",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Graphic SVG Code",
+            "info":"Paste SVG code for vector graphic"
+          },
+          {
+            "type":"header",
+            "content":"Visibility"
+          },
+          {
+            "type": "select",
+            "id": "visibility",
+            "options": [
+                { "value": "always", "label": "Always" },
+                { "value": "desktop_only", "label": "Desktop Only" },
+                { "value": "mobile_only", "label": "Mobile Only" }
+                ],
+            "label": "Show on..",
+            "default": "always"
+          },
+          {
+            "type":"header",
+            "content":"Position"
+          },
+          {
+            "type": "select",
+            "id": "x_setting",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+                ],
+            "label": "X Position",
+            "default": "left"
+          },
+          {
+            "type": "select",
+            "id": "y_setting",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "bottom", "label": "Bottom" }
+                ],
+            "label": "Y Position",
+            "default": "top"
+          },
+          {
+            "type":"header",
+            "content":"Desktop Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_desktop",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_desktop",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_desktop",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Mobile Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_mobile",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_mobile",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_mobile",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "%", 
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Animation Settings"
+          },
+          {
+            "type": "select",
+            "id": "animation",
+            "options": [
+                { "value": "none", "label": "None" },
+                { "value": "rotating", "label": "Rotate" },
+                { "value": "floating", "label": "Float" },
+                { "value": "flying", "label": "Fly Across Screen" },
+                { "value": "parallax", "label": "Parallax" }
+                ],
+            "label": "Animation",
+            "default": "none"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

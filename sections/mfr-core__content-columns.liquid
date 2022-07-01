@@ -1,0 +1,450 @@
+{%- comment -%}
+--------------------------------------
+assign section settings to variables
+--------------------------------------
+{%- endcomment -%}
+
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+
+{% if section.settings.border_top %}
+  {% assign border_top = 'border-top' %}
+{% else %}
+  {% assign border_top = "" %}
+{% endif %}
+
+{% if section.settings.border_bottom %}
+  {% assign border_bottom = 'border-bottom' %}
+{% else %}
+  {% assign border_bottom = "" %}
+{% endif %}
+
+{% assign page_animation = "data-aos='fade-up' data-aos-easing='ease-in-quart'" %}
+ 
+
+<section class="mfr-core__content-columns background {{ top_spacing }} {{ bottom_spacing }} {{ border_top }} {{ border_bottom }}">
+
+  <div class="grid-container full">
+    <div class="grid-x align-center content-column-wrapper">
+
+
+      {% for block in section.blocks %}
+        {% if block.type == "column" %}
+          <div class="content-column " style="background:{{ block.settings.bg_color }};">
+            <div class="inner">
+
+              {% if block.settings.image %}
+                <div class="image-wrapper">
+
+                  {% capture image_size %}{{ block.settings.image_width }}x{% endcapture %}
+                  <div class="image floating {% if forloop.first %} reverse {% endif %}">
+                    <img loading="lazy" src="{{ block.settings.image | img_url: image_size }};"
+                    srcset="{{ block.settings.image | img_url: image_size }} 1x, {{ block.settings.image | img_url: image_size, scale: 2 }} 2x"
+                    alt="{{ block.settings.image.alt | default: shop.name }}"
+                    itemprop="image">
+                  </div>
+                  
+                  <div class="image__shadow shadow {% unless forloop.first %} reverse {% endunless %} shadow-blur-small">
+                    <img loading="lazy" src="{{ block.settings.image | img_url: '100x' }}" alt="shadow">
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if block.settings.heading != blank %}
+                <h2 class="h2 column-title" style="color:{{ block.settings.heading_color }};">{{ block.settings.heading }}</h2>
+              {% endif %}
+
+              {% if block.settings.text %}
+                <div class="text">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+
+              
+
+              {% if block.settings.button_label != "" %}
+                {%- include 'component__button', 
+                  button_link: block.settings.button_link, 
+                  button_style: block.settings.button_style,
+                  button_label: block.settings.button_label 
+                -%}
+              {%- endif -%}
+
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+     
+    </div>
+  </div>
+
+  {% render 'component__section-dividers' %}
+  {% render 'component__gradient-bg-styles' %}
+  {% render 'component__accent-graphics' %}
+
+</section>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Content Columns",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Settings"
+      },
+      {
+        "type":"checkbox",
+        "id":"border_top",
+        "label":"Add top border",
+        "default": true
+      },
+      {
+        "type":"checkbox",
+        "id":"border_bottom",
+        "label":"Add bottom border",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None" },
+            { "value": "section_spacing_small_bottom", "label": "Small" },
+            { "value": "section_spacing_medium_bottom", "label": "Medium" },
+            { "value": "section_spacing_large_bottom", "label": "Large" },
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+         ],
+         "label": "Bottom spacing"
+      },
+
+      {
+        "type":"header",
+        "content":"Background"
+      },
+      {
+        "type": "color_background",
+        "id": "bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Dividers"
+      },
+      {
+        "type": "select",
+        "id": "top_divider",
+        "options": [
+            { "value": "none", "label": "None" },
+            { "value": "angled", "label": "Show Angled Divider" },
+            { "value": "phyllup-flag", "label": "Show Phyllup Divider" }
+            ],
+        "label": "Top Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_top_color",
+        "label": "Top divider color"
+      },
+      {
+        "type": "select",
+        "id": "bottom_divider",
+        "options": [
+            { "value": "none", "label": "None" },
+            { "value": "angled", "label": "Show Angled Divider" },
+            { "value": "angled large", "label": "Show Large Angled Divider" },
+            { "value": "phyllup-flag", "label": "Show Phyllup Divider" } 
+            ],
+        "label": "Bottom Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_bottom_color",
+        "label": "Bottom divider color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Column",
+        "limit": 2,
+        "settings": [
+          {
+            "type":"header",
+            "content":"Column Settings"
+          },
+          {
+            "type":"color_background",
+            "id":"bg_color",
+            "label":"Background Color",
+            "default": "#CEC8E1"
+          },
+
+          {
+            "type":"text",
+            "id":"heading",
+            "default":"Heading",
+            "label":"Heading H1"
+          },
+          {
+            "type":"color",
+            "id":"heading_color",
+            "default":"#483591",
+            "label":"Heading Color"
+          },
+
+          {
+            "type":"richtext",
+            "id":"text",
+            "default":"<p>Text</p>",
+            "label":"Text"
+          },
+
+          {
+            "type": "header",
+            "content": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "range",
+            "id": "image_width",
+            "min": 20,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Image width",
+            "default": 150
+          },
+
+          {
+            "type": "header",
+            "content": "Button"
+          },
+          {
+            "type":"text",
+            "id":"button_label",
+            "label":"Button",
+            "info":"Leave the label blank to hide the button."
+          },
+          {
+            "type":"url",
+            "id":"button_link",
+            "label":"Button Link"
+          },
+          {
+            "type":"select",
+            "id":"button_style",
+            "options":[
+              {
+                "value":"primary",
+                "label":"Primary"
+              },
+              {
+                "value":"secondary",
+                "label":"Secondary"
+              },
+              {
+                "value":"tertiary",
+                "label":"Tertiary"
+              }
+            ],
+            "label":"Button Style",
+            "default":"primary"
+          }
+        ]
+      },
+
+      {
+        "type": "accent_graphic", 
+        "name": "Accent Graphic",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Graphic SVG Code",
+            "info":"Paste SVG code for vector graphic"
+          },
+          {
+            "type":"header",
+            "content":"Visibility"
+          },
+          {
+            "type": "select",
+            "id": "visibility",
+            "options": [
+                { "value": "always", "label": "Always" },
+                { "value": "desktop_only", "label": "Desktop Only" },
+                { "value": "mobile_only", "label": "Mobile Only" }
+            ],
+            "label": "Show on..",
+            "default": "always"
+          },
+          {
+            "type":"header",
+            "content":"Position"
+          },
+          {
+            "type": "range",
+            "id": "rotation",
+            "label": "Rotation",
+            "unit": "deg",
+            "min": 0,
+            "max": 180,
+            "step": 2,
+            "default": 0
+          },
+          {
+            "type": "select",
+            "id": "x_setting",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+                ],
+            "label": "X Position",
+            "default": "left"
+          },
+          {
+            "type": "select",
+            "id": "y_setting",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "bottom", "label": "Bottom" }
+                ],
+            "label": "Y Position",
+            "default": "top"
+          },
+          {
+            "type":"header",
+            "content":"Desktop Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_desktop",
+            "min": 40,
+            "max": 400,
+            "step": 5,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_desktop",
+            "min": -50,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_desktop",
+            "min": -50,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Mobile Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_mobile",
+            "min": 40,
+            "max": 400,
+            "step": 5,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_mobile",
+            "min": -50,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_mobile",
+            "min": -50,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Animation Settings"
+          },
+          {
+            "type": "select",
+            "id": "animation",
+            "options": [
+                { "value": "none", "label": "None" },
+                { "value": "rotating", "label": "Rotate" },
+                { "value": "floating", "label": "Float" },
+                { "value": "parallax", "label": "Parallax" }
+            ],
+            "label": "Animation",
+            "default": "none"
+          }
+        ]
+    }
+    ],
+    "presets":[
+      {
+        "name":"Content Columns",
+        "category":"Manufactur Custom Sections",
+        "blocks":[
+          {
+            "type":"column"
+          },
+          {
+            "type":"column"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "570fc468-7e3f-48f4-8176-707015290792": {
+          "type": "article_author_date",
+          "settings": {
+          }
+        },
+        "29eb2929-9181-4617-9ef9-690c9a9b0d32": {
+          "type": "article_title",
+          "settings": {
+            "header_style": "h2"
+          }
+        },
+        "2ff1d75f-fda4-4ca1-80f6-0bbb4b167589": {
+          "type": "article_category",
+          "settings": {
+          }
+        },
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "570fc468-7e3f-48f4-8176-707015290792",
+        "29eb2929-9181-4617-9ef9-690c9a9b0d32",
+        "2ff1d75f-fda4-4ca1-80f6-0bbb4b167589",
+        "featured_image",
+        "content"
+      ],
+      "settings": {
+        "section_spacing_top": "section_spacing_large_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color_1": "#ffe913",
+        "bg_color_2": "#ff33ba",
+        "bg_color_3": "#fe2bbf",
+        "gradient_balance": 50,
+        "gradient_angle": "0",
+        "bottom_divider": "animated",
+        "svg_divider_bottom_color": "#ffffff"
+      }
+    },
+    "1639356091ffa69033": {
+      "type": "mfr-core__featured-product",
+      "settings": {
+        "product": "tropical",
+        "section_spacing_top": "section_spacing_large_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1639356091ffa69033"
+  ]
+}

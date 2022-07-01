@@ -1,0 +1,99 @@
+
+{%- comment -%}
+{%- assign nutrition_panel = product.metafields.my_fields.nfp -%}
+{%- endcomment -%}
+
+
+{% capture ingredient_list %}
+    <ul class="accordion__list ingredients">
+        {% for item_category in product.metafields.manufactur.item_category %} 
+            {% if item_category == "ingredients" %}
+                <li>
+                    <div class="small rte">{{ product.metafields.manufactur.text[forloop.index0] }}</div>
+                </li>
+            {% endif %}
+        {% endfor %} 
+    </ul>
+{% endcapture %}
+
+{% capture nutrition_facts %}
+    <ul class="accordion__list nutrition">
+        {% for item_category in product.metafields.manufactur.item_category %} 
+            {% if item_category == "nutrition" %}
+                <li>
+                    <div class="small rte">{{ product.metafields.manufactur.text[forloop.index0] }}</div>
+                </li>
+            {% endif %}
+        {% endfor %} 
+        {% if nutrition_panel %}
+            <div class="button-set">
+                <button class="button small tertiary black" data-open="nutrition-{{ section.id }}-{{ product.id }}">Nutrition Facts</button>
+            </div>
+        {% endif %}
+    </ul>
+{% endcapture %}
+
+{% capture general_content %}
+    <ul class="accordion__list general">
+        {% for item_category in product.metafields.manufactur.item_category %} 
+            {% if item_category == "general" %}
+                <li>
+                    <div class="small rte">{{ product.metafields.manufactur.text[forloop.index0] }}</div>
+                </li>
+            {% endif %}
+        {% endfor %} 
+    </ul>
+{% endcapture %}
+
+
+
+
+
+<div class="product-accordions__list accordions" data-accordion data-multi-expand="false" data-allow-all-closed="true">
+    {%- for accordion in accordions -%}
+        
+
+		{%- case accordion.settings.content_type -%}
+
+            {%- when "ingredients_list" -%}
+                {%- render "component__accordion", 
+                    title: accordion.settings.title, 
+                    content: ingredient_list,
+                    loopindex: forloop.index 
+                -%}
+
+            {%- when "nutrition_facts" -%}
+                {%- render "component__accordion", 
+                    title: accordion.settings.title, 
+                    content: nutrition_facts,
+                    loopindex: forloop.index 
+                -%}
+
+            {%- when "general" -%}
+                {%- render "component__accordion", 
+                    title: accordion.settings.title, 
+                    content: general_content,
+                    loopindex: forloop.index 
+                -%}
+
+        {%- endcase -%}
+
+    {%- endfor -%}
+</div>
+
+ 
+{%- comment -%} code for popup nutrition panel
+
+{%- if nutrition_facts -%}
+    <div class="reveal nutrition-panel" id="nutrition-{{ section.id }}-{{ product.id }}" data-reveal>
+        <div class="reveal__inner">
+            <img src="{{ nutrition_facts | img_url: "566x" }}" alt="{{ nutrition_facts.alt }}">    
+        </div>
+        
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44"><g transform="translate(-1093 -918)" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd"><circle fill="#FFF" cx="1115" cy="940" r="21"/><g stroke-linecap="square"><path d="m1104.635 929.635 20.428 20.429M1125.063 929.635l-20.428 20.429"/></g></g></svg>
+        </button>
+    </div>
+{%- endif -%}
+
+{%- endcomment -%}

@@ -1,0 +1,64 @@
+.section__signup-form {
+  .signup-form {
+    &__top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+      margin-bottom: 2rem;
+      @include breakpoint( medium up) {
+        flex-flow: row;
+        justify-content: space-between;
+      }
+    }
+    &__text {
+
+    }
+    &__social-links {
+      margin-bottom: 2rem;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border: 2px solid $black;
+        @include border-radius(3rem);
+      }
+      .social-title {
+        margin-bottom: .5rem;
+      }
+      .icon-set {
+        margin: 0;
+        justify-content: center;
+        @include breakpoint(large up) {
+          justify-content: flex-start;
+        }
+      }
+      svg {
+        color: $theme-color-black;
+        width: 1.9rem;
+        height: 1.9rem;
+      }
+    }
+    &__bottom {
+
+    }
+    &__embed {
+
+    }
+  }
+
+  .klaviyo-form.klaviyo-form.klaviyo-form {
+    @include border-radius(1.4rem !important);
+    border: 2px solid $black;
+  }
+  button.needsclick.go332817621.kl-private-reset-css-Xuajs1 {
+    padding: .8rem 2rem !important;
+    width: auto;
+    display: inline-block;
+    border-radius: 0.9rem !important;
+    overflow: hidden !important;
+  }
+  
+}

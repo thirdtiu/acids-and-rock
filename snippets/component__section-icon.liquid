@@ -1,0 +1,11 @@
+{% if icon != "" and svg_code == blank %}
+  {% capture image_size %}{{ icon_width }}x{% endcapture %}
+  <div class="icon {{ class }}" data-aos="zoom-in">
+    <img loading="lazy" src="{{ icon | img_url: image_size }};"
+    srcset="{{ icon | img_url: image_size }} 1x, {{ icon | img_url: image_size, scale: 2 }} 2x"
+    alt="{{ icon.alt | default: shop.name }}"
+    itemprop="icon">
+  </div>
+{% elsif svg_code != blank %}
+  <div class="icon {{ class }}" data-aos style="max-width:{{ icon_width }}px;">{{ svg_code }}</div>
+{% endif %}

@@ -1,0 +1,14 @@
+$tooltip-color: $color-accent-3;
+.tooltip {
+  @include border-radius(5px);
+  background: $tooltip-color;
+  color: $white;
+  //font-family: ;
+  max-width: 20rem;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.2rem;
+  &.top:before {
+    border-color: $tooltip-color transparent transparent !important;
+  }
+}

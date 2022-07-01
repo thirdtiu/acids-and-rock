@@ -1,0 +1,419 @@
+{
+  "sections": {
+    "1642496904c8fdcc2d": {
+      "type": "mfr-core__text-section",
+      "blocks": {
+        "4f0cbfcd-83f3-4bc0-a3ad-4223e79b49e7": {
+          "type": "text_callout",
+          "settings": {
+            "text": "Did you know \nonly 1 in 10 adults eat the recommended daily serving of fruits & veggies?",
+            "circle_color": "#ffe000",
+            "callout_size": "large",
+            "phyllup_style": "interested",
+            "translate_y": 0
+          }
+        },
+        "16424969043d106227-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>our mission is to change that<\/p>",
+            "header_style": "h1",
+            "make_large": true
+          }
+        },
+        "16424969043d106227-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Et quidem exercitus quid ex eo delectu rerum, quem ad minima veniam, quis. Epicurus in armatum hostem impetum. Et quidem exercitus quid ex eo delectu rerum, quem ad minima veniam, quis. <\/p>",
+            "text_style": "regular",
+            "max_width": 38
+          }
+        },
+        "1f87d56a-3de4-47af-97dd-efdea7ff87dc": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/kiwi.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 230,
+            "position_x_desktop": -2,
+            "position_y_desktop": 22,
+            "width_mobile": 130,
+            "position_x_mobile": -4,
+            "position_y_mobile": 40,
+            "animation": "rotating",
+            "show_shadow": false
+          }
+        },
+        "93a13e4f-ee70-4ab6-9691-49cacd7b567b": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/mango2.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 240,
+            "position_x_desktop": -2,
+            "position_y_desktop": 32,
+            "width_mobile": 110,
+            "position_x_mobile": -4,
+            "position_y_mobile": 32,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        },
+        "8aaff159-e81e-4c7b-9cb7-c11176a6a41c": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/raspberry.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "left",
+            "y_setting": "top",
+            "width_desktop": 170,
+            "position_x_desktop": 6,
+            "position_y_desktop": 36,
+            "width_mobile": 70,
+            "position_x_mobile": 4,
+            "position_y_mobile": 18,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        },
+        "e7809c66-b0f7-4c04-afeb-77301538b652": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/rightkale-2.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 240,
+            "position_x_desktop": 0,
+            "position_y_desktop": 24,
+            "width_mobile": 140,
+            "position_x_mobile": 0,
+            "position_y_mobile": 32,
+            "animation": "none",
+            "show_shadow": false
+          }
+        },
+        "78c756ef-7596-4acc-afd4-15a7d1ed0c2c": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/strawberry.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 190,
+            "position_x_desktop": 26,
+            "position_y_desktop": 12,
+            "width_mobile": 110,
+            "position_x_mobile": 2,
+            "position_y_mobile": 10,
+            "animation": "floating",
+            "show_shadow": false
+          }
+        },
+        "9cd56e84-6c5a-4b57-9791-71d415ae63e4": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/blueberry-2.png",
+            "svg_code": "",
+            "visibility": "always",
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 140,
+            "position_x_desktop": 16,
+            "position_y_desktop": 18,
+            "width_mobile": 50,
+            "position_x_mobile": 12,
+            "position_y_mobile": 16,
+            "animation": "rotating",
+            "show_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "4f0cbfcd-83f3-4bc0-a3ad-4223e79b49e7",
+        "16424969043d106227-0",
+        "16424969043d106227-1",
+        "1f87d56a-3de4-47af-97dd-efdea7ff87dc",
+        "93a13e4f-ee70-4ab6-9691-49cacd7b567b",
+        "8aaff159-e81e-4c7b-9cb7-c11176a6a41c",
+        "e7809c66-b0f7-4c04-afeb-77301538b652",
+        "78c756ef-7596-4acc-afd4-15a7d1ed0c2c",
+        "9cd56e84-6c5a-4b57-9791-71d415ae63e4"
+      ],
+      "settings": {
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_none_bottom",
+        "bg_color": "linear-gradient(330deg, rgba(161, 217, 255, 1) 13%, rgba(174, 88, 255, 1) 78%)",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "phyllup-flag",
+        "svg_divider_bottom_color": "#e9ffd4"
+      }
+    },
+    "164249794846c268a3": {
+      "type": "mfr-core__text-section",
+      "blocks": {
+        "164249794824eb4d49-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Real meal replacements vs. them<\/p>",
+            "header_style": "h2",
+            "make_large": false
+          }
+        }
+      },
+      "block_order": [
+        "164249794824eb4d49-0"
+      ],
+      "settings": {
+        "is_centered": true,
+        "color_theme": "color_theme__dark",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_medium_bottom",
+        "bg_color": "",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "16424979077a814516": {
+      "type": "mfr-core__content-columns",
+      "blocks": {
+        "1642497907e78ece3b-0": {
+          "type": "column",
+          "settings": {
+            "bg_color": "linear-gradient(0deg, rgba(2, 224, 136, 1) 4%, rgba(102, 240, 111, 1) 69%, rgba(201, 255, 87, 1) 99%)",
+            "heading": "",
+            "heading_color": "#483591",
+            "text": "<p>15g Protein<\/p><p>25g Sugar (as much as an apple)<\/p><p>Take it anywhere<\/p><p>12 Month shelf-life<\/p><p>contains 1 whole serving of veggies<\/p>",
+            "image": "shopify:\/\/shop_images\/bottle-greenfest.png",
+            "image_width": 150,
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        },
+        "1642497907e78ece3b-1": {
+          "type": "column",
+          "settings": {
+            "bg_color": "linear-gradient(180deg, rgba(104, 136, 19, 1) 9%, rgba(37, 62, 0, 1) 95%)",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "text": "<p>4g Protein<\/p><p>53g Sugar<\/p><p>0g Fiber<\/p><p>Needs Refrigeration<\/p><p>Highly Perishable<\/p><p>\"Boosted\" with trace ammunt of veggies <\/p>",
+            "image": "shopify:\/\/shop_images\/boring_5dccd47d-6f07-4d6d-b25c-a907b8b38e3a.png",
+            "image_width": 150,
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        },
+        "adda8a9c-0afe-4e34-9559-c7d41906db46": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/kale-left.png",
+            "svg_code": "",
+            "visibility": "always",
+            "rotation": 0,
+            "x_setting": "left",
+            "y_setting": "bottom",
+            "width_desktop": 240,
+            "position_x_desktop": 0,
+            "position_y_desktop": 8,
+            "width_mobile": 150,
+            "position_x_mobile": 0,
+            "position_y_mobile": 0,
+            "animation": "none"
+          }
+        },
+        "4a803dba-772a-4f2d-b805-8e3c4ae50c71": {
+          "type": "accent_graphic",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/kale-right.png",
+            "svg_code": "",
+            "visibility": "always",
+            "rotation": 0,
+            "x_setting": "right",
+            "y_setting": "top",
+            "width_desktop": 270,
+            "position_x_desktop": 0,
+            "position_y_desktop": 4,
+            "width_mobile": 150,
+            "position_x_mobile": 0,
+            "position_y_mobile": 0,
+            "animation": "none"
+          }
+        }
+      },
+      "block_order": [
+        "1642497907e78ece3b-0",
+        "1642497907e78ece3b-1",
+        "adda8a9c-0afe-4e34-9559-c7d41906db46",
+        "4a803dba-772a-4f2d-b805-8e3c4ae50c71"
+      ],
+      "settings": {
+        "border_top": false,
+        "border_bottom": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "164249911856ee15b7": {
+      "type": "mfr-core__text-grid",
+      "blocks": {
+        "0d1da3e9-e6cf-4c35-9789-d3acc4ac3cec": {
+          "type": "icon",
+          "settings": {
+            "icon_width": 130,
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 527 503\"><g fill=\"none\" fill-rule=\"evenodd\"><path d=\"M453 119.338c0-81.215-63.101-81.215-90.144-72.194-36.058-63.168-86.005-44.598-86.005-44.598S249.215 9.46 240 25.599l33.398 156.78L334.428 255 453 119.338Z\" fill=\"#00E088\"><\/path><path d=\"M167.022 480S21.466 424.87 30.52 345.576c-57.721-61.168-15.844-103.08-15.844-103.08S4.994 126.38 73.782 119.302c0 0 9.037-90.433 81.32-72.344 45.18-54.264 108.43-63.304 126.5 9.04 3.662 21.762-.757 43.683-4.564 57.008a10.998 10.998 0 0 0 7.955 13.746c14.983 3.731 34.742 54.447 23.882 115.764\" fill=\"#00E088\"><\/path><path d=\"M309.599 224s-45.13-70.52-107.445-66.363C139.84 161.792 124.484 101.284 74 119.07c0 0 9.023-90.25 81.197-72.202 45.113-54.15 108.267-63.176 126.31 9.026 3.656 21.714-.756 43.59-4.558 56.893a10.971 10.971 0 0 0 7.944 13.714c14.96 3.727 34.846 32.469 24.004 93.662\" fill=\"#0F0\"><\/path><path d=\"M194.854 424a4.12 4.12 0 0 1-2.59-.914c-56.62-45.519-84.663-97.57-98.213-133.227-14.726-38.734-16.002-66.38-16.047-67.534a4.146 4.146 0 0 1 3.965-4.319c2.308-.125 4.214 1.686 4.313 3.974.046 1.093 5.81 109.93 111.166 194.628a4.157 4.157 0 0 1 .642 5.835 4.13 4.13 0 0 1-3.236 1.557M383.815 168c-1.657 0-3.223-.978-3.88-2.59-16.529-40.367-58.134-77.815-58.552-78.188a4.115 4.115 0 0 1-.306-5.852 4.217 4.217 0 0 1 5.91-.307c1.767 1.58 43.464 39.119 60.704 81.234.87 2.122-.163 4.538-2.306 5.396a4.197 4.197 0 0 1-1.57.307\" fill=\"#00373E\"><\/path><path d=\"M110.197 319a4.181 4.181 0 0 1-3.258-1.55 4.188 4.188 0 0 1 .604-5.889c.205-.163 20.251-16.914 25.12-48.995a4.192 4.192 0 0 1 8.29 1.253c-5.376 35.43-27.188 53.492-28.115 54.242a4.17 4.17 0 0 1-2.641.939M69.029 283c-9.528 0-15.794-2.183-16.215-2.334-2.19-.788-3.345-3.243-2.576-5.487.765-2.239 3.16-3.419 5.342-2.648.244.086 14.306 4.823 31.857-1.296 2.198-.776 4.585.435 5.338 2.683.748 2.252-.429 4.698-2.623 5.469C82.255 282.143 75.002 283 69.03 283\" fill=\"#00373E\"><\/path><path d=\"M127 459.71s125.844 88.772 289.625 12.071c108.288-63.298 72.192-126.595 72.192-126.595s72.192-45.21 18.05-99.465c27.07-135.64-54.146-126.596-54.146-126.596s-71.25-1.953-81.213 90.425c-72.193-27.127-81.213 54.254-81.213 54.254s-81.218-36.17-81.218 81.382C209.077 462.742 127 459.71 127 459.71\" fill=\"#0F0\"><\/path><path d=\"M206.162 495a4.162 4.162 0 0 1-4.002-3.023 4.155 4.155 0 0 1 2.865-5.136c208.065-59.013 238.396-267.132 238.68-269.228.304-2.275 2.403-3.909 4.68-3.568a4.16 4.16 0 0 1 3.578 4.67c-.292 2.15-31.239 215.592-244.66 276.123a4.179 4.179 0 0 1-1.14.162\" fill=\"#00373E\"><\/path><path d=\"M415.18 318c-1.907 0-3.63-1.3-4.074-3.219-.515-2.232.895-4.452 3.146-4.962.322-.075 32.313-7.514 54.673-28.673a4.217 4.217 0 0 1 5.916.133 4.114 4.114 0 0 1-.134 5.857c-24.072 22.778-57.196 30.446-58.593 30.76-.314.07-.624.104-.933.104M376.842 375c-.502 0-1.01-.09-1.504-.284-28.368-10.952-41.422-38.716-41.962-39.894-.952-2.067-.034-4.504 2.048-5.451 2.086-.94 4.55-.033 5.505 2.03.12.259 12.265 25.931 37.421 35.644 2.14.824 3.2 3.212 2.365 5.328a4.155 4.155 0 0 1-3.873 2.627\" fill=\"#00373E\"><\/path><\/g><\/svg>"
+          }
+        },
+        "164249911895fb4a2f-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>What does clean-pressed mean?<\/p>",
+            "header_style": "h1",
+            "make_large": true
+          }
+        },
+        "c02a185f-8f0c-49f1-bd6e-9862c4a09ad0": {
+          "type": "text_block",
+          "settings": {
+            "title": "",
+            "text": "<p>We take a blend of real fruit and veggies and blast them with a purifying burst of steam.<\/p>",
+            "image": "shopify:\/\/shop_images\/phyll-zap.png",
+            "svg_code": ""
+          }
+        },
+        "b6656de5-f449-4130-ad41-a415eb3b9cc0": {
+          "type": "text_block",
+          "settings": {
+            "title": "",
+            "text": "<p>It locks in all the good stuff like flavor and nutrients, while keeping out anything that might go bad.<\/p>",
+            "image": "shopify:\/\/shop_images\/phyll-hug.png",
+            "svg_code": ""
+          }
+        },
+        "b35765d3-be4a-4b70-9445-11be26271283": {
+          "type": "text_block",
+          "settings": {
+            "title": "",
+            "text": "<p>What’s the result? Long-lasting plant-based nutrition that’s always ready when you are!<\/p>",
+            "image": "shopify:\/\/shop_images\/phyll-with-juice.png",
+            "svg_code": ""
+          }
+        }
+      },
+      "block_order": [
+        "0d1da3e9-e6cf-4c35-9789-d3acc4ac3cec",
+        "164249911895fb4a2f-0",
+        "c02a185f-8f0c-49f1-bd6e-9862c4a09ad0",
+        "b6656de5-f449-4130-ad41-a415eb3b9cc0",
+        "b35765d3-be4a-4b70-9445-11be26271283"
+      ],
+      "settings": {
+        "section_layout": "no_image",
+        "image_style": "transparent_image",
+        "section_image_max_width": 400,
+        "is_centered": true,
+        "color_theme": "color_theme__light",
+        "is_carousel_on_mobile": true,
+        "spacing_outside_section": false,
+        "is_full_width": false,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_large_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "linear-gradient(0deg, rgba(255, 144, 0, 1) 8%, rgba(207, 77, 255, 1) 94%)",
+        "top_divider": "angled",
+        "svg_divider_top_color": "#e9ffd4",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "16424992060d7d3d95": {
+      "type": "mfr-core__scrolling-text",
+      "settings": {
+        "marquee_text": "<p>Good source of Fiber<\/p><p>No added Sugar<\/p><p>Dairy Free<\/p><p>No Preservatives<\/p><p>100% Plant-Based<\/p>",
+        "color_theme": "color_theme__light",
+        "marquee_style": "small",
+        "make_angled": true,
+        "spacer_svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 18 31\">\n  <defs>\n    <path id=\"a\" d=\"M0 0h14.316v28.69H0z\"><\/path>\n  <\/defs>\n<\/svg>",
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_none_bottom",
+        "bg_color": "#FF9000",
+        "top_divider": "none",
+        "svg_divider_top_color": "#ff9000",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "164249930483a95e8f": {
+      "type": "mfr-core__product-carousel",
+      "blocks": {
+        "a342a042-022e-4537-8d26-846699799367": {
+          "type": "collections",
+          "settings": {
+            "featured_collection": "smoothies"
+          }
+        },
+        "dbba7bf0-5a49-49cd-b5c9-c55445af8329": {
+          "type": "small_text",
+          "settings": {
+            "text": "Don’t love us?<br>  Get a full refund on your first order."
+          }
+        }
+      },
+      "block_order": [
+        "a342a042-022e-4537-8d26-846699799367",
+        "dbba7bf0-5a49-49cd-b5c9-c55445af8329"
+      ],
+      "settings": {
+        "section_layout_style": "stacked",
+        "product_card_style": "add_to_cart",
+        "products_to_show": 4,
+        "primary_product_image_style": "contain",
+        "grid_columns": 3,
+        "is_centered": true,
+        "is_full_width": true,
+        "color_theme": "color_theme__dark",
+        "section_spacing_top": "section_spacing_large_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color": "",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "angled",
+        "svg_divider_bottom_color": "#450073"
+      }
+    }
+  },
+  "order": [
+    "1642496904c8fdcc2d",
+    "164249794846c268a3",
+    "16424979077a814516",
+    "164249911856ee15b7",
+    "16424992060d7d3d95",
+    "164249930483a95e8f"
+  ]
+}

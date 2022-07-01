@@ -1,0 +1,130 @@
+
+<section class="tabbed-accordions background {{ section.settings.section_spacing_top }} {{ section.settings.section_spacing_bottom }} background">
+    <div class="tabbed-accordions__wrapper">
+        {%- if section.settings.title != blank -%}
+            <div class="tabbed-accordions__header">
+                <h1 class="{{ section.settings.title_style }}">{{ section.settings.title }}</h1>
+            </div>
+        {%- endif -%}
+
+        <ul class="tabbed-accordions__tabs flex-wrapper">
+            {%- for block in section.blocks -%}
+                <li>
+                    <a href="#{{ block.settings.target }}" class="tabbed-accordions__tab button tertiary" style="background:{{ block.settings.color }};">
+                        <span>{{ block.settings.title }}</span>
+                    </a>
+                </li>
+            {%- endfor -%}
+        </ul>
+        
+        
+    </div>
+
+
+    {% render "component__gradient-bg-styles" %}
+
+    
+</section>
+
+
+{% schema %}
+{
+    "name": "Tabs for Accordions",
+
+    "settings": [
+        {
+            "type": "header",
+            "content": "Title"
+        },    
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "select",
+            "id": "title_style",
+            "options": [
+                { "value": "h1", "label": "H1" },
+                { "value": "h2", "label": "H2" },
+                { "value": "h3", "label": "H3" }
+            ],
+            "label": "Header Style",
+            "default": "h1"
+        },
+
+        {
+            "type": "header",
+            "content": "Section Spacing"
+        },
+        {
+            "type": "select",
+            "id": "section_spacing_top",
+            "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+            ],
+            "label": "Top spacing"
+        },
+        {
+            "type": "select",
+            "id": "section_spacing_bottom",
+            "options": [
+            { "value": "section_spacing_none_bottom", "label": "None" },
+            { "value": "section_spacing_small_bottom", "label": "Small" },
+            { "value": "section_spacing_medium_bottom", "label": "Medium" },
+            { "value": "section_spacing_large_bottom", "label": "Large" },
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+            ],
+            "label": "Bottom spacing"
+        },
+
+        {
+            "type":"header",
+            "content":"Background"
+        },
+        {
+            "type": "color",
+            "id": "bg_color_1",
+            "label": "Background Color"
+        }
+    ],
+
+    "blocks": [
+        {
+            "type": "tab",
+            "name": "Tab",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "info": "The name of the tab."
+                },
+                {
+                    "type": "text",
+                    "id": "target",
+                    "label": "Target Section",
+                    "info": "Place the name/title of the accordions section that this tab relates to."
+                },
+                {
+                    "type": "color",
+                    "id": "color",
+                    "label": "Tab Color"
+                }
+            ]
+        }
+    ],
+
+    "presets": [
+        {
+            "name": "Tabs for Accordions",
+            "settings": {},
+            "blocks": []
+        }
+    ]
+}
+{% endschema %}

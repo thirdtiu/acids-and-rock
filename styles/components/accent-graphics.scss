@@ -1,0 +1,41 @@
+.accent-graphic-wrapper {
+  &.shadow {
+    &:after {
+      @include border-radius(30%);
+      @include transform(translate(0%, -50%) rotate(4deg));
+      @include opacity( 0.25 );
+      filter: blur(3rem);
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: rem-calc( 30px );
+      bottom: -15%;
+      left: 0;
+      background-color: $black;
+      z-index: 0;
+    }
+  }
+  .accent-graphic {
+    position: absolute;
+    display: none;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    &.visible {
+      &__always {
+        display: block;
+      }
+      &__desktop_only {
+        @include breakpoint (large up) {
+          display: block;
+        }
+      }
+      &__mobile_only {
+        @include breakpoint (medium down) {
+          display: block;
+        }
+      }
+    }
+  }
+}

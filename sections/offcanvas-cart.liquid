@@ -1,0 +1,308 @@
+{% style %}
+:root {
+  /* Cart Slideout Settings */
+  --cart-body-bg-color: {{ section.settings.cart_bg_color }};
+  --cart-footer-bg-color: {{ section.settings.cart_footer_bg_color }};
+  --cart-footer-text-color: {{ section.settings.cart_footer_text_color }};
+  --cart-divider-colors: {{ section.settings.cart_divider_colors }};
+
+  --cart-checkout-button-color: {{ section.settings.cart_checkout_button_color }};
+  --cart-checkout-button-color-darker: {{ section.settings.cart_checkout_button_color | color_darken: 10 }};
+  --cart-checkout-button-hover-color: {{ section.settings.checkout_button_hover_color }};
+
+  --cart-product-name-case: {{ section.settings.cart_product_name_case }};
+  --cart-product-name-weight: {{ section.settings.cart_product_name_weight }};
+  --cart-product-name-spacing: {{ section.settings.cart_product_name_spacing }}px;
+  --cart-product-name-size: {{ section.settings.cart_product_name_size }}px;
+  --cart-product-variant-color: {{ section.settings.cart_variant_color }};
+  --cart-body-text-color: {{ section.settings.cart_body_text_color }};
+  --cart-price-color: {{ section.settings.cart_price_color }};
+}
+{% endstyle %}
+
+
+<div id="cart-wrapper" class="background" data-cart-view="data-cart-view">
+
+  <button class="close" aria-label="Close menu" type="button" data-close>
+    {% render 'icon-close' %}
+  </button>
+
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when '@app' -%}
+      {% render block %}
+    {%- endcase -%}
+  {%- endfor -%}
+
+  {% if cart.item_count > 0 %}
+    <div class="cart__form-wrapper">
+      {% render "component__cart-form" %}
+    </div>
+
+    <script>
+      $(document).on('cart.requestComplete', function(event, cart) {
+        $('.continue-shopping').removeClass('hide');
+      });
+    </script>
+
+  {% else %}
+    {% comment %}
+      include hidden cart for that shows when somethign is added to empty cart - for ajax
+    {% endcomment %}
+    <div class="cart__form-wrapper cart-empty">
+        {% include "component__cart-form" %}
+    </div>
+
+    <div class="cart-empty-wrapper"></div>
+  {% endif %}
+
+  {% render 'component__gradient-bg-styles' %}
+</div>
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Slideout Cart",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Cart Header"
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Announcement Text",
+        "default": "Free shipping on subscriptions"
+      },
+      {
+        "type": "text",
+        "id": "cart_title",
+        "label": "Cart Title",
+        "default": "your cart"
+      },
+      /*
+      {
+        "type": "header",
+        "content": "Cart Shipping"
+      },
+      {
+        "type": "number",
+        "id": "cart_shipping_free_condition",
+        "label": "Free Shipping Price",
+        "info": "The price set here will determine whether the user will be shown a message that they're applicable for free shipping.",
+        "default": 50
+      },
+      {
+        "type": "text",
+        "id": "cart_shipping_condition_fail_message",
+        "label": "Message",
+        "info": "This will be the message displayed when the user has NOT met the free shipping condition. %price will be replaced by the set free shipping price.",
+        "default": "You're %price away from free US shipping!"
+      },
+      {
+        "type": "text",
+        "id": "cart_shipping_condition_met_message",
+        "label": "Congratulatory text",
+        "info": "The text that will be displayed should the user meet the free shipping condition.",
+        "default": "Congratulations! You're enjoying free US shipping."
+      },
+      */
+      {
+        "type": "header",
+        "content": "Cart Body"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_additional_checkout_buttons",
+        "label": "Show additional checkout buttons",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Cart Body"
+      },
+      {
+      "type": "color_background",
+        "id": "cart_bg_color",
+        "label": "Cart background color"
+      },
+      {
+        "type": "color",
+        "id": "cart_divider_colors",
+        "label": "Cart item divider color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "cart_body_text_color",
+        "label": "Main text color",
+        "default": "#383838"
+      },
+      {
+        "type": "color",
+        "id": "cart_variant_color",
+        "label": "Product variant color",
+        "default": "#383838"
+      },
+      {
+        "type": "color",
+        "id": "cart_price_color",
+        "label": "Product price color",
+        "default": "#383838"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_product_name_case",
+        "label": "Make uppercase",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_product_name_weight",
+        "label": "Make bold",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "cart_product_name_spacing",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "cart_product_name_size",
+        "min": 8,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 24
+      },
+      
+      {
+        "type": "header",
+        "content": "Subscription Upsell"
+      },
+      {
+        "type": "text",
+        "id": "make_subscription",
+        "label": "Subscription upsell text",
+        "default": "Make it a subscription"
+      },
+      {
+        "type": "text",
+        "id": "make_subscription_button_text",
+        "label": "Subscribe button text",
+        "default": "Subscribe"
+      },
+      {
+        "type": "header",
+        "content": "Subscribe Note"
+      },
+      {
+        "type": "image_picker",
+        "id": "subscribe_note_icon",
+        "label": "Subscribe Note Icon"
+      },
+      {
+        "type": "text",
+        "id": "subscribe_note",
+        "label": "Subscribe Note",
+        "default": "Subscribe and save 15% + Free Shipping"
+      },
+      {
+        "type": "header",
+        "content": "Cart Upsell"
+      },
+      {
+        "type": "text",
+        "id": "callout_title",
+        "label": "Cart Upsell Title",
+        "default": "Try Our Other Flavors"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_upsells",
+        "label": "Show Cart Upsells",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Cart Footer"
+      },
+      {
+        "type": "color",
+        "id": "cart_footer_text_color",
+        "label": "Cart footer text color", 
+        "default": "#f5f2ef"
+      },
+      {
+        "type": "color",
+        "id": "cart_footer_separator_color",
+        "label": "Cart footer separator color",
+        "default": "#197FBF"
+      },
+      {
+        "type": "color_background",
+        "id": "cart_footer_bg_color",
+        "label": "Cart footer background color"
+      },
+      {
+        "type": "select",
+        "id": "checkout_button_style",
+        "options": [
+           { "value": "primary", "label": "Primary"},
+           { "value": "secondary", "label": "Secondary"},
+           { "value": "tertiary", "label": "Tertiary"}
+         ],
+        "label": "Checkout Button Style",
+        "default": "primary"
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "@app"
+      },
+      
+      {
+        "type": "callout",
+        "name": "Callout",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "header",
+            "content": "Title"
+          },
+ 
+          {
+            "type": "text",
+            "id": "title_text",
+            "label": "Text"
+          },
+
+          {
+            "type": "product",
+            "id": "featured_product",
+            "label": "Featured Product",
+            "info": "The product that will be featured on the callout."
+          },
+
+          {
+            "type": "paragraph",
+            "content": "If the product featured is already added to the cart, the callout will not be shown."
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

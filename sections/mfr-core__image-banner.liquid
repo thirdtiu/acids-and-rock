@@ -1,0 +1,608 @@
+{%- comment -%}
+--------------------------------------
+assign section settings to variables
+--------------------------------------
+{%- endcomment -%}
+
+
+{% if section.settings.color_theme %}
+{% assign text_color = section.settings.color_theme %}
+{% else %}
+{% assign text_color = "" %}
+{% endif %}
+
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+{%- assign content_alignment = section.settings.text_side -%}
+{%- assign mobile_alignment = section.settings.mobile_alignment -%}
+{%- assign banner_height = section.settings.banner_height -%}
+
+{% if section.settings.is_centered %}
+  {% assign text_alignment = "text-center" %}
+{% else %}
+  {% assign text_alignment = "text-left" %}
+{% endif %}
+
+
+
+<section class="mfr-core__banner background {{ top_spacing }} {{ bottom_spacing }}">
+  <div class="grid-container full ">
+
+    <div class="banner-wrapper {{ mobile_alignment }} {{ banner_height }}">
+
+      <div class="inner {{ content_alignment }}">
+          
+        <div class="section-content {{ text_alignment }} {{ text_color }} {{ text_center }}">
+          {%- for block in section.blocks -%}
+          {% case block.type %}
+            
+            {%- when 'icon' -%}
+              {% render 'component__section-icon', icon: block.settings.icon, icon_width: block.settings.icon_width, svg_code: block.settings.svg_code %} 
+            
+            {%- when 'small_text' -%}
+              <div class="small-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+            
+            {%- when 'heading' -%}
+              {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style, text_size: block.settings.make_large %}
+           
+            {%- when 'text' -%}
+              <div class="section-text {{ block.settings.text_style }}" {{ block.shopify_attributes }} {{ animation_type }}>{{ block.settings.text }}</div>
+
+            {%- when 'button' -%}
+              {%- if block.settings.button_label != blank -%}
+                <div class="button-set">
+                  {%- include 'component__button', 
+                    button_link: block.settings.button_link, 
+                    button_style: block.settings.button_style, 
+                    button_color: block.settings.button_color, 
+                    button_has_arrow: block.settings.button_has_arrow, 
+                    button_label: block.settings.button_label 
+                  -%} 
+                </div>
+              {%- endif -%}
+          
+          {%- endcase -%}
+        {%- endfor -%}
+        </div>
+        
+      </div>
+
+  
+      {%- for block in section.blocks -%}
+        {% case block.type %}
+          {%- when 'image' -%}
+          <div class="image">
+            <picture>
+              <source media="(max-width: 639px)" srcset="{{ block.settings.mobile_image | img_url: '750x' }}">
+              <source media="(min-width:640px)" srcset="{{ block.settings.desktop_image | img_url: '3600x' }}">
+              <img loading="lazy" src="{{ block.settings.desktop_image | img_url: '1200x' }}" alt="{{ block.settings.desktop_image.alt }}">
+            </picture>
+          </div>
+          {%- when 'image' -%}
+          <div class="video-player">
+            <video playsinline autoplay muted loop preload="auto" poster="{{ block.settings.poster_image | img_url: '1200x' }}">
+              <source src="{{ block.settings.slide_video_url | url }}"  type="video/mp4">
+            </video>
+          </div>
+        {%- endcase -%}
+      {%- endfor -%}
+
+
+    </div>
+
+  </div>
+
+  {% render 'component__section-dividers' %}
+  {% render 'component__gradient-bg-styles' %}
+  {% render 'component__accent-graphics' %}
+
+</section>
+
+{% schema %}
+  {
+    "name": "Image Banner",
+    "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type":"checkbox",
+      "id":"is_centered",
+      "default":true,
+      "label":"Center Text"
+    },
+    {
+      "type": "select",
+      "id": "color_theme",
+      "options": [
+          { "value": "color_theme__dark", "label": "Dark Theme" },
+          { "value": "color_theme__light", "label": "Light Theme" },
+          { "value": "color_theme__theme_1", "label": "Color Theme 1" },
+          { "value": "color_theme__theme_2", "label": "Color Theme 2" }
+          ],
+      "label": "Color Theme",
+      "default": "color_theme__dark"
+      },
+      {
+        "type": "select",
+        "id": "text_side",
+        "options": [
+           { "value": "left-align-content", "label": "Left" }, 
+           { "value": "center-align-content", "label": "Center" },
+           { "value": "right-align-content", "label": "Right" }
+        ],
+        "label": "Text Side",
+        "default": "left-align-content"
+       },
+       {
+         "type": "select",
+         "id": "mobile_alignment",
+         "options": [
+            { "value": "mobile-align-top", "label": "Top" },
+            { "value": "mobile-align-center", "label": "Center" },
+            { "value": "mobile-align-bottom", "label": "Bottom" }
+         ],
+         "label": "Mobile Vertical Position",
+         "default":   "mobile-align-center"
+       },
+      {
+         "type": "select",
+         "id": "banner_height",
+         "options": [
+            { "value": "auto_height", "label": "Auto" },
+            { "value": "small_height", "label": "Small" },
+            { "value": "medium_height", "label": "Medium" },
+            { "value": "large_height", "label": "Large" }
+         ],
+         "default": "medium_height",
+         "label": "Banner height",
+         "info": "config options in general settings"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "default": "section_spacing_large_top",
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None"},
+            { "value": "section_spacing_small_bottom", "label": "Small"},
+            { "value": "section_spacing_medium_bottom", "label": "Medium"},
+            { "value": "section_spacing_large_bottom", "label": "Large"},
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large"}
+         ],
+         "default": "section_spacing_large_bottom",
+         "label": "Bottom spacing"
+      },
+      {
+        "type":"header",
+        "content":"Background"
+      },
+      {
+        "type": "color_background",
+        "id": "bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Dividers"
+      },
+      {
+        "type": "image_picker",
+        "id": "section_divider_image",
+        "label": "Bottom divider image",
+        "info" : "will appear fullwidth at bottom of section"
+      },
+      {
+        "type": "select",
+        "id": "top_divider",
+        "options": [
+            { "value": "none", "label": "None"},
+            { "value": "animated", "label": "Show Animated Divider"}
+            ],
+        "label": "Top Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_top_color",
+        "label": "Top divider color"
+      },
+      {
+        "type": "select",
+        "id": "bottom_divider",
+        "options": [
+            { "value": "none", "label": "None"},
+            { "value": "animated", "label": "Show Animated Divider"}
+            ],
+        "label": "Bottom Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_bottom_color",
+        "label": "Bottom divider color"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "icon", 
+      "name": "Icon",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 20,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Image width",
+          "default": 150
+        },
+        {
+          "type":"html",
+          "id":"svg_code",
+          "label":"Icon SVG Code",
+          "info":"Paste SVG code for vector icon"
+        }
+      ]
+    },
+    {
+      "type":"small_text",
+      "name":"Small Text",
+      "limit":1,
+      "settings":[
+        {
+          "type":"text",
+          "id":"text",
+          "default":"Section Title",
+          "label":"Text"
+        }
+      ]
+    },
+    {
+      "type":"image",
+      "name":"Background Image",
+      "limit":1,
+      "settings":[
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Image for Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Image for Mobile"
+        }
+      ]
+    },
+    {
+      "type":"video",
+      "name":"Background Video",
+      "limit":1,
+      "settings":[
+        {
+          "type": "text",
+          "id": "slide_video_url",
+          "info": "Put a shopify hosted video link here if you want a video slide",
+          "label": "Slide Video URL"
+        },
+        {
+          "type": "url",
+          "id": "slide_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "poster_image",
+          "label": "Video Cover Image"
+        }
+      ]
+    },
+    {
+      "type":"heading",
+      "name":"Heading",
+      "limit":2,
+      "settings":[
+        {
+          "type":"richtext",
+          "id":"heading",
+          "default":"<p>Heading H1</p>",
+          "label":"Heading H1",
+          "info": "Add [circulartext] for the circular text to appear"
+        },
+        {
+          "type":"select",
+          "id":"header_style",
+          "options":[
+            {
+              "value":"h1",
+              "label":"H1"
+            },
+            {
+              "value":"h2",
+              "label":"H2"
+            },
+            {
+              "value":"h3",
+              "label":"H3"
+            }
+          ],
+          "label":"Header Style",
+          "default":"h1"
+        },
+        {
+          "type": "checkbox",
+          "id": "make_large",
+          "label": "Make extra large",
+          "info" : "only applies to H1"
+        }
+      ]
+    },
+    {
+      "type":"text",
+      "name":"Text",
+      "limit":1,
+      "settings":[
+        {
+          "type":"richtext",
+          "id":"text",
+          "default":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.</p>",
+          "label":"Text"
+        },
+        {
+          "type":"select",
+          "id":"text_style",
+          "options":[
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"regular",
+              "label":"Regular"
+            },
+            {
+              "value":"large",
+              "label":"Large"
+            }
+          ],
+          "label":"Text Style",
+          "default":"regular"
+        }
+      ]
+    },
+    {
+      "type":"button",
+      "name":"Button",
+      "limit":2,
+      "settings":[
+        {
+          "type":"text",
+          "id":"button_label",
+          "default":"Button label",
+          "label":"Button",
+          "info":"Leave the label blank to hide the button."
+        },
+        {
+          "type":"url",
+          "id":"button_link",
+          "label":"Button Link"
+        },
+        {
+          "type":"select",
+          "id":"button_style",
+          "options":[
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ],
+          "label":"Button Style",
+          "default":"primary"
+        },
+        {
+          "type": "select",
+          "id": "button_color",
+          "options": [
+              { "value": "color-accent-1", "label": "Color 1"},
+              { "value": "color-accent-2", "label": "Color 2"},
+              { "value": "color-accent-3", "label": "Color 3"},
+              { "value": "black", "label": "Black"},
+              { "value": "outline", "label": "Outline"}
+              ],
+          "label": "Button Color",
+          "default": "outline"
+        },
+        {
+          "type":"checkbox",
+          "id":"button_has_arrow",
+          "label":"Add Arrow to button",
+          "default":false
+        }
+      ]
+    },
+    {
+      "type": "accent_graphic", 
+      "name": "Accent Graphic",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type":"html",
+          "id":"svg_code",
+          "label":"Graphic SVG Code",
+          "info":"Paste SVG code for vector graphic"
+        },
+        {
+          "type":"header",
+          "content":"Visibility"
+        },
+        {
+          "type": "select",
+          "id": "visibility",
+          "options": [
+              { "value": "always", "label": "Always" },
+              { "value": "desktop_only", "label": "Desktop Only" },
+              { "value": "mobile_only", "label": "Mobile Only" }
+              ],
+          "label": "Show on..",
+          "default": "always"
+        },
+        {
+          "type":"header",
+          "content":"Position"
+        },
+        {
+          "type": "select",
+          "id": "x_setting",
+          "options": [
+              { "value": "left", "label": "Left" },
+              { "value": "right", "label": "Right" }
+              ],
+          "label": "X Position",
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "y_setting",
+          "options": [
+              { "value": "top", "label": "Top" },
+              { "value": "bottom", "label": "Bottom" }
+              ],
+          "label": "Y Position",
+          "default": "top"
+        },
+        {
+          "type":"header",
+          "content":"Desktop Settings"
+        },
+        {
+          "type": "range",
+          "id": "width_desktop",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Graphic Width",
+          "default": 150
+        },
+        {
+          "type": "range",
+          "id": "position_x_desktop",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X Position",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "position_y_desktop",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Y Position",
+          "default": 10
+        },
+        {
+          "type":"header",
+          "content":"Mobile Settings"
+        },
+        {
+          "type": "range",
+          "id": "width_mobile",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Graphic Width",
+          "default": 150
+        },
+        {
+          "type": "range",
+          "id": "position_x_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X Position",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "position_y_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Y Position",
+          "default": 10
+        },
+        {
+          "type":"header",
+          "content":"Animation Settings"
+        },
+        {
+          "type": "select",
+          "id": "animation",
+          "options": [
+              { "value": "none", "label": "None" },
+              { "value": "rotating", "label": "Rotate" },
+              { "value": "floating", "label": "Float" },
+              { "value": "flying", "label": "Fly Across Screen" }
+              ],
+          "label": "Animation",
+          "default": "none"
+        }
+      ]
+    }
+    ],
+    "presets": [
+      {
+        "name":"Image Banner",
+        "category":"Manufactur Custom Sections",
+        "blocks":[
+          {
+            "type":"heading"
+          },
+          {
+            "type":"text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

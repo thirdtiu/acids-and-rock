@@ -1,0 +1,260 @@
+
+.mfr-product__tabs {
+  position: relative;
+
+  .section-image {
+    position: relative;
+    height: 27rem;
+    @include breakpoint(large up) {
+      height: auto;
+    }
+    .image {
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .section-tabs {
+    padding: 4rem 2rem;
+    @include breakpoint(large up) {
+      padding: 8.125rem 2rem;
+    }
+    .tabs {
+      background: none;
+      display: flex;
+      border: none;
+      justify-content: center;
+      margin-bottom: 2rem;
+      @include breakpoint(large up) {
+        justify-content: space-between;
+      }
+      &:before {
+        content: none;
+      }
+      .tabs-title {
+        text-align: center;
+        float: none;
+        > a {
+          padding: .3rem 1rem;
+          margin: 0 .2rem;
+          @include border-radius($global-radius);
+          min-width: auto;
+          text-transform: uppercase;
+          font-size: 1.75rem ;
+          font-family: $font-heading-h2;
+          &[aria-selected="true"] {
+            color: var(--tab-text-color);
+            //background: $header-menu-font-color;
+          }
+          &:hover {
+            //background: $header-menu-font-color;
+          }
+        }
+      }
+    }
+
+    .tabs-content {
+      border: none;
+      background: none;
+    }
+
+    //moved outside scope so it works when tabs turn to accordion
+    .tab-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 37rem;
+      margin-left: auto;
+      margin-right: auto;
+      //color: $header-menu-font-color;
+      margin-bottom: 1.875rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .image {
+        width: 5rem;
+        margin-right: 1.75rem;
+      }
+      .ingredients {
+        text-align: center;
+        h2 {
+          @extend .h2;
+          margin-bottom: .5rem;
+          @include breakpoint(large up) {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 2.5rem;
+          }
+        }
+      }
+      &.icon-set {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+        @include breakpoint(medium up) {
+          justify-content: space-around;
+        }
+        li {
+          margin-bottom: 2rem;
+        }
+        .title {
+          font-size: 1.3rem;
+        }
+        .icon {
+          max-width: 3rem;
+          margin: 0 .5rem;
+          svg {
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+      .title {
+        text-transform: uppercase;
+      }
+      .details {
+        flex: 1;
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+
+  .color_theme {
+    &__dark {
+      .tabs-title a {
+        color: $color-theme__dark;
+      }
+      .tabs-title a[aria-selected="true"] {
+        background-color: $color-theme__dark;
+      }
+      .tab-item {
+        color: $color-theme__dark;
+      }
+    }
+    &__light {
+      .tabs-title a {
+        color: $color-theme__light;
+      }
+      .tabs-title a[aria-selected="true"] {
+        background-color: $color-theme__light;
+      }
+      .tab-item {
+        color: $color-theme__light;
+      }
+    }
+  }
+
+
+  .accordion {
+    border: none;
+    background: none;
+    margin: 0;
+    .accordion-item {
+      border: none;
+  
+      @extend .transition-4;
+      background: none;
+      &.is-active {
+        background: none;
+        .accordion-title {
+          &:hover {
+            //background: #D2EDF8;
+          }
+          &:before {
+            background: none;
+            color: $white;
+          }
+        }
+      }
+      @include breakpoint(large up) {
+        &:hover {
+          //background: none;
+        }
+      }
+      a .text {
+        font-weight: 400;
+      }
+      .accordion-title {
+        background: none;
+        border-bottom: 2px solid $color-accent;
+        //border: none;
+        color: $color-accent;
+        padding: 1.8rem 3.9rem 1.8rem 1rem;
+        @include breakpoint(large up) {
+          padding: 2.2rem 5rem 2.2rem 2.5rem;
+        }
+        &:before {
+          @extend .transition-4;
+          @include border-radius(50rem);
+          @include transform(translate(0px, -30%));
+          padding: .5rem .7rem .9rem 0.7rem;
+          font-family: $body-font-family;
+          font-size: 2rem;
+          width: 2.3rem;
+          height: 2.3rem;
+          background: none;
+          color: $black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          @include breakpoint(large up) {
+            right: 1rem;
+            font-size: 2.8rem;
+            width: 2.6rem;
+            height: 2.6rem;
+            &:hover {
+              background: $black;
+            }
+          }
+        }
+      }
+      .accordion-content {
+        border: none;
+        background: none;
+        @include breakpoint(large up) {
+          padding: 0 3rem 2rem 3rem;
+        }
+        p {
+          margin-bottom: 0;
+        }
+        a *,
+        a {
+          text-decoration: none !important;
+        }
+      }
+    }
+  }
+
+  .tabs-content {
+    @include breakpoint( large up ) {
+      min-height: rem-calc( 685px );
+      display: flex;
+      align-items: center;
+    }
+
+    @include breakpoint( xlarge up ) {
+      min-height: rem-calc( 575px );
+    }
+  }
+
+  .tabs-panel {
+    width: 100%;
+  }
+  
+}

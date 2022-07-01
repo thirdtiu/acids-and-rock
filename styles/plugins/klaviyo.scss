@@ -1,0 +1,180 @@
+// klaviyo popup
+.klaviyo_modal {
+  .klaviyo_inner {
+    @include border-radius(rem-calc(5px));
+    @include shadow(none);
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    width: 90% !important;
+    padding: rem-calc(130px) 0 0 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    // border: 1px solid red;
+    height: auto !important;
+    max-height: auto !important;
+    @include breakpoint(medium up) {
+      top: 50% !important;
+      @include transform(translate(-50%, -50%));
+      width: 460px !important;
+      max-height: 680px !important;
+    }
+  }
+  form {
+    height: auto !important;
+    max-height: none !important;
+    @include breakpoint(medium up) {
+      max-height: 680px !important;
+    }
+  }
+  .klaviyo_fieldset {
+    &.top {
+      padding-top: 0 !important;
+      border: none !important;
+      margin: 0 auto !important;
+      text-align: center;
+      max-width: rem-calc(300px);
+    }
+    margin: 0 !important;
+    border-top: none !important;
+    padding: 0 !important;
+    .klaviyo_field_group {
+      width: 21rem !important;
+      margin: 0 auto 1rem !important;
+      position: relative !important;
+      // padding-left: 2.5rem;
+      border-bottom: 1px solid var( --color-primary ) !important;
+      input[type="email"],
+      input[type="text"] {
+        @include border-radius(rem-calc(5px)!important);
+        box-shadow: none !important;
+        outline: none !important;
+        appearance: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        border: none !important;
+        font-size: 1.2rem !important;
+        text-transform: uppercase !important;
+        line-height: inherit !important;
+        font-weight: 800 !important;
+        color: $color-accent-3 !important;
+        font-family: $custom-font-name-4 !important;
+        height: rem-calc(56px) !important;
+        padding: .875rem 1rem !important;
+        &::placeholder{ color: $color-accent-3 !important; opacity: 1 !important; font-family: $button-font-custom-name !important;}
+        &:-ms-input-placeholder {color: $color-accent-3 !important; opacity: 1 !important; font-family: $button-font-custom-name !important;}
+        &::-ms-input-placeholder {color: $color-accent-3 !important; opacity: 1 !important; font-family: $button-font-custom-name !important;}
+      }
+    }
+    // .k-icon {
+    //   @include transform(translateY(-50%));
+    //   width: 1.25rem;
+    //   height: 1.25rem;
+    //   position: absolute;
+    //   left: 0;
+    //   top: 50%;
+    // }
+  }
+  .klaviyo_header {
+    font-size: 2.375rem !important;
+    line-height: 2.375rem !important;
+    color: var(--color-primary) !important;
+    max-width: 19rem !important;
+    margin: 1.875rem auto 1rem !important;
+    text-transform: lowercase !important;
+    padding: 0 !important;
+    font-family: $button-font-custom-name !important;
+  }
+  .klaviyo_subheader {
+    max-width: 21rem !important;
+    margin: 0 auto 0 !important;
+    font-size: 1.1875rem !important;
+    line-height: 1.75rem !important;
+    color: var(--color-primary) !important;
+    text-transform: lowercase !important;
+    font-family: $button-font-custom-name !important;
+  }
+  .klaviyo_form_actions {
+    border-top: none !important;
+    padding: 0 !important;
+    margin: 0 0 2rem !important;
+    text-align: center;
+  }
+  .klaviyo_submit_button {
+    width: auto !important;
+    background-image: none !important;
+    border-radius: $global-radius !important;
+    position: relative !important;
+    font-family: $button-font-custom-name !important;
+    text-decoration: none !important;
+    user-select: none !important;
+    appearance: none !important;
+    white-space: normal !important;
+    letter-spacing: -0.56px !important;
+    line-height: 1.4545 !important;
+    outline: none !important;
+    background: inherit;
+    border: $primary-button-border-weight solid $primary-button-border-color !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    margin-bottom: 0 !important;
+    letter-spacing: -0.56px !important;
+    padding: rem-calc( 12px ) rem-calc( 28px ) rem-calc( 13px ) !important;
+    background-color: $primary-button-bg-color !important;
+    color: $primary-button-text-color !important;
+    font-size: $font-body-size-regular !important;
+    // >= 640px
+    @include breakpoint( medium up ) {
+      padding: rem-calc( 16px ) rem-calc( 40px ) rem-calc( 16px );
+      font-size: $button-font-size;
+    }
+    @include breakpoint( large up ) {
+      &:hover:not([ disabled ]) {
+        border-color: $primary-button-border-color-hover !important;
+        background-color: $primary-button-hover-bg-color !important;
+        color: $primary-button-hover-text-color !important;
+      }
+    }
+  }
+  .klaviyo_header_close {
+    border: 1px solid var(--color-primary) !important;
+    background-color: var(--color-primary) !important;;
+    width: 1.875rem !important;
+    height: 1.875rem !important;
+    border-radius: 1.875rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include breakpoint(medium up) {
+      border: 1px solid var(--color-off-white) !important;
+      right: -2.5rem !important;
+      background-color: transparent !important;;
+    }
+    svg {
+      color: var(--color-off-white);
+      width: .75rem;
+    }
+  }
+  label.form-error {
+    text-align: center;
+    width: 21rem !important;
+    margin: 0 auto 0 !important;
+    padding: 0 !important;
+  }
+  span.form-error {
+    position: absolute;
+    top: 1rem;
+  }
+
+  .color_theme {
+    &__dark {
+    }
+    &__light {
+      input[type="text"],
+      input[type="email"],
+      input[type="number"] {
+        background-color: $theme-color-white;
+      }
+    }
+  }
+}

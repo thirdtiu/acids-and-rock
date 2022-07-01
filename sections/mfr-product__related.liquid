@@ -1,0 +1,350 @@
+{%- assign related_items = product.metafields.description.related -%}
+
+{%- if section.settings.bg_color_1 != blank and section.settings.bg_color_1  != "rgba(0,0,0,0)" -%}
+    <style>
+        #shopify-section-{{ section.id }} .related-products {
+            background-color: {{ section.settings.bg_color_1 }};
+        }
+    </style>
+{%- endif -%}
+
+{%- comment -%}
+    Only show Related Products section if there are related items.
+{%- endcomment -%}
+{% if related_items %}
+    <section class="related-products {{ section.settings.section_spacing_top }} {{ section.settings.section_spacing_bottom }} background {{ section.settings.background_texture }} {{ section.settings.background_texture_align }}">
+        <div class="related-products__wrapper">
+            {%- if section.settings.title != blank -%}
+                <div class="related-products__header">
+                    {% render 'component__title-block', text: section.settings.title, classes: section.settings.title_style %}
+                </div>
+            {%- endif -%}
+
+            <div class="related-products__items">
+                {%- for item in related_items -%}
+                    <div class="product-card">
+                        {%- assign product = all_products[ item ] -%}
+                        {% render 'partial__product-card',
+                            product_card_product: product,
+                            show_secondary_image: section.settings.show_secondary_image,
+                            primary_product_image_style: section.settings.primary_product_image_style,
+                            secondary_product_image_style: section.settings.secondary_product_image_style
+                        %}
+
+                        <div class="product-card__clip">
+                            <svg height="0" width="0">
+                                <defs>
+                                    <clipPath id="svgPath">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M88.0668 368.723C111.371 375.499 173.629 398.616 203.016 381.871C232.403 365.127 257.692 368.723 286.896 313.488C316.101 258.253 303.828 225.316 303.828 185.394C303.828 145.472 276.411 61.4085 249.255 36.9704C222.099 12.5323 208.338 5.89563 160.612 0.896332C112.886 -4.10297 73.5992 12.4284 41.425 54.4646C9.25075 96.5007 -12.7964 173.307 9.67346 232.17C32.1434 291.033 64.7626 361.948 88.0668 368.723Z"
+                                        fill="black" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                {%- endfor -%}
+            </div>
+        </div>
+
+        {% render 'component__section-dividers' %}
+    </section>
+
+    <script type="text/javascript">
+        function debounce( func, wait, immediate ) {
+          let timeout;
+    
+          return function() {
+            let context = this;
+            const args = arguments;
+    
+            let later = function() {
+              timeout = null;
+              
+              if ( !immediate ) 
+                func.apply( context, args );
+            };
+    
+            let callNow = immediate && !timeout;
+            clearTimeout( timeout );
+            timeout = setTimeout( later, wait );
+    
+            if ( callNow ) 
+              func.apply(context, args);
+          };
+    
+        };
+    
+        function ProductCarousel( index, element ) {
+          this.$element = $( element );
+          this.index = index;
+    
+          this.selectors = {
+            carousel: ".related-products__items",
+            wrapper: ".related-products",
+            items: ".product-card"
+          }
+    
+          this.states = {
+            wrapper: {
+              IS_INITIALIZED: "related-products--is-initialized"
+            }
+          }
+    
+          this.options = {
+            selectedAttraction: 0.2,
+            friction: 0.8,
+            initialIndex: 0,
+            prevNextButtons: false,
+            contain: true,
+            cellAlign: 'center',
+            imagesLoaded: true,
+            lazyLoad: true,
+            pageDots: false,
+            draggable: '>1',
+            arrowShape: {
+                x0: 10,
+                x1: 60, y1: 50,
+                x2: 70, y2: 40,
+                x3: 30
+            }
+          }
+          
+          // The additional margin that can be used whether to make the transition
+          // to a slider sooner or later.
+          this.viewportOffset = 0;
+    
+    
+          this.initialize();
+        }
+    
+        ProductCarousel.prototype = Object.assign( {}, ProductCarousel.prototype, {
+          initialize: function() {
+            this.$carousel = this.$element.find( this.selectors.carousel );
+            this.$wrapper = this.$element.find( this.selectors.wrapper );
+            this.$items = this.$element.find( this.selectors.items );
+    
+            // If window viewport changes, determine slider state.
+            $( window ).on( "resize orientationchange", 
+              debounce( this.determineSliderState.bind( this ), 200 ) 
+            );
+    
+            // Determine slider state on initialization.
+            this.determineSliderState();
+          },
+    
+          initializeSlider: function() {
+            const data = Flickity.data( this.$carousel[ 0 ] );
+
+            if( !data ) {
+                this.$wrapper.addClass( this.states.wrapper.IS_INITIALIZED );
+    
+                this.$carousel.flickity( Object.assign( {}, this.options, {
+                    wrapAround: $( window ).width() <= 768
+                }) );
+            }
+          },
+    
+          destroySlider: function() {
+            // Get data. If there's data, it has been initialized.
+            const data = Flickity.data( this.$carousel[ 0 ] );
+    
+            // Only destroy when Flickity is initialized.
+            if( data ) {
+              this.$carousel.flickity( "destroy" );
+              this.$wrapper.removeClass( this.states.wrapper.IS_INITIALIZED );
+            }
+          },
+    
+          hasReachedViewportEdge: function() {
+            // Get total width of items when combined.
+            let totalWidth = 0;
+    
+            // Loop through the items to get the total width.
+            this.$items.each( function() { 
+              totalWidth += $( this ).outerWidth( true ); 
+            } );
+    
+            // Check if the wrapper has reached the edges of the viewport.
+            return ( totalWidth - this.viewportOffset ) >= $( window ).width();
+          },
+    
+          determineSliderState: function() {
+            const hasReachedViewportEdge = this.hasReachedViewportEdge();
+    
+            // If the wrapper has reached the edge, turn the carousel into a slider.
+            if( hasReachedViewportEdge ) {
+              this.initializeSlider();
+    
+            // Else, destroy the slider.
+            } else {
+              this.destroySlider();
+            }
+          }
+        } );
+    
+        function initializeProductCarousels() {
+          $( ".related-products" ).each( function( index, element ) {
+            const productCarousel = new ProductCarousel( index, element );
+          } );
+        }
+    
+        jQuery( function () { initializeProductCarousels(); });
+        $( document ).on( "shopify:section:load", initializeProductCarousels );
+      </script>
+{% endif %}
+
+
+{% schema %}
+{
+    "name": "Related Products",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Title"
+        },    
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "You may also like"
+        },
+        {
+          "type": "select",
+          "id": "title_style",
+          "options": [
+              { "value": "h1", "label": "H1" },
+              { "value": "h2", "label": "H2" },
+              { "value": "h3", "label": "H3" }
+              ],
+          "label": "Header Style",
+          "default": "h1"
+        },
+
+        {
+            "type": "header",
+            "content": "Products"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_secondary_image",
+            "default": true,
+            "label": "Show secondary image on hover?"
+        },
+        {
+            "type": "select",
+            "id": "primary_product_image_style",
+            "options": [
+                {
+                "value": "cover",
+                "label": "Cover"
+                },
+                {
+                "value": "contain",
+                "label": "Contain"
+                }
+            ],
+            "default": "contain",
+            "label": "Primary Product Image Style"
+        },
+        {
+            "type": "select",
+            "id": "secondary_product_image_style",
+            "options": [
+                {
+                "value": "cover",
+                "label": "Cover"
+                },
+                {
+                "value": "contain",
+                "label": "Contain"
+                }
+            ],
+            "default": "contain",
+            "label": "Secondary Product Image Style"
+        },
+
+        {
+            "type": "header",
+            "content": "Spacing"
+        },
+        {
+            "type": "select",
+            "id": "section_spacing_top",
+            "options": [
+                { "value": "section_spacing_none_top", "label": "None" },
+                { "value": "section_spacing_small_top", "label": "Small" },
+                { "value": "section_spacing_medium_top", "label": "Medium" },
+                { "value": "section_spacing_large_top", "label": "Large" },
+                { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+            ],
+            "label": "Top Spacing"
+        },
+        {
+            "type": "select",
+            "id": "section_spacing_bottom",
+            "options": [
+                { "value": "section_spacing_none_bottom", "label": "None" },
+                { "value": "section_spacing_small_bottom", "label": "Small" },
+                { "value": "section_spacing_medium_bottom", "label": "Medium" },
+                { "value": "section_spacing_large_bottom", "label": "Large" },
+                { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+            ],
+            "label": "Bottom Spacing"
+        },
+
+        {
+            "type": "header",
+            "content": "Background"
+        },
+        {
+            "type": "color",
+            "id": "bg_color_1",
+            "label": "Background Color"
+        },
+
+        {
+          "type": "header",
+          "content": "Dividers"
+        },
+        {
+          "type": "image_picker",
+          "id": "section_divider_image",
+          "label": "Bottom divider image",
+          "info" : "will appear fullwidth at bottom of section"
+        },
+        {
+          "type": "select",
+          "id": "top_divider",
+          "options": [
+              { "value": "none", "label": "None"},
+              { "value": "animated", "label": "Show Animated Divider"},
+              { "value": "curved", "label": "Show Curved Divider"}
+              ],
+          "label": "Top Divider",
+          "default": "none"
+        },
+        {
+          "type": "color",
+          "id": "svg_divider_top_color",
+          "label": "Top divider color"
+        },
+        {
+          "type": "select",
+          "id": "bottom_divider",
+          "options": [
+              { "value": "none", "label": "None"},
+              { "value": "animated", "label": "Show Animated Divider"},
+              { "value": "curved", "label": "Show Curved Divider"}
+              ],
+          "label": "Bottom Divider",
+          "default": "none"
+        },
+        {
+          "type": "color",
+          "id": "svg_divider_bottom_color",
+          "label": "Bottom divider color"
+        }
+    ]
+}
+{% endschema %}

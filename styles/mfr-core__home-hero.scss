@@ -1,0 +1,237 @@
+@import './tools/util/util';
+@import './tools/mixins';
+@import './variables';
+
+
+section.mfr-core__home-hero {
+  position: relative;
+  overflow: hidden;
+  @include breakpoint(large up) {
+    margin-bottom: 0;
+  }
+  >.grid-container {
+
+  }
+  .hero-content {
+    margin: 0 auto;
+    //overflow: hidden;
+    //height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-flow: column;
+    @include breakpoint(medium up) {
+      margin-top: -2rem;
+    }
+    @include breakpoint(large up) {
+      margin-top: 0rem;
+      justify-content: flex-end;
+      height: auto;
+      flex-flow: row;
+    }
+    // @include breakpoint(xlarge up) {
+    //   height: 75vh;
+    //   min-height: 66rem;
+    // }
+  }
+
+  $product_image_height_small: 35vh;
+  $product_image_height_medium: 37vh;
+  $product_image_height_large: 45vh;
+
+ 
+  .section-content {
+    margin: 0rem auto 2rem;
+    z-index: 10;
+    display: flex;
+    position: relative;
+    flex-flow: column;
+    width: 80%;
+    align-items: center;
+    order: 2;
+    @include breakpoint(medium up) {
+      margin: 3rem auto 3rem;
+      max-width: 30rem;
+    }
+    @include breakpoint(large up) {
+      order: 1;
+      position: absolute;
+      max-width: 40rem;
+      left: 0;
+      width: 50%;
+      margin: 10vh 0 5rem 5rem;
+      text-align: left;
+      align-items: flex-start;
+    }
+    .h1 {
+      position: relative;
+      z-index: 1;
+      font-weight: 800;
+    }
+    .section-text {
+      position: relative;
+      z-index: 5;
+      width: 40rem;
+      max-width: 100%;
+      margin: 0;
+      @include breakpoint(large up) {
+        width: 70%;
+      }
+    }
+    .button-set {
+      position: relative;
+      z-index: 1;
+      @include breakpoint(large up) {
+        justify-content: flex-start;
+      }
+      button {
+        position: relative;
+        z-index: 1;
+      }
+    }
+    .intro-text {
+
+    }
+    
+  }
+  .hero__product-lineup {
+    @include transform(translate(0px, 0%));
+    position: relative;
+    z-index: 3;
+    margin-bottom: 11rem;
+    width: 100%;
+    order: 1;
+    @include breakpoint(large up) {
+      order: 2;
+      width: 60%;
+      margin-bottom: 18rem;
+    }
+    .hero__product {
+      width: 30%;
+      max-width: 28rem;
+      margin: 0 auto;
+      @include breakpoint(medium up) {
+        width: 20%;
+      }
+      @include breakpoint(large up) {
+        width: 25%;
+      }
+      .product-inner {
+        position: relative;
+        z-index: 9;
+        img {
+          object-fit: contain;
+          max-height: $product_image_height_small;
+          width: 100%;
+          @include breakpoint(medium up) {
+            max-height: $product_image_height_medium;
+          }
+          @include breakpoint(large up) {
+            max-height: $product_image_height_large;
+          }
+          img {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+          }
+        }
+      }
+      &.product_1 {
+        @include transform(translate(0%, 9vh) rotate(2deg));
+        position: relative;
+        z-index: 3;
+        .floating {
+          animation-delay: 0;
+        }
+        .product-inner {
+          width: 100%;
+          @media (max-height: 700px) {}
+        }
+      }
+      &.product_2 {
+        @include transform(translate(30%, 15vh) rotate(9deg));
+        z-index: 1;
+        top: 1rem;
+        left: 50%;
+        position: absolute;
+        //margin-top: 40%;
+        @include breakpoint(medium up) {
+          top: 1rem;
+          left: 50%;
+        }
+        .floating, .shadow {
+          //animation-delay: 3s;
+        }
+        .product-inner {
+          width: 95%;
+          @include breakpoint(large up) {}
+          @include breakpoint(xlarge up) {}
+          @media (max-height: 700px) {}
+        }
+      }
+      &.product_3 {
+        @include transform(translate(-30%, 0%) rotate(-9deg));
+        z-index: 1;
+        top: 1rem;
+        right: 50%;
+        position: absolute;
+        //margin-top: 40%;
+        @include breakpoint(medium up) {
+          top: 1rem;
+          right: 50%;
+        }
+        .floating, .shadow {
+          //animation-delay: 3s;
+        }
+        .product-inner {
+          width: 95%;
+          @include breakpoint(large up) {}
+          @include breakpoint(xlarge up) {}
+          @media (max-height: 700px) {}
+        }
+      }
+      .hero-product__shadow {
+        @include opacity( 0.25 );
+        position: absolute;
+        width: 100%;
+        height: rem-calc( 30px );
+        bottom: -15%;
+        left: 0;
+        z-index: 0;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .burst {
+      @include transform(translate(-50%, -50%));
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .divider {
+    position: relative;
+  }
+
+  
+
+  .accent-graphic {
+    z-index: 1;
+  }
+
+  .hero-divider {
+    @include transform(translate(0,.5rem));
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+  }
+
+}

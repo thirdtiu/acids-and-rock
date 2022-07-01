@@ -1,0 +1,507 @@
+
+
+<form action="/cart" method="post" class="cart__form" novalidate>
+
+  {% comment %}
+  Cart Item Template
+  =====================
+  The data-label attributes on <td> elements are mobile-friendly
+  helpers used for responsive-table labels
+  {% endcomment %}
+  
+  {% assign shipping-floor-int = section.settings.free_shipping_floor | times: 100 %}
+  {% assign price-difference = shipping-floor-int | minus: cart.total_price %}
+  {% assign callouts = section.blocks | where: "type", "callout" %}
+  {% assign shipping_free_condition = section.settings.cart_shipping_free_condition | times: 100 %}
+  
+    <script>
+      $( function() {
+        rivets.binders.color = function(el, value) {
+          el.style.color = value
+        }
+  
+        rivets.binders.bg_color = function(el, value) {
+          el.style.background = value
+        }
+
+        // check defaut title
+        rivets.formatters.isDefaultTitle = function(title) {
+            return title != "Default Title";
+          }
+  
+        // Adds zero if item is less than 10.
+        rivets.formatters.and_not = function( expression1, expression2 ) {
+          return Boolean( expression1 ) && !Boolean( expression2 );
+        }
+  
+        // Adds zero if item is less than 10.
+        rivets.formatters.round_off = function( number ) {
+          return parseFloat( number ).toFixed( 0 );
+        }
+  
+        // Adds zero if item is less than 10.
+        rivets.formatters.with_zero = function( value ) {
+          return parseFloat( value ) < 10 ? `0${ value }` : value;
+        }
+  
+        // Greater than or equal-to format.
+        rivets.formatters.gte = function( num1, num2 ) {
+          return parseFloat( num1 ) >= parseFloat( num2 );
+        }
+  
+        // Division format.
+        rivets.formatters.div = function( num1, num2 ) {
+          console.log({ num1, num2 });
+  
+          return parseFloat( num1 ) / parseFloat( num2 );
+        }
+  
+        // Formats number to currency. 
+        rivets.formatters.currency = function( value ) {
+          const amount = 
+            ( parseFloat( value ) / 100 )
+            .toFixed( 2 )
+            .replace(/[.,]00$/, "");
+  
+          return `{{ localization.country.currency.symbol }}${ amount }`;
+        }
+  
+        // Checks if array is truthy.
+        rivets.formatters.has_items = function( value ) {
+          return value && value.length > 0;
+        }
+  
+        // Checks whether an ID is not in the cart.
+        rivets.formatters.not_in_cart = function( id, collection ) {
+          let flag = true;
+  
+          if( collection && Array.isArray( collection ) ) {
+            // If collection already exceeds 2, hide callouts.
+            if( collection.length >= 2 ) flag = false;
+  
+            else {
+              collection.forEach( item => {
+                JSON.stringify( item );
+                // If flag isn't false yet, and a match is found, set flag to true.
+                if( flag && id == item.id ) flag = false;
+              } );
+            }
+          }
+  
+          return flag;
+        }
+
+        rivets.formatters.xand = function( arg1, arg2 ) {
+          return !( Boolean( arg1 ) && Boolean( arg2 ) );
+        }
+
+        rivets.formatters.should_show_subscription = function( item ) {
+          const sellingPlan = item.selling_plan_allocation;
+          const availablePlans = item.properties._available_selling_plan;
+
+          // Only show the subscription option if current item does not already have a selling plan
+          // and, if it has available plans.
+          return !Boolean( sellingPlan ) && Boolean( availablePlans );
+        }
+      });
+    </script>
+  
+    <div class="cart__form-top">
+      <div class="cart__announcement text-center">
+        {% if section.settings.announcement_text %}
+        <p class="small">{{ section.settings.announcement_text }}</p>
+        {% endif %}
+      </div>
+  
+      <div class="cart__title text-center">
+        {% if section.settings.cart_title %}
+          <h1 class="h2">{{ section.settings.cart_title }}</h1>
+        {% endif %}
+      </div>
+  
+      {%- comment -%}
+      <div class="cart__shipping cart-shipping" rv-show="cart.items | has_items">
+        <div class="cart-shipping__met" rv-if="cart.total_price | gte {{ shipping_free_condition }} ">
+          {{ section.settings.cart_shipping_condition_met_message }}
+        </div>
+  
+        <div class="cart-shipping__not-met" rv-if="cart.total_price | lt {{ shipping_free_condition }} ">
+          {%- assign highlighted_price = shipping_free_condition 
+            | minus: cart.total_price 
+            | money_without_trailing_zeros 
+            | prepend: "<span class='price' rv-html='% | minus cart.total_price | currency'>" 
+            | replace: "%", shipping_free_condition
+            | append: "</span>" 
+          -%}
+          {{ section.settings.cart_shipping_condition_fail_message | replace: "%price", highlighted_price }}
+        </div>
+      </div>
+      {%- endcomment -%}
+  
+      <div class="cart-items">
+  
+        <div class="cart__product" rv-each-item="cart.items">
+          {{ item.properties.bg_color }}
+          <span class="props" rv-color="item.properties._bg_color"></span>
+          <span class="props" rv-color="item.properties._highlight_color"></span>
+  
+          
+  
+  
+          <div  class="product__image" rv-bg_color="item.properties._bg_color" data-label="{{ 'customer.order.product' | t }}">
+            <p class="product__discount" rv-if="item.properties._compare_at_price | gt 0 | and_not item.selling_plan_allocation" rv-html="item.price | div item.properties._compare_at_price | times 100 | minus 100 | round_off | append '%'"></p>
+            <div class="inner">
+              <img rv-src="item.image | product_image_size '350x'" alt="product image" >
+            </div>
+          </div>
+  
+        
+          
+  
+          <div class="cart__product-info">
+
+            <div class="product__name" rv-text="item.product_title">{{ item.product.title }}</div>
+
+            <div class="variant-wrapper">
+              
+            </div>
+
+            {% unless item.product.has_only_default_variant %}
+            <span rv-each-option="item.options_with_values">
+              {%- comment -%}<span rv-text="option.name"></span>:{%- endcomment -%}
+              <span rv-if="option.value | isDefaultTitle" rv-text="option.value" style="text-transform: lowercase;"></span>
+            </span>
+            {% endunless %}
+            <span rv-text="item.product_type" style="text-transform: lowercase;"></span>
+            <div class="product__selling-plan" rv-if="item.selling_plan_allocation">
+              <span rv-text="item.selling_plan_allocation.selling_plan.name">
+                {{ item.product.selling_plan.id }}
+              </span>
+            </div>
+
+          <div class="flex-wrapper space">
+              <div class="product__quantity">
+                <div class="quantity-picker__counter" data-label="{{ 'cart.label.quantity' | t }}">
+                  <a class="quantity-picker__minus" href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | minus 1">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3">
+                        <path d="M1.138 1.252h3.724" stroke="#fff" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square"/>
+                      </svg>
+                    </span>
+                  </a>
+                  <span class="item-quanity"  rv-text="item.quantity "></span>
+                  {%- comment -%}
+                  <span class="item-quantity__label" rv-color="item.properties._text_color" rv-if="item.quantity | gt 1">Cases</span>
+                  <span class="item-quantity__label" rv-color="item.properties._text_color" rv-if="item.quantity | lt 2">Case</span>
+                  {%- endcomment -%}
+                  <a class="quantity-picker__plus" href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | plus 1">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6">
+                        <path d="M3 1.138v3.724M1.138 3h3.724" stroke="#fff" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square"/>
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="product__price">
+                <div class="price" data-label="{{ 'cart.label.price' | t }}">
+                  {% if item.original_line_price != item.line_price %}
+                  <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
+                  {{ item.price | money_with_currency }}
+                  <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
+                  <s>{{ item.original_price | money_with_currency }}</s>
+                  {% else %}
+                  <span class="price__comparison price-comparison" rv-if="item.properties._compare_at_price | gt 0 | and_not item.selling_plan_allocation">
+                    <s class="price-comparison__total" rv-html="item.properties._compare_at_price | times item.quantity | money Currency.currentCurrency"></s>
+                    <span class="price-comparison__percentage" rv-html="item.price | div item.properties._compare_at_price | times 100 | minus 100 | round_off | append '%'" rv-bg_color="item.properties._text_color"></span>
+                  </span>
+                  <span class="price__current" rv-html="item.line_price | money Currency.currentCurrency"></span>
+                  <span rv-if="item.properties.group_id">
+                  </span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+    
+            {%- comment -%}
+            <div class="product__type meta-label" rv-text="item.product_type">{{ item.product.type }}</div>
+            {%- endcomment -%}
+
+            
+    
+            <div class="product__subscribe-option subscribe-option" rv-if="item | should_show_subscription">
+              <p class="subscribe-option__text">{{ section.settings.make_subscription }}</p>
+              <button 
+                class="subscribe-option__button" 
+                type="button"
+                rv-data-index="index"
+                rv-data-selling-plan="item.properties._available_selling_plan"
+                rv-data-id="item.id"
+                rv-data-quantity="item.quantity"
+              >
+                <span>{{ section.settings.make_subscription_button_text }}</span>
+              </button>
+            </div>
+           
+           
+          </div>
+          
+  
+          {%- comment -%}
+          <div class="properties">
+            {%- for property in item.properties -%}
+              {%- assign property_first_char = property.first | slice: 0 -%}
+              {%- if property.last != blank and property_first_char != '_' -%}
+                <div class="product-option">
+                  <dt>{{ property.first }}: </dt>
+                  <dd>
+                    {%- if property.last contains '/uploads/' -%}
+                      <a href="{{ property.last }}" target="_blank">
+                        {{ property.last | split: '/' | last }}
+                      </a>
+                    {%- else -%}
+                      {{ property.last }}
+                    {%- endif -%}
+                  </dd>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+  
+          <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+            {%- for discount in item.discounts -%}
+              <li class="discounts__discount">
+                {%- render 'icon-discount' -%}
+                {{ discount.title }}
+              </li>
+            {%- endfor -%}
+          </ul>
+          {%- endcomment -%}
+          {% comment %}
+          <a class="remove" href="#" >
+            <span aria-hidden="true">
+              {% render 'icon-remove' %}
+            </span>
+          </a>
+          {% endcomment %}
+
+          <button class="remove close-button" type="button" rv-data-cart-remove="index | plus 1">
+            <span aria-hidden="true">&times;</span>
+          </button>
+  
+        </div>
+        <div rv-show="cart.item_count | gt 0" class="subscribe-note">
+        {% if section.settings.subscribe_note != blank %}
+          <p class=" text-center">
+            {% if section.settings.subscribe_note_icon != blank %}
+            <img loading="lazy" src="{{ section.settings.subscribe_note_icon | img_url: '36x' }};" alt="{{ section.settings.subscribe_note_icon.alt }}" itemprop="icon">
+            {% endif %}
+            <span>{{ section.settings.subscribe_note }}</span>
+          </p>
+        {% endif %}
+        </div>
+        
+  
+      </div>
+    </div>
+  
+  
+  
+    <div class="cart__form-footer">
+
+      <div class="cart-footer-divider">
+        <svg preserveAspectRatio="none" width="1440px" height="165px" viewBox="0 0 1440 165" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>Path 2 Copy 2</title>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Homepage-Copy" transform="translate(0.000000, -1646.000000)" fill="#FFFCF6">
+              <path
+                fill="{{ section.settings.cart_footer_separator_color }}"
+                d="M1440,1646.30035 L-2,1646.30035 L-2,1811 C205.251283,1756.89707 446.346977,1740.38599 721.287082,1761.46674 C996.227187,1782.54749 1235.79816,1744.15869 1440,1646.30035 Z"
+                id="Path-2-Copy-2"
+                transform="translate(719.000000, 1728.650177) rotate(-180.000000) translate(-719.000000, -1728.650177) "></path>
+            </g>
+          </g>
+        </svg>
+        {% comment %}
+        <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 35">
+          <path d="M440 0H0v35z" fill="{{ section.settings.cart_bg_color }}" fill-rule="evenodd"/>
+        </svg>
+        {% endcomment %}
+      </div>
+
+
+      
+
+      <div class="upsell-wrapper">
+        {% render 'partial__cart-callouts', callouts: callouts %}
+      </div>
+      
+  
+      {%- comment -%}
+      <div class="cart__total">
+        <div class="subtotal">Subtotal</div>
+        <div class="subtotal-number no-margin" rv-html="cart.total_price | money Currency.currentCurrency">
+          {{cart.total_price | money_with_currency}}
+        </div>
+      </div>
+      {%- endcomment -%}
+
+
+      {%- if cart.cart_level_discount_applications.size > 0 -%}
+        <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+          {%- for discount in cart.cart_level_discount_applications -%}
+            <li class="discounts__discount discounts__discount--end">
+              <div class="icon">
+                {%- render 'icon-discount' -%}
+              </div>
+              <div class="small-text">
+                {{ discount.title }}
+                (-{{ discount.total_allocated_amount | money }})
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+     
+
+      <div class="subtotal__section">
+        <span class="title">Subtotal</span>
+        <div class="subtotal-number no-margin" rv-html="cart.total_price | money Currency.currentCurrency">
+          {{cart.total_price | money_with_currency}}
+        </div>
+      </div>
+      <div class="cart__checkout-button">
+        <!-- <input type="submit" name="checkout" class="button primary border" value="{{ 'cart.general.checkout' | t }}"> -->
+        <button type="submit" name="checkout" class="button {{ section.settings.checkout_button_style }}">
+          
+          <span class="">
+            {% comment %}
+            <span class="icon-lock">{% render 'icon__lock' %}</span>  
+            {% endcomment %}
+            Checkout
+          </span>
+          
+        </button>
+  
+        {% if section.settings.show_additional_checkout_buttons %}
+          {%- if additional_checkout_buttons -%}
+            <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+              {{ content_for_additional_checkout_buttons }}
+            </div>
+          {%- endif -%}
+        {% endif %}
+      </div>
+
+
+      <div class="tax-note small-text cart__taxnote rte">
+        {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+          {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+        {%- elsif cart.taxes_included -%}
+          {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+        {%- elsif shop.shipping_policy.body != blank -%}
+          {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+        {%- else -%}
+          {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+        {%- endif -%}
+      </div>
+
+      {% if settings.cart_notes_enabled %}
+        <div class="cart__note">  
+          <div class="small-12 cell">
+          <div class="cart-attribute__field">
+            <input type="hidden" name="attributes[Is this a gift?]" value="No">
+            <input type="checkbox" id="isGift" name="attributes[Is this a gift?]" onclick="showMessage()" value="Yes"{% if cart.attributes["Is this a gift?"] == "Yes" %} checked{% endif %}>
+            <label for="isGift">Is this a gift?</label>
+          </div>
+          <div class="cart-attribute__field">
+            <label for="gift-note" class="visually-hidden">Gift Note</label>
+            <div id="gift-message" style="display:none;">
+              <textarea id="gift-note" placeholder="Gift Note" name="attributes[Gift Note]" maxlength="200">{{ cart.attributes["Gift Note"] }}</textarea>
+              <span class="meta-label" id='remainingC'></span>
+            </div>
+          </div>
+        </div> 
+        </div>
+      {% endif %}
+
+     
+  
+    </div>
+  
+  
+  </form>
+  
+  
+  
+  
+  
+  <script type="text/javascript">  
+    // Delegate event from cart form down to the subscribe button since they are dynamically rendered.
+    $( ".cart__form" ).on( "click", ".subscribe-option__button", function( event ) {
+      const $button = $( this );
+
+      const id = $button.attr( "data-id" );
+      const lineIndex = $button.attr( "data-index" );
+      const quantity = $button.attr( "data-quantity" );
+      const sellingPlan = $button.attr( "data-selling-plan" );
+
+      if( CartJS ) {
+        // Get the referenced cart item.
+        const cartItem = CartJS.cart.items[ lineIndex ];
+        const itemKey = cartItem.key;
+        
+        // Add the new cart item with the selling plan.
+        CartJS.addItem( 
+          id,
+          quantity, 
+          Object.assign( {}, cartItem.properties, { selling_plan: sellingPlan } ),
+          {
+            success: function( data, textStatus, jqXHR ) {
+              // After the successful update, listen once to the requestComplete event.
+              $( document ).one( "cart.requestComplete", function( event, cart ) {
+                // Get the updated index of the original cart item since this might have shifted after adding/changing the new item.
+                const updatedIndex = cart.items.reduce( function( itemIndex, item, index ) {
+                  if( item.key == itemKey ) itemIndex = index;
+
+                  return itemIndex;
+                }, lineIndex + 1 );
+
+                // Remove the old item.
+                CartJS.removeItem( updatedIndex + 1 );
+              } );
+            },
+
+            error: function( jqHXR, textStatus, errorThrown ) {
+              // Notify user of error.
+              alert( `Error: ${ errorThrown }.` );
+            }
+          }
+        );
+      }
+    } );
+
+    $('textarea').keypress(function(){
+        if(this.value.length > 200){
+            return false;
+        }
+        $("#remainingC").html("Remaining characters : " +(200 - this.value.length));
+    });
+  
+    function showMessage() {
+    // Get the checkbox
+    var checkBox = document.getElementById("isGift");
+    // Get the output text
+    var text = document.getElementById("gift-message");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      text.style.display = "block";
+    } else {
+      text.style.display = "none";
+    }
+  }
+  
+  </script>
+  

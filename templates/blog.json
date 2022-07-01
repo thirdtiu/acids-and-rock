@@ -1,0 +1,113 @@
+{
+  "sections": {
+    "featured": {
+      "type": "mfr-core__featured-blog-post",
+      "settings": {
+        "featured_post": "news\/test-post",
+        "color_theme": "color_theme__light",
+        "button_style": "tertiary",
+        "button_color": "outline",
+        "text_side_desktop": "left",
+        "text_side_mobile": "second",
+        "is_centered": false,
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "bg_color_1": "#ffe913",
+        "bg_color_2": "#fe2bbf",
+        "bg_color_3": "#fe2bbf",
+        "top_divider": "none",
+        "svg_divider_top_color": "#ffffff",
+        "bottom_divider": "animated",
+        "svg_divider_bottom_color": "#fbf9f3"
+      }
+    },
+    "grid": {
+      "type": "mfr-blog__grid",
+      "blocks": {
+        "5632201f-a84a-4312-a923-853f83e8ce06": {
+          "type": "tag",
+          "settings": {
+            "title": "Moms (Test)",
+            "text": "moms",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 73 74\"><g transform=\"translate(1.09 2)\" stroke=\"#000\" stroke-width=\"2\" fill=\"none\" fill-rule=\"evenodd\"><circle cx=\"34.984\" cy=\"35.043\" r=\"35.053\"><\/circle><circle cx=\"34.556\" cy=\"34.615\" r=\"26.076\"><\/circle><circle cx=\"35.411\" cy=\"35.47\" r=\"15.817\"><\/circle><\/g><\/svg>",
+            "color": "#cff503"
+          }
+        },
+        "2138fd2f-6fdd-4297-8fa1-80646afdebc1": {
+          "type": "tag",
+          "settings": {
+            "title": "Hydration (Test)",
+            "text": "hydration",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 73 72\"><g transform=\"translate(1.977 1)\" stroke=\"#000\" stroke-width=\"2\" fill=\"none\" fill-rule=\"evenodd\"><circle cx=\"35\" cy=\"35\" r=\"35\"><\/circle><path d=\"M35 50.366c7.072 0 12.805-5.818 12.805-12.994 0-4.784-4.268-11.266-12.805-19.445-8.537 8.179-12.805 14.66-12.805 19.445 0 7.176 5.733 12.994 12.805 12.994Z\"><\/path><\/g><\/svg>",
+            "color": "#4ff1f6"
+          }
+        },
+        "17cb9a7c-2a11-48eb-a594-372433a9e265": {
+          "type": "tag",
+          "settings": {
+            "title": "Science (Test)",
+            "text": "science",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 78 77\"><g stroke=\"#000\" fill=\"none\" fill-rule=\"evenodd\"><circle cx=\"37.5\" cy=\"37.5\" r=\"37.5\" stroke-width=\"2\" transform=\"translate(1.102 1)\"><\/circle><g stroke-width=\"1.5\"><path d=\"M29.227 24.011c2.072 1.137 5.766 1.705 11.08 1.705\"><\/path><path d=\"M39.455 25.701c3.705.115 6.83-.449 9.375-1.69M28.375 29.128c1.8-.035 3.774.255 5.923.871 2.15.616 3.711.89 4.684.82 1.83.034 3.427-.239 4.794-.82 1.367-.58 3.336-.871 5.906-.871\"><\/path><path d=\"M39.455 9.53c-1.442-.064-2.162.31-2.162 1.121v3.79c-.496 2.051-1.755 3.646-3.778 4.786-3.035 1.709-4.54 4.555-4.962 6.804-.423 2.25-.407 2.798 0 4.78.27 1.322 1.397 2.046 3.379 2.174-2.64 2.357-4.076 5.162-4.309 8.417-.233 3.254-.06 7.773.518 13.556a62.41 62.41 0 0 1 .412 7.303c0 2.538 1.946 4.148 5.837 4.829 1.887.258 3.575.387 5.065.387\"><\/path><path d=\"M38.602 9.53c1.442-.064 2.162.31 2.162 1.121v3.79c.496 2.051 1.755 3.646 3.778 4.786 3.034 1.709 4.54 4.555 4.962 6.804.423 2.25.407 2.798 0 4.78-.271 1.322-1.398 2.046-3.38 2.174 2.64 2.357 4.077 5.162 4.31 8.417.233 3.254.06 7.773-.518 13.556a62.41 62.41 0 0 0-.412 7.303c0 2.538-1.946 4.148-5.838 4.829-1.887.258-3.575.387-5.064.387\"><\/path><path d=\"M31.784 32.76c5.6.533 10.43.533 14.489 0\"><\/path><\/g><\/g><\/svg>",
+            "color": "#fe2bbf"
+          }
+        },
+        "37d573f9-f416-4e7c-baaa-866339e840d9": {
+          "type": "tag",
+          "settings": {
+            "title": "Recipes (test)",
+            "text": "recipes",
+            "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewbox=\"0 0 73 72\"><g transform=\"translate(1.966 1)\" fill=\"none\" fill-rule=\"evenodd\"><g stroke=\"#000\" stroke-linecap=\"square\" stroke-width=\"2\"><path d=\"M10.35 42.256h7.47M14.086 38.415v7.683\"><\/path><\/g><g stroke=\"#000\" stroke-linecap=\"square\" stroke-width=\"2\"><path d=\"M35.96 57.621h7.47M39.696 53.78v7.683\"><\/path><\/g><g stroke=\"#000\" stroke-linecap=\"square\" stroke-width=\"2\"><path d=\"M40.335 18.78h14.939M47.805 11.098v15.366\"><\/path><\/g><circle stroke=\"#000\" stroke-width=\"2\" cx=\"35\" cy=\"35\" r=\"35\"><\/circle><path d=\"M32.866 17.927c-.712 5.81-.948 9.5-2.338 11.881-2.274 2.96-6.215 3.243-13.455 3.912 7.123.86 10.974 1.048 13.254 3.76 1.704 2.401 1.991 6.115 2.539 12.032.929-7.675 1.074-11.55 4.44-13.757 2.392-1.156 5.962-1.407 11.353-2.035-6.684-.82-10.56-1.007-12.869-3.05-1.953-2.326-2.16-6.19-2.924-12.743ZM51.646 33.293c-.442 3.611-.589 5.905-1.453 7.386-1.413 1.84-3.863 2.015-8.364 2.43 4.428.536 6.822.653 8.239 2.338 1.06 1.493 1.238 3.801 1.578 7.48.578-4.771.668-7.18 2.76-8.552 1.487-.718 3.707-.875 7.057-1.265-4.154-.51-6.564-.626-7.999-1.895-1.214-1.447-1.343-3.849-1.818-7.922ZM19.207 16.22c-.288 2.355-.384 3.851-.948 4.816-.921 1.2-2.519 1.315-5.454 1.586 2.888.35 4.449.425 5.373 1.525.69.973.807 2.478 1.03 4.877.376-3.111.435-4.682 1.799-5.577.97-.468 2.417-.57 4.603-.825-2.71-.332-4.281-.408-5.217-1.236-.792-.943-.876-2.51-1.186-5.166Z\" fill=\"#000\" fill-rule=\"nonzero\"><\/path><\/g><\/svg>",
+            "color": "#fff20c"
+          }
+        }
+      },
+      "block_order": [
+        "5632201f-a84a-4312-a923-853f83e8ce06",
+        "2138fd2f-6fdd-4297-8fa1-80646afdebc1",
+        "17cb9a7c-2a11-48eb-a594-372433a9e265",
+        "37d573f9-f416-4e7c-baaa-866339e840d9"
+      ],
+      "settings": {
+        "items": 8,
+        "all_text": "all",
+        "section_spacing_top": "section_spacing_medium_top",
+        "section_spacing_bottom": "section_spacing_none_bottom",
+        "color_theme": "color_theme__light",
+        "bg_color_1": "#fbf9f3",
+        "bg_color_2": "#fef459",
+        "bg_color_3": "#fef459",
+        "show_svg_divider_top": false,
+        "svg_divider_top_color": "#fff20c",
+        "show_svg_divider_bottom": false,
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "disabled": true,
+      "settings": {
+        "show_image": true,
+        "show_date": true,
+        "show_author": false
+      }
+    },
+    "1639341204ece6ae87": {
+      "type": "mfr-core__featured-product",
+      "settings": {
+        "product": "tropical",
+        "section_spacing_top": "section_spacing_large_top",
+        "section_spacing_bottom": "section_spacing_large_bottom",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    }
+  },
+  "order": [
+    "featured",
+    "grid",
+    "main",
+    "1639341204ece6ae87"
+  ]
+}

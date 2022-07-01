@@ -1,0 +1,343 @@
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+
+{%- assign filters = section.blocks | where: "type", "tag" -%}
+
+
+{%- if blog.articles.size > 0 -%}
+  <section class="blog-grid background color-theme-{{ section.settings.theme }} {{ top_spacing }} {{ bottom_spacing }}">
+
+
+    <div class="blog-grid__wrapper">
+        {% paginate blog.articles by section.settings.items %}
+              <div class="blog-grid__header align-center section-header">
+                {%- if filters and filters != blank -%}
+                  {%- assign is_tagged = false -%}
+
+                  {%- if request.path contains "/tagged/" -%}
+                    {%- assign is_tagged = true -%}
+                  {%- endif -%}
+
+                  <ul class="blog-grid__filters filter-button-group">
+                        
+                    <li class="product-filters__item all" data-filter="*" >
+                      <a class="active {%- unless is_tagged %} product-filters__item--active {% endunless -%}">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><g transform="translate(1 1)" stroke-width="2" fill="none" fill-rule="evenodd"><circle stroke="#000" cx="35" cy="35" r="35"/><g transform="translate(16 16)" stroke="#1B1B1B"><rect x="1" y="1" width="15.209" height="15.209" rx="6"/><rect x="1" y="20.791" width="15.209" height="15.209" rx="6"/><rect x="20.791" y="1" width="15.209" height="15.209" rx="6"/><rect x="20.791" y="20.791" width="15.209" height="15.209" rx="6"/></g></g></svg>
+                        </div>
+                        <span>{{ section.settings.all_text | default: "All" }}</span>
+                      </a>
+                    </li>
+
+                    {%- for filter in filters -%}
+
+                      {%- assign lowercase_tag = filter.settings.text | downcase -%}
+                      {%- assign tag_handle = filter.settings.text | prepend: "/tagged/" -%}
+                      
+                      {%- if tag_handle == blank -%}
+                        {%- assign tag_handle = filter.settings.title | handleize | prepend: "/tagged/" -%}
+                      {%- endif -%}
+
+                      <li class="product-filters__item {{ lowercase_tag }}" data-filter=".{{ filter.settings.text }}">
+                        {% style %}
+                        .product-filters__item.{{ lowercase_tag }} .active .icon {
+                          background-color: {{ filter.settings.color }};
+                        }
+                        .blog-grid__items article.{{ lowercase_tag }} .card-text-bar { 
+                          background-color: {{ filter.settings.color }};
+                        } 
+                      {% endstyle %}
+                        <a title={{ filter.settings.title }}>
+                          {% if filter.settings.svg_code %}
+                          <div class="icon">
+                            {{ filter.settings.svg_code }}
+                          </div>
+                          {% endif %}
+                          <span>{{ filter.settings.title }}</span>
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                  
+                {%- endif -%}
+            </div>
+
+            <div class="blog-grid__body">
+                <div class="blog-grid__items iso-grid">
+                    {%- for article in blog.articles -%}
+                      {% render 'article-card', article: article %}
+                    {%- endfor -%}
+                </div>
+
+                <div class="blog-grid__pagination" data-aos="fade-up">
+                    {{ paginate | default_pagination: next: "next>>", previous: "&lt;&lt;prev" }}
+                </div>
+            </div>
+        {% endpaginate %}
+      </div>
+
+      {% render 'component__section-dividers' %}
+      {% render "component__gradient-bg-styles" %}
+  </section>
+
+
+  <script src="{{ 'isotope.min.js' | asset_url }}" defer></script>
+
+<script type="text/javascript">
+
+  jQuery(function(){
+    isoInit();
+  }); //end doc ready
+
+  document.addEventListener("shopify:section:load", function(event) {
+    isoInit();
+  });
+
+  function isoInit() {
+
+    //Collection Filtering
+    function getHashFilter() {
+      // get filter=filterName
+      var matches = location.hash.match( /filter=([^&]+)/i );
+      var hashFilter = matches && matches[1];
+      return hashFilter && decodeURIComponent( hashFilter );
+    }
+
+    // init Isotope
+    setTimeout(function(){
+      //var $grid = $('.iso-grid');
+    }, 500);
+
+    var $grid = $('.iso-grid');
+
+    // bind filter button click
+    var $filterButtonGroup = $('.filter-button-group');
+    $filterButtonGroup.on( 'click', 'li', function() {
+      console.log('click');
+      var filterAttr = $( this ).attr('data-filter');
+      // set filter in hash
+      location.hash = 'filter=' + encodeURIComponent( filterAttr );
+  $grid.isotope('layout');
+      var filterValue = $(this).attr('data-filter');
+      onHashchange(filterValue);
+
+    });
+
+    var isIsotopeInit = false;
+
+    function onHashchange(filterValue) {
+      var hashFilter = getHashFilter();
+      if ( !hashFilter && isIsotopeInit ) {
+        return;
+      }
+      isIsotopeInit = true;
+      // filter isotope
+      $grid.isotope({
+        itemSelector: '.item-selector',
+        layoutMode: 'fitRows',
+        transitionDuration: '0s',
+        masonry: {
+          columnWidth: 100
+        },
+        filter: hashFilter
+        // use filterFns
+        //filter: filterFns[ hashFilter ] || hashFilter
+      });
+      // set selected class on button
+      if ( hashFilter ) {
+        $filterButtonGroup.find('.active').removeClass('active');
+        $filterButtonGroup.find('[data-filter="' + hashFilter + '"] a').addClass('active');
+      }
+
+      //var filterValue = $(this).attr('data-filter');
+      //$grid.isotope({ filter: filterValue });
+
+    }
+    $(window).on( 'hashchange', onHashchange );
+    // trigger event handler to init Isotope
+    onHashchange();
+
+  }
+</script>
+
+
+{%- endif -%}
+
+{% schema %}
+{
+    "name": "Blog: Grid",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "range",
+        "id": "items",
+        "label": "Items",
+        "unit": "x",
+        "min": 4,
+        "max": 20,
+        "step": 4,
+        "default": 8
+      },
+
+      {
+        "type": "header",
+        "content": "Filters",
+        "info": "The filters will only show when you add tag blocks to this section"
+      },
+      {
+        "type": "text",
+        "id": "all_text",
+        "label": "All Text",
+        "default": "all",
+        "info": "The text for the 'all' option on the filters."
+      },
+
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None" },
+            { "value": "section_spacing_small_bottom", "label": "Small" },
+            { "value": "section_spacing_medium_bottom", "label": "Medium" },
+            { "value": "section_spacing_large_bottom", "label": "Large" },
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+         ],
+         "label": "Bottom spacing"
+      },
+
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Theme" },
+            { "value": "color_theme__light", "label": "Light Theme" },
+            { "value": "color_theme__theme_1", "label": "Color Theme 1" },
+            { "value": "color_theme__theme_2", "label": "Color Theme 2" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      },
+      {
+        "type":"header",
+        "content":"Background"
+      },
+      {
+        "type":"color",
+        "id":"bg_color_1",
+        "label":"Background Color 1"
+      },
+      {
+        "type":"color",
+        "id":"bg_color_2",
+        "label":"Background Color 2",
+        "info":"will form gradient if added"
+      },
+      {
+        "type":"color",
+        "id":"bg_color_3",
+        "label":"Background Color 3",
+        "info":"will form gradient if added"
+      },
+      {
+        "type":"range",
+        "id":"gradient_balance",
+        "min":1,
+        "max":99,
+        "step":1,
+        "unit":"%",
+        "label":"Gradient Balance",
+        "default":50
+      },
+      
+      {
+        "type":"header",
+        "content":"Dividers"
+      },
+      {
+        "type":"image_picker",
+        "id":"section_divider_image",
+        "label":"Bottom divider image",
+        "info":"will appear fullwidth at bottom of section"
+      },
+      {
+        "type":"checkbox",
+        "id":"show_svg_divider_top",
+        "label":"Show top wave",
+        "info":"animated wave at top of section"
+      },
+      {
+        "type":"color",
+        "id":"svg_divider_top_color",
+        "label":"Top wave color"
+      },
+      {
+        "type":"checkbox",
+        "id":"show_svg_divider_bottom",
+        "label":"Show bottom wave",
+        "info":"animated wave at bottom of section"
+      },
+      {
+        "type":"color",
+        "id":"svg_divider_bottom_color",
+        "label":"Bottom wave color"
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "tag",
+        "name": "Tag",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Name",
+            "info": "The name of the tag that will be shown on the filters."
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Value",
+            "info": "(Optional) This can be used as the actual tag. If left empty, the name of the tag will be used instead to filter."
+          },
+          {
+            "type": "html",
+            "id": "svg_code",
+            "label": "Icon",
+            "info": "paste svg code"
+          },
+          {
+            "type": "color",
+            "id": "color",
+            "label": "Category Color"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}

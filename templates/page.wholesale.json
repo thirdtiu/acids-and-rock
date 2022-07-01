@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "mfr-core__text-section",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

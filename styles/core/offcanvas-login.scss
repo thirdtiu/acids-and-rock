@@ -1,0 +1,142 @@
+
+
+
+#offCanvasLogin {
+  //@include shadow(0.1rem 0 0.3rem rgba($black,.2));
+  @include shadow(none);
+  background: none;
+  padding: 0.5rem;
+  z-index: 9999;
+  overflow: visible !important;
+  width: 100%;
+  max-width: rem-calc( 500px );
+  @include breakpoint(medium up) {
+    padding: 1rem;
+  }
+  .wrapper {
+    height: 100%;
+    .inner {
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+      @include breakpoint(large up) {
+        padding: 2rem;
+      }
+    }
+  }
+
+  &.is-open #panel-wrapper .close {
+    @include opacity(1);
+  }
+  #shopify-section-offcanvas-login,
+  #panel-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #panel-wrapper {
+    @include border-radius(2rem);
+    .close {
+      @extend .transition-4;
+      @include opacity(0);
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      z-index: 11;
+      width: 2.2rem;
+      @include breakpoint(large up) {
+        left: 3rem;
+        top: 3rem;
+      }
+      svg path {
+        fill: $color-accent;
+      }
+      svg circle {
+        stroke: $color-accent;
+      }
+    } 
+
+    .icon {
+      width: 100%;
+      max-width: 12rem;
+      margin: 0 auto 2rem;
+    }
+
+    .panel__title {
+      margin-top: rem-calc( 24px );
+      margin-bottom: rem-calc( 24px );
+      .h1 {
+        max-width: 20rem;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+
+
+    .account-form {
+      width: 100%;
+      align-self: flex-start;
+      input,
+      textarea,
+      select {
+        @include border-radius(1.25rem);
+        background: $theme-color-white;
+        height: 4.06rem;
+        padding: 1rem;
+        font-style: 1.2rem;
+      }
+      label {
+        margin-bottom: .625rem;
+        padding-left: .625rem;
+        visibility: hidden;
+        height: 0;
+      }
+      .actions {
+        margin-bottom: 2.25rem;
+      }
+      hr {
+        border: none;
+        border-top: 2px solid $color-accent;
+        max-width: 16.75rem;
+        margin: 0 auto 1rem;
+      }
+      .form-note {
+        font-size: 1.2rem;
+        color: $color-accent;
+        font-weight: 500;
+        .button {
+          font-size: 1.2rem;
+          color: $color-accent;
+          font-weight: 500;
+          text-transform: inherit;
+        }
+      }
+      .button.create-account {
+        color: $color-accent;
+        @include breakpoint(large up) {
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+      .button.forgot-pass {
+        margin: 0 auto;
+        // font-size: 1.2rem;
+        // font-weight: 500;
+        // text-transform: inherit;
+      }
+      p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        a {}
+      } 
+
+    }
+
+    
+  }
+
+}

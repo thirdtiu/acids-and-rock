@@ -1,0 +1,210 @@
+{%- comment -%}
+used only for image section - to add icons with image container
+{%- endcomment -%}
+
+
+  {%- comment -%}
+  Settings
+  --
+  accent_graphic
+  icon
+  svg_code
+
+  x_setting
+  y_setting
+  
+  width_desktop
+  position_x_desktop
+  position_y_desktop
+
+  width_mobile
+  position_x_mobile
+  position_y_mobile 
+  {%- endcomment -%}
+
+  {% if block.settings.show_shadow %}
+    {% assign shadow = 'shadow' %}
+    {% assign shadow_floating = 'shadow' %}
+  {% endif %}
+  {% if block.settings.show_shadow and block.settings.animation == "floating" %}
+  {% assign shadow = 'shadow' %}
+    {% assign shadow_floating = 'shadow' %}
+  {% endif %}
+
+  <div class="accent-graphic-wrapper {{ section.id }} {{ shadow_floating }}">
+    {% for block in section.blocks %}
+      {% if block.type == "accent_graphic_in_circle" %}
+        <div class="accent-graphic graphic-{{ forloop.index }} visible__{{ block.settings.visibility }} {{ block.settings.animation }} {{ shadow }}">
+          <div data-aos="fade-in">
+            {% render 'component__section-icon', icon: block.settings.icon, icon_width: block.settings.width_desktop, svg_code: block.settings.svg_code %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <style>
+      {%- for block in section.blocks -%}
+        {%- if block.type == "accent_graphic_in_circle" -%}
+        .{{ section.id }} .accent-graphic.graphic-{{ forloop.index }} {
+          {{ block.settings.x_setting }}: {{ block.settings.position_x_mobile }}%;
+          {{ block.settings.y_setting }}: {{ block.settings.position_y_mobile }}%;
+          width: {{ block.settings.width_mobile }}px;
+        }
+        @media print, screen and (min-width: 64em) {
+          .{{ section.id }} .accent-graphic.graphic-{{ forloop.index }} {
+            {{ block.settings.x_setting }}: {{ block.settings.position_x_desktop }}%;
+            {{ block.settings.y_setting }}: {{ block.settings.position_y_desktop }}%;
+            width: {{ block.settings.width_desktop }}px;
+          }
+        }
+        {%- endif -%}
+      {%- endfor -%}
+    </style>
+  </div>
+
+
+  {%- comment -%}
+  BLOCK SCHEMA
+
+  {
+        "type": "accent_graphic", 
+        "name": "Accent Graphic",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Graphic SVG Code",
+            "info":"Paste SVG code for vector graphic"
+          },
+          {
+            "type":"header",
+            "content":"Visibility"
+          },
+          {
+            "type": "select",
+            "id": "visibility",
+            "options": [
+                { "value": "always", "label": "Always" },
+                { "value": "desktop_only", "label": "Desktop Only" },
+                { "value": "mobile_only", "label": "Mobile Only" }
+                ],
+            "label": "Show on..",
+            "default": "always"
+          },
+          {
+            "type":"header",
+            "content":"Position"
+          },
+          {
+            "type": "select",
+            "id": "x_setting",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+                ],
+            "label": "X Position",
+            "default": "left"
+          },
+          {
+            "type": "select",
+            "id": "y_setting",
+            "options": [
+                { "value": "top", "label": "Top" },
+                { "value": "bottom", "label": "Bottom" }
+                ],
+            "label": "Y Position",
+            "default": "top"
+          },
+          {
+            "type":"header",
+            "content":"Desktop Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_desktop",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_desktop",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_desktop",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Mobile Settings"
+          },
+          {
+            "type": "range",
+            "id": "width_mobile",
+            "min": 40,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Graphic Width",
+            "default": 150
+          },
+          {
+            "type": "range",
+            "id": "position_x_mobile",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "X Position",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "position_y_mobile",
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "%",
+            "label": "Y Position",
+            "default": 10
+          },
+          {
+            "type":"header",
+            "content":"Animation Settings"
+          },
+          {
+            "type": "select",
+            "id": "animation",
+            "options": [
+                { "value": "none", "label": "None" },
+                { "value": "rotating", "label": "Rotate" },
+                { "value": "floating", "label": "Float" },
+                { "value": "flying", "label": "Fly Across Screen" }
+                ],
+            "label": "Animation",
+            "default": "none"
+          }
+        ]
+      }
+  {%- endcomment -%}

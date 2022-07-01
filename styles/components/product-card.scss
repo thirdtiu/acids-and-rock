@@ -1,0 +1,330 @@
+$card-padding-bp-small: 0rem;
+$card-padding-bp-medium: 0rem;
+$card-padding-bp-large: 0rem;
+$card-padding-bp-xlarge: 0rem;
+
+$card-image-contain-width: 70%;
+$card-image-contain-height: 100%;
+
+$card-image-height-bp-small: 120%;
+$card-image-height-bp-medium: 120%;
+$card-image-height-bp-large: 120%;
+$card-image-height-bp-xlarge: 120%;
+
+
+//Grid Specific
+.product-card {
+  margin-bottom: 2rem;
+  .product-card-inner {
+    @include transition( .3s all $smooth_ease);
+    @include border-radius(21px);
+    padding: $card-padding-bp-small;
+    position: relative;
+    margin-bottom: 2rem;
+    //background: $white;
+    //cursor: url('https://cdn.shopify.com/s/files/1/0553/9938/3216/files/view.png?v=1617798979'), auto;
+    @include breakpoint(medium up) {
+      padding: $card-padding-bp-medium;
+    }
+    @include breakpoint(large up) {
+      margin-bottom: 2rem;
+      padding: $card-padding-bp-large;
+    }
+    @include breakpoint(xlarge up) {
+      padding: $card-padding-bp-xlarge;
+    }
+    .product-image-wrapper {
+      height: 0rem;
+      width: 100%;
+      display: block;
+      position: relative;
+      margin-bottom: 0.5rem;
+      z-index: 1;
+      padding-bottom: $card-image-height-bp-small;
+      @include breakpoint(medium up) {
+        padding-bottom: $card-image-height-bp-medium;
+        margin-bottom: 1rem;
+      }
+      @include breakpoint(large up) {
+        padding-bottom: $card-image-height-bp-large;
+      }
+      @include breakpoint(xlarge up) {
+        padding-bottom: $card-image-height-bp-xlarge;
+      }
+      .product-image-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .product-image {
+          @include transition( .3s all $smooth_ease);
+          img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+          }
+          &.image-size-cover {
+            width: 100%;
+            height: 100%;
+            img {
+              object-fit: cover;
+            }
+          }
+          &.image-size-contain {
+            width: $card-image-contain-width;
+            height: $card-image-contain-height;
+            img {
+              object-fit: contain;
+            }
+          }
+          &.secondary-image {
+            display: none;
+            position: absolute;
+            z-index: 1;
+          }
+        }
+        .shadow {
+          @include opacity(.3);
+          filter: blur(.6rem) grayscale(1) brightness(0); 
+          @include transform(translate(-50%,0));
+          position: absolute;
+          bottom: -2rem;
+          height: 0.6rem;
+          left: 50%;
+          z-index: -1;
+          width: 8rem;
+          img {
+            object-fit: inherit !important;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+    .product-details-wrapper {
+      @include transition( .4s all $sharp_ease);
+      @include transform(translate(0,1rem));
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      //height: 7.8rem;
+      position: relative;
+      @include breakpoint(large up) {
+        @include transform(translate(0,0rem) scale(0));
+        @include opacity(0);
+      }
+      .product-details-inner {
+        width: 100%;
+        display: flex;
+        &.add_to_cart {
+          text-align: center;
+          align-items: center;
+          justify-content: space-between;
+        }
+        &.shop_now {
+          flex-flow: column;
+          .button {
+            max-width: 80%;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+
+    .card-background {
+      @include transition( .4s all $smooth_ease);
+      @include border-radius(3rem);
+      width: 100%;
+      height: 18rem;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 0;
+      @include breakpoint(large up) { 
+        height: 24rem;
+      }
+    }
+
+
+    .product-card {
+      
+      &__review-stars {
+        font-size: .8rem;
+        margin-bottom: 1rem;
+      }
+      &__title {
+        line-height: 1.3rem;
+        margin-bottom: .5rem;
+      }
+      &__variant {
+        margin-bottom: 0.2rem;
+        @include small-text;
+      }
+      &__description {
+        max-width: 80%;
+        height: 5rem;
+        font-weight: normal;
+        margin: 0 0 1rem 2rem;
+        color: $white;
+      }
+      &__price {
+        font-weight: bold;
+        justify-content: space-between;
+        .divider {
+          width: 1rem;
+          height: 3px;
+          background-color: $white;
+          margin: 0 .5rem;
+        }
+      }
+      &__product-type {
+        @include transition( .4s all $sharp_ease);
+        @include small-text;
+        @include opacity(.5);
+        height: 1.2rem;
+        z-index: 2;
+        max-width: 21rem;
+        margin: 0 auto;
+        @include breakpoint(medium up) {
+          height: 1.6rem;
+        }
+      }
+      &__add-to-cart {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        
+        form {
+          display: flex;
+          justify-content: center;
+        }
+      }
+      &__add-to-cart-plus {
+        @include transition( .2s all $sharp_ease);
+        @include border-radius(10rem);
+        background: $color-accent;
+        color: $white;
+        font-size: .5rem;
+        position: relative;
+        line-height: 1rem;
+        width: 4.5rem;
+        height: 4.5rem;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        justify-content: center;
+        @include breakpoint(medium up) {
+          width: 4.5rem;
+          height: 4.5rem;
+        }
+        @include breakpoint(large up) {
+          &:hover {
+            @include transform(scale(1.1));
+          }
+        }
+        button svg {
+          @include transition( .2s all $sharp_ease);
+          position: relative;
+          top: 0px;
+          width: 2rem;
+          height: 2rem;
+          path {
+            fill: $white;
+          }
+        }
+        .sold-out {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+        .text {
+          @include transition( .2s all $sharp_ease);
+          position: absolute;
+          left: -1rem;
+          top: -1rem;
+          svg {
+          width: 3.3rem;
+          height: 3.3rem;
+          }
+        }
+      }
+      &__subtract-quantity {
+        @include transition( .2s all $sharp_ease);
+        @include border-radius(.4rem);
+        text-transform: uppercase;
+        background: $theme-color-black;
+        position: absolute;
+        right: -0.4rem;
+        top: 3.4rem;
+        z-index: 10;
+        line-height: .85rem;
+        padding: 0 .35rem .15rem;
+        span {
+          font-size: 9px;
+          font-weight: 900;
+        }
+      }
+    }
+
+    
+    
+
+   
+
+  }
+}
+
+
+///HOVER States
+.product-card {
+  .product-card-inner {
+    @include breakpoint( large up) {
+      &:hover {
+        .product-image {
+          @include transform(translate(0, -1.7rem) scale(1.06) rotate(5deg));
+        }
+        // .product-image.secondary-image {
+        //   @include transform(translate(0, -1rem));
+        //   visibility: visible;
+        //   display: block;
+        // }
+        .card-background {
+          @include transform(scale(.9));
+          @include shadow(0 1rem 1rem rba(0,0,0,.3));
+        }
+        .product-details-wrapper {
+          @include opacity(1);
+          @include transform(translate(0,0rem) scale(1));
+        }
+      }
+    }
+  }
+}
+
+
+
+.product-card.carousel-cell {
+  @include hashtag-transition;
+  // width: 30%;
+  width: 70%;
+  margin: 3rem 1rem 0rem;
+  @include breakpoint(medium up) {
+    //width: 16rem;
+    width: 30%;
+  }
+  @include breakpoint(large up) {
+    //width: 21%;
+    max-width: 22rem;
+  }
+  @include breakpoint(xlarge up) {
+  }
+  .product-wrapper {
+    @include breakpoint(xlarge up) {
+      padding: 2.6rem;
+    }
+  }
+
+}

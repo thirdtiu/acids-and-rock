@@ -1,0 +1,141 @@
+//logo width
+$logo_bar_logo_width_small: 7.7rem;
+$logo_bar_logo_width_medium: 12rem;
+$logo_bar_logo_width_xlarge: 14rem;
+
+//logo height
+$logo_bar_logo_height_small: 1.5rem;
+$logo_bar_logo_height_medium: 2rem;
+$logo_bar_logo_height_xlarge: 2rem;
+
+//logo margin
+$logo_bar_logo_margin_small: 1rem auto 0;
+$logo_bar_logo_margin_medium: 1.7rem auto 0;
+$logo_bar_logo_margin_xlarge: 1.7rem auto 0;
+
+section.mfr-core__logo-bar {
+  position: relative;
+  .carousel-wrapper.logos {
+    .flickity-page-dots {
+      @include breakpoint( large up ) {
+        display: none;
+      }
+      .dot {
+        @include border-radius(3px);
+        @include opacity(.3);
+        margin: 0 4px;
+        width: 4rem;
+        &:after {
+          width: 4rem;
+          height: 6px;
+          background: $color-accent;
+        }
+        &.is-selected {
+          @include opacity(1);
+        }
+      }
+    }
+  }
+  .logos {
+    flex-wrap: wrap;
+    .logo {
+      padding: .5rem;
+      width: 80%;
+      @include breakpoint (large up) {
+        padding: 1rem;
+        margin: 0rem 0rem;
+        width: 30%;
+        max-width: 25rem;
+      }
+      &.has-tip {
+        border: none;
+        //cursor: url("https://cdn.shopify.com/s/files/1/2557/5148/files/heart-cursor-1x.png?v=1594679734") 30 30, auto !important;
+        cursor: pointer;
+      }
+      .inner {
+        @include border-radius(3rem);
+        padding: 1.5rem;
+        @include breakpoint (large up) {
+          padding: 2rem;
+        }
+      }
+      .image {
+        width: $logo_bar_logo_width_small;
+        height: $logo_bar_logo_height_small;
+        margin: $logo_bar_logo_margin_small;
+        @include breakpoint (medium up) {
+          width: $logo_bar_logo_width_medium;
+          height: $logo_bar_logo_height_medium;;
+          margin: $logo_bar_logo_margin_medium;
+        }
+        @include breakpoint (xlarge up) {
+          width: $logo_bar_logo_width_xlarge;
+          height: $logo_bar_logo_height_xlarge;;
+          margin: $logo_bar_logo_margin_xlarge;
+        }
+        img, svg {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .caption {
+        font-size: rem-calc(18);
+        text-align: center;
+        max-width: 20rem;
+        margin: 0 auto;
+        font-weight: 600;
+      }
+    }
+  }
+  //for large carousel text version
+  .caption-item {
+    width: 100%;
+    text-align: center;
+    font-size: rem-calc(30);
+    @include breakpoint (large up) {
+      font-size: rem-calc(80);
+    }
+    .inner {
+      width: 90%;
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+  }
+  .logo-nav {
+    margin-top: 3rem;
+    .logo {
+      @include opacity(.3);
+      @include transition(.2s all);
+      width: $logo_bar_logo_width_small;
+      height: $logo_bar_logo_height_small;
+      margin: $logo_bar_logo_margin_small;
+      @include breakpoint (medium up) {
+        width: $logo_bar_logo_width_medium;
+        height: $logo_bar_logo_height_medium;
+        margin: $logo_bar_logo_margin_medium;
+      }
+      @include breakpoint (xlarge up) {
+        width: $logo_bar_logo_width_xlarge;
+        height: $logo_bar_logo_height_xlarge;
+        margin: $logo_bar_logo_margin_xlarge;
+        &:hover {
+          @include opacity(1);
+        }
+      }
+      &.is-selected {
+        @include opacity(1);
+      }
+      .icon {
+        width: 100%;
+        height: 100%;
+      }
+      img, svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+}

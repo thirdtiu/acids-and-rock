@@ -1,0 +1,36 @@
+section.mfr-core__product-grid {
+  position: relative;
+  .layout-2-column {
+    .section-content {
+      .inner {
+        @include breakpoint (large up) {
+          padding: 0 2rem;
+        }
+      }
+    }
+  }
+  .section-content {
+    margin-bottom: 3rem;
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+  }
+
+  .product-grid-wrapper {
+    max-width: 85rem;
+    margin: 0 auto;
+    &.iso-grid {
+      height: auto !important;
+      .item-selector {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        //margin-bottom: 2rem;
+        text-align: center;
+      }
+    }
+  }
+
+
+}
