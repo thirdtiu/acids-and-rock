@@ -116,59 +116,6 @@
       anchorPlacement: 'top-bottom'
     });
 
-
-    jQuery('.lottie-callout-interested').each(function(){
-      var lottie_callout_happy = lottie.loadAnimation({
-        container: jQuery(this)[0],
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '{{ 'callout-interested.json' | asset_url }}',
-        rendererSettings: {
-          preserveAspectRatio: 'none'
-        }
-      });
-    });
-    jQuery('.lottie-callout-happy').each(function(){
-      var lottie_callout_happy = lottie.loadAnimation({
-        container: jQuery(this)[0],
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '{{ 'callout-happy.json' | asset_url }}',
-        rendererSettings: {
-          preserveAspectRatio: 'none'
-        }
-      });
-    });
-
-    jQuery('.wave-up').each(function(){
-      var waveUp = lottie.loadAnimation({
-        container: jQuery(this)[0],
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '{{ 'wave-up.json' | asset_url }}',
-        rendererSettings: {
-          preserveAspectRatio: 'none'
-        }
-      });
-    });
-    jQuery('.wave-down').each(function(){
-      var waveDown = lottie.loadAnimation({
-        container: jQuery(this)[0],
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '{{ 'wave-up.json' | asset_url }}',
-        rendererSettings: {
-          preserveAspectRatio: 'none'
-        }
-      });
-      waveDown.setSpeed(1.2);
-    });
-
-
   }
 
 

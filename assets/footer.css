@@ -92,11 +92,9 @@
   justify-content: center;
   align-items: flex-end;
   flex-direction: column;
-  width: 200px;
 }
 @media print, screen and (min-width: 64em) {
   .footer__branding {
-    flex-basis: 10%;
     width: auto;
     justify-content: flex-start;
     align-items: flex-end;
@@ -105,13 +103,12 @@
 
 .footer__logo {
   display: inline-block;
-  max-width: 6.25rem;
+  max-width: 15.625rem;
 }
 .footer__logo .image, .footer__logo svg {
   display: block;
   width: auto;
   height: auto;
-  max-height: 2.8125rem;
 }
 
 .footer__contact {
