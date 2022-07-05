@@ -99,6 +99,13 @@
       },
       {
         "type": "color",
+        "id": "color_accent_4",
+        "label": "Accent Color 4",
+        "default": "#E891B4",
+        "info": "for special accents"
+      },
+      {
+        "type": "color",
         "id": "color_body_text",
         "label": " Main text color",
         "default": "#161d25"

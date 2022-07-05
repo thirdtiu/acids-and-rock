@@ -42,8 +42,8 @@
 
 
 {% capture header_menu %}
-  <nav role="navigation" class="show-for-large">
-    <ul class="main-menu menu">
+  <nav role="navigation">
+    <ul class="main-menu vertical menu">
     {% for link in linklists[section.settings.menu].links %}
       {% assign linkname = link.title | downcase %}
       {% assign mega_menu_trigger = section.settings.mega_menu_trigger | downcase %}
@@ -176,7 +176,7 @@
           {%- endcomment -%}
           <button
             aria-label="Mobile Menu Trigger" 
-            class="mobile-menu-trigger hide-for-large"
+            class="mobile-menu-trigger hide-for-large hide"
              type="button" data-toggle="offCanvasMenu">
             <span></span>
             <span></span>

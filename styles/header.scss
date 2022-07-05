@@ -32,13 +32,14 @@ header {
   .inner {
     // @include border-radius(3rem);
     background: $header-sticky-color;
-    padding: 0.3rem 2.2rem 0.3rem 1rem;
+    // padding: 0.3rem 2.2rem 0.3rem 1rem;
+    padding: 1.875rem;
     display:flex;
     z-index: 2;
     position: relative;
     justify-content:space-between;
     @include breakpoint(large up) { 
-      padding: 1rem 2.2rem 1rem 1rem;
+      // padding: 1rem 2.2rem 1rem 1rem;
     }
   }
   &.announcement_bar_enabled {
@@ -57,26 +58,61 @@ header {
   }
 
   nav {
+    position: absolute;
+    left: 1.875rem;
+    top: 0;
+    li {
+      margin-bottom: .5rem;
+      // first element
+      &:nth-child(2n + 1) {
+        a {
+          background-color: $color-accent;
+          color: $color-body;
+        }
+      }
+      // second element
+      &:nth-child(2n + 2):not(:first-child) {
+        a {
+          background-color: $color-accent-2;
+          color: $color-body;
+        }
+      }
+      // third element
+      &:nth-child(4n - 1) {
+        a {
+          background-color: $color-accent-3;
+          color: $color-body;
+        }
+      }
+      // fourth element
+      &:nth-child(4n + 4) {
+        a {
+          background-color: $color-accent-4 !important;
+          color: $color-body;
+        }
+      }
+    }
     li > a {
       @include transition(0s all);
-      @include border-radius(1rem);
       color: $header-menu-font-color;
       font-family: $font-menu;
       letter-spacing: $font-menu-spacing;
-      font-weight: $font-menu-weight;
+      text-decoration: none;
+      // font-weight: $font-menu-weight;
       font-size: $font-menu-size;
       position:relative;
-      border-bottom: 2px solid transparent;
-      &:after {
-        @include transition(.2s all $smooth_ease);
-        width: 0;
-        content: "";
-        position: absolute;
-        bottom: 0.2rem;
-        left: 1rem;
-        height: 2px;
-        background: $header-menu-font-color;
-      }
+      // border-bottom: 2px solid transparent;
+      background: red;
+      // &:after {
+      //   @include transition(.2s all $smooth_ease);
+      //   width: 0;
+      //   content: "";
+      //   position: absolute;
+      //   bottom: 0.2rem;
+      //   left: 1rem;
+      //   height: 2px;
+      //   background: $header-menu-font-color;
+      // }
       @include breakpoint (large up) {
         &:hover {
           //background: $header-menu-bg-color-hover;
@@ -90,13 +126,13 @@ header {
         position: relative;
         //border-bottom: 2px solid $theme-color-black;
         &:after {
-          content: "";
-          width: calc(100% - 2rem);
-          position: absolute;
-          bottom: 0.2rem;
-          left: 1rem;
-          height: 2px;
-          background: $header-menu-font-color;
+          // content: "";
+          // width: calc(100% - 2rem);
+          // position: absolute;
+          // bottom: 0.2rem;
+          // left: 1rem;
+          // height: 2px;
+          // background: $header-menu-font-color;
         }
       }
     }
