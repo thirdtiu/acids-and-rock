@@ -26,6 +26,10 @@
     //     }, 300 );
     //   }    
     // });
+    // redirect cart page 
+    if (location.href.match(/cart/) || location.href.match(/collections/) || location.href.match(/product/)) {
+      window.location.replace("/");
+    }
 
 
     $(window).scroll(function() {

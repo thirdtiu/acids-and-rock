@@ -1,15 +1,17 @@
 <script src="{{ 'jquery-3.5.1.min.js' | asset_url }}" rel="dns-prefetch"></script>
-<script src="{{ 'rivets-cart.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'foundation.min.js' | asset_url }}" rel="dns-prefetch" defer="defer"></script>
 <script src="{{ 'flickity.pkgd.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'aos.js' | asset_url }}" defer="defer"></script>
+
+{%- comment -%}
+<script src="{{ 'rivets-cart.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'bodymovin.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'lottie.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'aos.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'option_selection.js' | asset_url }}" async="async" defer="defer"></script>
 <script src="{{ 'jquery.zoom.min.js' | asset_url }}" async="async" defer="defer"></script>
 <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
 
-{%- comment -%}
+
 <script src="{{ 'flickity-sync.js' | asset_url }}" defer="defer"></script>
 
 {% if template contains 'product' %}
@@ -18,18 +20,10 @@
 
 {%- endcomment -%}
 
-{%- comment -%}YOTPO{%- endcomment -%}
+{%- comment -%}YOTPO
 <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/Hsqm8A3bYsB4BkkX9nhnkHDuh0xdW6wlQsgWocQP/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
+{%- endcomment -%}
 
-{%- comment -%}Klaviyo legacy popup{%- endcomment -%}
-<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
-<script type="text/javascript">
-  KlaviyoSubscribe.attachToModalForm('#k_id_modal', {
-    ignore_cookie: false,
-    success: function($form) {
-      $form.find('.hide_on_submit').hide();
-      $('.klaviyo_modal .success_message').removeClass('hide');
-    }
-  });
+
 
 </script>

@@ -104,7 +104,11 @@ ul {
 //   }
 // }
 
-
+#MainContent {
+  > .right-content-section {
+    // border: 1px solid red;
+  }
+}
 
 /* Grid Container
 =============================

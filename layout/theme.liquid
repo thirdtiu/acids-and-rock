@@ -92,7 +92,7 @@
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
-
+    {% comment %}
     <div class="offcanvas-menu off-canvas position-left" id="offCanvasMenu" data-off-canvas data-transition="overlap">
       <div class="offcanvas-menu__wrapper" data-aos="fade-in">
         {% section 'offcanvas-menu' %}
@@ -118,18 +118,17 @@
     </div>
 
     {% section 'klaviyo-popup' %}
+    {% endcomment %}
 
     <div class="off-canvas-content" id="page-{{ page.handle }}" data-off-canvas-content  data-section-type="header" data-sticky-container>
       {% section 'header' %}
       <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-        {{ content_for_layout }}
+        <div class="right-content-section">
+          {{ content_for_layout }}
+        </div>
      </main>
      
-    {% unless template.name == 'login' or
-      template.name == 'register' or
-      template.name == 'activate_account' %}
-      {% section 'footer' %}
-    {% endunless %}
+    {% section 'footer' %}
   
     </div>
 

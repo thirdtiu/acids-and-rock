@@ -13,7 +13,8 @@ $logo_width_large_sticky: rem-calc( 100px );
 .sticky-container { width:100%; position:absolute; }
 
 header.is-stuck {
-  background-color: white;
+  // background-color: white;
+  background-color: transparent;
 }
 
 header {

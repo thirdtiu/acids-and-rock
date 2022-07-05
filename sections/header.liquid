@@ -119,10 +119,10 @@
 {% assign header_layout = section.settings.header_layout %}
 {% case header_layout %}
 
-  {% when 'logo_centered_layout' %}
-    {% assign header_center = header_logo %}
+  {% when 'logo_right_layout' %}
+    {% assign header_center = '' %}
     {% assign header_left = header_menu  %}
-    {% assign header_right = header_menu_right %}
+    {% assign header_right = header_logo %}
 
   {% when 'logo_left_layout' %}
   {% assign header_center = header_menu  %}
@@ -134,8 +134,11 @@
 
 
 <section data-section-id="{{ section.id }}" data-section-type="header">
+  {% assign sticky_bar_class = "" %}
+  {% comment %}
   {{ annoucement_bar }}
-   
+  {% endcomment %}
+   {% comment %}
     {% if template.suffix == 'our-approach' or 
         template.suffix == 'spirulina-101' or
         template.name == 'login' or
@@ -144,6 +147,7 @@
         and template.suffix != 'faq' %} 
       {% assign sticky_bar_class = "bar" %}
     {% endif %}
+    {% endcomment %}
     
     <header role="banner" class="{{ sticky_bar_class }} {%- if section.settings.announcement_bar_enabled -%}announcement_bar_enabled {% endif %}" data-sticky  data-sticky-on="small" data-margin-top="0">
 
@@ -210,7 +214,7 @@
           {% endif %}
         {% endif %}
 
-        <div class="cart" data-open="offCanvasCart" data-cart-view="data-cart-view">
+        <div class="cart hide" data-open="offCanvasCart" data-cart-view="data-cart-view">
           {%- if section.settings.show_cart_icon -%}
           <div class="cart-icon">
             {{ section.settings.cart_icon_svg }}
@@ -274,7 +278,7 @@
          "type": "select",
          "id": "header_layout",
          "options": [
-            { "value": "logo_centered_layout", "label": "Logo Centered Layout"},
+            { "value": "logo_right_layout", "label": "Logo Right Layout"},
             { "value": "logo_left_layout", "label": "Logo Left Layout"}
          ],
          "label": "Logo Position",

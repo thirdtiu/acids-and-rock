@@ -15,29 +15,30 @@
 .footer {
   color: var( --color-white );
   background-color: var( --color-primary );
-  padding-left: rem-calc( 20px );
-  padding-right: rem-calc( 20px );
+  padding: 1.875rem;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
   
-  @include breakpoint( large up ) {
-    padding-left: rem-calc( 55px );
-    padding-right: rem-calc( 55px );
-  }
 
   &__wrapper {
-    padding-top: rem-calc( 35px );
-    padding-bottom: rem-calc( 35px );
+    // padding-top: rem-calc( 35px );
+    // padding-bottom: rem-calc( 35px );
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
   }
 
   &__branding {
-    margin-bottom: rem-calc( 55px );
+    // margin-bottom: rem-calc( 55px );
     flex-basis: unset;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
     width: 200px;
     
@@ -45,7 +46,7 @@
       flex-basis: 10%;
       width: auto;
       justify-content: flex-start;
-      align-items: flex-start;
+      align-items: flex-end;
     }
 
 
@@ -55,7 +56,7 @@
 .footer__logo {
   display: inline-block;
   max-width: rem-calc( 100px );
-  margin-bottom: rem-calc( 30px );
+  // margin-bottom: rem-calc( 30px );
 
   .image, svg {
     display: block;
@@ -72,6 +73,8 @@
   font-family: $font-family-gellix;
   line-height: rem-calc( 38px );
   position:relative;
+  width: 3.25rem;
+  height: 3.25rem;
 
   &:active,
   &:focus {

@@ -7,7 +7,7 @@
       "uuidString" : "615C131A-83FC-4A9E-8858-5387A02F9712"
     }
   ],
-  "creatorBuild" : "34335",
+  "creatorBuild" : "34365",
   "files" : {
     "\/.gitattributes" : {
       "cB" : 0,
@@ -1752,14 +1752,6 @@
       "oAP" : "\/sections\/klaviyo-popup.liquid",
       "oF" : 0
     },
-    "\/sections\/lactation-single.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/sections\/lactation-single.liquid",
-      "oF" : 0
-    },
     "\/sections\/login.liquid" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2208,30 +2200,6 @@
       "oAP" : "\/snippets\/article-card.liquid",
       "oF" : 0
     },
-    "\/snippets\/bottle.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/bottle.liquid",
-      "oF" : 0
-    },
-    "\/snippets\/callout-sample-happy.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/callout-sample-happy.liquid",
-      "oF" : 0
-    },
-    "\/snippets\/callout-sample-interested.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/callout-sample-interested.liquid",
-      "oF" : 0
-    },
     "\/snippets\/cart-form.liquid" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2528,14 +2496,6 @@
       "oAP" : "\/snippets\/custom-js.liquid",
       "oF" : 0
     },
-    "\/snippets\/favicon-animation.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/favicon-animation.liquid",
-      "oF" : 0
-    },
     "\/snippets\/foundation-min.liquid" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2558,14 +2518,6 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/snippets\/globo.formbuilder.scripts.liquid",
-      "oF" : 0
-    },
-    "\/snippets\/hydration-icon.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/hydration-icon.liquid",
       "oF" : 0
     },
     "\/snippets\/icon__5-stars.liquid" : {
@@ -2928,14 +2880,6 @@
       "oAP" : "\/snippets\/lactation-card.liquid",
       "oF" : 0
     },
-    "\/snippets\/maade__icon-squiggle-arrow.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/maade__icon-squiggle-arrow.liquid",
-      "oF" : 0
-    },
     "\/snippets\/meta-tags.liquid" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2950,14 +2894,6 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/snippets\/mfr-product__content-carousel.liquid",
-      "oF" : 0
-    },
-    "\/snippets\/orichi_multi_pixel.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/orichi_multi_pixel.liquid",
       "oF" : 0
     },
     "\/snippets\/pagination.liquid" : {
@@ -3016,46 +2952,6 @@
       "oAP" : "\/snippets\/partial__text-grid-block.liquid",
       "oF" : 0
     },
-    "\/snippets\/phyllup__cart-callout.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/phyllup__cart-callout.liquid",
-      "oF" : 0
-    },
-    "\/snippets\/phyllup-onetime.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/phyllup-onetime.liquid",
-      "oF" : 0
-    },
-    "\/snippets\/phyllup-subscription.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/phyllup-subscription.liquid",
-      "oF" : 0
-    },
-    "\/snippets\/portal-background.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/portal-background.liquid",
-      "oF" : 0
-    },
-    "\/snippets\/portal-foreground.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/portal-foreground.liquid",
-      "oF" : 0
-    },
     "\/snippets\/price.liquid" : {
       "cB" : 0,
       "ft" : 8192,
@@ -3102,14 +2998,6 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/snippets\/script-tags.liquid",
-      "oF" : 0
-    },
-    "\/snippets\/sparkle-icon.liquid" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/snippets\/sparkle-icon.liquid",
       "oF" : 0
     },
     "\/snippets\/video-mask.liquid" : {
@@ -3726,8 +3614,8 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/styles\/footer.css",
-      "oF" : 0,
+      "oAP" : "\/assets\/footer.css",
+      "oF" : 2,
       "oS" : 0,
       "pg" : 0,
       "sct" : 0
@@ -5027,7 +4915,7 @@
   },
   "projectAttributes" : {
     "creationDate" : 649722769.764642,
-    "displayValue" : "liina",
+    "displayValue" : "rocks-and-acids-tmp",
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "brackets-slime",
     "iconImageWasSetByUser" : 0
@@ -5380,10 +5268,6 @@
         "active" : 0,
         "optionString" : "'1tbs', {'allowSingleLine': true}"
       },
-      "callback-return" : {
-        "active" : 0,
-        "optionString" : "['callback', 'cb', 'next']"
-      },
       "camelcase" : {
         "active" : 0,
         "optionString" : "{'properties': 'always', 'ignoreDestructuring': false, 'ignoreImports': false}"
@@ -5475,6 +5359,10 @@
         "active" : 0,
         "optionString" : "'expression'"
       },
+      "function-call-argument-newline" : {
+        "active" : 0,
+        "optionString" : "'always'"
+      },
       "function-paren-newline" : {
         "active" : 0,
         "optionString" : "'multiline'"
@@ -5487,9 +5375,6 @@
         "active" : 0,
         "optionString" : "{'allowImplicit': false}"
       },
-      "global-require" : {
-        "active" : 0
-      },
       "grouped-accessor-pairs" : {
         "active" : 0,
         "optionString" : "'anyOrder'"
@@ -5497,11 +5382,7 @@
       "guard-for-in" : {
         "active" : 0
       },
-      "handle-callback-err" : {
-        "active" : 0,
-        "optionString" : "'err'"
-      },
-      "id-blacklist" : {
+      "id-denylist" : {
         "active" : 0,
         "optionString" : "'data', 'err', 'e', 'cb', 'callback'"
       },
@@ -5625,9 +5506,6 @@
         "active" : 0,
         "optionString" : "{'allow': ['~'], 'int32Hint': true}"
       },
-      "no-buffer-constructor" : {
-        "active" : 0
-      },
       "no-caller" : {
         "active" : 0
       },
@@ -5654,6 +5532,9 @@
       },
       "no-const-assign" : {
         "active" : 1
+      },
+      "no-constant-binary-expression" : {
+        "active" : 0
       },
       "no-constant-condition" : {
         "active" : 1,
@@ -5687,6 +5568,9 @@
         "active" : 1
       },
       "no-dupe-keys" : {
+        "active" : 1
+      },
+      "no-duplicate-case" : {
         "active" : 1
       },
       "no-duplicate-imports" : {
@@ -5730,7 +5614,7 @@
       "no-extra-boolean-cast" : {
         "active" : 1
       },
-      "no-extra-labels" : {
+      "no-extra-label" : {
         "active" : 0
       },
       "no-extra-parens" : {
@@ -5818,10 +5702,6 @@
         "active" : 0,
         "optionString" : "{'groups': [['+', '-', '*', '\/', '%', '**'], ['&', '|', '^', '~', '<<', '>>', '>>>'], ['==', '!=', '===', '!==', '>', '>=', '<', '<='], ['&&', '||'], ['in', 'instanceof']], 'allowSamePrecedence': true}"
       },
-      "no-mixed-requires" : {
-        "active" : 0,
-        "optionString" : "{'grouping': false, 'allowCall': false }"
-      },
       "no-mixed-spaces-and-tabs" : {
         "active" : 0,
         "optionString" : ""
@@ -5856,9 +5736,6 @@
       "no-new-object" : {
         "active" : 0
       },
-      "no-new-require" : {
-        "active" : 0
-      },
       "no-new-symbol" : {
         "active" : 1
       },
@@ -5881,18 +5758,9 @@
         "active" : 0,
         "optionString" : "{'props': false}"
       },
-      "no-path-concat" : {
-        "active" : 0
-      },
       "no-plusplus" : {
         "active" : 0,
         "optionString" : "{'allowForLoopAfterthoughts': false}"
-      },
-      "no-process-env" : {
-        "active" : 0
-      },
-      "no-process-exit" : {
-        "active" : 0
       },
       "no-promise-executor-return" : {
         "active" : 0
@@ -5920,10 +5788,6 @@
       },
       "no-restricted-imports" : {
         "active" : 0
-      },
-      "no-restricted-modules" : {
-        "active" : 0,
-        "optionString" : ""
       },
       "no-restricted-properties" : {
         "active" : 0,
@@ -5966,10 +5830,6 @@
       },
       "no-sparse-arrays" : {
         "active" : 1
-      },
-      "no-sync" : {
-        "active" : 0,
-        "optionString" : "{'allowAtRootLevel': false}"
       },
       "no-tabs" : {
         "active" : 0,
@@ -6202,10 +6062,6 @@
       "require-await" : {
         "active" : 0
       },
-      "require-jsdoc" : {
-        "active" : 0,
-        "optionString" : "{'require': {'FunctionDeclaration': true, 'MethodDefinition': false, 'ClassDeclaration': false, 'ArrowFunctionExpression': false}}"
-      },
       "require-unicode-regexp" : {
         "active" : 0
       },
@@ -6290,10 +6146,6 @@
       "use-isnan" : {
         "active" : 1,
         "optionString" : "{'enforceForSwitchCase': true, 'enforceForIndexOf': false}"
-      },
-      "valid-jsdoc" : {
-        "active" : 0,
-        "optionString" : "{'prefer': {'return': 'returns'}, 'requireReturn': true, 'requireReturnDescription': true, 'requireReturnType': true, 'requireParamDescription': true}"
       },
       "valid-typeof" : {
         "active" : 1,
@@ -6795,6 +6647,10 @@
         "active" : 0,
         "flagValue" : -1
       },
+      "keep_numbers" : {
+        "active" : 0,
+        "flagValue" : -1
+      },
       "keep_quoted_props" : {
         "active" : 0,
         "flagValue" : -1
@@ -6818,6 +6674,10 @@
       "passes" : {
         "active" : 1,
         "flagValue" : 1
+      },
+      "preserve_annotations" : {
+        "active" : 0,
+        "flagValue" : -1
       },
       "properties" : {
         "active" : 1,
@@ -6921,6 +6781,10 @@
       },
       "webkit" : {
         "active" : 0,
+        "flagValue" : -1
+      },
+      "wrap_func_args" : {
+        "active" : 1,
         "flagValue" : -1
       },
       "wrap_iife" : {

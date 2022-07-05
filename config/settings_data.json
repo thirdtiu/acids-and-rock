@@ -111,7 +111,9 @@
     "tertiary_button_hover_text": "#ffffff",
     "tertiary_button_hover_bg": "#197fbf",
     "tertiary_border_color_hover": "#83dfff",
-    "carousel_banner_height_large": "90vh",
+    "carousel_banner_height_small": "100vh",
+    "carousel_banner_height_medium": "100vh",
+    "carousel_banner_height_large": "100vh",
     "social_facebook_link": "https:\/\/facebook.com\/",
     "social_instagram_link": "https:\/\/instagram.com\/",
     "favicon": "shopify:\/\/shop_images\/maade-logomark-small.png",
@@ -187,14 +189,13 @@
           "announcement_bar_home_page_only": false,
           "announcement_bar_text": "+ Subscribe and Save for Free Shipping +",
           "announcement_bar_link": "",
-          "header_layout": "logo_centered_layout",
-          "logo": "shopify:\/\/shop_images\/Liina_Logo_Blue.png",
-          "logo_alternate": "shopify:\/\/shop_images\/Logo-1.png",
+          "header_layout": "logo_right_layout",
+          "logo": "shopify:\/\/shop_images\/logo2.png",
           "logo_svg": "",
           "logo_max_width": 190,
-          "menu": "mfr-left-menu",
-          "menu_right": "mfr-right-menu",
-          "show_right_cta": true,
+          "menu": "",
+          "menu_right": "",
+          "show_right_cta": false,
           "right_cta_text": "",
           "right_cta_icon": "<svg width=\"25\" height=\"26\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><g fill=\"#FFF\" fill-rule=\"nonzero\"><circle cx=\"12.5\" cy=\"6.5\" r=\"6.5\"><\/circle><path d=\"M25 22.928C25 17.445 19.404 13 12.5 13S0 17.445 0 22.928c0 4.096 25 4.096 25 0Z\"><\/path><\/g><\/svg>",
           "right_cta_link": "",
@@ -207,35 +208,14 @@
       },
       "footer": {
         "type": "footer",
-        "blocks": {
-          "4488036f-39ec-460f-b4d8-8f4ae4a821c2": {
-            "type": "footer_main_nav",
-            "settings": {
-              "footer_linklist": "mfr-footer-menu"
-            }
-          },
-          "d39fb1ac-8672-4085-aee6-d6ee7fe3eb35": {
-            "type": "footer_form",
-            "settings": {
-              "title": "Stay In Loop",
-              "body": "Sign up for 15% off first order",
-              "embed_code": ""
-            }
-          }
-        },
-        "block_order": [
-          "4488036f-39ec-460f-b4d8-8f4ae4a821c2",
-          "d39fb1ac-8672-4085-aee6-d6ee7fe3eb35"
-        ],
         "settings": {
-          "logo": "shopify:\/\/shop_images\/liina-logo.png",
+          "logo": "shopify:\/\/shop_images\/logo.png",
           "logo_code": "",
-          "contact_email": "hello@liveliina.com",
-          "contact_phone": "",
-          "legal_links": "mfr-policies",
+          "contact_phone": "00000000",
+          "phone_icon": "shopify:\/\/shop_images\/call.png",
+          "legal_links": "",
           "legal_copyright": "2021 LIINA LLC | SITE BY MANUFACTUR",
           "show_socials": false,
-          "socials_graphic_code": "",
           "bg_color_1": "",
           "bg_color_2": "",
           "bg_color_3": "",
