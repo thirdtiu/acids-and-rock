@@ -4897,6 +4897,14 @@
       "oO" : 0,
       "oS" : 1
     },
+    "\/templates\/page.subscriptions.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/templates\/page.subscriptions-min.json",
+      "oF" : 0,
+      "oO" : 0,
+      "oS" : 1
+    },
     "\/templates\/page.wholesale.json" : {
       "ft" : 524288,
       "oA" : 1,
