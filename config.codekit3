@@ -1952,6 +1952,14 @@
       "oAP" : "\/sections\/mfr-core__image-banner.liquid",
       "oF" : 0
     },
+    "\/sections\/mfr-core__image-carousel.liquid" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/sections\/mfr-core__image-carousel.liquid",
+      "oF" : 0
+    },
     "\/sections\/mfr-core__image-section.liquid" : {
       "cB" : 0,
       "ft" : 8192,
@@ -3942,6 +3950,21 @@
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/styles\/sections\/mfr-core__featured-product.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/styles\/sections\/mfr-core__image-carousel.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/styles\/sections\/mfr-core__image-carousel.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,

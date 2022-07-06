@@ -1,0 +1,627 @@
+{%- comment -%}
+--------------------------------------
+assign section settings to variables
+--------------------------------------
+{%- endcomment -%}
+
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+
+{% if section.settings.is_full_width %}
+  {% assign is_full_width = "full" %}
+{% else %}
+  {% assign is_full_width = "" %}
+{% endif %}
+
+{% if section.settings.color_theme %}
+  {% assign text_color = section.settings.color_theme %}
+{% else %}
+  {% assign text_color = "" %}
+{% endif %}
+
+{% if section.settings.image_sizing %}
+  {% assign image_sizing = section.settings.image_sizing %}
+{% else %}
+  {% assign image_sizing = "" %}
+{% endif %}
+
+{% if section.settings.add_mobile_right_buffer %}
+  {% assign add_mobile_right_buffer = 'add-right-buffer' %}
+{% else %}
+  {% assign add_mobile_right_buffer = "" %}
+{% endif %}
+
+
+
+{% if section.settings.text_side_desktop == "left" %}
+  {% assign text_cell_order = "medium-order-1 " %}
+  {% assign image_cell_order = "medium-order-2" %}
+{% else %}
+  {% assign text_cell_order = "medium-order-2" %}
+  {% assign image_cell_order = "medium-order-1" %}
+{% endif %}
+
+
+{% if section.settings.text_side_mobile == "first" %}
+  {% assign image_section_margin = "margin-top" %}
+{% else %}
+  {% assign image_section_margin = "margin-bottom" %}
+{% endif %}
+
+
+{% if section.settings.is_symmetrical %}
+  {% assign text_cell_classes = "medium-6" %}
+  {% assign image_cell_classes = "medium-6" %}
+{% else %}
+  {% assign text_cell_classes = "medium-5 large-5" %}
+  {% assign image_cell_classes = "medium-7 large-7" %}
+{% endif %}
+
+{% assign carousel_class = "" %}
+
+{% if section.settings.text_side_desktop == "top" %}
+  {% assign text_cell_classes = "medium-12" %}
+  {% assign image_cell_classes = "medium-12" %}
+  {% assign text_cell_order = "medium-order-1" %}
+  {% assign image_cell_order = "medium-order-2" %}
+  {% assign carousel_class = "full-span-carousel" %}
+{% endif %}
+
+
+{% assign page_animation = "data-aos='fade-up' data-aos-easing='ease-in-quart'" %}
+
+
+{% if section.settings.is_centered %}
+  {% assign text_alignment = "text-center" %}
+  {% assign content_alignment = "align-center" %}
+{% else %}
+  {% assign text_alignment = "" %}
+  {% assign content_alignment = "" %}
+{% endif %}
+
+
+
+
+{%- comment -%}
+--------------------------------------
+capture elements for ease of placement
+--------------------------------------
+{%- endcomment -%}
+
+{%- capture section_content -%}
+  <div class="cell small-11 section-content {{ text_alignment }} {{ text_cell_classes }} {{ text_cell_order }} {{ text_color }} {{ offset_title }} {{ no_wrap }}">
+    <div class="inner {{ text_alignment }}">         
+      {%- for block in section.blocks -%}
+        {% case block.type %}
+          
+          {%- when 'icon' -%}
+            {% render 'component__section-icon', icon: block.settings.icon, icon_width: block.settings.icon_width, svg_code: block.settings.svg_code %} 
+        
+          {%- when 'small_text' -%}
+            <div class="small-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          
+          {%- when 'heading' -%}
+            {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style, text_size: block.settings.make_large %}
+          
+          {%- when 'text' -%}
+            <div class="section-text {{ block.settings.text_style }}" {{ block.shopify_attributes }} {{ page_animation }}>{{ block.settings.text }}</div>
+        
+        {%- endcase -%}
+      {%- endfor -%}
+
+      <div class="button-set {{ content_alignment }}">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {%- when 'button' -%}
+              {%- include 'component__button', 
+                button_link: block.settings.button_link, 
+                button_style: block.settings.button_style, 
+                button_color: block.settings.button_color, 
+                button_has_arrow: block.settings.button_has_arrow, 
+                button_label: block.settings.button_label 
+              -%}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- endcapture -%}
+{% comment %}
+{% style %}
+.carousel-wrapper.small-carousel.{{ section.id }}:before {
+  background: -moz-linear-gradient(90deg, {{ section.settings.bg_color_1 }}, {{ section.settings.bg_color_1 | color_modify: 'alpha', 0}} 100%);
+  background: -webkit-linear-gradient(90deg, {{ section.settings.bg_color_1 }}, {{ section.settings.bg_color_1 | color_modify: 'alpha', 0}} 100%);
+  background: linear-gradient(90deg, {{ section.settings.bg_color_1 }}, {{ section.settings.bg_color_1 | color_modify: 'alpha', 0}} 100%);
+}
+{% endstyle %}
+{% endcomment %}
+
+{%- assign carousel_items = section.blocks | where: "type", "image" -%}
+{% capture section_media %}
+  <div class="cell small-12 section-image {{ image_section_margin }} {{ image_cell_order }} {{ image_cell_classes }} {{ image_sizing }}">
+  <div class="carousel-wrapper {{ carousel_class }} {{ add_mobile_right_buffer }} {{ section.id }} {{ section.settings.carousel_type }}">
+    {% for block in carousel_items %}
+      <div class="carousel-cell block-{{ forloop.index }} {{ text_color }}" data-aos="fade-up" data-aos-delay="{{ forloop.index }}00">
+        <div class="inner">
+
+          
+          {%- style -%}
+            .carousel-cell.block-{{ forloop.index }} .inner {
+              background: {{ block.settings.bg_color_1 }};
+              background: -moz-linear-gradient(0, {{ block.settings.bg_color_1 }}, {{ block.settings.bg_color_2 }} 100%) !important;
+              background: -webkit-linear-gradient(0, {{ block.settings.bg_color_1 }}, {{ block.settings.bg_color_2 }} 100%) !important;
+              background: linear-gradient(0, {{ block.settings.bg_color_1 }}, {{ block.settings.bg_color_2 }} 100%) !important;
+            }
+          {%- endstyle -%}
+
+          
+          {% if block.settings.image != "" and block.settings.svg_code == blank %}
+            <div class="image {{ block.settings.image_size }}">
+              {% render 'component__responsive-image', image: block.settings.image %}
+            </div>
+          {% elsif block.settings.svg_code != blank %}
+            <div class="icon image {{ block.settings.image_size }}" data-aos>{{ block.settings.svg_code }}</div>
+          {% endif %}
+
+          {% if block.settings.text %}
+            <p class="small caption">{{ block.settings.text }}</p>
+          {% endif %}
+
+          {% if block.settings.details %}
+            <p class="details">{{ block.settings.details }}</p>
+          {% endif %}
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  </div>
+{% endcapture %}
+
+
+
+
+
+{%- comment -%}
+--------------------------------------
+Section Layout
+--------------------------------------
+{%- endcomment -%}
+<section class="mfr-core__image-carousel background">
+
+  <div class="grid-container {{ is_full_width }} {{ top_spacing }} {{ bottom_spacing }}">
+    <div class="grid-x align-center">
+
+      {% case section.settings.text_side_mobile %}
+        {% when 'first' %}
+          {{ section_content }}
+          {{ section_media }}
+        {% when 'second' %}
+          {{ section_media }}
+          {{ section_content }}
+        {% else %}     
+      {% endcase %}
+
+
+    </div>
+  </div>
+
+
+  {% render 'component__section-dividers' %}
+  {% render 'component__gradient-bg-styles' %}
+
+
+  <script type="text/javascript">
+    function text_carousel() {
+      var $carousel = $('.carousel-wrapper').flickity({
+        selectedAttraction: 0.1,
+        friction: 0.55,
+        prevNextButtons: true,
+        contain: false,
+        groupCells: '90%',
+        cellAlign: 'center',
+        imagesLoaded: true,
+        lazyLoad: false,
+        pageDots: false,
+        draggable: '>1',
+        initialIndex: 0,
+        wrapAround: false,
+        arrowShape: 'M32.1563 16.5312L0.906254 47.7813C0.324219 48.3668 -0.00247342 49.1588 -0.00247339 49.9844C-0.00247335 50.81 0.32422 51.602 0.906254 52.1875L32.1563 83.4375L36.5625 79.0312L10.6563 53.125L100 53.125L100 46.875L10.6563 46.875L36.5625 20.9687L32.1563 16.5312Z'
+      });
+    }
+    jQuery(function(){
+      text_carousel();
+    });
+    
+    document.addEventListener("shopify:section:load", function(event) {
+      text_carousel();
+    });
+  </script>
+
+</section>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Carousel / Text",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout Settings"
+      },
+      {
+        "type": "select",
+        "id": "carousel_type",
+        "options": [
+           { "value": "small-carousel", "label": "Small Carousel" },
+           { "value": "large-carousel", "label": "Large Carousel" }
+        ],
+        "label": "Carousel Type",
+        "default": "small-carousel",
+        "info": "shows multiple images or just one at time"
+      },
+      {
+        "type": "checkbox",
+        "id": "add_mobile_right_buffer",
+        "default": false,
+        "label": "Add right buffer on mobile"
+      },
+      {
+        "type": "select",
+        "id": "text_side_desktop",
+        "options": [
+           { "value": "left", "label": "Text Left" },
+           { "value": "right", "label": "Text Right" },
+           { "value": "top", "label": "Text Top" }
+        ],
+        "label": "Desktop Layout",
+        "default": "left"
+      },
+      {
+        "type": "select",
+        "id": "text_side_mobile",
+        "options": [
+           { "value": "first", "label": "Text Top" },
+           { "value": "second", "label": "Text Bottom" }
+        ],
+        "label": "Mobile Layout",
+        "default": "second"
+      },
+      {
+        "type": "select",
+        "id": "image_sizing",
+        "options": [
+           { "value": "cover", "label": "Fill Space" },
+           { "value": "contain", "label": "Contain Size" }
+        ],
+        "label": "Image Sizing",
+        "default": "contain"
+      },
+      {
+        "type": "header",
+        "content": "Content Settings"
+      },
+      {
+        "type": "select",
+        "id": "color_theme",
+        "options": [
+            { "value": "color_theme__dark", "label": "Dark Theme" },
+            { "value": "color_theme__light", "label": "Light Theme" },
+            { "value": "color_theme__theme_1", "label": "Color Theme 1" },
+            { "value": "color_theme__theme_2", "label": "Color Theme 2" }
+            ],
+        "label": "Color Theme",
+        "default": "color_theme__dark"
+      },
+      {
+       "type": "checkbox",
+       "id": "is_full_width",
+       "default": true,
+       "label": "Full Width"
+      },
+      {
+       "type": "checkbox",
+       "id": "is_centered",
+       "default": false,
+       "label": "Center Text"
+      },
+      {
+       "type": "checkbox",
+       "id": "is_symmetrical",
+       "default": true,
+       "label": "Make Symmetrical"
+      },
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None" },
+            { "value": "section_spacing_small_bottom", "label": "Small" },
+            { "value": "section_spacing_medium_bottom", "label": "Medium" },
+            { "value": "section_spacing_large_bottom", "label": "Large" },
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large" }
+         ],
+         "label": "Bottom spacing"
+      },
+      {
+        "type":"header",
+        "content":"Background"
+      },
+      {
+        "type": "color_background",
+        "id": "bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Dividers"
+      },
+      {
+        "type": "image_picker",
+        "id": "section_divider_image",
+        "label": "Bottom divider image",
+        "info" : "will appear fullwidth at bottom of section"
+      },
+      {
+        "type": "select",
+        "id": "top_divider",
+        "options": [
+            { "value": "none", "label": "None"},
+            { "value": "animated", "label": "Show Animated Divider"},
+            { "value": "curved", "label": "Show Curved Divider"}
+            ],
+        "label": "Top Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_top_color",
+        "label": "Top divider color"
+      },
+      {
+        "type": "select",
+        "id": "bottom_divider",
+        "options": [
+            { "value": "none", "label": "None"},
+            { "value": "animated", "label": "Show Animated Divider"},
+            { "value": "curved", "label": "Show Curved Divider"}
+            ],
+        "label": "Bottom Divider",
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "svg_divider_bottom_color",
+        "label": "Bottom divider color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "icon", 
+        "name": "Icon",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "range",
+            "id": "icon_width",
+            "min": 20,
+            "max": 400,
+            "step": 10,
+            "unit": "px",
+            "label": "Image width",
+            "default": 150
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Icon SVG Code",
+            "info":"Paste SVG code for vector icon"
+          }
+        ]
+      },
+      {
+        "type": "small_text",
+        "name": "Small Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "default": "Small Text",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "name": "Heading",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "heading",
+            "default": "<p>Heading H1</p>",
+            "label": "Heading H1"
+          },
+          {
+            "type": "select",
+            "id": "header_style",
+            "options": [
+                { "value": "h1", "label": "H1" },
+                { "value": "h2", "label": "H2" },
+                { "value": "h3", "label": "H3" }
+                ],
+            "label": "Header Style",
+            "default": "h1"
+          },
+          {
+            "type": "checkbox",
+            "id": "make_large",
+            "label": "Make extra large",
+            "info" : "only applies to H1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.</p>",
+            "label": "Text"
+          },
+          {
+            "type": "select",
+            "id": "text_style",
+            "options": [
+                { "value": "small", "label": "Small" },
+                { "value": "regular", "label": "Regular" },
+                { "value": "large", "label": "Large" }
+                ],
+            "label": "Text Style",
+            "default": "regular"
+          }
+        ]
+      },
+      {
+        "type": "button",
+        "name": "Button",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "button_label",
+            "default": "Button label",
+            "label": "Button",
+            "info": "Leave the label blank to hide the button."
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+          },
+          {
+              "type": "select",
+              "id": "button_style",
+              "options": [
+                  { "value": "primary", "label": "Primary" },
+                  { "value": "secondary", "label": "Secondary" },
+                  { "value": "tertiary", "label": "Tertiary" }
+                  ],
+              "label": "Button Style",
+              "default": "primary"
+          },
+          {
+            "type": "select",
+            "id": "button_color",
+            "options": [
+                { "value": "color-accent-1", "label": "Color 1"},
+                { "value": "color-accent-2", "label": "Color 2"},
+                { "value": "color-accent-3", "label": "Color 3"},
+                { "value": "black", "label": "Black"},
+                { "value": "outline", "label": "Outline"}
+                ],
+            "label": "Button Color",
+            "default": "outline"
+          }
+        ]
+      },
+      {
+        "type": "image", 
+        "name": "Image Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "select",
+            "id": "image_size",
+            "options": [
+                { "value": "cover", "label": "Cover"},
+                { "value": "contain", "label": "Contain"}
+                ],
+            "label": "Image Size",
+            "default": "cover"
+          },
+          {
+            "type":"html",
+            "id":"svg_code",
+            "label":"Icon SVG Code",
+            "info":"Paste SVG code for vector icon"
+          },
+          {
+            "type":"text",
+            "id":"text",
+            "label":"Caption",
+            "info":"optional"
+          },
+          {
+            "type": "textarea",
+            "id": "details",
+            "label": "Details"
+          },
+          {
+            "type":"color",
+            "id":"bg_color_1",
+            "label":"Background Color 1",
+            "info":"will form gradient"
+          },
+          {
+            "type":"color",
+            "id":"bg_color_2",
+            "label":"Background Color 2",
+            "info":"will form gradient"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"Carousel / Text",
+        "category":"Manufactur Custom Sections",
+        "blocks":[
+          {
+            "type":"small_text"
+          },
+          {
+            "type":"heading"
+          },
+          {
+            "type":"text"
+          },
+          {
+            "type":"button"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
