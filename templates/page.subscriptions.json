@@ -57,7 +57,7 @@
         "4b2c1ee0-0b7d-42e0-a8b7-580fecf9df58": {
           "type": "heading",
           "settings": {
-            "heading": "<p>About Us<\/p>",
+            "heading": "<p>Wine Subscriptions<\/p>",
             "header_style": "h3",
             "make_large": false
           }
@@ -72,10 +72,86 @@
         "section_spacing_top": "section_spacing_small_top",
         "section_spacing_bottom": "section_spacing_large_bottom"
       }
+    },
+    "1657103536ae324996": {
+      "type": "mfr-core__text-section",
+      "blocks": {
+        "1657103536864e7604-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Delicious Wine.<\/p><p>On repeat<\/p>",
+            "header_style": "h3",
+            "make_large": false
+          }
+        },
+        "1657103536864e7604-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.<\/p>",
+            "text_style": "regular",
+            "max_width": 0
+          }
+        }
+      },
+      "block_order": [
+        "1657103536864e7604-0",
+        "1657103536864e7604-1"
+      ],
+      "settings": {
+        "is_centered": false,
+        "color_theme": "color_theme__dark",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_small_bottom",
+        "bg_color": "",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
+    },
+    "1657104009539fd123": {
+      "type": "mfr-core__custom-liquid",
+      "blocks": {
+        "befe0ee3-7e4c-41e6-bd92-85830e7f6a1f": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Early Bird Signup<\/p>",
+            "header_style": "h3"
+          }
+        },
+        "a307b7b2-b5fb-4121-99cc-2c3337566d7f": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "code here",
+            "section_spacing_top": "section_spacing_none_top",
+            "section_spacing_bottom": "section_spacing_none_bottom",
+            "translate_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "befe0ee3-7e4c-41e6-bd92-85830e7f6a1f",
+        "a307b7b2-b5fb-4121-99cc-2c3337566d7f"
+      ],
+      "settings": {
+        "color_theme": "color_theme__dark",
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_none_bottom",
+        "bg_color": "",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
     }
   },
   "order": [
     "image-carousel",
-    "page-header"
+    "page-header",
+    "1657103536ae324996",
+    "1657104009539fd123"
   ]
 }
