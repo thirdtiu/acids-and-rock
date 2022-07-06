@@ -134,7 +134,7 @@
 
 
 <section data-section-id="{{ section.id }}" data-section-type="header">
-  {% assign sticky_bar_class = "" %}
+  {% assign sticky_bar_class = "bar" %}
   {% comment %}
   {{ annoucement_bar }}
   {% endcomment %}
@@ -198,8 +198,9 @@
 
 
       <div class="header-links__right">
+        {% if template.name == 'index' %}
         {{ header_right }}
-
+        {% endif %}
         {% if section.settings.show_right_cta %}
           {% if section.settings.right_cta_link != blank %}
             {{ section.settings.right_cta_link }}

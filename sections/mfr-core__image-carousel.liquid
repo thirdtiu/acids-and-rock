@@ -35,48 +35,12 @@ capture elements for ease of placement
 {%- endcomment -%}
 
 {%- capture section_content -%}
-  <div class="cell small-11 section-content {{ text_alignment }} {{ text_color }} {{ offset_title }} {{ no_wrap }}">
-    <div class="inner {{ text_alignment }}">         
-      {%- for block in section.blocks -%}
-        {% case block.type %}
-          
-          {%- when 'icon' -%}
-            {% render 'component__section-icon', icon: block.settings.icon, icon_width: block.settings.icon_width, svg_code: block.settings.svg_code %} 
-        
-          {%- when 'small_text' -%}
-            <div class="small-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
-          
-          {%- when 'heading' -%}
-            {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style, text_size: block.settings.make_large %}
-          
-          {%- when 'text' -%}
-            <div class="section-text {{ block.settings.text_style }}" {{ block.shopify_attributes }} {{ page_animation }}>{{ block.settings.text }}</div>
-        
-        {%- endcase -%}
-      {%- endfor -%}
-
-      <div class="button-set {{ content_alignment }}">
-        {%- for block in section.blocks -%}
-          {% case block.type %}
-            {%- when 'button' -%}
-              {%- include 'component__button', 
-                button_link: block.settings.button_link, 
-                button_style: block.settings.button_style, 
-                button_color: block.settings.button_color, 
-                button_has_arrow: block.settings.button_has_arrow, 
-                button_label: block.settings.button_label 
-              -%}
-          {%- endcase -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </div>
+  
 {%- endcapture -%}
 
 
 {%- assign carousel_items = section.blocks | where: "type", "image" -%}
 {% capture section_media %}
-  <div class="cell small-12 section-image {{ image_section_margin }} {{ image_cell_order }} {{ image_cell_classes }}">
   <div class="carousel-wrapper {{ carousel_class }}  {{ section.id }} ">
     {% for block in carousel_items %}
       <div class="carousel-cell block-{{ forloop.index }} {{ text_color }}" data-aos="fade-up" data-aos-delay="{{ forloop.index }}00">
@@ -113,7 +77,7 @@ capture elements for ease of placement
       </div>
     {% endfor %}
   </div>
-  </div>
+
 {% endcapture %}
 
 
@@ -127,16 +91,9 @@ Section Layout
 {%- endcomment -%}
 <section class="mfr-core__image-carousel background">
 
-  <div class="grid-container full">
-    <div class="grid-x align-center">
-      {{ section_media }}
-      {{ section_content }}
-    </div>
-  </div>
+  {{ section_media }}
 
 
-  {% render 'component__section-dividers' %}
-  {% render 'component__gradient-bg-styles' %}
 
 
   <script type="text/javascript">
@@ -144,16 +101,17 @@ Section Layout
       var $carousel = $('.carousel-wrapper').flickity({
         selectedAttraction: 0.1,
         friction: 0.55,
-        prevNextButtons: true,
-        contain: false,
-        groupCells: '90%',
+        prevNextButtons: false,
+        autoPlay: false,
+        contain: true,
+        setGallerySize: false,
         cellAlign: 'center',
         imagesLoaded: true,
         lazyLoad: false,
-        pageDots: false,
+        pageDots: true,
         draggable: '>1',
         initialIndex: 0,
-        wrapAround: false,
+        wrapAround: true,
         arrowShape: 'M32.1563 16.5312L0.906254 47.7813C0.324219 48.3668 -0.00247342 49.1588 -0.00247339 49.9844C-0.00247335 50.81 0.32422 51.602 0.906254 52.1875L32.1563 83.4375L36.5625 79.0312L10.6563 53.125L100 53.125L100 46.875L10.6563 46.875L36.5625 20.9687L32.1563 16.5312Z'
       });
     }

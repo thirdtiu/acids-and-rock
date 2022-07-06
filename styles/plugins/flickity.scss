@@ -174,11 +174,13 @@ margin-bottom: 1rem;
 
 .flickity-page-dots .dot {
   @include transition(.3s all);
+  @include border-radius(100rem);
   display: inline-block;
-  width: 1.3rem;
-  height: 1.3rem;
+  width: .625rem;
+  height: .625rem;
+  background-color: transparent;
   padding: 0;
-  margin: 0;
+  margin: 0 .3rem;
   cursor: pointer;
   position: relative;
   svg {
@@ -201,9 +203,7 @@ margin-bottom: 1rem;
   }
   &.is-selected {
     &:after {
-      width: 16px;
-      height: 16px;
-      background-color: $color-accent;
+      background-color: $theme-color-white;
       // background-image: url("data:image/svg+xml,%0A%3Csvg preserveAspectRatio='none' viewBox='0 0 6 7' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='main' stroke-width='1' fill-rule='evenodd'%3E%3Cg id='iPhone-11' transform='translate(-126.000000, -900.000000)' fill='%23000000'%3E%3Cg id='Group-6-Copy-4' transform='translate(72.000000, 900.000000)'%3E%3Cpath d='M55.7174448,0.310507495 C56.1745764,0.200439304 57.3958232,-0.175104364 57.9722734,0.0969106492 C58.5487236,0.368925663 59.0447886,0.310507495 59.6176663,1.20782063 C60.1905439,2.10513376 59.9497918,2.64019761 59.9497918,3.28874135 C59.9497918,3.93728509 59.4119794,5.30291883 58.879292,5.69992328 C58.3466045,6.09692772 58.0766657,6.20474126 57.1404812,6.28595622 C56.2042967,6.36717118 55.4336511,6.09861399 54.8025246,5.41572546 C54.1713982,4.73283693 53.7389228,3.48509239 54.1796901,2.52885144 C54.6204574,1.57261049 55.2603131,0.420575685 55.7174448,0.310507495 Z' id='Path-2-Copy-5' transform='translate(57.000000, 3.150000) scale(1, -1) translate(-57.000000, -3.150000) '%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
   }

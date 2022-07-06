@@ -1984,6 +1984,14 @@
       "oAP" : "\/sections\/mfr-core__logo-bar.liquid",
       "oF" : 0
     },
+    "\/sections\/mfr-core__page-header.liquid" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/sections\/mfr-core__page-header.liquid",
+      "oF" : 0
+    },
     "\/sections\/mfr-core__product-carousel.liquid" : {
       "cB" : 0,
       "ft" : 8192,

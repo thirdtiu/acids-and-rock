@@ -1,0 +1,151 @@
+{%- assign top_spacing = section.settings.section_spacing_top -%}
+{%- assign bottom_spacing = section.settings.section_spacing_bottom -%}
+
+<section class="mfr-core__page-header {{ top_spacing }} {{ bottom_spacing }}">
+  {%- for block in section.blocks -%}
+    {% case block.type %}
+  
+  
+      {%- when 'heading' -%}
+
+        {% assign heading_text = page.title %}
+        {% if block.settings.heading != blank %}
+          {% assign heading_text = block.settings.heading %}
+        {% endif %}
+        {% render 'component__title-block', text: block.settings.heading, classes: block.settings.header_style, text_size: block.settings.make_large %}
+  
+  
+  
+    {%- endcase -%}
+  
+  
+  {%- endfor -%}
+</section>
+
+{% schema %}
+  {
+    "name": "Page Header",
+    "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type":"checkbox",
+      "id":"is_centered",
+      "default":true,
+      "label":"Center Text"
+    },
+    {
+      "type": "select",
+      "id": "color_theme",
+      "options": [
+          { "value": "color_theme__dark", "label": "Dark Theme" },
+          { "value": "color_theme__light", "label": "Light Theme" },
+          { "value": "color_theme__theme_1", "label": "Color Theme 1" },
+          { "value": "color_theme__theme_2", "label": "Color Theme 2" }
+          ],
+      "label": "Color Theme",
+      "default": "color_theme__dark"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_top",
+         "options": [
+            { "value": "section_spacing_none_top", "label": "None" },
+            { "value": "section_spacing_small_top", "label": "Small" },
+            { "value": "section_spacing_medium_top", "label": "Medium" },
+            { "value": "section_spacing_large_top", "label": "Large" },
+            { "value": "section_spacing_xlarge_top", "label": "X-Large" }
+         ],
+         "default": "section_spacing_large_top",
+         "label": "Top spacing"
+      },
+      {
+         "type": "select",
+         "id": "section_spacing_bottom",
+         "options": [
+            { "value": "section_spacing_none_bottom", "label": "None"},
+            { "value": "section_spacing_small_bottom", "label": "Small"},
+            { "value": "section_spacing_medium_bottom", "label": "Medium"},
+            { "value": "section_spacing_large_bottom", "label": "Large"},
+            { "value": "section_spacing_xlarge_bottom", "label": "X-Large"}
+         ],
+         "default": "section_spacing_large_bottom",
+         "label": "Bottom spacing"
+      }
+    ],
+    "blocks": [
+    {
+      "type":"image",
+      "name":"Background Image",
+      "limit":1,
+      "settings":[
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Image for Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Image for Mobile"
+        }
+      ]
+    },
+    {
+      "type":"heading",
+      "name":"Heading",
+      "limit":1,
+      "settings":[
+        {
+          "type":"richtext",
+          "id":"heading",
+          "default":"<p>Heading H1</p>",
+          "label":"Heading H1",
+          "info": "Add [circulartext] for the circular text to appear"
+        },
+        {
+          "type":"select",
+          "id":"header_style",
+          "options":[
+            {
+              "value":"h1",
+              "label":"H1"
+            },
+            {
+              "value":"h2",
+              "label":"H2"
+            },
+            {
+              "value":"h3",
+              "label":"H3"
+            }
+          ],
+          "label":"Header Style",
+          "default":"h1"
+        },
+        {
+          "type": "checkbox",
+          "id": "make_large",
+          "label": "Make extra large",
+          "info" : "only applies to H1"
+        }
+      ]
+    }
+    
+    
+    ],
+    "presets": [
+      {
+        "name":"Page Header",
+        "category":"Manufactur Custom Sections",
+        "blocks":[
+          {
+            "type":"heading"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

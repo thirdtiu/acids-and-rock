@@ -51,6 +51,9 @@
         "bg_color": ""
       }
     },
+    "page-header": {
+      "type": "mfr-core__page-header"
+    },
     "16570713144928c8f6": {
       "type": "mfr-core__text-section",
       "blocks": {
@@ -93,6 +96,7 @@
   },
   "order": [
     "image-carousel",
+    "page-header",
     "16570713144928c8f6"
   ]
 }

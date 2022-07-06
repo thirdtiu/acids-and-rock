@@ -123,7 +123,7 @@
     <div class="off-canvas-content" id="page-{{ page.handle }}" data-off-canvas-content  data-section-type="header" data-sticky-container>
       {% section 'header' %}
       <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-        <div class="right-content-section">
+        <div class="right-content-section {% if template.name == 'index'%} full {% endif %}">
           {{ content_for_layout }}
         </div>
      </main>

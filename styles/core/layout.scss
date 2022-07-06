@@ -111,11 +111,27 @@ ul {
 
 #MainContent {
   height: 100%;
+  overflow: hidden;
   > .right-content-section {
     width: 38%;
     margin-left: auto;
     height: 100%;
-    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: scroll;
+    padding: 2.5rem 0;
+    .shopify-section {
+      width: 100%;
+      &:nth-child(2) {
+        // align-self: flex-start;
+        margin-bottom: auto;
+      }
+    }
+    &.full {
+      width: 100%;
+      margin-left: 0;
+    }
   }
 }
 
