@@ -1,3 +1,7 @@
+html, 
+body {
+  height: 100%;
+}
 html {
   background-color: $color-body;
   box-sizing: border-box;
@@ -33,10 +37,11 @@ ul {
 }
 .off-canvas-content {
   @include transition(.4s all cubic-bezier(0,.96,.4,.93));
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   flex-flow: column;
   overflow: hidden;
+  height: 100%;
 }
 .off-canvas-content.is-open-right.has-transition-push {
   @include transform(translateX(-50%));
@@ -105,8 +110,12 @@ ul {
 // }
 
 #MainContent {
+  height: 100%;
   > .right-content-section {
-    // border: 1px solid red;
+    width: 38%;
+    margin-left: auto;
+    height: 100%;
+    border: 1px solid green;
   }
 }
 

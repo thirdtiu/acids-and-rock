@@ -1,5 +1,6 @@
 section.mfr-core__image-carousel {
-  position: relative;
+  position: absolute;
+  border: 1px solid red;
   
   .small-order-1 {
     @include breakpoint(small only) {
