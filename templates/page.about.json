@@ -1,10 +1,98 @@
 {
   "sections": {
     "image-carousel": {
-      "type": "mfr-core__image-carousel"
+      "type": "mfr-core__image-carousel",
+      "blocks": {
+        "690e2852-7442-4816-90ae-9d1dd89de9bc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/black-white-background-3.jpg",
+            "image_size": "cover",
+            "svg_code": "",
+            "text": "",
+            "details": "",
+            "bg_color_1": "",
+            "bg_color_2": ""
+          }
+        },
+        "e569e65b-95b0-442d-b05b-9868675495c0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1357138.jpg",
+            "image_size": "cover",
+            "svg_code": "",
+            "text": "",
+            "details": "",
+            "bg_color_1": "",
+            "bg_color_2": ""
+          }
+        },
+        "f8cc21cb-03c3-4511-ac1e-12d4e3bcd17b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/event.jpg",
+            "image_size": "cover",
+            "svg_code": "",
+            "text": "",
+            "details": "",
+            "bg_color_1": "",
+            "bg_color_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "690e2852-7442-4816-90ae-9d1dd89de9bc",
+        "e569e65b-95b0-442d-b05b-9868675495c0",
+        "f8cc21cb-03c3-4511-ac1e-12d4e3bcd17b"
+      ],
+      "settings": {
+        "color_theme": "color_theme__dark",
+        "is_centered": false,
+        "bg_color": ""
+      }
+    },
+    "16570713144928c8f6": {
+      "type": "mfr-core__text-section",
+      "blocks": {
+        "1657071313f3315845-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Order a glass, or take a bottle home.<\/p>",
+            "header_style": "h1",
+            "make_large": false
+          }
+        },
+        "1657071313f3315845-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.<\/p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus auctor.<\/p>",
+            "text_style": "regular",
+            "max_width": 0
+          }
+        }
+      },
+      "block_order": [
+        "1657071313f3315845-0",
+        "1657071313f3315845-1"
+      ],
+      "settings": {
+        "is_centered": true,
+        "color_theme": "color_theme__dark",
+        "spacing_outside_section": false,
+        "is_full_width": true,
+        "add_gutter": false,
+        "section_spacing_top": "section_spacing_none_top",
+        "section_spacing_bottom": "section_spacing_none_bottom",
+        "bg_color": "",
+        "top_divider": "none",
+        "svg_divider_top_color": "",
+        "bottom_divider": "none",
+        "svg_divider_bottom_color": ""
+      }
     }
   },
   "order": [
-    "image-carousel"
+    "image-carousel",
+    "16570713144928c8f6"
   ]
 }
