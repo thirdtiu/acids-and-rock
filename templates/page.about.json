@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "image-carousel": {
+      "type": "mfr-core__image-carousel"
+    }
+  },
+  "order": [
+    "image-carousel"
+  ]
+}
