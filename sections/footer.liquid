@@ -13,17 +13,19 @@
       {% endif %}
     </a>
     {%- endif -%}
-    {%- if section.settings.logo or section.settings.logo_code != blank -%}
-      <div class="footer__branding">
-        <a href="/" class="footer__logo">
-          {%- if section.settings.logo_code != blank -%}
-            {{ section.settings.logo_code }}
-          {%- else -%}
-            <img src="{{ section.settings.logo | img_url: "x43", scale: 2 }}" alt="{{ shop.name }}" class="image">
-          {%- endif -%}
-        </a>
-      </div>
-    {%- endif -%}
+    {% if template.name == 'index' %}
+      {%- if section.settings.logo or section.settings.logo_code != blank -%}
+        <div class="footer__branding">
+          <a href="/" class="footer__logo">
+            {%- if section.settings.logo_code != blank -%}
+              {{ section.settings.logo_code }}
+            {%- else -%}
+              <img src="{{ section.settings.logo | img_url: "x43", scale: 2 }}" alt="{{ shop.name }}" class="image">
+            {%- endif -%}
+          </a>
+        </div>
+      {%- endif -%}
+    {% endif %}
   </div>
 
   {%- render "component__gradient-bg-styles" -%}

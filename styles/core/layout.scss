@@ -116,13 +116,20 @@ ul {
     width: 38%;
     margin-left: auto;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     overflow-y: scroll;
     padding: 2.5rem 0;
+    > .inner {
+      margin: 0 auto;
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      // justify-content: flex-end;
+    }
     .shopify-section {
       width: 100%;
+      max-width: 22rem;
+      margin-left: auto;
+      margin-right: auto;
       &:nth-child(2) {
         // align-self: flex-start;
         margin-bottom: auto;
@@ -131,6 +138,8 @@ ul {
     &.full {
       width: 100%;
       margin-left: 0;
+      overflow: hidden;
+      padding: 0;
     }
   }
 }
