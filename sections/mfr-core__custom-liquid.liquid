@@ -16,11 +16,11 @@ assign section settings to variables
 
 <section class="mfr-core__custom-liquid background {{ section.id }} {{ top_spacing }} {{ bottom_spacing }}">
 
-  <div class="grid-container">
+  <div class="grid-container full">
     <div class="grid-x align-center">
 
 
-      <div class="cell small-11 medium-10 large-8 section-content text-center content-margin {{ text_color }}">
+      <div class="cell section-content text-left content-margin {{ text_color }}">
         <div class="inner">
           {%- for block in section.blocks -%}
             {% case block.type %}
